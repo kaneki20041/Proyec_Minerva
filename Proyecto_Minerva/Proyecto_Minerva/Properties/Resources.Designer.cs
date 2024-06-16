@@ -73,29 +73,9 @@ namespace Proyecto_Minerva.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap IMG_20240613_113128 {
-            get {
-                object obj = ResourceManager.GetObject("IMG_20240613_113128", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap minerva_logo {
             get {
                 object obj = ResourceManager.GetObject("minerva logo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap uniforme {
-            get {
-                object obj = ResourceManager.GetObject("uniforme", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

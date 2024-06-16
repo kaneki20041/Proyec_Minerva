@@ -6,6 +6,8 @@ C:\Users\User\Desktop\Proyecto Minerva\Proyecto_Minerva\Proyecto_Minerva\bin\Deb
 C:\Users\User\Desktop\Proyecto Minerva\Proyecto_Minerva\Proyecto_Minerva\obj\Debug\net6.0-windows\Proyecto_Minerva.csproj.AssemblyReference.cache
 C:\Users\User\Desktop\Proyecto Minerva\Proyecto_Minerva\Proyecto_Minerva\obj\Debug\net6.0-windows\Proyecto_Minerva.Form1.resources
 C:\Users\User\Desktop\Proyecto Minerva\Proyecto_Minerva\Proyecto_Minerva\obj\Debug\net6.0-windows\Proyecto_Minerva.Properties.Resources.resources
+C:\Users\User\Desktop\Proyecto Minerva\Proyecto_Minerva\Proyecto_Minerva\obj\Debug\net6.0-windows\Proyecto_Minerva.Registrocliente.resources
+C:\Users\User\Desktop\Proyecto Minerva\Proyecto_Minerva\Proyecto_Minerva\obj\Debug\net6.0-windows\Proyecto_Minerva.Ventauniforme.resources
 C:\Users\User\Desktop\Proyecto Minerva\Proyecto_Minerva\Proyecto_Minerva\obj\Debug\net6.0-windows\Proyecto_Minerva.csproj.GenerateResource.cache
 C:\Users\User\Desktop\Proyecto Minerva\Proyecto_Minerva\Proyecto_Minerva\obj\Debug\net6.0-windows\Proyecto_Minerva.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\User\Desktop\Proyecto Minerva\Proyecto_Minerva\Proyecto_Minerva\obj\Debug\net6.0-windows\Proyecto_Minerva.AssemblyInfoInputs.cache
@@ -16,5 +18,3 @@ C:\Users\User\Desktop\Proyecto Minerva\Proyecto_Minerva\Proyecto_Minerva\obj\Deb
 C:\Users\User\Desktop\Proyecto Minerva\Proyecto_Minerva\Proyecto_Minerva\obj\Debug\net6.0-windows\Proyecto_Minerva.pdb
 C:\Users\User\Desktop\Proyecto Minerva\Proyecto_Minerva\Proyecto_Minerva\obj\Debug\net6.0-windows\Proyecto_Minerva.genruntimeconfig.cache
 C:\Users\User\Desktop\Proyecto Minerva\Proyecto_Minerva\Proyecto_Minerva\obj\Debug\net6.0-windows\ref\Proyecto_Minerva.dll
-C:\Users\User\Desktop\Proyecto Minerva\Proyecto_Minerva\Proyecto_Minerva\obj\Debug\net6.0-windows\Proyecto_Minerva.Ventauniforme.resources
-C:\Users\User\Desktop\Proyecto Minerva\Proyecto_Minerva\Proyecto_Minerva\obj\Debug\net6.0-windows\Proyecto_Minerva.Registrocliente.resources
