@@ -30,10 +30,18 @@
         {
             label4 = new Label();
             dataGridView1 = new DataGridView();
+            ID = new DataGridViewTextBoxColumn();
+            Cliente = new DataGridViewTextBoxColumn();
+            DNI = new DataGridViewTextBoxColumn();
+            Prenda = new DataGridViewTextBoxColumn();
+            Talla = new DataGridViewTextBoxColumn();
+            T_Doc = new DataGridViewTextBoxColumn();
+            Motorizado = new DataGridViewTextBoxColumn();
+            Direccion = new DataGridViewTextBoxColumn();
+            Horario = new DataGridViewTextBoxColumn();
             btn_buscarcliente = new Button();
             label1 = new Label();
             label2 = new Label();
-            label3 = new Label();
             label5 = new Label();
             textBox1 = new TextBox();
             dateTimePicker1 = new DateTimePicker();
@@ -43,22 +51,19 @@
             label7 = new Label();
             label8 = new Label();
             textBox7 = new TextBox();
-            textBox2 = new TextBox();
             textBox4 = new TextBox();
             radioButton1 = new RadioButton();
             radioButton2 = new RadioButton();
             label9 = new Label();
-            label10 = new Label();
             textBox8 = new TextBox();
-            button2 = new Button();
             label11 = new Label();
             textBox10 = new TextBox();
             textBox5 = new TextBox();
             groupBox1 = new GroupBox();
             groupBox2 = new GroupBox();
+            btnBuscMot = new Button();
             dateTimePicker2 = new DateTimePicker();
             label12 = new Label();
-            textBox9 = new TextBox();
             textBox6 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
@@ -78,16 +83,71 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 168);
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, Cliente, DNI, Prenda, Talla, T_Doc, Motorizado, Direccion, Horario });
+            dataGridView1.Location = new Point(5, 163);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(655, 146);
+            dataGridView1.Size = new Size(671, 153);
             dataGridView1.TabIndex = 11;
+            // 
+            // ID
+            // 
+            ID.HeaderText = "ID";
+            ID.Name = "ID";
+            ID.Width = 30;
+            // 
+            // Cliente
+            // 
+            Cliente.HeaderText = "Cliente";
+            Cliente.Name = "Cliente";
+            Cliente.Width = 110;
+            // 
+            // DNI
+            // 
+            DNI.HeaderText = "DNI";
+            DNI.Name = "DNI";
+            DNI.Width = 50;
+            // 
+            // Prenda
+            // 
+            Prenda.HeaderText = "Prenda";
+            Prenda.Name = "Prenda";
+            Prenda.Width = 110;
+            // 
+            // Talla
+            // 
+            Talla.HeaderText = "Talla";
+            Talla.Name = "Talla";
+            Talla.Width = 28;
+            // 
+            // T_Doc
+            // 
+            T_Doc.HeaderText = "Documento";
+            T_Doc.Name = "T_Doc";
+            T_Doc.Width = 60;
+            // 
+            // Motorizado
+            // 
+            Motorizado.HeaderText = "Motorizado";
+            Motorizado.Name = "Motorizado";
+            Motorizado.Width = 80;
+            // 
+            // Direccion
+            // 
+            Direccion.HeaderText = "Direccion";
+            Direccion.Name = "Direccion";
+            Direccion.Width = 95;
+            // 
+            // Horario
+            // 
+            Horario.HeaderText = "Horario";
+            Horario.Name = "Horario";
+            Horario.Width = 65;
             // 
             // btn_buscarcliente
             // 
             btn_buscarcliente.Cursor = Cursors.Hand;
-            btn_buscarcliente.Location = new Point(325, 15);
+            btn_buscarcliente.Location = new Point(328, 19);
             btn_buscarcliente.Name = "btn_buscarcliente";
             btn_buscarcliente.Size = new Size(66, 23);
             btn_buscarcliente.TabIndex = 0;
@@ -112,19 +172,10 @@
             label2.TabIndex = 2;
             label2.Text = "Prenda";
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(4, 82);
-            label3.Name = "label3";
-            label3.Size = new Size(48, 15);
-            label3.TabIndex = 3;
-            label3.Text = "Colegio";
-            // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(334, 51);
+            label5.Location = new Point(224, 82);
             label5.Name = "label5";
             label5.Size = new Size(30, 15);
             label5.TabIndex = 5;
@@ -151,9 +202,9 @@
             // btn_Stock
             // 
             btn_Stock.Cursor = Cursors.Hand;
-            btn_Stock.Location = new Point(228, 45);
+            btn_Stock.Location = new Point(231, 48);
             btn_Stock.Name = "btn_Stock";
-            btn_Stock.Size = new Size(103, 27);
+            btn_Stock.Size = new Size(117, 27);
             btn_Stock.TabIndex = 13;
             btn_Stock.Text = "Revisar catalogo";
             btn_Stock.UseVisualStyleBackColor = true;
@@ -161,7 +212,7 @@
             // button1
             // 
             button1.Cursor = Cursors.Hand;
-            button1.Location = new Point(564, 141);
+            button1.Location = new Point(561, 133);
             button1.Name = "button1";
             button1.Size = new Size(109, 26);
             button1.TabIndex = 14;
@@ -180,7 +231,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(227, 20);
+            label7.Location = new Point(230, 26);
             label7.Name = "label7";
             label7.Size = new Size(27, 15);
             label7.TabIndex = 16;
@@ -190,7 +241,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(203, 82);
+            label8.Location = new Point(6, 84);
             label8.Name = "label8";
             label8.Size = new Size(93, 13);
             label8.TabIndex = 19;
@@ -204,21 +255,12 @@
             textBox7.Size = new Size(169, 22);
             textBox7.TabIndex = 20;
             // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(54, 78);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(143, 22);
-            textBox2.TabIndex = 21;
-            textBox2.TextChanged += textBox2_TextChanged;
-            // 
             // textBox4
             // 
-            textBox4.Location = new Point(365, 47);
+            textBox4.Location = new Point(260, 78);
             textBox4.Multiline = true;
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(29, 22);
+            textBox4.Size = new Size(36, 23);
             textBox4.TabIndex = 22;
             // 
             // radioButton1
@@ -232,6 +274,7 @@
             radioButton1.TabStop = true;
             radioButton1.Text = "V. Tienda";
             radioButton1.UseVisualStyleBackColor = true;
+            radioButton1.CheckedChanged += radioButton1_CheckedChanged;
             // 
             // radioButton2
             // 
@@ -252,32 +295,13 @@
             label9.TabIndex = 25;
             label9.Text = "Motorizado";
             // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new Point(7, 74);
-            label10.Name = "label10";
-            label10.Size = new Size(56, 15);
-            label10.TabIndex = 26;
-            label10.Text = "Contacto";
-            // 
             // textBox8
             // 
-            textBox8.Location = new Point(65, 19);
+            textBox8.Location = new Point(69, 19);
             textBox8.Multiline = true;
             textBox8.Name = "textBox8";
-            textBox8.Size = new Size(119, 22);
+            textBox8.Size = new Size(106, 22);
             textBox8.TabIndex = 28;
-            // 
-            // button2
-            // 
-            button2.Cursor = Cursors.Hand;
-            button2.Location = new Point(188, 18);
-            button2.Name = "button2";
-            button2.Size = new Size(63, 23);
-            button2.TabIndex = 29;
-            button2.Text = "Buscar";
-            button2.UseVisualStyleBackColor = true;
             // 
             // label11
             // 
@@ -290,7 +314,7 @@
             // 
             // textBox10
             // 
-            textBox10.Location = new Point(258, 15);
+            textBox10.Location = new Point(258, 19);
             textBox10.Multiline = true;
             textBox10.Name = "textBox10";
             textBox10.Size = new Size(62, 22);
@@ -298,7 +322,7 @@
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(299, 79);
+            textBox5.Location = new Point(105, 78);
             textBox5.Multiline = true;
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(95, 22);
@@ -309,76 +333,72 @@
             groupBox1.Controls.Add(textBox5);
             groupBox1.Controls.Add(textBox10);
             groupBox1.Controls.Add(textBox4);
-            groupBox1.Controls.Add(textBox2);
             groupBox1.Controls.Add(textBox7);
             groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(btn_Stock);
             groupBox1.Controls.Add(textBox1);
             groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(btn_buscarcliente);
             groupBox1.Location = new Point(8, 34);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(408, 115);
+            groupBox1.Size = new Size(398, 115);
             groupBox1.TabIndex = 34;
             groupBox1.TabStop = false;
             groupBox1.Text = "Informacion venta";
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(btnBuscMot);
             groupBox2.Controls.Add(dateTimePicker2);
             groupBox2.Controls.Add(label12);
-            groupBox2.Controls.Add(textBox9);
             groupBox2.Controls.Add(textBox6);
             groupBox2.Controls.Add(label11);
-            groupBox2.Controls.Add(button2);
             groupBox2.Controls.Add(textBox8);
-            groupBox2.Controls.Add(label10);
             groupBox2.Controls.Add(label9);
-            groupBox2.Location = new Point(419, 39);
+            groupBox2.Location = new Point(420, 32);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(255, 98);
+            groupBox2.Size = new Size(249, 98);
             groupBox2.TabIndex = 35;
             groupBox2.TabStop = false;
             groupBox2.Text = "Informacion de envio";
+            // 
+            // btnBuscMot
+            // 
+            btnBuscMot.Location = new Point(181, 19);
+            btnBuscMot.Name = "btnBuscMot";
+            btnBuscMot.Size = new Size(62, 23);
+            btnBuscMot.TabIndex = 37;
+            btnBuscMot.Text = "Buscar";
+            btnBuscMot.UseVisualStyleBackColor = true;
             // 
             // dateTimePicker2
             // 
             dateTimePicker2.CustomFormat = "dd-MM-yyyy";
             dateTimePicker2.Format = DateTimePickerFormat.Custom;
-            dateTimePicker2.Location = new Point(176, 73);
+            dateTimePicker2.Location = new Point(69, 70);
             dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(78, 23);
+            dateTimePicker2.Size = new Size(88, 23);
             dateTimePicker2.TabIndex = 36;
             dateTimePicker2.UseWaitCursor = true;
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(131, 75);
+            label12.Location = new Point(12, 76);
             label12.Name = "label12";
             label12.Size = new Size(47, 15);
             label12.TabIndex = 35;
             label12.Text = "Horario";
             // 
-            // textBox9
-            // 
-            textBox9.Location = new Point(65, 72);
-            textBox9.Multiline = true;
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(64, 22);
-            textBox9.TabIndex = 33;
-            textBox9.Text = "       ";
-            // 
             // textBox6
             // 
-            textBox6.Location = new Point(65, 46);
+            textBox6.Location = new Point(69, 46);
             textBox6.Multiline = true;
             textBox6.Name = "textBox6";
-            textBox6.Size = new Size(183, 22);
+            textBox6.Size = new Size(166, 22);
             textBox6.TabIndex = 32;
             textBox6.Text = "       ";
             // 
@@ -399,6 +419,7 @@
             Controls.Add(label4);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Ventauniforme";
+            Load += Ventauniforme_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -414,7 +435,6 @@
         private Button btn_buscarcliente;
         private Label label1;
         private Label label2;
-        private Label label3;
         private Label label5;
         private TextBox textBox1;
         private DateTimePicker dateTimePicker1;
@@ -424,14 +444,11 @@
         private Label label7;
         private Label label8;
         private TextBox textBox7;
-        private TextBox textBox2;
         private TextBox textBox4;
         private RadioButton radioButton1;
         private RadioButton radioButton2;
         private Label label9;
-        private Label label10;
         private TextBox textBox8;
-        private Button button2;
         private Label label11;
         private TextBox textBox10;
         private TextBox textBox5;
@@ -439,7 +456,16 @@
         private GroupBox groupBox2;
         private DateTimePicker dateTimePicker2;
         private Label label12;
-        private TextBox textBox9;
         private TextBox textBox6;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn Cliente;
+        private DataGridViewTextBoxColumn DNI;
+        private DataGridViewTextBoxColumn Prenda;
+        private DataGridViewTextBoxColumn Talla;
+        private DataGridViewTextBoxColumn T_Doc;
+        private DataGridViewTextBoxColumn Motorizado;
+        private DataGridViewTextBoxColumn Direccion;
+        private DataGridViewTextBoxColumn Horario;
+        private Button btnBuscMot;
     }
 }

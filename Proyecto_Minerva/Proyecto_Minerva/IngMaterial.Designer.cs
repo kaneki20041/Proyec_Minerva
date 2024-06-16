@@ -44,13 +44,11 @@
             label9 = new Label();
             textBox7 = new TextBox();
             button1 = new Button();
-            button2 = new Button();
             groupBox1 = new GroupBox();
             groupBox2 = new GroupBox();
             textBox5 = new TextBox();
             textBox8 = new TextBox();
             dataGridView1 = new DataGridView();
-            button3 = new Button();
             RUC = new DataGridViewTextBoxColumn();
             Proveedor = new DataGridViewTextBoxColumn();
             Rubro = new DataGridViewTextBoxColumn();
@@ -59,6 +57,7 @@
             Descripcion = new DataGridViewTextBoxColumn();
             Cantidad = new DataGridViewTextBoxColumn();
             P_unidad = new DataGridViewTextBoxColumn();
+            button3 = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -206,15 +205,6 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // button2
-            // 
-            button2.Location = new Point(200, 13);
-            button2.Name = "button2";
-            button2.Size = new Size(68, 23);
-            button2.TabIndex = 26;
-            button2.Text = "Buscar";
-            button2.UseVisualStyleBackColor = true;
-            // 
             // groupBox1
             // 
             groupBox1.Controls.Add(button1);
@@ -235,7 +225,6 @@
             // 
             groupBox2.Controls.Add(textBox5);
             groupBox2.Controls.Add(textBox8);
-            groupBox2.Controls.Add(button2);
             groupBox2.Controls.Add(textBox6);
             groupBox2.Controls.Add(textBox4);
             groupBox2.Controls.Add(label8);
@@ -254,7 +243,7 @@
             textBox5.Location = new Point(76, 16);
             textBox5.Multiline = true;
             textBox5.Name = "textBox5";
-            textBox5.Size = new Size(118, 20);
+            textBox5.Size = new Size(126, 20);
             textBox5.TabIndex = 31;
             // 
             // textBox8
@@ -274,15 +263,6 @@
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(670, 172);
             dataGridView1.TabIndex = 29;
-            // 
-            // button3
-            // 
-            button3.Location = new Point(593, 71);
-            button3.Name = "button3";
-            button3.Size = new Size(78, 48);
-            button3.TabIndex = 30;
-            button3.Text = "Registrar O. Recepcion";
-            button3.UseVisualStyleBackColor = true;
             // 
             // RUC
             // 
@@ -332,6 +312,15 @@
             P_unidad.Name = "P_unidad";
             P_unidad.Width = 50;
             // 
+            // button3
+            // 
+            button3.Location = new Point(593, 71);
+            button3.Name = "button3";
+            button3.Size = new Size(78, 48);
+            button3.TabIndex = 30;
+            button3.Text = "Registrar O. Recepcion";
+            button3.UseVisualStyleBackColor = true;
+            // 
             // IngMaterial
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -374,7 +363,6 @@
         private Label label9;
         private TextBox textBox7;
         private Button button1;
-        private Button button2;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
         private DataGridView dataGridView1;

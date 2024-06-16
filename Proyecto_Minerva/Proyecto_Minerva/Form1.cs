@@ -42,5 +42,15 @@ namespace Proyecto_Minerva
         {
             AbrirForm(new SalidMaterial());
         }
+
+        private void btn_Matyprod_Click(object sender, EventArgs e)
+        {
+            AbrirForm(new Produc_mat());
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AbrirForm(new Proveedor());
+        }
     }
 }

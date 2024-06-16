@@ -33,7 +33,7 @@
             Button btn_IngMaterial;
             Button btn_Cambiou;
             Button btnSalidaMaterial;
-            Button button1;
+            Button btn_Matyprod;
             Button button2;
             panel1 = new Panel();
             minervanombre = new Label();
@@ -54,7 +54,7 @@
             btn_IngMaterial = new Button();
             btn_Cambiou = new Button();
             btnSalidaMaterial = new Button();
-            button1 = new Button();
+            btn_Matyprod = new Button();
             button2 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -137,19 +137,20 @@
             btnSalidaMaterial.UseVisualStyleBackColor = true;
             btnSalidaMaterial.Click += btnSalidaMaterial_Click;
             // 
-            // button1
+            // btn_Matyprod
             // 
-            button1.Cursor = Cursors.Hand;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(0, 97);
-            button1.Name = "button1";
-            button1.Size = new Size(166, 37);
-            button1.TabIndex = 7;
-            button1.Text = "Catalogo Productos";
-            button1.UseVisualStyleBackColor = true;
+            btn_Matyprod.Cursor = Cursors.Hand;
+            btn_Matyprod.FlatAppearance.BorderSize = 0;
+            btn_Matyprod.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
+            btn_Matyprod.FlatStyle = FlatStyle.Flat;
+            btn_Matyprod.ImageAlign = ContentAlignment.MiddleLeft;
+            btn_Matyprod.Location = new Point(0, 97);
+            btn_Matyprod.Name = "btn_Matyprod";
+            btn_Matyprod.Size = new Size(166, 37);
+            btn_Matyprod.TabIndex = 7;
+            btn_Matyprod.Text = "Productos y Materiales";
+            btn_Matyprod.UseVisualStyleBackColor = true;
+            btn_Matyprod.Click += btn_Matyprod_Click;
             // 
             // button2
             // 
@@ -164,6 +165,7 @@
             button2.TabIndex = 8;
             button2.Text = "Proveedores";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // panel1
             // 
@@ -214,7 +216,7 @@
             panel2.Controls.Add(panel10);
             panel2.Controls.Add(panel9);
             panel2.Controls.Add(button2);
-            panel2.Controls.Add(button1);
+            panel2.Controls.Add(btn_Matyprod);
             panel2.Controls.Add(panel7);
             panel2.Controls.Add(panel6);
             panel2.Controls.Add(btn_Cambiou);
