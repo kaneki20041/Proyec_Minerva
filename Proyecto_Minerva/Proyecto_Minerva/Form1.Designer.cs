@@ -33,15 +33,20 @@
             Button btn_IngMaterial;
             Button btn_Cambiou;
             Button btnSalidaMaterial;
+            Button button1;
+            Button button2;
             panel1 = new Panel();
             minervanombre = new Label();
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
             panel2 = new Panel();
+            panel10 = new Panel();
+            panel9 = new Panel();
             panel7 = new Panel();
             panel6 = new Panel();
             panel5 = new Panel();
             panel4 = new Panel();
+            panel8 = new Panel();
             panel3 = new Panel();
             panelconteiner = new Panel();
             btn_venderu = new Button();
@@ -49,10 +54,13 @@
             btn_IngMaterial = new Button();
             btn_Cambiou = new Button();
             btnSalidaMaterial = new Button();
+            button1 = new Button();
+            button2 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
+            panel4.SuspendLayout();
             SuspendLayout();
             // 
             // btn_venderu
@@ -62,9 +70,9 @@
             btn_venderu.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
             btn_venderu.FlatStyle = FlatStyle.Flat;
             btn_venderu.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_venderu.Location = new Point(0, 22);
+            btn_venderu.Location = new Point(0, 11);
             btn_venderu.Name = "btn_venderu";
-            btn_venderu.Size = new Size(166, 37);
+            btn_venderu.Size = new Size(150, 37);
             btn_venderu.TabIndex = 0;
             btn_venderu.Text = "Vender uniforme";
             btn_venderu.UseVisualStyleBackColor = true;
@@ -77,7 +85,7 @@
             btn_Cliente.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
             btn_Cliente.FlatStyle = FlatStyle.Flat;
             btn_Cliente.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_Cliente.Location = new Point(0, 68);
+            btn_Cliente.Location = new Point(0, 54);
             btn_Cliente.Name = "btn_Cliente";
             btn_Cliente.Size = new Size(166, 37);
             btn_Cliente.TabIndex = 3;
@@ -92,12 +100,13 @@
             btn_IngMaterial.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
             btn_IngMaterial.FlatStyle = FlatStyle.Flat;
             btn_IngMaterial.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_IngMaterial.Location = new Point(0, 111);
+            btn_IngMaterial.Location = new Point(0, 185);
             btn_IngMaterial.Name = "btn_IngMaterial";
             btn_IngMaterial.Size = new Size(166, 37);
             btn_IngMaterial.TabIndex = 4;
             btn_IngMaterial.Text = "Ingreso Materiales";
             btn_IngMaterial.UseVisualStyleBackColor = true;
+            btn_IngMaterial.Click += btn_IngMaterial_Click;
             // 
             // btn_Cambiou
             // 
@@ -106,7 +115,7 @@
             btn_Cambiou.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
             btn_Cambiou.FlatStyle = FlatStyle.Flat;
             btn_Cambiou.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_Cambiou.Location = new Point(0, 197);
+            btn_Cambiou.Location = new Point(0, 271);
             btn_Cambiou.Name = "btn_Cambiou";
             btn_Cambiou.Size = new Size(166, 37);
             btn_Cambiou.TabIndex = 5;
@@ -120,12 +129,41 @@
             btnSalidaMaterial.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
             btnSalidaMaterial.FlatStyle = FlatStyle.Flat;
             btnSalidaMaterial.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSalidaMaterial.Location = new Point(0, 154);
+            btnSalidaMaterial.Location = new Point(0, 228);
             btnSalidaMaterial.Name = "btnSalidaMaterial";
             btnSalidaMaterial.Size = new Size(166, 37);
             btnSalidaMaterial.TabIndex = 6;
             btnSalidaMaterial.Text = "Salida Materiales";
             btnSalidaMaterial.UseVisualStyleBackColor = true;
+            btnSalidaMaterial.Click += btnSalidaMaterial_Click;
+            // 
+            // button1
+            // 
+            button1.Cursor = Cursors.Hand;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.ImageAlign = ContentAlignment.MiddleLeft;
+            button1.Location = new Point(0, 97);
+            button1.Name = "button1";
+            button1.Size = new Size(166, 37);
+            button1.TabIndex = 7;
+            button1.Text = "Catalogo Productos";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Cursor = Cursors.Hand;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.ImageAlign = ContentAlignment.MiddleLeft;
+            button2.Location = new Point(0, 140);
+            button2.Name = "button2";
+            button2.Size = new Size(166, 37);
+            button2.TabIndex = 8;
+            button2.Text = "Proveedores";
+            button2.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -136,7 +174,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(800, 74);
+            panel1.Size = new Size(830, 74);
             panel1.TabIndex = 0;
             // 
             // minervanombre
@@ -152,9 +190,9 @@
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources._2618352;
-            pictureBox2.Location = new Point(755, 12);
+            pictureBox2.Location = new Point(785, 19);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(33, 28);
+            pictureBox2.Size = new Size(33, 34);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
@@ -173,6 +211,10 @@
             // panel2
             // 
             panel2.BackColor = Color.Gold;
+            panel2.Controls.Add(panel10);
+            panel2.Controls.Add(panel9);
+            panel2.Controls.Add(button2);
+            panel2.Controls.Add(button1);
             panel2.Controls.Add(panel7);
             panel2.Controls.Add(panel6);
             panel2.Controls.Add(btn_Cambiou);
@@ -186,13 +228,29 @@
             panel2.Dock = DockStyle.Left;
             panel2.Location = new Point(0, 74);
             panel2.Name = "panel2";
-            panel2.Size = new Size(150, 287);
+            panel2.Size = new Size(150, 326);
             panel2.TabIndex = 1;
+            // 
+            // panel10
+            // 
+            panel10.BackColor = SystemColors.Highlight;
+            panel10.Location = new Point(0, 140);
+            panel10.Name = "panel10";
+            panel10.Size = new Size(7, 37);
+            panel10.TabIndex = 4;
+            // 
+            // panel9
+            // 
+            panel9.BackColor = SystemColors.Highlight;
+            panel9.Location = new Point(0, 97);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(7, 37);
+            panel9.TabIndex = 4;
             // 
             // panel7
             // 
             panel7.BackColor = SystemColors.Highlight;
-            panel7.Location = new Point(0, 197);
+            panel7.Location = new Point(0, 271);
             panel7.Name = "panel7";
             panel7.Size = new Size(7, 37);
             panel7.TabIndex = 5;
@@ -200,7 +258,7 @@
             // panel6
             // 
             panel6.BackColor = SystemColors.Highlight;
-            panel6.Location = new Point(0, 154);
+            panel6.Location = new Point(0, 228);
             panel6.Name = "panel6";
             panel6.Size = new Size(7, 37);
             panel6.TabIndex = 4;
@@ -208,7 +266,7 @@
             // panel5
             // 
             panel5.BackColor = SystemColors.Highlight;
-            panel5.Location = new Point(0, 111);
+            panel5.Location = new Point(0, 185);
             panel5.Name = "panel5";
             panel5.Size = new Size(7, 37);
             panel5.TabIndex = 3;
@@ -216,15 +274,24 @@
             // panel4
             // 
             panel4.BackColor = SystemColors.Highlight;
-            panel4.Location = new Point(0, 68);
+            panel4.Controls.Add(panel8);
+            panel4.Location = new Point(0, 54);
             panel4.Name = "panel4";
             panel4.Size = new Size(7, 37);
             panel4.TabIndex = 2;
             // 
+            // panel8
+            // 
+            panel8.BackColor = SystemColors.Highlight;
+            panel8.Location = new Point(0, 0);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(7, 37);
+            panel8.TabIndex = 3;
+            // 
             // panel3
             // 
             panel3.BackColor = SystemColors.Highlight;
-            panel3.Location = new Point(0, 22);
+            panel3.Location = new Point(0, 11);
             panel3.Name = "panel3";
             panel3.Size = new Size(7, 37);
             panel3.TabIndex = 1;
@@ -235,14 +302,14 @@
             panelconteiner.Dock = DockStyle.Fill;
             panelconteiner.Location = new Point(150, 74);
             panelconteiner.Name = "panelconteiner";
-            panelconteiner.Size = new Size(650, 287);
+            panelconteiner.Size = new Size(680, 326);
             panelconteiner.TabIndex = 2;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 361);
+            ClientSize = new Size(830, 400);
             Controls.Add(panelconteiner);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -254,6 +321,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
+            panel4.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -272,5 +340,8 @@
         private Panel panel4;
         private Panel panel7;
         private Panel panel6;
+        private Panel panel10;
+        private Panel panel9;
+        private Panel panel8;
     }
 }

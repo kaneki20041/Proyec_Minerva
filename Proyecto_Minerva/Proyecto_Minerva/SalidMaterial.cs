@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Proyecto_Minerva
 {
-    public partial class Ventauniforme : Form
+    public partial class SalidMaterial : Form
     {
-        public Ventauniforme()
+        public SalidMaterial()
         {
             InitializeComponent();
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

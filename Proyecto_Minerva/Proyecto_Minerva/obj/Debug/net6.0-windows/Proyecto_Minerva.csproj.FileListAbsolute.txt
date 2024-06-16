@@ -18,3 +18,5 @@ C:\Users\User\Desktop\Proyecto Minerva\Proyecto_Minerva\Proyecto_Minerva\obj\Deb
 C:\Users\User\Desktop\Proyecto Minerva\Proyecto_Minerva\Proyecto_Minerva\obj\Debug\net6.0-windows\Proyecto_Minerva.pdb
 C:\Users\User\Desktop\Proyecto Minerva\Proyecto_Minerva\Proyecto_Minerva\obj\Debug\net6.0-windows\Proyecto_Minerva.genruntimeconfig.cache
 C:\Users\User\Desktop\Proyecto Minerva\Proyecto_Minerva\Proyecto_Minerva\obj\Debug\net6.0-windows\ref\Proyecto_Minerva.dll
+C:\Users\User\Desktop\Proyecto Minerva\Proyecto_Minerva\Proyecto_Minerva\obj\Debug\net6.0-windows\Proyecto_Minerva.IngMaterial.resources
+C:\Users\User\Desktop\Proyecto Minerva\Proyecto_Minerva\Proyecto_Minerva\obj\Debug\net6.0-windows\Proyecto_Minerva.SalidMaterial.resources

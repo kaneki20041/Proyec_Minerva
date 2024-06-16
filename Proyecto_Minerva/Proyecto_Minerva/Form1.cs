@@ -32,5 +32,15 @@ namespace Proyecto_Minerva
         {
             AbrirForm(new Registrocliente());
         }
+
+        private void btn_IngMaterial_Click(object sender, EventArgs e)
+        {
+            AbrirForm(new IngMaterial());
+        }
+
+        private void btnSalidaMaterial_Click(object sender, EventArgs e)
+        {
+            AbrirForm(new SalidMaterial());
+        }
     }
 }
