@@ -35,11 +35,13 @@
             Button btnSalidaMaterial;
             Button btn_Matyprod;
             Button button2;
+            Button btnMotorizado;
             panel1 = new Panel();
             minervanombre = new Label();
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
             panel2 = new Panel();
+            panel11 = new Panel();
             panel10 = new Panel();
             panel9 = new Panel();
             panel7 = new Panel();
@@ -56,6 +58,7 @@
             btnSalidaMaterial = new Button();
             btn_Matyprod = new Button();
             button2 = new Button();
+            btnMotorizado = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -121,6 +124,7 @@
             btn_Cambiou.TabIndex = 5;
             btn_Cambiou.Text = "Cambio uniforme";
             btn_Cambiou.UseVisualStyleBackColor = true;
+            btn_Cambiou.Click += btn_Cambiou_Click;
             // 
             // btnSalidaMaterial
             // 
@@ -148,7 +152,7 @@
             btn_Matyprod.Name = "btn_Matyprod";
             btn_Matyprod.Size = new Size(166, 37);
             btn_Matyprod.TabIndex = 7;
-            btn_Matyprod.Text = "Productos y Materiales";
+            btn_Matyprod.Text = "Materiales y uniformes";
             btn_Matyprod.UseVisualStyleBackColor = true;
             btn_Matyprod.Click += btn_Matyprod_Click;
             // 
@@ -167,6 +171,20 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // btnMotorizado
+            // 
+            btnMotorizado.Cursor = Cursors.Hand;
+            btnMotorizado.FlatAppearance.BorderSize = 0;
+            btnMotorizado.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
+            btnMotorizado.FlatStyle = FlatStyle.Flat;
+            btnMotorizado.ImageAlign = ContentAlignment.MiddleLeft;
+            btnMotorizado.Location = new Point(0, 314);
+            btnMotorizado.Name = "btnMotorizado";
+            btnMotorizado.Size = new Size(166, 37);
+            btnMotorizado.TabIndex = 9;
+            btnMotorizado.Text = "Motorizados y Descuentos";
+            btnMotorizado.UseVisualStyleBackColor = true;
+            // 
             // panel1
             // 
             panel1.BackColor = SystemColors.Highlight;
@@ -176,7 +194,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(830, 74);
+            panel1.Size = new Size(825, 74);
             panel1.TabIndex = 0;
             // 
             // minervanombre
@@ -213,6 +231,8 @@
             // panel2
             // 
             panel2.BackColor = Color.Gold;
+            panel2.Controls.Add(panel11);
+            panel2.Controls.Add(btnMotorizado);
             panel2.Controls.Add(panel10);
             panel2.Controls.Add(panel9);
             panel2.Controls.Add(button2);
@@ -230,8 +250,16 @@
             panel2.Dock = DockStyle.Left;
             panel2.Location = new Point(0, 74);
             panel2.Name = "panel2";
-            panel2.Size = new Size(150, 326);
+            panel2.Size = new Size(156, 361);
             panel2.TabIndex = 1;
+            // 
+            // panel11
+            // 
+            panel11.BackColor = SystemColors.Highlight;
+            panel11.Location = new Point(0, 314);
+            panel11.Name = "panel11";
+            panel11.Size = new Size(7, 37);
+            panel11.TabIndex = 6;
             // 
             // panel10
             // 
@@ -302,16 +330,16 @@
             // 
             panelconteiner.BackColor = SystemColors.ControlLight;
             panelconteiner.Dock = DockStyle.Fill;
-            panelconteiner.Location = new Point(150, 74);
+            panelconteiner.Location = new Point(156, 74);
             panelconteiner.Name = "panelconteiner";
-            panelconteiner.Size = new Size(680, 326);
+            panelconteiner.Size = new Size(669, 361);
             panelconteiner.TabIndex = 2;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(830, 400);
+            ClientSize = new Size(825, 435);
             Controls.Add(panelconteiner);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -345,5 +373,6 @@
         private Panel panel10;
         private Panel panel9;
         private Panel panel8;
+        private Panel panel11;
     }
 }

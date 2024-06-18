@@ -68,9 +68,9 @@
             label1.AutoSize = true;
             label1.Location = new Point(15, 47);
             label1.Name = "label1";
-            label1.Size = new Size(56, 15);
+            label1.Size = new Size(57, 15);
             label1.TabIndex = 0;
-            label1.Text = "Producto";
+            label1.Text = "Uniforme";
             // 
             // label2
             // 
@@ -96,9 +96,9 @@
             label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label5.Location = new Point(228, 6);
             label5.Name = "label5";
-            label5.Size = new Size(168, 21);
+            label5.Size = new Size(171, 21);
             label5.TabIndex = 4;
-            label5.Text = "Productos y Materiales";
+            label5.Text = "Uniformes y Materiales";
             // 
             // label6
             // 
@@ -133,22 +133,23 @@
             radbtnProd.Checked = true;
             radbtnProd.Location = new Point(11, 12);
             radbtnProd.Name = "radbtnProd";
-            radbtnProd.Size = new Size(79, 19);
+            radbtnProd.Size = new Size(80, 19);
             radbtnProd.TabIndex = 8;
             radbtnProd.TabStop = true;
-            radbtnProd.Text = "Productos";
+            radbtnProd.Text = "Uniformes";
             radbtnProd.UseVisualStyleBackColor = true;
             radbtnProd.CheckedChanged += radbtnProd_CheckedChanged;
             // 
             // radioButton2
             // 
             radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(107, 10);
+            radioButton2.Location = new Point(97, 12);
             radioButton2.Name = "radioButton2";
             radioButton2.Size = new Size(79, 19);
             radioButton2.TabIndex = 9;
             radioButton2.Text = "Materiales";
             radioButton2.UseVisualStyleBackColor = true;
+            radioButton2.CheckedChanged += radioButton2_CheckedChanged;
             // 
             // dataGridView1
             // 
@@ -318,7 +319,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(648, 308);
+            ClientSize = new Size(660, 308);
             Controls.Add(btnRemovMat);
             Controls.Add(btnEditMat);
             Controls.Add(btnAgreMat);

@@ -52,5 +52,10 @@ namespace Proyecto_Minerva
         {
             AbrirForm(new Proveedor());
         }
+
+        private void btn_Cambiou_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

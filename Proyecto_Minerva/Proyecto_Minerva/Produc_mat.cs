@@ -29,6 +29,12 @@ namespace Proyecto_Minerva
                 btnAgreMat.Enabled = false;
                 btnEditMat.Enabled = false;
                 btnRemovMat.Enabled = false;
+                textBox1.Enabled = true;
+                textBox2.Enabled = true;
+                textBox4.Enabled = true;
+                btnAgrePro.Enabled = true;
+                btnEditPro.Enabled = true;
+                BtnRemovPro.Enabled = true;
             }
             else
             {
@@ -43,12 +49,26 @@ namespace Proyecto_Minerva
 
         private void Produc_mat_Load(object sender, EventArgs e)
         {
+
             textBox3.Enabled = false;
             textBox6.Enabled = false;
             textBox5.Enabled = false;
             btnAgreMat.Enabled = false;
             btnEditMat.Enabled = false;
             btnRemovMat.Enabled = false;
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton2.Checked)
+            {
+                textBox1.Enabled = false;
+                textBox2.Enabled = false;
+                textBox4.Enabled = false;
+                btnAgrePro.Enabled = false;
+                btnEditPro.Enabled = false;
+                BtnRemovPro.Enabled = false;
+            }
         }
     }
 }
