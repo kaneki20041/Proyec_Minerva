@@ -184,6 +184,7 @@
             btnMotorizado.TabIndex = 9;
             btnMotorizado.Text = "Motorizados y Descuentos";
             btnMotorizado.UseVisualStyleBackColor = true;
+            btnMotorizado.Click += btnMotorizado_Click;
             // 
             // panel1
             // 
@@ -194,7 +195,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(825, 74);
+            panel1.Size = new Size(835, 74);
             panel1.TabIndex = 0;
             // 
             // minervanombre
@@ -210,7 +211,7 @@
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources._2618352;
-            pictureBox2.Location = new Point(785, 19);
+            pictureBox2.Location = new Point(790, 19);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(33, 34);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
@@ -332,14 +333,14 @@
             panelconteiner.Dock = DockStyle.Fill;
             panelconteiner.Location = new Point(156, 74);
             panelconteiner.Name = "panelconteiner";
-            panelconteiner.Size = new Size(669, 361);
+            panelconteiner.Size = new Size(679, 361);
             panelconteiner.TabIndex = 2;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(825, 435);
+            ClientSize = new Size(835, 435);
             Controls.Add(panelconteiner);
             Controls.Add(panel2);
             Controls.Add(panel1);
