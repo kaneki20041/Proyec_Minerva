@@ -62,5 +62,24 @@ namespace Proyecto_Minerva
         {
             AbrirForm(new Motorizado());
         }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            pictureBox4.Visible = false;
+            pictureBox5.Visible = true;
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            pictureBox5.Visible = false;
+            pictureBox4.Visible = true;
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }

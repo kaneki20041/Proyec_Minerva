@@ -36,7 +36,11 @@
             Button btn_Matyprod;
             Button button2;
             Button btnMotorizado;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             panel1 = new Panel();
+            pictureBox5 = new PictureBox();
+            btnMinimizar = new PictureBox();
+            pictureBox4 = new PictureBox();
             minervanombre = new Label();
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
@@ -60,6 +64,9 @@
             button2 = new Button();
             btnMotorizado = new Button();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnMinimizar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
@@ -152,7 +159,7 @@
             btn_Matyprod.Name = "btn_Matyprod";
             btn_Matyprod.Size = new Size(166, 37);
             btn_Matyprod.TabIndex = 7;
-            btn_Matyprod.Text = "Materiales y uniformes";
+            btn_Matyprod.Text = "Prendas y materiales";
             btn_Matyprod.UseVisualStyleBackColor = true;
             btn_Matyprod.Click += btn_Matyprod_Click;
             // 
@@ -182,21 +189,61 @@
             btnMotorizado.Name = "btnMotorizado";
             btnMotorizado.Size = new Size(166, 37);
             btnMotorizado.TabIndex = 9;
-            btnMotorizado.Text = "Motorizados y Descuentos";
+            btnMotorizado.Text = "Descuentos";
             btnMotorizado.UseVisualStyleBackColor = true;
             btnMotorizado.Click += btnMotorizado_Click;
             // 
             // panel1
             // 
             panel1.BackColor = SystemColors.Highlight;
+            panel1.Controls.Add(pictureBox5);
+            panel1.Controls.Add(btnMinimizar);
+            panel1.Controls.Add(pictureBox4);
             panel1.Controls.Add(minervanombre);
             panel1.Controls.Add(pictureBox2);
             panel1.Controls.Add(pictureBox1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(835, 74);
+            panel1.Size = new Size(1000, 74);
             panel1.TabIndex = 0;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pictureBox5.Image = CapaPresentacion.Properties.Resources.maximizar_tamano;
+            pictureBox5.Location = new Point(923, 13);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(32, 32);
+            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox5.TabIndex = 4;
+            pictureBox5.TabStop = false;
+            pictureBox5.Visible = false;
+            pictureBox5.Click += pictureBox5_Click;
+            // 
+            // btnMinimizar
+            // 
+            btnMinimizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnMinimizar.Image = (Image)resources.GetObject("btnMinimizar.Image");
+            btnMinimizar.Location = new Point(891, 13);
+            btnMinimizar.Name = "btnMinimizar";
+            btnMinimizar.Size = new Size(26, 32);
+            btnMinimizar.SizeMode = PictureBoxSizeMode.Zoom;
+            btnMinimizar.TabIndex = 3;
+            btnMinimizar.TabStop = false;
+            btnMinimizar.Click += btnMinimizar_Click;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pictureBox4.Image = CapaPresentacion.Properties.Resources.maximizar;
+            pictureBox4.Location = new Point(929, 15);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(25, 27);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 0;
+            pictureBox4.TabStop = false;
+            pictureBox4.Click += pictureBox4_Click;
             // 
             // minervanombre
             // 
@@ -210,10 +257,11 @@
             // 
             // pictureBox2
             // 
-            pictureBox2.Image = Properties.Resources._2618352;
-            pictureBox2.Location = new Point(790, 19);
+            pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pictureBox2.Image = CapaPresentacion.Properties.Resources._2618352;
+            pictureBox2.Location = new Point(960, 13);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(33, 34);
+            pictureBox2.Size = new Size(32, 31);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
@@ -221,7 +269,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.minerva_logo;
+            pictureBox1.Image = CapaPresentacion.Properties.Resources.minerva_logo;
             pictureBox1.Location = new Point(12, 9);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(154, 59);
@@ -333,14 +381,14 @@
             panelconteiner.Dock = DockStyle.Fill;
             panelconteiner.Location = new Point(156, 74);
             panelconteiner.Name = "panelconteiner";
-            panelconteiner.Size = new Size(679, 361);
+            panelconteiner.Size = new Size(844, 361);
             panelconteiner.TabIndex = 2;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(835, 435);
+            ClientSize = new Size(1000, 435);
             Controls.Add(panelconteiner);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -349,6 +397,9 @@
             Text = "Form1";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnMinimizar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
@@ -366,7 +417,7 @@
         private Panel panelconteiner;
         private Panel panel3;
         private Label minervanombre;
-        private PictureBox pictureBox3;
+        private PictureBox btnMinimizar;
         private Panel panel5;
         private Panel panel4;
         private Panel panel7;
@@ -375,5 +426,7 @@
         private Panel panel9;
         private Panel panel8;
         private Panel panel11;
+        private PictureBox pictureBox4;
+        private PictureBox pictureBox5;
     }
 }

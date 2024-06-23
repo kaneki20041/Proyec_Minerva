@@ -36,7 +36,6 @@
             label6 = new Label();
             textBox1 = new TextBox();
             textBox2 = new TextBox();
-            textBox3 = new TextBox();
             textBox4 = new TextBox();
             textBox5 = new TextBox();
             label7 = new Label();
@@ -48,8 +47,8 @@
             groupBox1 = new GroupBox();
             btnBuscProov = new Button();
             groupBox2 = new GroupBox();
-            label8 = new Label();
             textBox6 = new TextBox();
+            label8 = new Label();
             dataGridView1 = new DataGridView();
             RUC = new DataGridViewTextBoxColumn();
             Nombre = new DataGridViewTextBoxColumn();
@@ -57,6 +56,7 @@
             Direccion = new DataGridViewTextBoxColumn();
             Telefono = new DataGridViewTextBoxColumn();
             Email = new DataGridViewTextBoxColumn();
+            comboBox1 = new ComboBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -93,7 +93,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(34, 79);
+            label4.Location = new Point(25, 80);
             label4.Name = "label4";
             label4.Size = new Size(39, 15);
             label4.TabIndex = 3;
@@ -111,7 +111,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(24, 80);
+            label6.Location = new Point(17, 79);
             label6.Name = "label6";
             label6.Size = new Size(36, 15);
             label6.TabIndex = 5;
@@ -130,13 +130,6 @@
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(87, 23);
             textBox2.TabIndex = 7;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(85, 76);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(89, 23);
-            textBox3.TabIndex = 8;
             // 
             // textBox4
             // 
@@ -172,7 +165,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(520, 54);
+            button2.Location = new Point(591, 60);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 13;
@@ -181,7 +174,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(520, 83);
+            button3.Location = new Point(591, 89);
             button3.Name = "button3";
             button3.Size = new Size(75, 23);
             button3.TabIndex = 14;
@@ -190,7 +183,7 @@
             // 
             // button4
             // 
-            button4.Location = new Point(520, 112);
+            button4.Location = new Point(591, 118);
             button4.Name = "button4";
             button4.Size = new Size(75, 23);
             button4.TabIndex = 15;
@@ -209,8 +202,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(comboBox1);
             groupBox1.Controls.Add(btnBuscProov);
-            groupBox1.Controls.Add(textBox3);
             groupBox1.Controls.Add(textBox2);
             groupBox1.Controls.Add(textBox1);
             groupBox1.Controls.Add(label4);
@@ -218,7 +211,7 @@
             groupBox1.Controls.Add(label2);
             groupBox1.Location = new Point(10, 47);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(257, 106);
+            groupBox1.Size = new Size(292, 167);
             groupBox1.TabIndex = 17;
             groupBox1.TabStop = false;
             groupBox1.Text = "Info personal";
@@ -240,12 +233,19 @@
             groupBox2.Controls.Add(textBox4);
             groupBox2.Controls.Add(label6);
             groupBox2.Controls.Add(label5);
-            groupBox2.Location = new Point(285, 46);
+            groupBox2.Location = new Point(308, 47);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(229, 107);
             groupBox2.TabIndex = 18;
             groupBox2.TabStop = false;
             groupBox2.Text = "Contacto";
+            // 
+            // textBox6
+            // 
+            textBox6.Location = new Point(75, 22);
+            textBox6.Name = "textBox6";
+            textBox6.Size = new Size(148, 23);
+            textBox6.TabIndex = 12;
             // 
             // label8
             // 
@@ -256,18 +256,11 @@
             label8.TabIndex = 11;
             label8.Text = "Direccion";
             // 
-            // textBox6
-            // 
-            textBox6.Location = new Point(75, 22);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(148, 23);
-            textBox6.TabIndex = 12;
-            // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { RUC, Nombre, Rubro, Direccion, Telefono, Email });
-            dataGridView1.Location = new Point(24, 159);
+            dataGridView1.Location = new Point(35, 229);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(569, 102);
@@ -309,11 +302,19 @@
             Email.Name = "Email";
             Email.Width = 75;
             // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(87, 76);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(87, 23);
+            comboBox1.TabIndex = 10;
+            // 
             // Proveedor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(615, 268);
+            ClientSize = new Size(692, 363);
             Controls.Add(dataGridView1);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
@@ -346,7 +347,6 @@
         private Label label6;
         private TextBox textBox1;
         private TextBox textBox2;
-        private TextBox textBox3;
         private TextBox textBox4;
         private TextBox textBox5;
         private Label label7;
@@ -367,5 +367,6 @@
         private DataGridViewTextBoxColumn Direccion;
         private DataGridViewTextBoxColumn Telefono;
         private DataGridViewTextBoxColumn Email;
+        private ComboBox comboBox1;
     }
 }

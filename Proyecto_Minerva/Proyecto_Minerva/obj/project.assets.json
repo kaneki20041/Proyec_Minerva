@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\Proyecto Minerva\\Proyecto_Minerva\\Proyecto_Minerva\\Proyecto_Minerva.csproj",
-      "projectName": "Proyecto_Minerva",
-      "projectPath": "C:\\Users\\User\\Desktop\\Proyecto Minerva\\Proyecto_Minerva\\Proyecto_Minerva\\Proyecto_Minerva.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\Proyecto Minerva\\Proyecto_Minerva\\Proyecto_Minerva\\CapaPresentacion.csproj",
+      "projectName": "CapaPresentacion",
+      "projectPath": "C:\\Users\\User\\Desktop\\Proyecto Minerva\\Proyecto_Minerva\\Proyecto_Minerva\\CapaPresentacion.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\User\\Desktop\\Proyecto Minerva\\Proyecto_Minerva\\Proyecto_Minerva\\obj\\",
       "projectStyle": "PackageReference",
