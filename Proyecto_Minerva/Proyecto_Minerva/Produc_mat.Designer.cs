@@ -304,7 +304,7 @@
             // 
             // btnEditPro
             // 
-            this.btnEditPro.Location = new System.Drawing.Point(159, 274);
+            this.btnEditPro.Location = new System.Drawing.Point(164, 274);
             this.btnEditPro.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnEditPro.Name = "btnEditPro";
             this.btnEditPro.Size = new System.Drawing.Size(86, 31);
