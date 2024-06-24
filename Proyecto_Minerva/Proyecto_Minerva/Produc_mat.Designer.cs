@@ -28,444 +28,536 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            label7 = new Label();
-            label8 = new Label();
-            radbtnProd = new RadioButton();
-            radioButton2 = new RadioButton();
-            dataGridView1 = new DataGridView();
-            dataGridView2 = new DataGridView();
-            IDmat = new DataGridViewTextBoxColumn();
-            Material = new DataGridViewTextBoxColumn();
-            Descripcion = new DataGridViewTextBoxColumn();
-            Cantidad = new DataGridViewTextBoxColumn();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox4 = new TextBox();
-            textBox3 = new TextBox();
-            textBox5 = new TextBox();
-            textBox6 = new TextBox();
-            btnAgrePro = new Button();
-            btnEditPro = new Button();
-            BtnRemovPro = new Button();
-            btnRemovMat = new Button();
-            btnEditMat = new Button();
-            btnAgreMat = new Button();
-            label4 = new Label();
-            textBox7 = new TextBox();
-            button1 = new Button();
-            label9 = new Label();
-            textBox8 = new TextBox();
-            button2 = new Button();
-            label10 = new Label();
-            ID = new DataGridViewTextBoxColumn();
-            Producto = new DataGridViewTextBoxColumn();
-            Stock = new DataGridViewTextBoxColumn();
-            Talla = new DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
-            SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(9, 71);
-            label1.Name = "label1";
-            label1.Size = new Size(57, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Uniforme";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(23, 106);
-            label2.Name = "label2";
-            label2.Size = new Size(36, 15);
-            label2.TabIndex = 1;
-            label2.Text = "Stock";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(27, 133);
-            label3.Name = "label3";
-            label3.Size = new Size(30, 15);
-            label3.TabIndex = 2;
-            label3.Text = "Talla";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(436, 9);
-            label5.Name = "label5";
-            label5.Size = new Size(82, 21);
-            label5.TabIndex = 4;
-            label5.Text = "Materiales";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(352, 67);
-            label6.Name = "label6";
-            label6.Size = new Size(50, 15);
-            label6.TabIndex = 5;
-            label6.Text = "Material";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(352, 94);
-            label7.Name = "label7";
-            label7.Size = new Size(36, 15);
-            label7.TabIndex = 6;
-            label7.Text = "Stock";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(332, 127);
-            label8.Name = "label8";
-            label8.Size = new Size(69, 15);
-            label8.TabIndex = 7;
-            label8.Text = "Descripcion";
-            // 
-            // radbtnProd
-            // 
-            radbtnProd.AutoSize = true;
-            radbtnProd.Checked = true;
-            radbtnProd.Location = new Point(260, 12);
-            radbtnProd.Name = "radbtnProd";
-            radbtnProd.Size = new Size(80, 19);
-            radbtnProd.TabIndex = 8;
-            radbtnProd.TabStop = true;
-            radbtnProd.Text = "Uniformes";
-            radbtnProd.UseVisualStyleBackColor = true;
-            radbtnProd.CheckedChanged += radbtnProd_CheckedChanged;
-            // 
-            // radioButton2
-            // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(260, 37);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(79, 19);
-            radioButton2.TabIndex = 9;
-            radioButton2.Text = "Materiales";
-            radioButton2.UseVisualStyleBackColor = true;
-            radioButton2.CheckedChanged += radioButton2_CheckedChanged;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, Producto, Stock, Talla });
-            dataGridView1.Location = new Point(9, 162);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(298, 180);
-            dataGridView1.TabIndex = 10;
-            // 
-            // dataGridView2
-            // 
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { IDmat, Material, Descripcion, Cantidad });
-            dataGridView2.Location = new Point(319, 162);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.RowTemplate.Height = 25;
-            dataGridView2.Size = new Size(318, 178);
-            dataGridView2.TabIndex = 11;
-            // 
-            // IDmat
-            // 
-            IDmat.HeaderText = "ID Mat";
-            IDmat.Name = "IDmat";
-            IDmat.Width = 45;
-            // 
-            // Material
-            // 
-            Material.HeaderText = "Material";
-            Material.Name = "Material";
-            // 
-            // Descripcion
-            // 
-            Descripcion.HeaderText = "Descripcion";
-            Descripcion.Name = "Descripcion";
-            Descripcion.Width = 80;
-            // 
-            // Cantidad
-            // 
-            Cantidad.HeaderText = "Stock";
-            Cantidad.Name = "Cantidad";
-            Cantidad.Width = 50;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(69, 71);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(113, 23);
-            textBox1.TabIndex = 12;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(69, 100);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(83, 23);
-            textBox2.TabIndex = 13;
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(69, 128);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(57, 23);
-            textBox4.TabIndex = 15;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(407, 63);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(111, 23);
-            textBox3.TabIndex = 16;
-            // 
-            // textBox5
-            // 
-            textBox5.Location = new Point(407, 90);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(69, 23);
-            textBox5.TabIndex = 17;
-            // 
-            // textBox6
-            // 
-            textBox6.Location = new Point(407, 117);
-            textBox6.Multiline = true;
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(150, 39);
-            textBox6.TabIndex = 18;
-            // 
-            // btnAgrePro
-            // 
-            btnAgrePro.Location = new Point(198, 77);
-            btnAgrePro.Name = "btnAgrePro";
-            btnAgrePro.Size = new Size(75, 23);
-            btnAgrePro.TabIndex = 19;
-            btnAgrePro.Text = "Agregar";
-            btnAgrePro.UseVisualStyleBackColor = true;
-            // 
-            // btnEditPro
-            // 
-            btnEditPro.Location = new Point(198, 106);
-            btnEditPro.Name = "btnEditPro";
-            btnEditPro.Size = new Size(75, 23);
-            btnEditPro.TabIndex = 20;
-            btnEditPro.Text = "Editar";
-            btnEditPro.UseVisualStyleBackColor = true;
-            // 
-            // BtnRemovPro
-            // 
-            BtnRemovPro.Location = new Point(198, 132);
-            BtnRemovPro.Name = "BtnRemovPro";
-            BtnRemovPro.Size = new Size(75, 23);
-            BtnRemovPro.TabIndex = 21;
-            BtnRemovPro.Text = "Eliminar";
-            BtnRemovPro.UseVisualStyleBackColor = true;
-            // 
-            // btnRemovMat
-            // 
-            btnRemovMat.Location = new Point(574, 132);
-            btnRemovMat.Name = "btnRemovMat";
-            btnRemovMat.Size = new Size(75, 23);
-            btnRemovMat.TabIndex = 24;
-            btnRemovMat.Text = "Eliminar";
-            btnRemovMat.UseVisualStyleBackColor = true;
-            // 
-            // btnEditMat
-            // 
-            btnEditMat.Location = new Point(575, 107);
-            btnEditMat.Name = "btnEditMat";
-            btnEditMat.Size = new Size(75, 23);
-            btnEditMat.TabIndex = 23;
-            btnEditMat.Text = "Editar";
-            btnEditMat.UseVisualStyleBackColor = true;
-            // 
-            // btnAgreMat
-            // 
-            btnAgreMat.Location = new Point(575, 81);
-            btnAgreMat.Name = "btnAgreMat";
-            btnAgreMat.Size = new Size(75, 23);
-            btnAgreMat.TabIndex = 22;
-            btnAgreMat.Text = "Agregar";
-            btnAgreMat.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(360, 44);
-            label4.Name = "label4";
-            label4.Size = new Size(18, 15);
-            label4.TabIndex = 25;
-            label4.Text = "ID";
-            // 
-            // textBox7
-            // 
-            textBox7.Location = new Point(406, 37);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(70, 23);
-            textBox7.TabIndex = 26;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(514, 37);
-            button1.Name = "button1";
-            button1.Size = new Size(66, 23);
-            button1.TabIndex = 27;
-            button1.Text = "Buscar";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(23, 45);
-            label9.Name = "label9";
-            label9.Size = new Size(18, 15);
-            label9.TabIndex = 28;
-            label9.Text = "ID";
-            // 
-            // textBox8
-            // 
-            textBox8.Location = new Point(69, 41);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(57, 23);
-            textBox8.TabIndex = 29;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(132, 41);
-            button2.Name = "button2";
-            button2.Size = new Size(50, 23);
-            button2.TabIndex = 30;
-            button2.Text = "Buscar";
-            button2.UseVisualStyleBackColor = true;
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnRemovMat = new System.Windows.Forms.Button();
+            this.btnEditMat = new System.Windows.Forms.Button();
+            this.btnAgreMat = new System.Windows.Forms.Button();
+            this.BtnRemovPro = new System.Windows.Forms.Button();
+            this.btnEditPro = new System.Windows.Forms.Button();
+            this.btnAgrePro = new System.Windows.Forms.Button();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.IDmat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Material = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Talla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radbtnProd = new System.Windows.Forms.RadioButton();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "12",
+            "14",
+            "16",
+            "S",
+            "M",
+            "L",
+            "XL"});
+            this.comboBox3.Location = new System.Drawing.Point(76, 206);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(54, 28);
+            this.comboBox3.TabIndex = 72;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(270, 121);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 28);
+            this.comboBox2.TabIndex = 71;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(270, 172);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 28);
+            this.comboBox1.TabIndex = 70;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(219, 172);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(36, 20);
+            this.label12.TabIndex = 69;
+            this.label12.Text = "Tela";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(219, 124);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(45, 20);
+            this.label11.TabIndex = 68;
+            this.label11.Text = "Color";
             // 
             // label10
             // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.Location = new Point(82, 9);
-            label10.Name = "label10";
-            label10.Size = new Size(83, 21);
-            label10.TabIndex = 31;
-            label10.Text = "Uniformes";
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label10.Location = new System.Drawing.Point(151, 7);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(81, 28);
+            this.label10.TabIndex = 67;
+            this.label10.Text = "Prendas";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(218, 66);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(57, 31);
+            this.button2.TabIndex = 66;
+            this.button2.Text = "Buscar";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(146, 66);
+            this.textBox8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(65, 27);
+            this.textBox8.TabIndex = 65;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(93, 71);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(24, 20);
+            this.label9.TabIndex = 64;
+            this.label9.Text = "ID";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(763, 66);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 31);
+            this.button1.TabIndex = 63;
+            this.button1.Text = "Buscar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(640, 66);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(79, 27);
+            this.textBox7.TabIndex = 62;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(587, 76);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(24, 20);
+            this.label4.TabIndex = 61;
+            this.label4.Text = "ID";
+            // 
+            // btnRemovMat
+            // 
+            this.btnRemovMat.Location = new System.Drawing.Point(804, 267);
+            this.btnRemovMat.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnRemovMat.Name = "btnRemovMat";
+            this.btnRemovMat.Size = new System.Drawing.Size(86, 31);
+            this.btnRemovMat.TabIndex = 60;
+            this.btnRemovMat.Text = "Eliminar";
+            this.btnRemovMat.UseVisualStyleBackColor = true;
+            // 
+            // btnEditMat
+            // 
+            this.btnEditMat.Location = new System.Drawing.Point(681, 267);
+            this.btnEditMat.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnEditMat.Name = "btnEditMat";
+            this.btnEditMat.Size = new System.Drawing.Size(86, 31);
+            this.btnEditMat.TabIndex = 59;
+            this.btnEditMat.Text = "Editar";
+            this.btnEditMat.UseVisualStyleBackColor = true;
+            // 
+            // btnAgreMat
+            // 
+            this.btnAgreMat.Location = new System.Drawing.Point(555, 267);
+            this.btnAgreMat.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAgreMat.Name = "btnAgreMat";
+            this.btnAgreMat.Size = new System.Drawing.Size(86, 31);
+            this.btnAgreMat.TabIndex = 58;
+            this.btnAgreMat.Text = "Agregar";
+            this.btnAgreMat.UseVisualStyleBackColor = true;
+            // 
+            // BtnRemovPro
+            // 
+            this.BtnRemovPro.Location = new System.Drawing.Point(258, 266);
+            this.BtnRemovPro.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.BtnRemovPro.Name = "BtnRemovPro";
+            this.BtnRemovPro.Size = new System.Drawing.Size(86, 31);
+            this.BtnRemovPro.TabIndex = 57;
+            this.BtnRemovPro.Text = "Eliminar";
+            this.BtnRemovPro.UseVisualStyleBackColor = true;
+            // 
+            // btnEditPro
+            // 
+            this.btnEditPro.Location = new System.Drawing.Point(146, 266);
+            this.btnEditPro.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnEditPro.Name = "btnEditPro";
+            this.btnEditPro.Size = new System.Drawing.Size(86, 31);
+            this.btnEditPro.TabIndex = 56;
+            this.btnEditPro.Text = "Editar";
+            this.btnEditPro.UseVisualStyleBackColor = true;
+            // 
+            // btnAgrePro
+            // 
+            this.btnAgrePro.Location = new System.Drawing.Point(26, 265);
+            this.btnAgrePro.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAgrePro.Name = "btnAgrePro";
+            this.btnAgrePro.Size = new System.Drawing.Size(86, 31);
+            this.btnAgrePro.TabIndex = 55;
+            this.btnAgrePro.Text = "Agregar";
+            this.btnAgrePro.UseVisualStyleBackColor = true;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(641, 173);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox6.Multiline = true;
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(171, 51);
+            this.textBox6.TabIndex = 54;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(641, 137);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(78, 27);
+            this.textBox5.TabIndex = 53;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(641, 101);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(126, 27);
+            this.textBox3.TabIndex = 52;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(76, 162);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(94, 27);
+            this.textBox2.TabIndex = 51;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(76, 124);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(129, 27);
+            this.textBox1.TabIndex = 50;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IDmat,
+            this.Material,
+            this.Descripcion,
+            this.Cantidad});
+            this.dataGridView2.Location = new System.Drawing.Point(543, 306);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.RowTemplate.Height = 25;
+            this.dataGridView2.Size = new System.Drawing.Size(369, 235);
+            this.dataGridView2.TabIndex = 49;
+            // 
+            // IDmat
+            // 
+            this.IDmat.HeaderText = "ID Mat";
+            this.IDmat.MinimumWidth = 6;
+            this.IDmat.Name = "IDmat";
+            this.IDmat.Width = 45;
+            // 
+            // Material
+            // 
+            this.Material.HeaderText = "Material";
+            this.Material.MinimumWidth = 6;
+            this.Material.Name = "Material";
+            this.Material.Width = 125;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.HeaderText = "Descripcion";
+            this.Descripcion.MinimumWidth = 6;
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.Width = 80;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Stock";
+            this.Cantidad.MinimumWidth = 6;
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.Width = 50;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.Producto,
+            this.Stock,
+            this.Talla});
+            this.dataGridView1.Location = new System.Drawing.Point(7, 304);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.Size = new System.Drawing.Size(369, 237);
+            this.dataGridView1.TabIndex = 48;
             // 
             // ID
             // 
-            ID.HeaderText = "ID";
-            ID.Name = "ID";
-            ID.Width = 40;
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            this.ID.Width = 40;
             // 
             // Producto
             // 
-            Producto.HeaderText = "Uniforme";
-            Producto.Name = "Producto";
-            Producto.Width = 120;
+            this.Producto.HeaderText = "Uniforme";
+            this.Producto.MinimumWidth = 6;
+            this.Producto.Name = "Producto";
+            this.Producto.Width = 120;
             // 
             // Stock
             // 
-            Stock.HeaderText = "Stock";
-            Stock.Name = "Stock";
-            Stock.Width = 60;
+            this.Stock.HeaderText = "Stock";
+            this.Stock.MinimumWidth = 6;
+            this.Stock.Name = "Stock";
+            this.Stock.Width = 60;
             // 
             // Talla
             // 
-            Talla.HeaderText = "Talla";
-            Talla.Name = "Talla";
-            Talla.Width = 35;
+            this.Talla.HeaderText = "Talla";
+            this.Talla.MinimumWidth = 6;
+            this.Talla.Name = "Talla";
+            this.Talla.Width = 35;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(438, 86);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(99, 24);
+            this.radioButton2.TabIndex = 47;
+            this.radioButton2.Text = "Materiales";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radbtnProd
+            // 
+            this.radbtnProd.AutoSize = true;
+            this.radbtnProd.Checked = true;
+            this.radbtnProd.Location = new System.Drawing.Point(438, 53);
+            this.radbtnProd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.radbtnProd.Name = "radbtnProd";
+            this.radbtnProd.Size = new System.Drawing.Size(82, 24);
+            this.radbtnProd.TabIndex = 46;
+            this.radbtnProd.TabStop = true;
+            this.radbtnProd.Text = "Prendas";
+            this.radbtnProd.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(555, 186);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(87, 20);
+            this.label8.TabIndex = 45;
+            this.label8.Text = "Descripcion";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(578, 142);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(45, 20);
+            this.label7.TabIndex = 44;
+            this.label7.Text = "Stock";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(578, 106);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(64, 20);
+            this.label6.TabIndex = 43;
+            this.label6.Text = "Material";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(665, 7);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(102, 28);
+            this.label5.TabIndex = 42;
+            this.label5.Text = "Materiales";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(-75, 165);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(39, 20);
+            this.label3.TabIndex = 41;
+            this.label3.Text = "Talla";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(-75, 131);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 20);
+            this.label2.TabIndex = 40;
+            this.label2.Text = "Stock";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 124);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(71, 20);
+            this.label1.TabIndex = 39;
+            this.label1.Text = "Uniforme";
             // 
             // Produc_mat
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(660, 352);
-            Controls.Add(label10);
-            Controls.Add(button2);
-            Controls.Add(textBox8);
-            Controls.Add(label9);
-            Controls.Add(button1);
-            Controls.Add(textBox7);
-            Controls.Add(label4);
-            Controls.Add(btnRemovMat);
-            Controls.Add(btnEditMat);
-            Controls.Add(btnAgreMat);
-            Controls.Add(BtnRemovPro);
-            Controls.Add(btnEditPro);
-            Controls.Add(btnAgrePro);
-            Controls.Add(textBox6);
-            Controls.Add(textBox5);
-            Controls.Add(textBox3);
-            Controls.Add(textBox4);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(dataGridView2);
-            Controls.Add(dataGridView1);
-            Controls.Add(radioButton2);
-            Controls.Add(radbtnProd);
-            Controls.Add(label8);
-            Controls.Add(label7);
-            Controls.Add(label6);
-            Controls.Add(label5);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            FormBorderStyle = FormBorderStyle.None;
-            Name = "Produc_mat";
-            Text = "Produc_mat";
-            Load += Produc_mat_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(920, 506);
+            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.btnRemovMat);
+            this.Controls.Add(this.btnEditMat);
+            this.Controls.Add(this.btnAgreMat);
+            this.Controls.Add(this.BtnRemovPro);
+            this.Controls.Add(this.btnEditPro);
+            this.Controls.Add(this.btnAgrePro);
+            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.radioButton2);
+            this.Controls.Add(this.radbtnProd);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Name = "Produc_mat";
+            this.Text = "Produc_mat";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
 
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label5;
-        private Label label6;
-        private Label label7;
-        private Label label8;
-        private RadioButton radbtnProd;
-        private RadioButton radioButton2;
-        private DataGridView dataGridView1;
-        private DataGridView dataGridView2;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox4;
-        private TextBox textBox3;
-        private TextBox textBox5;
-        private TextBox textBox6;
-        private Button btnAgrePro;
-        private Button btnEditPro;
+        private ComboBox comboBox3;
+        private ComboBox comboBox2;
+        private ComboBox comboBox1;
+        private Label label12;
+        private Label label11;
+        private Label label10;
+        private Button button2;
+        private TextBox textBox8;
+        private Label label9;
+        private Button button1;
+        private TextBox textBox7;
+        private Label label4;
+        private Button btnRemovMat;
+        private Button btnEditMat;
+        private Button btnAgreMat;
         private Button BtnRemovPro;
+        private Button btnEditPro;
+        private Button btnAgrePro;
+        private TextBox textBox6;
+        private TextBox textBox5;
+        private TextBox textBox3;
+        private TextBox textBox2;
+        private TextBox textBox1;
+        private DataGridView dataGridView2;
         private DataGridViewTextBoxColumn IDmat;
         private DataGridViewTextBoxColumn Material;
         private DataGridViewTextBoxColumn Descripcion;
         private DataGridViewTextBoxColumn Cantidad;
-        private Button btnRemovMat;
-        private Button btnEditMat;
-        private Button btnAgreMat;
-        private Label label4;
-        private TextBox textBox7;
-        private Button button1;
+        private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn Producto;
         private DataGridViewTextBoxColumn Stock;
         private DataGridViewTextBoxColumn Talla;
-        private Label label9;
-        private TextBox textBox8;
-        private Button button2;
-        private Label label10;
+        private RadioButton radioButton2;
+        private RadioButton radbtnProd;
+        private Label label8;
+        private Label label7;
+        private Label label6;
+        private Label label5;
+        private Label label3;
+        private Label label2;
+        private Label label1;
     }
 }

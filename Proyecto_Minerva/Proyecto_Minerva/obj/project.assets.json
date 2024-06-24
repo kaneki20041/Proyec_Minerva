@@ -8,24 +8,19 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Luis Jhon\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\Proyecto Minerva\\Proyecto_Minerva\\Proyecto_Minerva\\CapaPresentacion.csproj",
+      "projectUniqueName": "C:\\Users\\Luis Jhon\\source\\repos\\kaneki20041\\Proyec_Minerva\\Proyecto_Minerva\\Proyecto_Minerva\\CapaPresentacion.csproj",
       "projectName": "CapaPresentacion",
-      "projectPath": "C:\\Users\\User\\Desktop\\Proyecto Minerva\\Proyecto_Minerva\\Proyecto_Minerva\\CapaPresentacion.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\Proyecto Minerva\\Proyecto_Minerva\\Proyecto_Minerva\\obj\\",
+      "projectPath": "C:\\Users\\Luis Jhon\\source\\repos\\kaneki20041\\Proyec_Minerva\\Proyecto_Minerva\\Proyecto_Minerva\\CapaPresentacion.csproj",
+      "packagesPath": "C:\\Users\\Luis Jhon\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Luis Jhon\\source\\repos\\kaneki20041\\Proyec_Minerva\\Proyecto_Minerva\\Proyecto_Minerva\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Luis Jhon\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -69,7 +64,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
