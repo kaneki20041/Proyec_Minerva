@@ -31,7 +31,6 @@ namespace Proyecto_Minerva
                 btnRemovMat.Enabled = false;
                 textBox1.Enabled = true;
                 textBox2.Enabled = true;
-                textBox4.Enabled = true;
                 btnAgrePro.Enabled = true;
                 btnEditPro.Enabled = true;
                 BtnRemovPro.Enabled = true;
@@ -64,11 +63,18 @@ namespace Proyecto_Minerva
             {
                 textBox1.Enabled = false;
                 textBox2.Enabled = false;
-                textBox4.Enabled = false;
+                comboBox2.Enabled = false;
+                comboBox1.Enabled = false;
+                comboBox3.Enabled = false;
                 btnAgrePro.Enabled = false;
                 btnEditPro.Enabled = false;
                 BtnRemovPro.Enabled = false;
             }
+        }
+
+        private void btnAgrePro_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
