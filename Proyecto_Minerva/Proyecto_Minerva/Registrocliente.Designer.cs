@@ -58,8 +58,8 @@
             label9 = new Label();
             txtApellido = new TextBox();
             label10 = new Label();
-            textBox5 = new TextBox();
-            textBox7 = new TextBox();
+            txtNumDocu = new TextBox();
+            txtDocumento = new TextBox();
             txtTipoCliente = new TextBox();
             label11 = new Label();
             txtDireccion = new TextBox();
@@ -275,8 +275,8 @@
             groupBox2.Controls.Add(txtDireccion);
             groupBox2.Controls.Add(label11);
             groupBox2.Controls.Add(txtTipoCliente);
-            groupBox2.Controls.Add(textBox7);
-            groupBox2.Controls.Add(textBox5);
+            groupBox2.Controls.Add(txtDocumento);
+            groupBox2.Controls.Add(txtNumDocu);
             groupBox2.Controls.Add(label10);
             groupBox2.Controls.Add(txtApellido);
             groupBox2.Controls.Add(label9);
@@ -362,20 +362,20 @@
             label10.TabIndex = 28;
             label10.Text = "Documento";
             // 
-            // textBox5
+            // txtNumDocu
             // 
-            textBox5.Location = new Point(139, 204);
-            textBox5.Multiline = true;
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(112, 27);
-            textBox5.TabIndex = 29;
+            txtNumDocu.Location = new Point(139, 204);
+            txtNumDocu.Multiline = true;
+            txtNumDocu.Name = "txtNumDocu";
+            txtNumDocu.Size = new Size(112, 27);
+            txtNumDocu.TabIndex = 29;
             // 
-            // textBox7
+            // txtDocumento
             // 
-            textBox7.Location = new Point(261, 204);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(150, 27);
-            textBox7.TabIndex = 30;
+            txtDocumento.Location = new Point(261, 204);
+            txtDocumento.Name = "txtDocumento";
+            txtDocumento.Size = new Size(150, 27);
+            txtDocumento.TabIndex = 30;
             // 
             // txtTipoCliente
             // 
@@ -464,8 +464,8 @@
         private DataGridViewTextBoxColumn Celular;
         private GroupBox groupBox3;
         private Label label7;
-        private TextBox textBox7;
-        private TextBox textBox5;
+        private TextBox txtDocumento;
+        private TextBox txtNumDocu;
         private Label label10;
         private TextBox txtApellido;
         private Label label9;
