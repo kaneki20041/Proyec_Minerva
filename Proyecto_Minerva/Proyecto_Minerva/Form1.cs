@@ -60,7 +60,7 @@ namespace Proyecto_Minerva
 
         private void btnMotorizado_Click(object sender, EventArgs e)
         {
-            AbrirForm(new Motorizado());
+            AbrirForm(new Desc_Formpago());
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)

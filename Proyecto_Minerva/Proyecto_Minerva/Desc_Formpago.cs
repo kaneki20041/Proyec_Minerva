@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Proyecto_Minerva
 {
-    public partial class Motorizado : Form
+    public partial class Desc_Formpago : Form
     {
-        public Motorizado()
+        public Desc_Formpago()
         {
             InitializeComponent();
         }
