@@ -81,5 +81,10 @@ namespace Proyecto_Minerva
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void btn_Cambiou_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
