@@ -51,8 +51,21 @@
             button2 = new Button();
             button3 = new Button();
             label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            checkBox1 = new CheckBox();
+            textBox1 = new TextBox();
+            textBox2 = new TextBox();
+            dataGridView1 = new DataGridView();
+            btnCancelFpag = new Button();
+            btnModFpag = new Button();
+            btnAgreFpag = new Button();
+            button4 = new Button();
+            button5 = new Button();
+            button6 = new Button();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // label6
@@ -162,7 +175,7 @@
             // 
             // btnElimDsc
             // 
-            btnElimDsc.Location = new Point(500, 297);
+            btnElimDsc.Location = new Point(482, 297);
             btnElimDsc.Name = "btnElimDsc";
             btnElimDsc.Size = new Size(75, 23);
             btnElimDsc.TabIndex = 32;
@@ -175,7 +188,7 @@
             btnEditDsc.Name = "btnEditDsc";
             btnEditDsc.Size = new Size(75, 23);
             btnEditDsc.TabIndex = 31;
-            btnEditDsc.Text = "Editar";
+            btnEditDsc.Text = "Modificar";
             btnEditDsc.UseVisualStyleBackColor = true;
             // 
             // btnAgreDsc
@@ -202,7 +215,7 @@
             groupBox2.Controls.Add(label9);
             groupBox2.Controls.Add(label8);
             groupBox2.Controls.Add(label7);
-            groupBox2.Location = new Point(31, 45);
+            groupBox2.Location = new Point(23, 36);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(373, 159);
             groupBox2.TabIndex = 33;
@@ -228,15 +241,15 @@
             // dataGridView2
             // 
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(12, 221);
+            dataGridView2.Location = new Point(12, 201);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RowTemplate.Height = 25;
-            dataGridView2.Size = new Size(473, 127);
+            dataGridView2.Size = new Size(464, 147);
             dataGridView2.TabIndex = 34;
             // 
             // button1
             // 
-            button1.Location = new Point(500, 239);
+            button1.Location = new Point(482, 239);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 35;
@@ -245,7 +258,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(500, 268);
+            button2.Location = new Point(482, 268);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 36;
@@ -264,17 +277,135 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(610, 50);
+            label2.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(660, 9);
             label2.Name = "label2";
-            label2.Size = new Size(38, 15);
+            label2.Size = new Size(146, 28);
             label2.TabIndex = 38;
-            label2.Text = "label2";
+            label2.Text = "Forma de pago";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(627, 80);
+            label3.Name = "label3";
+            label3.Size = new Size(18, 15);
+            label3.TabIndex = 39;
+            label3.Text = "ID";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(616, 114);
+            label4.Name = "label4";
+            label4.Size = new Size(46, 15);
+            label4.TabIndex = 40;
+            label4.Text = "F. pago";
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(616, 155);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(103, 19);
+            checkBox1.TabIndex = 41;
+            checkBox1.Text = "Estado F. pago";
+            checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(684, 77);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(100, 23);
+            textBox1.TabIndex = 42;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(683, 111);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(100, 23);
+            textBox2.TabIndex = 43;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(576, 180);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.Size = new Size(291, 168);
+            dataGridView1.TabIndex = 44;
+            // 
+            // btnCancelFpag
+            // 
+            btnCancelFpag.Location = new Point(819, 142);
+            btnCancelFpag.Name = "btnCancelFpag";
+            btnCancelFpag.Size = new Size(75, 23);
+            btnCancelFpag.TabIndex = 47;
+            btnCancelFpag.Text = "Cancelar";
+            btnCancelFpag.UseVisualStyleBackColor = true;
+            // 
+            // btnModFpag
+            // 
+            btnModFpag.Location = new Point(819, 103);
+            btnModFpag.Name = "btnModFpag";
+            btnModFpag.Size = new Size(75, 23);
+            btnModFpag.TabIndex = 46;
+            btnModFpag.Text = "Modificar";
+            btnModFpag.UseVisualStyleBackColor = true;
+            // 
+            // btnAgreFpag
+            // 
+            btnAgreFpag.Location = new Point(819, 68);
+            btnAgreFpag.Name = "btnAgreFpag";
+            btnAgreFpag.Size = new Size(75, 23);
+            btnAgreFpag.TabIndex = 45;
+            btnAgreFpag.Text = "Agregar";
+            btnAgreFpag.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(873, 268);
+            button4.Name = "button4";
+            button4.Size = new Size(75, 23);
+            button4.TabIndex = 50;
+            button4.Text = "Editar";
+            button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            button5.Location = new Point(873, 239);
+            button5.Name = "button5";
+            button5.Size = new Size(75, 23);
+            button5.TabIndex = 49;
+            button5.Text = "Nuevo";
+            button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            button6.Location = new Point(873, 297);
+            button6.Name = "button6";
+            button6.Size = new Size(75, 23);
+            button6.TabIndex = 48;
+            button6.Text = "Eliminar";
+            button6.UseVisualStyleBackColor = true;
             // 
             // Desc_Formpago
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(879, 360);
+            ClientSize = new Size(955, 360);
+            Controls.Add(button4);
+            Controls.Add(button5);
+            Controls.Add(button6);
+            Controls.Add(btnCancelFpag);
+            Controls.Add(btnModFpag);
+            Controls.Add(btnAgreFpag);
+            Controls.Add(dataGridView1);
+            Controls.Add(textBox2);
+            Controls.Add(textBox1);
+            Controls.Add(checkBox1);
+            Controls.Add(label4);
+            Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(button3);
             Controls.Add(button2);
@@ -288,9 +419,11 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "Desc_Formpago";
             Text = "Motorizado";
+            Load += Desc_Formpago_Load;
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -319,5 +452,17 @@
         private Button button2;
         private Button button3;
         private Label label2;
+        private Label label3;
+        private Label label4;
+        private CheckBox checkBox1;
+        private TextBox textBox1;
+        private TextBox textBox2;
+        private DataGridView dataGridView1;
+        private Button btnCancelFpag;
+        private Button btnModFpag;
+        private Button btnAgreFpag;
+        private Button button4;
+        private Button button5;
+        private Button button6;
     }
 }

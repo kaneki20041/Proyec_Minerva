@@ -16,5 +16,10 @@ namespace Proyecto_Minerva
         {
             InitializeComponent();
         }
+
+        private void Desc_Formpago_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
