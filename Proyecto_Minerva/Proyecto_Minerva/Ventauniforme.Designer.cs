@@ -28,373 +28,405 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label4 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btn_buscarcliente = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnBuscMot = new System.Windows.Forms.Button();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.label12 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.SuspendLayout();
+            label4 = new Label();
+            dataGridView1 = new DataGridView();
+            ID = new DataGridViewTextBoxColumn();
+            Cliente = new DataGridViewTextBoxColumn();
+            DNI = new DataGridViewTextBoxColumn();
+            Prenda = new DataGridViewTextBoxColumn();
+            Talla = new DataGridViewTextBoxColumn();
+            T_Doc = new DataGridViewTextBoxColumn();
+            Motorizado = new DataGridViewTextBoxColumn();
+            Direccion = new DataGridViewTextBoxColumn();
+            Horario = new DataGridViewTextBoxColumn();
+            btn_buscarcliente = new Button();
+            label1 = new Label();
+            label2 = new Label();
+            label5 = new Label();
+            textBox1 = new TextBox();
+            dateTimePicker1 = new DateTimePicker();
+            btn_Stock = new Button();
+            button1 = new Button();
+            label6 = new Label();
+            label7 = new Label();
+            label8 = new Label();
+            textBox7 = new TextBox();
+            textBox4 = new TextBox();
+            radioButton1 = new RadioButton();
+            radioButton2 = new RadioButton();
+            label9 = new Label();
+            textBox8 = new TextBox();
+            label11 = new Label();
+            textBox10 = new TextBox();
+            textBox5 = new TextBox();
+            groupBox1 = new GroupBox();
+            groupBox2 = new GroupBox();
+            btnBuscMot = new Button();
+            dateTimePicker2 = new DateTimePicker();
+            label12 = new Label();
+            textBox6 = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            groupBox1.SuspendLayout();
+            groupBox2.SuspendLayout();
+            SuspendLayout();
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(357, 5);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(148, 28);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Venta Uniforme";
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(312, 4);
+            label4.Name = "label4";
+            label4.Size = new Size(119, 21);
+            label4.TabIndex = 10;
+            label4.Text = "Venta Uniforme";
             // 
             // dataGridView1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(2, 220);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(767, 204);
-            this.dataGridView1.TabIndex = 11;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, Cliente, DNI, Prenda, Talla, T_Doc, Motorizado, Direccion, Horario });
+            dataGridView1.Location = new Point(5, 163);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.Size = new Size(671, 153);
+            dataGridView1.TabIndex = 11;
+            // 
+            // ID
+            // 
+            ID.HeaderText = "ID";
+            ID.Name = "ID";
+            ID.Width = 30;
+            // 
+            // Cliente
+            // 
+            Cliente.HeaderText = "Cliente";
+            Cliente.Name = "Cliente";
+            Cliente.Width = 110;
+            // 
+            // DNI
+            // 
+            DNI.HeaderText = "DNI";
+            DNI.Name = "DNI";
+            DNI.Width = 50;
+            // 
+            // Prenda
+            // 
+            Prenda.HeaderText = "Prenda";
+            Prenda.Name = "Prenda";
+            Prenda.Width = 110;
+            // 
+            // Talla
+            // 
+            Talla.HeaderText = "Talla";
+            Talla.Name = "Talla";
+            Talla.Width = 28;
+            // 
+            // T_Doc
+            // 
+            T_Doc.HeaderText = "Documento";
+            T_Doc.Name = "T_Doc";
+            T_Doc.Width = 60;
+            // 
+            // Motorizado
+            // 
+            Motorizado.HeaderText = "Motorizado";
+            Motorizado.Name = "Motorizado";
+            Motorizado.Width = 80;
+            // 
+            // Direccion
+            // 
+            Direccion.HeaderText = "Direccion";
+            Direccion.Name = "Direccion";
+            Direccion.Width = 95;
+            // 
+            // Horario
+            // 
+            Horario.HeaderText = "Horario";
+            Horario.Name = "Horario";
+            Horario.Width = 65;
             // 
             // btn_buscarcliente
             // 
-            this.btn_buscarcliente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_buscarcliente.Location = new System.Drawing.Point(373, 65);
-            this.btn_buscarcliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btn_buscarcliente.Name = "btn_buscarcliente";
-            this.btn_buscarcliente.Size = new System.Drawing.Size(75, 31);
-            this.btn_buscarcliente.TabIndex = 0;
-            this.btn_buscarcliente.Text = "Buscar";
-            this.btn_buscarcliente.UseVisualStyleBackColor = true;
-            this.btn_buscarcliente.Click += new System.EventHandler(this.btn_buscarcliente_Click);
+            btn_buscarcliente.Cursor = Cursors.Hand;
+            btn_buscarcliente.Location = new Point(328, 19);
+            btn_buscarcliente.Name = "btn_buscarcliente";
+            btn_buscarcliente.Size = new Size(66, 23);
+            btn_buscarcliente.TabIndex = 0;
+            btn_buscarcliente.Text = "Buscar";
+            btn_buscarcliente.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Cliente";
+            label1.AutoSize = true;
+            label1.Location = new Point(6, 24);
+            label1.Name = "label1";
+            label1.Size = new Size(44, 15);
+            label1.TabIndex = 1;
+            label1.Text = "Cliente";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 71);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 20);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Prenda";
+            label2.AutoSize = true;
+            label2.Location = new Point(6, 53);
+            label2.Name = "label2";
+            label2.Size = new Size(44, 15);
+            label2.TabIndex = 2;
+            label2.Text = "Prenda";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(261, 115);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(39, 20);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Talla";
+            label5.AutoSize = true;
+            label5.Location = new Point(224, 82);
+            label5.Name = "label5";
+            label5.Size = new Size(30, 15);
+            label5.TabIndex = 5;
+            label5.Text = "Talla";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(62, 31);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(193, 28);
-            this.textBox1.TabIndex = 6;
+            textBox1.Location = new Point(54, 23);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(169, 22);
+            textBox1.TabIndex = 6;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.CustomFormat = "dd-MM-yyyy";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(680, 5);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(89, 27);
-            this.dateTimePicker1.TabIndex = 12;
-            this.dateTimePicker1.UseWaitCursor = true;
+            dateTimePicker1.CustomFormat = "dd-MM-yyyy";
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.Location = new Point(595, 4);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(78, 23);
+            dateTimePicker1.TabIndex = 12;
+            dateTimePicker1.UseWaitCursor = true;
+            // 
+            // btn_Stock
+            // 
+            btn_Stock.Cursor = Cursors.Hand;
+            btn_Stock.Location = new Point(231, 48);
+            btn_Stock.Name = "btn_Stock";
+            btn_Stock.Size = new Size(117, 27);
+            btn_Stock.TabIndex = 13;
+            btn_Stock.Text = "Revisar catalogo";
+            btn_Stock.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Location = new System.Drawing.Point(691, 177);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 35);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Registrar venta";
-            this.button1.UseVisualStyleBackColor = true;
+            button1.Cursor = Cursors.Hand;
+            button1.Location = new Point(561, 133);
+            button1.Name = "button1";
+            button1.Size = new Size(109, 26);
+            button1.TabIndex = 14;
+            button1.Text = "Registrar venta";
+            button1.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(629, 13);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 20);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Fecha";
+            label6.AutoSize = true;
+            label6.Location = new Point(550, 10);
+            label6.Name = "label6";
+            label6.Size = new Size(38, 15);
+            label6.TabIndex = 15;
+            label6.Text = "Fecha";
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(261, 75);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 20);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "DNI";
+            label7.AutoSize = true;
+            label7.Location = new Point(230, 26);
+            label7.Name = "label7";
+            label7.Size = new Size(27, 15);
+            label7.TabIndex = 16;
+            label7.Text = "DNI";
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(227, 30);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(111, 19);
-            this.label8.TabIndex = 19;
-            this.label8.Text = "Tipo Documento";
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.Location = new Point(6, 84);
+            label8.Name = "label8";
+            label8.Size = new Size(93, 13);
+            label8.TabIndex = 19;
+            label8.Text = "Tipo Documento";
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(62, 67);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(193, 28);
-            this.textBox7.TabIndex = 20;
+            textBox7.Location = new Point(54, 50);
+            textBox7.Multiline = true;
+            textBox7.Name = "textBox7";
+            textBox7.Size = new Size(169, 22);
+            textBox7.TabIndex = 20;
+            // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(260, 78);
+            textBox4.Multiline = true;
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(36, 23);
+            textBox4.TabIndex = 22;
             // 
             // radioButton1
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(14, 9);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(91, 24);
-            this.radioButton1.TabIndex = 23;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "V. Tienda";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            radioButton1.AutoSize = true;
+            radioButton1.Checked = true;
+            radioButton1.Location = new Point(12, 7);
+            radioButton1.Name = "radioButton1";
+            radioButton1.Size = new Size(73, 19);
+            radioButton1.TabIndex = 23;
+            radioButton1.TabStop = true;
+            radioButton1.Text = "V. Tienda";
+            radioButton1.UseVisualStyleBackColor = true;
+            radioButton1.CheckedChanged += radioButton1_CheckedChanged;
             // 
             // radioButton2
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(104, 9);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(100, 24);
-            this.radioButton2.TabIndex = 24;
-            this.radioButton2.Text = "V. Delivery";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            radioButton2.AutoSize = true;
+            radioButton2.Location = new Point(91, 7);
+            radioButton2.Name = "radioButton2";
+            radioButton2.Size = new Size(80, 19);
+            radioButton2.TabIndex = 24;
+            radioButton2.Text = "V. Delivery";
+            radioButton2.UseVisualStyleBackColor = true;
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(1, 29);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(87, 20);
-            this.label9.TabIndex = 25;
-            this.label9.Text = "Motorizado";
+            label9.AutoSize = true;
+            label9.Location = new Point(1, 22);
+            label9.Name = "label9";
+            label9.Size = new Size(68, 15);
+            label9.TabIndex = 25;
+            label9.Text = "Motorizado";
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(94, 25);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox8.Multiline = true;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(106, 28);
-            this.textBox8.TabIndex = 28;
+            textBox8.Location = new Point(69, 19);
+            textBox8.Multiline = true;
+            textBox8.Name = "textBox8";
+            textBox8.Size = new Size(106, 22);
+            textBox8.TabIndex = 28;
             // 
             // label11
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(7, 65);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(75, 20);
-            this.label11.TabIndex = 30;
-            this.label11.Text = "Ubicacion";
+            label11.AutoSize = true;
+            label11.Location = new Point(6, 49);
+            label11.Name = "label11";
+            label11.Size = new Size(60, 15);
+            label11.TabIndex = 30;
+            label11.Text = "Ubicacion";
             // 
             // textBox10
             // 
-            this.textBox10.Location = new System.Drawing.Point(297, 71);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox10.Multiline = true;
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(70, 28);
-            this.textBox10.TabIndex = 32;
+            textBox10.Location = new Point(258, 19);
+            textBox10.Multiline = true;
+            textBox10.Name = "textBox10";
+            textBox10.Size = new Size(62, 22);
+            textBox10.TabIndex = 32;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(340, 25);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(108, 28);
-            this.textBox5.TabIndex = 33;
+            textBox5.Location = new Point(105, 78);
+            textBox5.Multiline = true;
+            textBox5.Name = "textBox5";
+            textBox5.Size = new Size(95, 22);
+            textBox5.TabIndex = 33;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.textBox10);
-            this.groupBox1.Controls.Add(this.textBox7);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.btn_buscarcliente);
-            this.groupBox1.Location = new System.Drawing.Point(9, 45);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(455, 167);
-            this.groupBox1.TabIndex = 34;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Informacion venta";
+            groupBox1.Controls.Add(textBox5);
+            groupBox1.Controls.Add(textBox10);
+            groupBox1.Controls.Add(textBox4);
+            groupBox1.Controls.Add(textBox7);
+            groupBox1.Controls.Add(label8);
+            groupBox1.Controls.Add(label7);
+            groupBox1.Controls.Add(btn_Stock);
+            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(label5);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(label1);
+            groupBox1.Controls.Add(btn_buscarcliente);
+            groupBox1.Location = new Point(8, 34);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(398, 115);
+            groupBox1.TabIndex = 34;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Informacion venta";
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnBuscMot);
-            this.groupBox2.Controls.Add(this.dateTimePicker2);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.textBox6);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.textBox8);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Location = new System.Drawing.Point(530, 43);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(285, 131);
-            this.groupBox2.TabIndex = 35;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Informacion de envio";
+            groupBox2.Controls.Add(btnBuscMot);
+            groupBox2.Controls.Add(dateTimePicker2);
+            groupBox2.Controls.Add(label12);
+            groupBox2.Controls.Add(textBox6);
+            groupBox2.Controls.Add(label11);
+            groupBox2.Controls.Add(textBox8);
+            groupBox2.Controls.Add(label9);
+            groupBox2.Location = new Point(420, 32);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(249, 98);
+            groupBox2.TabIndex = 35;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Informacion de envio";
             // 
             // btnBuscMot
             // 
-            this.btnBuscMot.Location = new System.Drawing.Point(207, 25);
-            this.btnBuscMot.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnBuscMot.Name = "btnBuscMot";
-            this.btnBuscMot.Size = new System.Drawing.Size(71, 31);
-            this.btnBuscMot.TabIndex = 37;
-            this.btnBuscMot.Text = "Buscar";
-            this.btnBuscMot.UseVisualStyleBackColor = true;
+            btnBuscMot.Location = new Point(181, 19);
+            btnBuscMot.Name = "btnBuscMot";
+            btnBuscMot.Size = new Size(62, 23);
+            btnBuscMot.TabIndex = 37;
+            btnBuscMot.Text = "Buscar";
+            btnBuscMot.UseVisualStyleBackColor = true;
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.CustomFormat = "dd-MM-yyyy";
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(79, 93);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(100, 27);
-            this.dateTimePicker2.TabIndex = 36;
-            this.dateTimePicker2.UseWaitCursor = true;
+            dateTimePicker2.CustomFormat = "dd-MM-yyyy";
+            dateTimePicker2.Format = DateTimePickerFormat.Custom;
+            dateTimePicker2.Location = new Point(69, 70);
+            dateTimePicker2.Name = "dateTimePicker2";
+            dateTimePicker2.Size = new Size(88, 23);
+            dateTimePicker2.TabIndex = 36;
+            dateTimePicker2.UseWaitCursor = true;
             // 
             // label12
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(14, 101);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(60, 20);
-            this.label12.TabIndex = 35;
-            this.label12.Text = "Horario";
+            label12.AutoSize = true;
+            label12.Location = new Point(12, 76);
+            label12.Name = "label12";
+            label12.Size = new Size(47, 15);
+            label12.TabIndex = 35;
+            label12.Text = "Horario";
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(79, 61);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(189, 28);
-            this.textBox6.TabIndex = 32;
-            this.textBox6.Text = "       ";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(297, 111);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(67, 28);
-            this.comboBox1.TabIndex = 34;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 103);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 20);
-            this.label3.TabIndex = 35;
-            this.label3.Text = "Cantidad";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(82, 103);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(97, 24);
-            this.textBox2.TabIndex = 36;
+            textBox6.Location = new Point(69, 46);
+            textBox6.Multiline = true;
+            textBox6.Name = "textBox6";
+            textBox6.Size = new Size(166, 22);
+            textBox6.TabIndex = 32;
+            textBox6.Text = "       ";
             // 
             // Ventauniforme
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(844, 432);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.label4);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "Ventauniforme";
-            this.Load += new System.EventHandler(this.Ventauniforme_Load_1);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ControlLight;
+            ClientSize = new Size(681, 324);
+            Controls.Add(groupBox2);
+            Controls.Add(groupBox1);
+            Controls.Add(radioButton2);
+            Controls.Add(radioButton1);
+            Controls.Add(label6);
+            Controls.Add(button1);
+            Controls.Add(dateTimePicker1);
+            Controls.Add(dataGridView1);
+            Controls.Add(label4);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "Ventauniforme";
+            Load += Ventauniforme_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -406,11 +438,13 @@
         private Label label5;
         private TextBox textBox1;
         private DateTimePicker dateTimePicker1;
+        private Button btn_Stock;
         private Button button1;
         private Label label6;
         private Label label7;
         private Label label8;
         private TextBox textBox7;
+        private TextBox textBox4;
         private RadioButton radioButton1;
         private RadioButton radioButton2;
         private Label label9;
@@ -423,13 +457,15 @@
         private DateTimePicker dateTimePicker2;
         private Label label12;
         private TextBox textBox6;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn Cliente;
+        private DataGridViewTextBoxColumn DNI;
+        private DataGridViewTextBoxColumn Prenda;
+        private DataGridViewTextBoxColumn Talla;
+        private DataGridViewTextBoxColumn T_Doc;
+        private DataGridViewTextBoxColumn Motorizado;
+        private DataGridViewTextBoxColumn Direccion;
+        private DataGridViewTextBoxColumn Horario;
         private Button btnBuscMot;
-        private ComboBox comboBox1;
-        private Label label3;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private Label label10;
-        private ComboBox comboBox2;
-        private Label label13;
     }
 }
