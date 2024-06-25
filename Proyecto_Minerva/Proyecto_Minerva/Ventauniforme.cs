@@ -47,12 +47,5 @@ namespace Proyecto_Minerva
             dateTimePicker2.Enabled = false;
             btnBuscMot.Enabled = false;
         }
-
-        private void btn_buscarcliente_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
     }
 }

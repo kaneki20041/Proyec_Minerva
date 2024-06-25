@@ -1,8 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "vfcL7UC5lHr9E7EYQUUSDwO14sFq1eufT/kW5wYElkO39tnpsrP8Wd4QYzyO2+niyFwngCdzH6dbfBCrMGTMxQ==",
+  "dgSpecHash": "ghl8wYnugk89LD5wO99U7bt2VzGFJ/S5nHlQRGs8A+RKWSkYJv71iSFelCgvpkK/R46CCESmMPD7N/3TrTzeLw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Luis Jhon\\source\\repos\\kaneki20041\\Proyec_Minerva\\Proyecto_Minerva\\Proyecto_Minerva\\CapaPresentacion.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Luis Jhon\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "C:\\Users\\Luis Jhon\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
+    "C:\\Users\\Luis Jhon\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
+    "C:\\Users\\Luis Jhon\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\Luis Jhon\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\Luis Jhon\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\Luis Jhon\\.nuget\\packages\\system.data.sqlclient\\4.8.6\\system.data.sqlclient.4.8.6.nupkg.sha512",
+    "C:\\Users\\Luis Jhon\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
+    "C:\\Users\\Luis Jhon\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }

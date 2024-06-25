@@ -28,399 +28,383 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Button btn_venderu;
-            System.Windows.Forms.Button btn_Cliente;
-            System.Windows.Forms.Button btn_IngMaterial;
-            System.Windows.Forms.Button btn_Cambiou;
-            System.Windows.Forms.Button btnSalidaMaterial;
-            System.Windows.Forms.Button btn_Matyprod;
-            System.Windows.Forms.Button button2;
-            System.Windows.Forms.Button btnMotorizado;
+            Button btn_venderu;
+            Button btn_Cliente;
+            Button btn_IngMaterial;
+            Button btn_Cambiou;
+            Button btnSalidaMaterial;
+            Button btn_Matyprod;
+            Button button2;
+            Button btnMotorizado;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.btnMinimizar = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.minervanombre = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panelconteiner = new System.Windows.Forms.Panel();
-            btn_venderu = new System.Windows.Forms.Button();
-            btn_Cliente = new System.Windows.Forms.Button();
-            btn_IngMaterial = new System.Windows.Forms.Button();
-            btn_Cambiou = new System.Windows.Forms.Button();
-            btnSalidaMaterial = new System.Windows.Forms.Button();
-            btn_Matyprod = new System.Windows.Forms.Button();
-            button2 = new System.Windows.Forms.Button();
-            btnMotorizado = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel2.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.SuspendLayout();
+            panel1 = new Panel();
+            pictureBox5 = new PictureBox();
+            btnMinimizar = new PictureBox();
+            pictureBox4 = new PictureBox();
+            minervanombre = new Label();
+            pictureBox2 = new PictureBox();
+            pictureBox1 = new PictureBox();
+            panel2 = new Panel();
+            panel11 = new Panel();
+            panel10 = new Panel();
+            panel9 = new Panel();
+            panel7 = new Panel();
+            panel6 = new Panel();
+            panel5 = new Panel();
+            panel4 = new Panel();
+            panel8 = new Panel();
+            panel3 = new Panel();
+            panelconteiner = new Panel();
+            btn_venderu = new Button();
+            btn_Cliente = new Button();
+            btn_IngMaterial = new Button();
+            btn_Cambiou = new Button();
+            btnSalidaMaterial = new Button();
+            btn_Matyprod = new Button();
+            button2 = new Button();
+            btnMotorizado = new Button();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnMinimizar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel2.SuspendLayout();
+            panel4.SuspendLayout();
+            SuspendLayout();
             // 
             // btn_venderu
             // 
-            btn_venderu.Cursor = System.Windows.Forms.Cursors.Hand;
+            btn_venderu.Cursor = Cursors.Hand;
             btn_venderu.FlatAppearance.BorderSize = 0;
-            btn_venderu.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
-            btn_venderu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btn_venderu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            btn_venderu.Location = new System.Drawing.Point(0, 15);
-            btn_venderu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            btn_venderu.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
+            btn_venderu.FlatStyle = FlatStyle.Flat;
+            btn_venderu.ImageAlign = ContentAlignment.MiddleLeft;
+            btn_venderu.Location = new Point(0, 11);
             btn_venderu.Name = "btn_venderu";
-            btn_venderu.Size = new System.Drawing.Size(171, 49);
+            btn_venderu.Size = new Size(150, 37);
             btn_venderu.TabIndex = 0;
             btn_venderu.Text = "Vender uniforme";
             btn_venderu.UseVisualStyleBackColor = true;
+            btn_venderu.Click += btn_venderu_Click;
             // 
             // btn_Cliente
             // 
-            btn_Cliente.Cursor = System.Windows.Forms.Cursors.Hand;
+            btn_Cliente.Cursor = Cursors.Hand;
             btn_Cliente.FlatAppearance.BorderSize = 0;
-            btn_Cliente.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
-            btn_Cliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btn_Cliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            btn_Cliente.Location = new System.Drawing.Point(0, 72);
-            btn_Cliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            btn_Cliente.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
+            btn_Cliente.FlatStyle = FlatStyle.Flat;
+            btn_Cliente.ImageAlign = ContentAlignment.MiddleLeft;
+            btn_Cliente.Location = new Point(0, 54);
             btn_Cliente.Name = "btn_Cliente";
-            btn_Cliente.Size = new System.Drawing.Size(190, 49);
+            btn_Cliente.Size = new Size(166, 37);
             btn_Cliente.TabIndex = 3;
             btn_Cliente.Text = "Registrar Cliente";
             btn_Cliente.UseVisualStyleBackColor = true;
+            btn_Cliente.Click += btn_Cliente_Click;
             // 
             // btn_IngMaterial
             // 
-            btn_IngMaterial.Cursor = System.Windows.Forms.Cursors.Hand;
+            btn_IngMaterial.Cursor = Cursors.Hand;
             btn_IngMaterial.FlatAppearance.BorderSize = 0;
-            btn_IngMaterial.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
-            btn_IngMaterial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btn_IngMaterial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            btn_IngMaterial.Location = new System.Drawing.Point(0, 247);
-            btn_IngMaterial.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            btn_IngMaterial.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
+            btn_IngMaterial.FlatStyle = FlatStyle.Flat;
+            btn_IngMaterial.ImageAlign = ContentAlignment.MiddleLeft;
+            btn_IngMaterial.Location = new Point(0, 185);
             btn_IngMaterial.Name = "btn_IngMaterial";
-            btn_IngMaterial.Size = new System.Drawing.Size(190, 49);
+            btn_IngMaterial.Size = new Size(166, 37);
             btn_IngMaterial.TabIndex = 4;
             btn_IngMaterial.Text = "Ingreso Materiales";
             btn_IngMaterial.UseVisualStyleBackColor = true;
+            btn_IngMaterial.Click += btn_IngMaterial_Click;
             // 
             // btn_Cambiou
             // 
-            btn_Cambiou.Cursor = System.Windows.Forms.Cursors.Hand;
+            btn_Cambiou.Cursor = Cursors.Hand;
             btn_Cambiou.FlatAppearance.BorderSize = 0;
-            btn_Cambiou.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
-            btn_Cambiou.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btn_Cambiou.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            btn_Cambiou.Location = new System.Drawing.Point(0, 361);
-            btn_Cambiou.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            btn_Cambiou.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
+            btn_Cambiou.FlatStyle = FlatStyle.Flat;
+            btn_Cambiou.ImageAlign = ContentAlignment.MiddleLeft;
+            btn_Cambiou.Location = new Point(0, 271);
             btn_Cambiou.Name = "btn_Cambiou";
-            btn_Cambiou.Size = new System.Drawing.Size(190, 49);
+            btn_Cambiou.Size = new Size(166, 37);
             btn_Cambiou.TabIndex = 5;
             btn_Cambiou.Text = "Cambio uniforme";
             btn_Cambiou.UseVisualStyleBackColor = true;
-            btn_Cambiou.Click += new System.EventHandler(this.btn_Cambiou_Click_1);
+            btn_Cambiou.Click += btn_Cambiou_Click;
             // 
             // btnSalidaMaterial
             // 
-            btnSalidaMaterial.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnSalidaMaterial.Cursor = Cursors.Hand;
             btnSalidaMaterial.FlatAppearance.BorderSize = 0;
-            btnSalidaMaterial.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
-            btnSalidaMaterial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnSalidaMaterial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            btnSalidaMaterial.Location = new System.Drawing.Point(0, 304);
-            btnSalidaMaterial.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            btnSalidaMaterial.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
+            btnSalidaMaterial.FlatStyle = FlatStyle.Flat;
+            btnSalidaMaterial.ImageAlign = ContentAlignment.MiddleLeft;
+            btnSalidaMaterial.Location = new Point(0, 228);
             btnSalidaMaterial.Name = "btnSalidaMaterial";
-            btnSalidaMaterial.Size = new System.Drawing.Size(190, 49);
+            btnSalidaMaterial.Size = new Size(166, 37);
             btnSalidaMaterial.TabIndex = 6;
             btnSalidaMaterial.Text = "Salida Materiales";
             btnSalidaMaterial.UseVisualStyleBackColor = true;
+            btnSalidaMaterial.Click += btnSalidaMaterial_Click;
             // 
             // btn_Matyprod
             // 
-            btn_Matyprod.Cursor = System.Windows.Forms.Cursors.Hand;
+            btn_Matyprod.Cursor = Cursors.Hand;
             btn_Matyprod.FlatAppearance.BorderSize = 0;
-            btn_Matyprod.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
-            btn_Matyprod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btn_Matyprod.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            btn_Matyprod.Location = new System.Drawing.Point(0, 129);
-            btn_Matyprod.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            btn_Matyprod.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
+            btn_Matyprod.FlatStyle = FlatStyle.Flat;
+            btn_Matyprod.ImageAlign = ContentAlignment.MiddleLeft;
+            btn_Matyprod.Location = new Point(0, 97);
             btn_Matyprod.Name = "btn_Matyprod";
-            btn_Matyprod.Size = new System.Drawing.Size(190, 49);
+            btn_Matyprod.Size = new Size(166, 37);
             btn_Matyprod.TabIndex = 7;
             btn_Matyprod.Text = "Prendas y materiales";
             btn_Matyprod.UseVisualStyleBackColor = true;
+            btn_Matyprod.Click += btn_Matyprod_Click;
             // 
             // button2
             // 
-            button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            button2.Cursor = Cursors.Hand;
             button2.FlatAppearance.BorderSize = 0;
-            button2.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
-            button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            button2.Location = new System.Drawing.Point(0, 187);
-            button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            button2.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.ImageAlign = ContentAlignment.MiddleLeft;
+            button2.Location = new Point(0, 140);
             button2.Name = "button2";
-            button2.Size = new System.Drawing.Size(190, 49);
+            button2.Size = new Size(166, 37);
             button2.TabIndex = 8;
             button2.Text = "Proveedores";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // btnMotorizado
             // 
-            btnMotorizado.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnMotorizado.Cursor = Cursors.Hand;
             btnMotorizado.FlatAppearance.BorderSize = 0;
-            btnMotorizado.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
-            btnMotorizado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnMotorizado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            btnMotorizado.Location = new System.Drawing.Point(0, 419);
-            btnMotorizado.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            btnMotorizado.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
+            btnMotorizado.FlatStyle = FlatStyle.Flat;
+            btnMotorizado.ImageAlign = ContentAlignment.MiddleLeft;
+            btnMotorizado.Location = new Point(0, 314);
             btnMotorizado.Name = "btnMotorizado";
-            btnMotorizado.Size = new System.Drawing.Size(190, 49);
+            btnMotorizado.Size = new Size(166, 37);
             btnMotorizado.TabIndex = 9;
             btnMotorizado.Text = "Descuentos";
             btnMotorizado.UseVisualStyleBackColor = true;
+            btnMotorizado.Click += btnMotorizado_Click;
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
-            this.panel1.Controls.Add(this.pictureBox5);
-            this.panel1.Controls.Add(this.btnMinimizar);
-            this.panel1.Controls.Add(this.pictureBox4);
-            this.panel1.Controls.Add(this.minervanombre);
-            this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1143, 99);
-            this.panel1.TabIndex = 0;
+            panel1.BackColor = SystemColors.Highlight;
+            panel1.Controls.Add(pictureBox5);
+            panel1.Controls.Add(btnMinimizar);
+            panel1.Controls.Add(pictureBox4);
+            panel1.Controls.Add(minervanombre);
+            panel1.Controls.Add(pictureBox2);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1000, 74);
+            panel1.TabIndex = 0;
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox5.Image = global::CapaPresentacion.Properties.Resources.maximizar_tamano;
-            this.pictureBox5.Location = new System.Drawing.Point(1055, 17);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(37, 43);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 4;
-            this.pictureBox5.TabStop = false;
-            this.pictureBox5.Visible = false;
+            pictureBox5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pictureBox5.Image = CapaPresentacion.Properties.Resources.maximizar_tamano;
+            pictureBox5.Location = new Point(923, 13);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(32, 32);
+            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox5.TabIndex = 4;
+            pictureBox5.TabStop = false;
+            pictureBox5.Visible = false;
+            pictureBox5.Click += pictureBox5_Click;
             // 
             // btnMinimizar
             // 
-            this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
-            this.btnMinimizar.Location = new System.Drawing.Point(1018, 17);
-            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(30, 43);
-            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnMinimizar.TabIndex = 3;
-            this.btnMinimizar.TabStop = false;
+            btnMinimizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnMinimizar.Image = (Image)resources.GetObject("btnMinimizar.Image");
+            btnMinimizar.Location = new Point(891, 13);
+            btnMinimizar.Name = "btnMinimizar";
+            btnMinimizar.Size = new Size(26, 32);
+            btnMinimizar.SizeMode = PictureBoxSizeMode.Zoom;
+            btnMinimizar.TabIndex = 3;
+            btnMinimizar.TabStop = false;
+            btnMinimizar.Click += btnMinimizar_Click;
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox4.Image = global::CapaPresentacion.Properties.Resources.maximizar;
-            this.pictureBox4.Location = new System.Drawing.Point(1062, 20);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(29, 36);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 0;
-            this.pictureBox4.TabStop = false;
+            pictureBox4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pictureBox4.Image = CapaPresentacion.Properties.Resources.maximizar;
+            pictureBox4.Location = new Point(929, 15);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(25, 27);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 0;
+            pictureBox4.TabStop = false;
+            pictureBox4.Click += pictureBox4_Click;
             // 
             // minervanombre
             // 
-            this.minervanombre.AutoSize = true;
-            this.minervanombre.Font = new System.Drawing.Font("Sitka Small", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.minervanombre.Location = new System.Drawing.Point(360, 32);
-            this.minervanombre.Name = "minervanombre";
-            this.minervanombre.Size = new System.Drawing.Size(371, 36);
-            this.minervanombre.TabIndex = 2;
-            this.minervanombre.Text = "EMPRESA TEXTIL MINERVA";
+            minervanombre.AutoSize = true;
+            minervanombre.Font = new Font("Sitka Small", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            minervanombre.Location = new Point(315, 24);
+            minervanombre.Name = "minervanombre";
+            minervanombre.Size = new Size(295, 29);
+            minervanombre.TabIndex = 2;
+            minervanombre.Text = "EMPRESA TEXTIL MINERVA";
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.Image = global::CapaPresentacion.Properties.Resources._2618352;
-            this.pictureBox2.Location = new System.Drawing.Point(1097, 17);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(37, 41);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
+            pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pictureBox2.Image = CapaPresentacion.Properties.Resources._2618352;
+            pictureBox2.Location = new Point(960, 13);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(32, 31);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 1;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.minerva_logo;
-            this.pictureBox1.Location = new System.Drawing.Point(14, 12);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(176, 79);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.Image = CapaPresentacion.Properties.Resources.minerva_logo;
+            pictureBox1.Location = new Point(12, 9);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(154, 59);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.Gold;
-            this.panel2.Controls.Add(this.panel11);
-            this.panel2.Controls.Add(btnMotorizado);
-            this.panel2.Controls.Add(this.panel10);
-            this.panel2.Controls.Add(this.panel9);
-            this.panel2.Controls.Add(button2);
-            this.panel2.Controls.Add(btn_Matyprod);
-            this.panel2.Controls.Add(this.panel7);
-            this.panel2.Controls.Add(this.panel6);
-            this.panel2.Controls.Add(btn_Cambiou);
-            this.panel2.Controls.Add(btnSalidaMaterial);
-            this.panel2.Controls.Add(this.panel5);
-            this.panel2.Controls.Add(btn_IngMaterial);
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Controls.Add(btn_Cliente);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(btn_venderu);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 99);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(178, 481);
-            this.panel2.TabIndex = 1;
+            panel2.BackColor = Color.Gold;
+            panel2.Controls.Add(panel11);
+            panel2.Controls.Add(btnMotorizado);
+            panel2.Controls.Add(panel10);
+            panel2.Controls.Add(panel9);
+            panel2.Controls.Add(button2);
+            panel2.Controls.Add(btn_Matyprod);
+            panel2.Controls.Add(panel7);
+            panel2.Controls.Add(panel6);
+            panel2.Controls.Add(btn_Cambiou);
+            panel2.Controls.Add(btnSalidaMaterial);
+            panel2.Controls.Add(panel5);
+            panel2.Controls.Add(btn_IngMaterial);
+            panel2.Controls.Add(panel4);
+            panel2.Controls.Add(btn_Cliente);
+            panel2.Controls.Add(panel3);
+            panel2.Controls.Add(btn_venderu);
+            panel2.Dock = DockStyle.Left;
+            panel2.Location = new Point(0, 74);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(156, 361);
+            panel2.TabIndex = 1;
             // 
             // panel11
             // 
-            this.panel11.BackColor = System.Drawing.SystemColors.Highlight;
-            this.panel11.Location = new System.Drawing.Point(0, 419);
-            this.panel11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(8, 49);
-            this.panel11.TabIndex = 6;
+            panel11.BackColor = SystemColors.Highlight;
+            panel11.Location = new Point(0, 314);
+            panel11.Name = "panel11";
+            panel11.Size = new Size(7, 37);
+            panel11.TabIndex = 6;
             // 
             // panel10
             // 
-            this.panel10.BackColor = System.Drawing.SystemColors.Highlight;
-            this.panel10.Location = new System.Drawing.Point(0, 187);
-            this.panel10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(8, 49);
-            this.panel10.TabIndex = 4;
+            panel10.BackColor = SystemColors.Highlight;
+            panel10.Location = new Point(0, 140);
+            panel10.Name = "panel10";
+            panel10.Size = new Size(7, 37);
+            panel10.TabIndex = 4;
             // 
             // panel9
             // 
-            this.panel9.BackColor = System.Drawing.SystemColors.Highlight;
-            this.panel9.Location = new System.Drawing.Point(0, 129);
-            this.panel9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(8, 49);
-            this.panel9.TabIndex = 4;
+            panel9.BackColor = SystemColors.Highlight;
+            panel9.Location = new Point(0, 97);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(7, 37);
+            panel9.TabIndex = 4;
             // 
             // panel7
             // 
-            this.panel7.BackColor = System.Drawing.SystemColors.Highlight;
-            this.panel7.Location = new System.Drawing.Point(0, 361);
-            this.panel7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(8, 49);
-            this.panel7.TabIndex = 5;
+            panel7.BackColor = SystemColors.Highlight;
+            panel7.Location = new Point(0, 271);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(7, 37);
+            panel7.TabIndex = 5;
             // 
             // panel6
             // 
-            this.panel6.BackColor = System.Drawing.SystemColors.Highlight;
-            this.panel6.Location = new System.Drawing.Point(0, 304);
-            this.panel6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(8, 49);
-            this.panel6.TabIndex = 4;
+            panel6.BackColor = SystemColors.Highlight;
+            panel6.Location = new Point(0, 228);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(7, 37);
+            panel6.TabIndex = 4;
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.SystemColors.Highlight;
-            this.panel5.Location = new System.Drawing.Point(0, 247);
-            this.panel5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(8, 49);
-            this.panel5.TabIndex = 3;
+            panel5.BackColor = SystemColors.Highlight;
+            panel5.Location = new Point(0, 185);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(7, 37);
+            panel5.TabIndex = 3;
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.SystemColors.Highlight;
-            this.panel4.Controls.Add(this.panel8);
-            this.panel4.Location = new System.Drawing.Point(0, 72);
-            this.panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(8, 49);
-            this.panel4.TabIndex = 2;
+            panel4.BackColor = SystemColors.Highlight;
+            panel4.Controls.Add(panel8);
+            panel4.Location = new Point(0, 54);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(7, 37);
+            panel4.TabIndex = 2;
             // 
             // panel8
             // 
-            this.panel8.BackColor = System.Drawing.SystemColors.Highlight;
-            this.panel8.Location = new System.Drawing.Point(0, 0);
-            this.panel8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(8, 49);
-            this.panel8.TabIndex = 3;
+            panel8.BackColor = SystemColors.Highlight;
+            panel8.Location = new Point(0, 0);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(7, 37);
+            panel8.TabIndex = 3;
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.SystemColors.Highlight;
-            this.panel3.Location = new System.Drawing.Point(0, 15);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(8, 49);
-            this.panel3.TabIndex = 1;
+            panel3.BackColor = SystemColors.Highlight;
+            panel3.Location = new Point(0, 11);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(7, 37);
+            panel3.TabIndex = 1;
             // 
             // panelconteiner
             // 
-            this.panelconteiner.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panelconteiner.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelconteiner.Location = new System.Drawing.Point(178, 99);
-            this.panelconteiner.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panelconteiner.Name = "panelconteiner";
-            this.panelconteiner.Size = new System.Drawing.Size(965, 481);
-            this.panelconteiner.TabIndex = 2;
+            panelconteiner.BackColor = SystemColors.ControlLight;
+            panelconteiner.Dock = DockStyle.Fill;
+            panelconteiner.Location = new Point(156, 74);
+            panelconteiner.Name = "panelconteiner";
+            panelconteiner.Size = new Size(844, 361);
+            panelconteiner.TabIndex = 2;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1143, 580);
-            this.Controls.Add(this.panelconteiner);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1000, 435);
+            Controls.Add(panelconteiner);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "Form1";
+            Text = "Form1";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnMinimizar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel2.ResumeLayout(false);
+            panel4.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion
