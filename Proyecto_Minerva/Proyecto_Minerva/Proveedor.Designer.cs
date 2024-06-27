@@ -35,7 +35,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtBuscarID = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -85,7 +85,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(189, 36);
+            this.label3.Location = new System.Drawing.Point(212, 112);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 20);
             this.label3.TabIndex = 2;
@@ -126,13 +126,13 @@
             this.textBox1.Size = new System.Drawing.Size(164, 27);
             this.textBox1.TabIndex = 6;
             // 
-            // textBox2
+            // txtBuscarID
             // 
-            this.textBox2.Location = new System.Drawing.Point(104, 29);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(77, 27);
-            this.textBox2.TabIndex = 7;
+            this.txtBuscarID.Location = new System.Drawing.Point(104, 29);
+            this.txtBuscarID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtBuscarID.Name = "txtBuscarID";
+            this.txtBuscarID.Size = new System.Drawing.Size(77, 27);
+            this.txtBuscarID.TabIndex = 7;
             // 
             // textBox4
             // 
@@ -172,17 +172,18 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(647, 95);
+            this.btnAgregar.Location = new System.Drawing.Point(700, 97);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(86, 31);
             this.btnAgregar.TabIndex = 13;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(647, 133);
+            this.btnModificar.Location = new System.Drawing.Point(700, 135);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(86, 31);
@@ -192,7 +193,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(647, 172);
+            this.button4.Location = new System.Drawing.Point(700, 174);
             this.button4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(86, 31);
@@ -219,7 +220,7 @@
             this.grupBoxDatos.Controls.Add(this.label9);
             this.grupBoxDatos.Controls.Add(this.comboBox1);
             this.grupBoxDatos.Controls.Add(this.btnBuscProov);
-            this.grupBoxDatos.Controls.Add(this.textBox2);
+            this.grupBoxDatos.Controls.Add(this.txtBuscarID);
             this.grupBoxDatos.Controls.Add(this.textBox1);
             this.grupBoxDatos.Controls.Add(this.label4);
             this.grupBoxDatos.Controls.Add(this.label3);
@@ -228,7 +229,7 @@
             this.grupBoxDatos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.grupBoxDatos.Name = "grupBoxDatos";
             this.grupBoxDatos.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.grupBoxDatos.Size = new System.Drawing.Size(334, 193);
+            this.grupBoxDatos.Size = new System.Drawing.Size(388, 193);
             this.grupBoxDatos.TabIndex = 17;
             this.grupBoxDatos.TabStop = false;
             this.grupBoxDatos.Text = "Info personal";
@@ -243,7 +244,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(226, 27);
+            this.textBox3.Location = new System.Drawing.Point(269, 109);
             this.textBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(99, 27);
@@ -278,13 +279,14 @@
             // 
             // btnBuscProov
             // 
-            this.btnBuscProov.Location = new System.Drawing.Point(207, 105);
+            this.btnBuscProov.Location = new System.Drawing.Point(197, 27);
             this.btnBuscProov.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnBuscProov.Name = "btnBuscProov";
             this.btnBuscProov.Size = new System.Drawing.Size(80, 31);
             this.btnBuscProov.TabIndex = 9;
             this.btnBuscProov.Text = "Buscar";
             this.btnBuscProov.UseVisualStyleBackColor = true;
+            this.btnBuscProov.Click += new System.EventHandler(this.btnBuscProov_Click);
             // 
             // grupBoxDatos2
             // 
@@ -296,7 +298,7 @@
             this.grupBoxDatos2.Controls.Add(this.textBox4);
             this.grupBoxDatos2.Controls.Add(this.label6);
             this.grupBoxDatos2.Controls.Add(this.label5);
-            this.grupBoxDatos2.Location = new System.Drawing.Point(365, 61);
+            this.grupBoxDatos2.Location = new System.Drawing.Point(418, 63);
             this.grupBoxDatos2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.grupBoxDatos2.Name = "grupBoxDatos2";
             this.grupBoxDatos2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -354,7 +356,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(378, 249);
+            this.checkBox1.Location = new System.Drawing.Point(431, 251);
             this.checkBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(148, 24);
@@ -401,7 +403,7 @@
         private Label label5;
         private Label label6;
         private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox txtBuscarID;
         private TextBox textBox4;
         private TextBox textBox5;
         private Label label7;

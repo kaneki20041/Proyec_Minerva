@@ -32,10 +32,15 @@ namespace CapaLogica
         }
 
         ///inserta
-       // public void InsertaCliente(entProveedor Cli)
-       // {
-       //     datProveedor.Instancia.InsertarProveedor(Cli);
-       // }
+         public void InsertaProveedor(entProveedor prov)
+         {
+             datProveedor.Instancia.InsertaProveedor(prov);
+         }
+
+        public entProveedor BuscarProveedorPorID(int id)
+        {
+            return datProveedor.Instancia.BuscarProveedorPorID(id);
+        }
 
 
         #endregion metodos
