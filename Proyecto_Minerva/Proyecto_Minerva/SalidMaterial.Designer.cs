@@ -42,12 +42,6 @@
             dateTimePicker1 = new DateTimePicker();
             dateTimePicker2 = new DateTimePicker();
             dataGridView1 = new DataGridView();
-            ID = new DataGridViewTextBoxColumn();
-            Material = new DataGridViewTextBoxColumn();
-            Descripcion = new DataGridViewTextBoxColumn();
-            F_sol = new DataGridViewTextBoxColumn();
-            Motivo = new DataGridViewTextBoxColumn();
-            Cant_sol = new DataGridViewTextBoxColumn();
             groupBox1 = new GroupBox();
             button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -170,47 +164,11 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, Material, Descripcion, F_sol, Motivo, Cant_sol });
             dataGridView1.Location = new Point(245, 51);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(415, 240);
             dataGridView1.TabIndex = 17;
-            // 
-            // ID
-            // 
-            ID.HeaderText = "ID";
-            ID.Name = "ID";
-            ID.Width = 25;
-            // 
-            // Material
-            // 
-            Material.HeaderText = "Material";
-            Material.Name = "Material";
-            // 
-            // Descripcion
-            // 
-            Descripcion.HeaderText = "Descripcion";
-            Descripcion.Name = "Descripcion";
-            Descripcion.Width = 80;
-            // 
-            // F_sol
-            // 
-            F_sol.HeaderText = "F.Solicitud";
-            F_sol.Name = "F_sol";
-            F_sol.Width = 60;
-            // 
-            // Motivo
-            // 
-            Motivo.HeaderText = "Motivo";
-            Motivo.Name = "Motivo";
-            Motivo.Width = 60;
-            // 
-            // Cant_sol
-            // 
-            Cant_sol.HeaderText = "C. Solicita";
-            Cant_sol.Name = "Cant_sol";
-            Cant_sol.Width = 47;
             // 
             // groupBox1
             // 
@@ -277,12 +235,6 @@
         private DateTimePicker dateTimePicker1;
         private DateTimePicker dateTimePicker2;
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn ID;
-        private DataGridViewTextBoxColumn Material;
-        private DataGridViewTextBoxColumn Descripcion;
-        private DataGridViewTextBoxColumn F_sol;
-        private DataGridViewTextBoxColumn Motivo;
-        private DataGridViewTextBoxColumn Cant_sol;
         private GroupBox groupBox1;
         private Button button1;
     }

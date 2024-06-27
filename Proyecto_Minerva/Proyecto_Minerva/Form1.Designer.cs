@@ -31,7 +31,6 @@
             Button btn_venderu;
             Button btn_Cliente;
             Button btn_IngMaterial;
-            Button btn_Cambiou;
             Button btnSalidaMaterial;
             Button btn_Matyprod;
             Button button2;
@@ -48,7 +47,6 @@
             panel11 = new Panel();
             panel10 = new Panel();
             panel9 = new Panel();
-            panel7 = new Panel();
             panel6 = new Panel();
             panel5 = new Panel();
             panel4 = new Panel();
@@ -58,7 +56,6 @@
             btn_venderu = new Button();
             btn_Cliente = new Button();
             btn_IngMaterial = new Button();
-            btn_Cambiou = new Button();
             btnSalidaMaterial = new Button();
             btn_Matyprod = new Button();
             button2 = new Button();
@@ -84,7 +81,7 @@
             btn_venderu.Name = "btn_venderu";
             btn_venderu.Size = new Size(150, 37);
             btn_venderu.TabIndex = 0;
-            btn_venderu.Text = "Vender uniforme";
+            btn_venderu.Text = "Vender prendas";
             btn_venderu.UseVisualStyleBackColor = true;
             btn_venderu.Click += btn_venderu_Click;
             // 
@@ -114,24 +111,9 @@
             btn_IngMaterial.Name = "btn_IngMaterial";
             btn_IngMaterial.Size = new Size(166, 37);
             btn_IngMaterial.TabIndex = 4;
-            btn_IngMaterial.Text = "Ingreso Materiales";
+            btn_IngMaterial.Text = "Comprar prendas";
             btn_IngMaterial.UseVisualStyleBackColor = true;
             btn_IngMaterial.Click += btn_IngMaterial_Click;
-            // 
-            // btn_Cambiou
-            // 
-            btn_Cambiou.Cursor = Cursors.Hand;
-            btn_Cambiou.FlatAppearance.BorderSize = 0;
-            btn_Cambiou.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
-            btn_Cambiou.FlatStyle = FlatStyle.Flat;
-            btn_Cambiou.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_Cambiou.Location = new Point(0, 271);
-            btn_Cambiou.Name = "btn_Cambiou";
-            btn_Cambiou.Size = new Size(166, 37);
-            btn_Cambiou.TabIndex = 5;
-            btn_Cambiou.Text = "Cambio uniforme";
-            btn_Cambiou.UseVisualStyleBackColor = true;
-            btn_Cambiou.Click += btn_Cambiou_Click;
             // 
             // btnSalidaMaterial
             // 
@@ -144,7 +126,7 @@
             btnSalidaMaterial.Name = "btnSalidaMaterial";
             btnSalidaMaterial.Size = new Size(166, 37);
             btnSalidaMaterial.TabIndex = 6;
-            btnSalidaMaterial.Text = "Salida Materiales";
+            btnSalidaMaterial.Text = "Detalle ventas";
             btnSalidaMaterial.UseVisualStyleBackColor = true;
             btnSalidaMaterial.Click += btnSalidaMaterial_Click;
             // 
@@ -159,7 +141,7 @@
             btn_Matyprod.Name = "btn_Matyprod";
             btn_Matyprod.Size = new Size(166, 37);
             btn_Matyprod.TabIndex = 7;
-            btn_Matyprod.Text = "Prendas y materiales";
+            btn_Matyprod.Text = "Prendas";
             btn_Matyprod.UseVisualStyleBackColor = true;
             btn_Matyprod.Click += btn_Matyprod_Click;
             // 
@@ -185,11 +167,11 @@
             btnMotorizado.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
             btnMotorizado.FlatStyle = FlatStyle.Flat;
             btnMotorizado.ImageAlign = ContentAlignment.MiddleLeft;
-            btnMotorizado.Location = new Point(0, 314);
+            btnMotorizado.Location = new Point(0, 271);
             btnMotorizado.Name = "btnMotorizado";
             btnMotorizado.Size = new Size(166, 37);
             btnMotorizado.TabIndex = 9;
-            btnMotorizado.Text = "Descuentos";
+            btnMotorizado.Text = "Detalle compras";
             btnMotorizado.UseVisualStyleBackColor = true;
             btnMotorizado.Click += btnMotorizado_Click;
             // 
@@ -205,14 +187,14 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1000, 74);
+            panel1.Size = new Size(850, 74);
             panel1.TabIndex = 0;
             // 
             // pictureBox5
             // 
             pictureBox5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox5.Image = CapaPresentacion.Properties.Resources.maximizar_tamano;
-            pictureBox5.Location = new Point(923, 13);
+            pictureBox5.Location = new Point(773, 13);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(32, 32);
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
@@ -225,7 +207,7 @@
             // 
             btnMinimizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnMinimizar.Image = (Image)resources.GetObject("btnMinimizar.Image");
-            btnMinimizar.Location = new Point(891, 13);
+            btnMinimizar.Location = new Point(741, 13);
             btnMinimizar.Name = "btnMinimizar";
             btnMinimizar.Size = new Size(26, 32);
             btnMinimizar.SizeMode = PictureBoxSizeMode.Zoom;
@@ -237,7 +219,7 @@
             // 
             pictureBox4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox4.Image = CapaPresentacion.Properties.Resources.maximizar;
-            pictureBox4.Location = new Point(929, 15);
+            pictureBox4.Location = new Point(779, 15);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(25, 27);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
@@ -259,7 +241,7 @@
             // 
             pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox2.Image = CapaPresentacion.Properties.Resources._2618352;
-            pictureBox2.Location = new Point(960, 13);
+            pictureBox2.Location = new Point(810, 13);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(32, 31);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
@@ -286,9 +268,7 @@
             panel2.Controls.Add(panel9);
             panel2.Controls.Add(button2);
             panel2.Controls.Add(btn_Matyprod);
-            panel2.Controls.Add(panel7);
             panel2.Controls.Add(panel6);
-            panel2.Controls.Add(btn_Cambiou);
             panel2.Controls.Add(btnSalidaMaterial);
             panel2.Controls.Add(panel5);
             panel2.Controls.Add(btn_IngMaterial);
@@ -299,13 +279,13 @@
             panel2.Dock = DockStyle.Left;
             panel2.Location = new Point(0, 74);
             panel2.Name = "panel2";
-            panel2.Size = new Size(156, 361);
+            panel2.Size = new Size(156, 326);
             panel2.TabIndex = 1;
             // 
             // panel11
             // 
             panel11.BackColor = SystemColors.Highlight;
-            panel11.Location = new Point(0, 314);
+            panel11.Location = new Point(0, 271);
             panel11.Name = "panel11";
             panel11.Size = new Size(7, 37);
             panel11.TabIndex = 6;
@@ -325,14 +305,6 @@
             panel9.Name = "panel9";
             panel9.Size = new Size(7, 37);
             panel9.TabIndex = 4;
-            // 
-            // panel7
-            // 
-            panel7.BackColor = SystemColors.Highlight;
-            panel7.Location = new Point(0, 271);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(7, 37);
-            panel7.TabIndex = 5;
             // 
             // panel6
             // 
@@ -381,14 +353,14 @@
             panelconteiner.Dock = DockStyle.Fill;
             panelconteiner.Location = new Point(156, 74);
             panelconteiner.Name = "panelconteiner";
-            panelconteiner.Size = new Size(844, 361);
+            panelconteiner.Size = new Size(694, 326);
             panelconteiner.TabIndex = 2;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1000, 435);
+            ClientSize = new Size(850, 400);
             Controls.Add(panelconteiner);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -420,7 +392,6 @@
         private PictureBox btnMinimizar;
         private Panel panel5;
         private Panel panel4;
-        private Panel panel7;
         private Panel panel6;
         private Panel panel10;
         private Panel panel9;
