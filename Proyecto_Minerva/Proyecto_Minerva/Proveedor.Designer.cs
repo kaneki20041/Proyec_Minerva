@@ -190,6 +190,7 @@
             this.btnModificar.TabIndex = 14;
             this.btnModificar.Text = "Editar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // button4
             // 

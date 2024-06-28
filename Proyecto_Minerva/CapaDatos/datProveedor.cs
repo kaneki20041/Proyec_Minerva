@@ -148,6 +148,45 @@ namespace CapaDatos
             return prov;
         }
 
+        public Boolean ModificarProveedor(entProveedor prov)
+        {
+            SqlCommand cmd = null;
+            Boolean modifica = false;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spModificarProveedor", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ID", prov.ID);
+                cmd.Parameters.AddWithValue("@RazonSocial", prov.RazonSocial);
+                cmd.Parameters.AddWithValue("@RUC", prov.RUC);
+                cmd.Parameters.AddWithValue("@NomPro", prov.NomPro);
+                cmd.Parameters.AddWithValue("@Ciudad", prov.Ciudad);
+                cmd.Parameters.AddWithValue("@Direccion", prov.Direccion);
+                cmd.Parameters.AddWithValue("@Email", prov.Email);
+                cmd.Parameters.AddWithValue("@Telefono", prov.Telefono);
+                cmd.Parameters.AddWithValue("@Estado", prov.Estado);
+                cmd.Parameters.AddWithValue("@Rubro", prov.Rubro);
+                cn.Open();
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    modifica = true;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                if (cmd != null && cmd.Connection != null)
+                {
+                    cmd.Connection.Close();
+                }
+            }
+            return modifica;
+        }
 
     }
 }

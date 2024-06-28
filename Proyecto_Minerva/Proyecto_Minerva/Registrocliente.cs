@@ -29,11 +29,22 @@ namespace Proyecto_Minerva
         private void InicializarComboBoxes()
         {
             // Llenado de ComboBox cbxTipoCliente
-            cbxTipoCliente.Items.AddRange(new string[] { "Frecuente", "Casual", "Nuevo" }); // Añade tus valores aquí
+            cbxTipoCliente.Items.Clear();
+            List<string> tiposClientes = logCliente.Instancia.ObtenerTiposClientes();
+            foreach (string tipo in tiposClientes)
+            {
+                cbxTipoCliente.Items.Add(tipo);
+            }
 
             // Llenado de ComboBox cbxDocumento
-            cbxDocumento.Items.AddRange(new string[] { "DNI", "Pasaporte", "Carnet de Extrajeria" }); // Añade tus valores aquí
+            cbxDocumento.Items.Clear();
+            List<string> tiposDocumentos = logCliente.Instancia.ObtenerTiposDocumentos();
+            foreach (string tipo in tiposDocumentos)
+            {
+                cbxDocumento.Items.Add(tipo);
+            }
         }
+
 
         private void groupBox3_Enter(object sender, EventArgs e)
         {
