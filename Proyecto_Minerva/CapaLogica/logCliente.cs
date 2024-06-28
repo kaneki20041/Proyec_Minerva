@@ -39,5 +39,16 @@ namespace CapaLogica
             return datCliente.Instancia.BuscarClientePorID(id);
         }
 
+        public List<string> ObtenerTiposClientes()
+        {
+            return datCliente.Instancia.ObtenerTiposClientes();
+        }
+
+        public List<string> ObtenerTiposDocumentos()
+        {
+            return datCliente.Instancia.ObtenerTiposDocumentos();
+        }
+
+
     }
 }

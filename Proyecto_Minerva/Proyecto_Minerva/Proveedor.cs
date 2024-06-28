@@ -172,5 +172,85 @@ namespace Proyecto_Minerva
                 MessageBox.Show($"Ocurrió un error: {ex.Message}");
             }
         }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Verifica que hay una fila seleccionada en el DataGridView
+                if (dvgProveedor.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Por favor, selecciona un proveedor de la lista.");
+                    return;
+                }
+
+                // Verifica que los ComboBox tienen un ítem seleccionado
+                if (comboBox2.SelectedItem == null || comboBox1.SelectedItem == null)
+                {
+                    MessageBox.Show("Por favor, selecciona una opción en los campos Ciudad y Rubro.");
+                    return;
+                }
+
+                // Captura los datos de los ComboBox y TextBox
+                string ciudad = comboBox2.SelectedItem.ToString();
+                string rubro = comboBox1.SelectedItem.ToString();
+                int ruc, telefono;
+
+                // Verifica que el RUC y el teléfono son números válidos
+                if (!int.TryParse(textBox3.Text, out ruc))
+                {
+                    MessageBox.Show("Por favor, ingresa un número válido en el campo RUC.");
+                    return;
+                }
+
+                if (!int.TryParse(textBox5.Text, out telefono))
+                {
+                    MessageBox.Show("Por favor, ingresa un número válido en el campo Teléfono.");
+                    return;
+                }
+
+                string razonSocial = textBox7.Text.Trim();
+                string nomPro = textBox1.Text.Trim();
+                string direccion = textBox6.Text.Trim();
+                string email = textBox4.Text.Trim();
+                bool estado = checkBox1.Checked;
+
+                // Crea un objeto entProveedor
+                entProveedor proveedorActualizado = new entProveedor
+                {
+                    ID = int.Parse(dvgProveedor.SelectedRows[0].Cells["ID"].Value.ToString()),
+                    RazonSocial = razonSocial,
+                    RUC = ruc,
+                    NomPro = nomPro,
+                    Ciudad = ciudad,
+                    Direccion = direccion,
+                    Email = email,
+                    Telefono = telefono,
+                    Estado = estado,
+                    Rubro = rubro
+                };
+
+                // Llama a la capa lógica para modificar el proveedor
+                logProveedor.Instancia.ModificarProveedor(proveedorActualizado);
+
+                // Muestra un mensaje de éxito
+                MessageBox.Show("Proveedor modificado con éxito");
+
+                // Limpia los campos del formulario
+                LimpiarCampos();
+
+                // Refresca la lista de proveedores
+                listarProveedor();
+            }
+            catch (Exception ex)
+            {
+                // Maneja cualquier excepción que ocurra
+                MessageBox.Show($"Ocurrió un error: {ex.Message}");
+            }
+
+            // Desactiva el grupo de datos
+            grupBoxDatos.Enabled = false;
+            grupBoxDatos2.Enabled = false;
+        }
     }
 }

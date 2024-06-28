@@ -32,16 +32,20 @@ namespace CapaLogica
         }
 
         ///inserta
-         public void InsertaProveedor(entProveedor prov)
-         {
-             datProveedor.Instancia.InsertaProveedor(prov);
-         }
+        public void InsertaProveedor(entProveedor prov)
+        {
+            datProveedor.Instancia.InsertaProveedor(prov);
+        }
 
         public entProveedor BuscarProveedorPorID(int id)
         {
             return datProveedor.Instancia.BuscarProveedorPorID(id);
         }
 
+        public void ModificarProveedor(entProveedor prov)
+        {
+            datProveedor.Instancia.ModificarProveedor(prov);
+        }
 
         #endregion metodos
     }

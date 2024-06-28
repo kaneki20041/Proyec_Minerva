@@ -1,3 +1,5 @@
+using CapaPresentacion;
+
 namespace Proyecto_Minerva
 {
     public partial class Form1 : Form
@@ -45,7 +47,7 @@ namespace Proyecto_Minerva
 
         private void btn_Matyprod_Click(object sender, EventArgs e)
         {
-            AbrirForm(new Produc_mat());
+            AbrirForm(new Prendas1());
         }
 
         private void button2_Click(object sender, EventArgs e)
