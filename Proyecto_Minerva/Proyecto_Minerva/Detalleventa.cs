@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Proyecto_Minerva
 {
-    public partial class SalidMaterial : Form
+    public partial class Detalleventa : Form
     {
-        public SalidMaterial()
+        public Detalleventa()
         {
             InitializeComponent();
         }

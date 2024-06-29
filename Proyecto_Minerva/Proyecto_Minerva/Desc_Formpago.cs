@@ -23,8 +23,10 @@ namespace Proyecto_Minerva
         }
         private void button5_Click(object sender, EventArgs e)
         {
+            txtid.Clear();
             txtMetpago.Enabled = true;
             txtid.Enabled=false;
+            cbkEstMetPago.Checked = true;
             cbkEstMetPago.Enabled=false;
             btnAgreMpag.Visible = true;
             btnModFpag.Visible = false;

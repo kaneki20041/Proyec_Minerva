@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static CapaDatos.datMetPago;
 
 namespace CapaLogica
 {
@@ -35,6 +36,10 @@ namespace CapaLogica
             datMetPago.Instancia.InsertaMetpago(Met);
         }
         //edita
+        public EntMetPago BuscarMetodoPagoPorID(int metPagoID)
+        {
+            return datMetPago.Instancia.BuscarMetodoPagoPorID(metPagoID);
+        }
         public void EditaMetPago(EntMetPago Met)
         {
             datMetPago.Instancia.EditarMetPago(Met);

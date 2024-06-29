@@ -133,6 +133,39 @@ namespace CapaDatos
             finally { cmd.Connection.Close(); }
             return delete;
         }
+        public EntMetPago BuscarMetodoPagoPorID(int metPagoID)
+        {
+            SqlCommand cmd = null;
+            EntMetPago metodoPago = null;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spBuscarMetodoPagoPorID", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@MetodopagoID", metPagoID);
+                cn.Open();
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    metodoPago = new EntMetPago
+                    {
+                        MetPagoid = metPagoID,
+                        metodopago = dr["MetodoPago"].ToString()
+                    };
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                if (cmd != null) cmd.Connection.Close();
+            }
+            return metodoPago;
+        }
+
 
     }
     #endregion metodos
