@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Proyecto_Minerva
 {
@@ -70,6 +71,36 @@ namespace Proyecto_Minerva
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void btn_buscarPrenVen_Click(object sender, EventArgs e)
+        {
+            int prendaID;
+            if (!int.TryParse(textBox15.Text, out prendaID))
+            {
+                MessageBox.Show("Por favor, ingresa un número válido en el campo ID de la Prenda.");
+                return;
+            }
+
+            try
+            {
+                entPrendas prenda = logPrendas.Instancia.BuscarPrendaPorID(prendaID);
+                if (prenda != null)
+                {
+                    textBox14.Text = prenda.Prenda;
+                    textBox12.Text = prenda.PrecioCompra.ToString("F2");
+                    textBox11.Text = prenda.Stock.ToString();
+                    textBox13.Text = prenda.Talla;
+                }
+                else
+                {
+                    MessageBox.Show("Prenda no encontrada.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error: {ex.Message}");
             }
         }
     }

@@ -211,6 +211,7 @@
             domainUpDown1.Name = "domainUpDown1";
             domainUpDown1.Size = new Size(82, 23);
             domainUpDown1.TabIndex = 47;
+            domainUpDown1.Text = "0";
             // 
             // label12
             // 
@@ -312,6 +313,7 @@
             btn_buscarPrenVen.TabIndex = 0;
             btn_buscarPrenVen.Text = "Buscar";
             btn_buscarPrenVen.UseVisualStyleBackColor = true;
+            btn_buscarPrenVen.Click += btn_buscarPrenVen_Click;
             // 
             // textBox9
             // 
