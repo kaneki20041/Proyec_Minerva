@@ -18,6 +18,8 @@ namespace CapaEntidad
         public string MetodoPago { get; set; }
         public decimal? Monto { get; set; }
         public DateTime FRegistroV { get; set; }
+        public string Colegio { get; set; }
+        public string Categoria { get; set; }
         public string TipoComprobante { get; set; }
     }
 }

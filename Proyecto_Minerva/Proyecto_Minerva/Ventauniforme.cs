@@ -10,18 +10,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
-
 namespace Proyecto_Minerva
 {
-
     public partial class Ventauniforme : Form
     {
         public Ventauniforme()
         {
             InitializeComponent();
         }
-
 
         private void ListarVentas()
         {
@@ -35,7 +31,6 @@ namespace Proyecto_Minerva
                 MessageBox.Show($"Ocurrió un error al listar las ventas: {ex.Message}");
             }
         }
-
 
         private void btnBuscCliV_Click(object sender, EventArgs e)
         {
@@ -82,6 +77,8 @@ namespace Proyecto_Minerva
                     textBox3.Text = prenda.PrecioVenta.ToString("F2");
                     textBox5.Text = prenda.Stock.ToString();
                     textBox2.Text = prenda.Talla;
+                    textBox11.Text = prenda.Colegio; // Asigna Colegio
+                    textBox12.Text = prenda.Categoria; // Asigna Categoria
                 }
                 else
                 {
@@ -105,12 +102,13 @@ namespace Proyecto_Minerva
                     Prenda = textBox10.Text,
                     Talla = textBox2.Text,
                     Precioventa = decimal.Parse(textBox3.Text),
-                    Stock = int.Parse(textBox5.Text),
                     Cantidad = int.Parse(domainUpDown1.Text),
-                    MetodoPago = textBox9.Text, // Suponiendo que el método de pago es efectivo, puedes cambiarlo según tu lógica
+                    MetodoPago = textBox9.Text,
                     Monto = decimal.Parse(textBox6.Text),
                     FRegistroV = DateTime.Now,
-                    TipoComprobante = textBox8.Text
+                    TipoComprobante = textBox8.Text,
+                    Colegio = textBox11.Text,
+                    Categoria = textBox12.Text,
                 };
 
                 // Registrar la venta
@@ -128,7 +126,7 @@ namespace Proyecto_Minerva
             }
         }
 
-        private void domainUpDown1_SelectedItemChanged(object sender, EventArgs e)
+        private void domainUpDown1_SelectedItemChanged_1(object sender, EventArgs e)
         {
             try
             {
@@ -143,5 +141,4 @@ namespace Proyecto_Minerva
             }
         }
     }
-    
 }
