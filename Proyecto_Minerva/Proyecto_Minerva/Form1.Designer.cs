@@ -37,6 +37,7 @@
             Button btnMotorizado;
             Button btnDetalleComp;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            Button btnCategoria;
             panel1 = new Panel();
             pictureBox5 = new PictureBox();
             btnMinimizar = new PictureBox();
@@ -55,6 +56,7 @@
             panel8 = new Panel();
             panel3 = new Panel();
             panelconteiner = new Panel();
+            panel12 = new Panel();
             btn_venderu = new Button();
             btn_Cliente = new Button();
             btn_IngMaterial = new Button();
@@ -63,6 +65,7 @@
             button2 = new Button();
             btnMotorizado = new Button();
             btnDetalleComp = new Button();
+            btnCategoria = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnMinimizar).BeginInit();
@@ -280,6 +283,8 @@
             // panel2
             // 
             panel2.BackColor = Color.Gold;
+            panel2.Controls.Add(panel12);
+            panel2.Controls.Add(btnCategoria);
             panel2.Controls.Add(btnDetalleComp);
             panel2.Controls.Add(btn_venderu);
             panel2.Controls.Add(panel7);
@@ -299,7 +304,7 @@
             panel2.Dock = DockStyle.Left;
             panel2.Location = new Point(0, 74);
             panel2.Name = "panel2";
-            panel2.Size = new Size(156, 361);
+            panel2.Size = new Size(156, 400);
             panel2.TabIndex = 1;
             // 
             // panel7
@@ -381,14 +386,37 @@
             panelconteiner.Dock = DockStyle.Fill;
             panelconteiner.Location = new Point(156, 74);
             panelconteiner.Name = "panelconteiner";
-            panelconteiner.Size = new Size(694, 361);
+            panelconteiner.Size = new Size(694, 400);
             panelconteiner.TabIndex = 2;
+            // 
+            // btnCategoria
+            // 
+            btnCategoria.Cursor = Cursors.Hand;
+            btnCategoria.FlatAppearance.BorderSize = 0;
+            btnCategoria.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
+            btnCategoria.FlatStyle = FlatStyle.Flat;
+            btnCategoria.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCategoria.Location = new Point(0, 355);
+            btnCategoria.Name = "btnCategoria";
+            btnCategoria.Size = new Size(166, 37);
+            btnCategoria.TabIndex = 11;
+            btnCategoria.Text = "Categorias";
+            btnCategoria.UseVisualStyleBackColor = true;
+            btnCategoria.Click += btnCategoria_Click;
+            // 
+            // panel12
+            // 
+            panel12.BackColor = SystemColors.Highlight;
+            panel12.Location = new Point(0, 355);
+            panel12.Name = "panel12";
+            panel12.Size = new Size(7, 37);
+            panel12.TabIndex = 8;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(850, 435);
+            ClientSize = new Size(850, 474);
             Controls.Add(panelconteiner);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -428,5 +456,6 @@
         private PictureBox pictureBox4;
         private PictureBox pictureBox5;
         private Panel panel7;
+        private Panel panel12;
     }
 }
