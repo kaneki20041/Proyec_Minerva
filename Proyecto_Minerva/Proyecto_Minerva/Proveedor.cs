@@ -18,7 +18,6 @@ namespace Proyecto_Minerva
         {
             InitializeComponent();
             listarProveedor();
-            InicializarComboBoxes();
             grupBoxDatos.Enabled = false;
             grupBoxDatos2.Enabled = false;
             //txtidCliente.Enabled = false;
@@ -29,14 +28,6 @@ namespace Proyecto_Minerva
             dvgProveedor.DataSource = logProveedor.Instancia.ListarProveedor();
         }
 
-        private void InicializarComboBoxes()
-        {
-            // Llenado de ComboBox para Ciudad
-            comboBox2.Items.AddRange(new string[] { "Lima", "Arequipa", "Cusco", "Trujillo" }); // Añade tus ciudades aquí
-
-            // Llenado de ComboBox para Rubro
-            comboBox1.Items.AddRange(new string[] { "Tecnología", "Alimentos", "Textil", "Servicios" }); // Añade tus rubros aquí
-        }
 
 
         private void button1_Click(object sender, EventArgs e)

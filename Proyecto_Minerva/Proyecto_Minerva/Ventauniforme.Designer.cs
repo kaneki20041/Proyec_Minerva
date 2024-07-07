@@ -64,8 +64,8 @@
             this.domainUpDown1 = new System.Windows.Forms.DomainUpDown();
             this.label11 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -438,15 +438,7 @@
             this.button2.TabIndex = 45;
             this.button2.Text = "Quitar";
             this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(816, 407);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(94, 50);
-            this.button3.TabIndex = 46;
-            this.button3.Text = "Agregar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // dataGridView1
             // 
@@ -459,14 +451,24 @@
             this.dataGridView1.Size = new System.Drawing.Size(767, 204);
             this.dataGridView1.TabIndex = 47;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(816, 418);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(94, 50);
+            this.button3.TabIndex = 48;
+            this.button3.Text = "Agregar";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Ventauniforme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(935, 515);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button3);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -521,11 +523,11 @@
         private TextBox textBox9;
         private Label label13;
         private Button button2;
-        private Button button3;
         private TextBox textBox11;
         private Label label15;
         private TextBox textBox12;
         private Label label14;
         private DataGridView dataGridView1;
+        private Button button3;
     }
 }

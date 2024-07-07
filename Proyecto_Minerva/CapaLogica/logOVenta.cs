@@ -27,5 +27,20 @@ namespace CapaLogica
             datOVenta.Instancia.RegistrarVenta(venta);
         }
 
+        public void RegistrarDetalleVenta(entOVenta detalleVenta)
+        {
+            datOVenta.Instancia.RegistrarDetalleVenta(detalleVenta);
+        }
+
+        public void ActualizarStock(string prenda, int cantidadVendida)
+        {
+            datPrendas.Instancia.ActualizarStock(prenda, cantidadVendida);
+        }
+
+        public void EliminarVenta(int oventaID)
+{
+    datOVenta.Instancia.EliminarVenta(oventaID);
+}
+
     }
 }

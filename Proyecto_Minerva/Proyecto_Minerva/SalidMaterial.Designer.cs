@@ -28,214 +28,224 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            textBox1 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            label7 = new Label();
-            textBox5 = new TextBox();
-            dateTimePicker1 = new DateTimePicker();
-            dateTimePicker2 = new DateTimePicker();
-            dataGridView1 = new DataGridView();
-            groupBox1 = new GroupBox();
-            button1 = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            groupBox1.SuspendLayout();
-            SuspendLayout();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dgvDetalleV = new System.Windows.Forms.DataGridView();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleV)).BeginInit();
+            this.SuspendLayout();
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(260, 11);
-            label1.Name = "label1";
-            label1.Size = new Size(144, 25);
-            label1.TabIndex = 0;
-            label1.Text = "Salida Materiales";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(18, 144);
-            label2.Name = "label2";
-            label2.Size = new Size(65, 15);
-            label2.TabIndex = 1;
-            label2.Text = "F. Solicitud";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(33, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(141, 30);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Detalle Venta";
             // 
             // label3
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(25, 21);
-            label3.Name = "label3";
-            label3.Size = new Size(50, 15);
-            label3.TabIndex = 2;
-            label3.Text = "Material";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(28, 15);
-            label4.Name = "label4";
-            label4.Size = new Size(50, 15);
-            label4.TabIndex = 3;
-            label4.Text = "F. Salida";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(30, 170);
-            label5.Name = "label5";
-            label5.Size = new Size(45, 15);
-            label5.TabIndex = 4;
-            label5.Text = "Motivo";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(73, 31);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(110, 20);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "ID Orden Venta";
             // 
             // label6
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(18, 56);
-            label6.Name = "label6";
-            label6.Size = new Size(69, 15);
-            label6.TabIndex = 5;
-            label6.Text = "Descripcion";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(24, 105);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 20);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Cliente";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(97, 21);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(123, 23);
-            textBox1.TabIndex = 6;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(97, 163);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 23);
-            textBox3.TabIndex = 8;
+            this.textBox1.Location = new System.Drawing.Point(67, 56);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(63, 27);
+            this.textBox1.TabIndex = 6;
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(97, 50);
-            textBox4.Multiline = true;
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(121, 80);
-            textBox4.TabIndex = 9;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(11, 196);
-            label7.Name = "label7";
-            label7.Size = new Size(77, 15);
-            label7.TabIndex = 10;
-            label7.Text = "Cantidad Sol.";
-            // 
-            // textBox5
-            // 
-            textBox5.Location = new Point(97, 191);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(67, 23);
-            textBox5.TabIndex = 11;
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.CustomFormat = "dd-MM-yyyy";
-            dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.Location = new Point(81, 10);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(98, 23);
-            dateTimePicker1.TabIndex = 15;
-            dateTimePicker1.UseWaitCursor = true;
-            // 
-            // dateTimePicker2
-            // 
-            dateTimePicker2.CustomFormat = "dd-MM-yyyy";
-            dateTimePicker2.Format = DateTimePickerFormat.Custom;
-            dateTimePicker2.Location = new Point(97, 136);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(98, 23);
-            dateTimePicker2.TabIndex = 16;
-            dateTimePicker2.UseWaitCursor = true;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(245, 51);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(415, 240);
-            dataGridView1.TabIndex = 17;
+            this.textBox4.Location = new System.Drawing.Point(124, 102);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox4.Multiline = true;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(123, 23);
+            this.textBox4.TabIndex = 9;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(dateTimePicker2);
-            groupBox1.Controls.Add(textBox5);
-            groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(textBox4);
-            groupBox1.Controls.Add(textBox3);
-            groupBox1.Controls.Add(textBox1);
-            groupBox1.Controls.Add(label6);
-            groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Location = new Point(8, 40);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(228, 224);
-            groupBox1.TabIndex = 18;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Info Solicitud";
+            this.groupBox1.Controls.Add(this.textBox6);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Location = new System.Drawing.Point(9, 53);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox1.Size = new System.Drawing.Size(261, 335);
+            this.groupBox1.TabIndex = 18;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Info Solicitud";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(73, 303);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox6.Multiline = true;
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(123, 23);
+            this.textBox6.TabIndex = 25;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(73, 279);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(122, 20);
+            this.label7.TabIndex = 24;
+            this.label7.Text = "Metodo de pago";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(124, 230);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox5.Multiline = true;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(123, 23);
+            this.textBox5.TabIndex = 23;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(34, 233);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 20);
+            this.label5.TabIndex = 22;
+            this.label5.Text = "Fecha";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(124, 185);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(123, 23);
+            this.textBox3.TabIndex = 21;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(17, 188);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(101, 20);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Comprobante";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(124, 144);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(123, 23);
+            this.textBox2.TabIndex = 19;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(17, 147);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(87, 20);
+            this.label8.TabIndex = 18;
+            this.label8.Text = "Documento";
             // 
             // button1
             // 
-            button1.Location = new Point(57, 270);
-            button1.Name = "button1";
-            button1.Size = new Size(139, 27);
-            button1.TabIndex = 19;
-            button1.Text = "Registrar O. Salida";
-            button1.UseVisualStyleBackColor = true;
+            this.button1.Location = new System.Drawing.Point(136, 54);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(60, 29);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "Buscar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // dgvDetalleV
+            // 
+            this.dgvDetalleV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetalleV.Location = new System.Drawing.Point(290, 24);
+            this.dgvDetalleV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dgvDetalleV.Name = "dgvDetalleV";
+            this.dgvDetalleV.RowHeadersWidth = 51;
+            this.dgvDetalleV.RowTemplate.Height = 25;
+            this.dgvDetalleV.Size = new System.Drawing.Size(582, 339);
+            this.dgvDetalleV.TabIndex = 19;
             // 
             // SalidMaterial
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(664, 303);
-            Controls.Add(button1);
-            Controls.Add(groupBox1);
-            Controls.Add(dataGridView1);
-            Controls.Add(dateTimePicker1);
-            Controls.Add(label4);
-            Controls.Add(label1);
-            FormBorderStyle = FormBorderStyle.None;
-            Name = "SalidMaterial";
-            Text = "SalidMaterial";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(895, 404);
+            this.Controls.Add(this.dgvDetalleV);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Name = "SalidMaterial";
+            this.Text = "SalidMaterial";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleV)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
 
         private Label label1;
-        private Label label2;
         private Label label3;
-        private Label label4;
-        private Label label5;
         private Label label6;
         private TextBox textBox1;
-        private TextBox textBox3;
         private TextBox textBox4;
-        private Label label7;
-        private TextBox textBox5;
-        private DateTimePicker dateTimePicker1;
-        private DateTimePicker dateTimePicker2;
-        private DataGridView dataGridView1;
         private GroupBox groupBox1;
         private Button button1;
+        private TextBox textBox5;
+        private Label label5;
+        private TextBox textBox3;
+        private Label label2;
+        private TextBox textBox2;
+        private Label label8;
+        private TextBox textBox6;
+        private Label label7;
+        private DataGridView dgvDetalleV;
     }
 }

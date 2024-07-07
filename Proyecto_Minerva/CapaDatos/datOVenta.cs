@@ -49,9 +49,7 @@ namespace CapaDatos
                     venta.Talla = dr["Talla"].ToString();
                     venta.Precioventa = Convert.ToDecimal(dr["Precioventa"]);
                     venta.Cantidad = dr["Cantidad"] == DBNull.Value ? (int?)null : Convert.ToInt32(dr["Cantidad"]);
-                    venta.MetodoPago = dr["MetodoPago"].ToString();
                     venta.Monto = dr["Monto"] == DBNull.Value ? (decimal?)null : Convert.ToDecimal(dr["Monto"]);
-                    venta.FRegistroV = Convert.ToDateTime(dr["FRegistroV"]);
                     venta.TipoComprobante = dr["TipoComprobante"].ToString();
                     venta.Colegio = dr["Colegio"].ToString();
                     venta.Categoria = dr["Categoria"].ToString();
@@ -69,6 +67,7 @@ namespace CapaDatos
             }
             return lista;
         }
+
 
 
 
@@ -105,5 +104,106 @@ namespace CapaDatos
                 cn.Close();
             }
         }
+
+        public List<entOVenta> ListarDetalleVenta(int oventaID)
+        {
+            List<entOVenta> lista = new List<entOVenta>();
+            SqlConnection cn = Conexion.Instancia.Conectar();
+            SqlCommand cmd = new SqlCommand("spListarDetalleVenta", cn)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.AddWithValue("@OventaID", oventaID);
+            try
+            {
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    entOVenta venta = new entOVenta
+                    {
+                        TipoComprobante = dr["TipoComprobante"].ToString(),
+                        Monto = Convert.ToDecimal(dr["Monto"]),
+                        Prenda = dr["Prenda"].ToString(),
+                        Precioventa = Convert.ToDecimal(dr["Precioventa"]),
+                        MetodoPago = dr["MetodoPago"].ToString(),
+                        Cantidad = Convert.ToInt32(dr["Cantidad"]),
+                        Talla = dr["Talla"].ToString(),
+                        Colegio = dr["Colegio"].ToString(),
+                        Categoria = dr["Categoria"].ToString()
+                    };
+                    lista.Add(venta);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocurrió un error al listar el detalle de ventas: " + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+            return lista;
+        }
+        public void RegistrarDetalleVenta(entOVenta detalleVenta)
+        {
+            SqlConnection cn = Conexion.Instancia.Conectar();
+            SqlCommand cmd = new SqlCommand("spRegistrarDetalleVenta", cn)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.AddWithValue("@TipoComprobante", detalleVenta.TipoComprobante);
+            cmd.Parameters.AddWithValue("@Nombre", detalleVenta.Nombre);
+            cmd.Parameters.AddWithValue("@Monto", detalleVenta.Monto);
+            cmd.Parameters.AddWithValue("@Prenda", detalleVenta.Prenda);
+            cmd.Parameters.AddWithValue("@Precioventa", detalleVenta.Precioventa);
+            cmd.Parameters.AddWithValue("@MetodoPago", detalleVenta.MetodoPago);
+            cmd.Parameters.AddWithValue("@Cantidad", detalleVenta.Cantidad);
+            cmd.Parameters.AddWithValue("@FRegistroV", detalleVenta.FRegistroV);
+            cmd.Parameters.AddWithValue("@Talla", detalleVenta.Talla);
+            cmd.Parameters.AddWithValue("@Colegio", detalleVenta.Colegio);
+            cmd.Parameters.AddWithValue("@Categoria", detalleVenta.Categoria);
+
+            try
+            {
+                cn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocurrió un error al registrar el detalle de la venta: " + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+
+        public void EliminarVenta(int oventaID)
+        {
+            SqlConnection cn = Conexion.Instancia.Conectar();
+            SqlCommand cmd = new SqlCommand("spEliminarVenta", cn)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.AddWithValue("@OventaID", oventaID);
+
+            try
+            {
+                cn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocurrió un error al eliminar la venta: " + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+
     }
 }
