@@ -45,7 +45,6 @@ namespace CapaDatos
                     {
                         throw new Exception("Error al leer OventaID: " + ex.Message);
                     }
-                    venta.Nombre = dr["Nombre"].ToString();
                     venta.Prenda = dr["Prenda"].ToString();
                     venta.Talla = dr["Talla"].ToString();
                     venta.Precioventa = Convert.ToDecimal(dr["Precioventa"]);
