@@ -1,9 +1,11 @@
-﻿using CapaEntidad;
+﻿using CapaDatos;
+using CapaEntidad;
 using CapaLogica;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,6 +19,19 @@ namespace Proyecto_Minerva
         public Ventauniforme()
         {
             InitializeComponent();
+            ListarVentas();
+        }
+
+        private void Ventauniforme_Load(object sender, EventArgs e)
+        {
+            DataGridViewButtonColumn btnEliminar = new DataGridViewButtonColumn();
+            btnEliminar.HeaderText = "Eliminar";
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.UseColumnTextForButtonValue = true;
+            dataGridView1.Columns.Add(btnEliminar);
+
+            ListarVentas();
         }
 
         private void ListarVentas()
@@ -138,6 +153,75 @@ namespace Proyecto_Minerva
             catch (Exception ex)
             {
                 MessageBox.Show($"Ocurrió un error al calcular el monto: {ex.Message}");
+            }
+        }
+
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                // Obtener el índice de la fila seleccionada
+                int rowIndex = dataGridView1.SelectedRows[0].Index;
+
+                // Obtener el ID de la venta a eliminar
+                int oventaID = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["OventaID"].Value);
+
+                try
+                {
+                    // Llamar al método para eliminar la venta
+                    logOVenta.Instancia.EliminarVenta(oventaID);
+
+                    // Actualizar la lista de ventas
+                    ListarVentas();
+
+                    MessageBox.Show("Venta eliminada exitosamente.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ocurrió un error al eliminar la venta: {ex.Message}");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona una fila para eliminar.");
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Suponiendo que tienes una lista de ventas que quieres registrar como detalles
+                List<entOVenta> ventas = logOVenta.Instancia.ListarVentas();
+
+                foreach (var venta in ventas)
+                {
+                    entOVenta detalleVenta = new entOVenta
+                    {
+                        TipoComprobante = venta.TipoComprobante,
+                        Monto = venta.Monto ?? 0,
+                        Prenda = venta.Prenda,
+                        Precioventa = venta.Precioventa,
+                        MetodoPago = venta.MetodoPago,
+                        Cantidad = venta.Cantidad ?? 0,
+                        FRegistroV = venta.FRegistroV,
+                        Talla = venta.Talla,
+                        Colegio = venta.Colegio,
+                        Categoria = venta.Categoria
+                    };
+
+                    logOVenta.Instancia.RegistrarDetalleVenta(detalleVenta);
+
+                    // Descontar la cantidad del stock de la prenda
+                    logPrendas.Instancia.ActualizarStock(venta.Prenda, venta.Cantidad ?? 0);
+                }
+
+                MessageBox.Show("Detalles de venta registrados exitosamente.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error al registrar los detalles de la venta: {ex.Message}");
             }
         }
     }

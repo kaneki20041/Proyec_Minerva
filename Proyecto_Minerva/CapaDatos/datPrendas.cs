@@ -263,6 +263,31 @@ namespace CapaDatos
 
 
         }
+
+        public void ActualizarStock(string prenda, int cantidadVendida)
+        {
+            SqlConnection cn = Conexion.Instancia.Conectar();
+            SqlCommand cmd = new SqlCommand("spActualizarStock", cn)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.AddWithValue("@Prenda", prenda);
+            cmd.Parameters.AddWithValue("@CantidadVendida", cantidadVendida);
+
+            try
+            {
+                cn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocurrió un error al actualizar el stock: " + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
     }
 
 }
