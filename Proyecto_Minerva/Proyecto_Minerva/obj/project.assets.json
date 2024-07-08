@@ -529,9 +529,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Luis Jhon\\source\\repos\\kaneki20041\\Proyec_Minerva\\Proyecto_Minerva\\Proyecto_Minerva\\CapaPresentacion.csproj",
+      "projectUniqueName": "C:\\Users\\Luis Jhon\\Source\\Repos\\kaneki20041\\Proyec_Minerva\\Proyecto_Minerva\\Proyecto_Minerva\\CapaPresentacion.csproj",
       "projectName": "CapaPresentacion",
-      "projectPath": "C:\\Users\\Luis Jhon\\source\\repos\\kaneki20041\\Proyec_Minerva\\Proyecto_Minerva\\Proyecto_Minerva\\CapaPresentacion.csproj",
+      "projectPath": "C:\\Users\\Luis Jhon\\Source\\Repos\\kaneki20041\\Proyec_Minerva\\Proyecto_Minerva\\Proyecto_Minerva\\CapaPresentacion.csproj",
       "packagesPath": "C:\\Users\\Luis Jhon\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Luis Jhon\\Source\\Repos\\kaneki20041\\Proyec_Minerva\\Proyecto_Minerva\\Proyecto_Minerva\\obj\\",
       "projectStyle": "PackageReference",
@@ -550,11 +550,11 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\Luis Jhon\\source\\repos\\kaneki20041\\Proyec_Minerva\\Proyecto_Minerva\\CapaEntidad\\CapaEntidad.csproj": {
-              "projectPath": "C:\\Users\\Luis Jhon\\source\\repos\\kaneki20041\\Proyec_Minerva\\Proyecto_Minerva\\CapaEntidad\\CapaEntidad.csproj"
+            "C:\\Users\\Luis Jhon\\Source\\Repos\\kaneki20041\\Proyec_Minerva\\Proyecto_Minerva\\CapaEntidad\\CapaEntidad.csproj": {
+              "projectPath": "C:\\Users\\Luis Jhon\\Source\\Repos\\kaneki20041\\Proyec_Minerva\\Proyecto_Minerva\\CapaEntidad\\CapaEntidad.csproj"
             },
-            "C:\\Users\\Luis Jhon\\source\\repos\\kaneki20041\\Proyec_Minerva\\Proyecto_Minerva\\CapaLogica\\CapaLogica.csproj": {
-              "projectPath": "C:\\Users\\Luis Jhon\\source\\repos\\kaneki20041\\Proyec_Minerva\\Proyecto_Minerva\\CapaLogica\\CapaLogica.csproj"
+            "C:\\Users\\Luis Jhon\\Source\\Repos\\kaneki20041\\Proyec_Minerva\\Proyecto_Minerva\\CapaLogica\\CapaLogica.csproj": {
+              "projectPath": "C:\\Users\\Luis Jhon\\Source\\Repos\\kaneki20041\\Proyec_Minerva\\Proyecto_Minerva\\CapaLogica\\CapaLogica.csproj"
             }
           }
         }
