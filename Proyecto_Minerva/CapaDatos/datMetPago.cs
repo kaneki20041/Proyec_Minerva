@@ -140,7 +140,7 @@ namespace CapaDatos
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spBuscarMetodoPagoPorID", cn);
+                cmd = new SqlCommand("spBuscarMetodoPago", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@MetodopagoID", metPagoID);
                 cn.Open();
