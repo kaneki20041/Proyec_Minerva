@@ -9,7 +9,7 @@ namespace CapaEntidad
     public class EntMetPago
     {
         public int MetPagoid { get; set; }
-        public string metodopago { get; set; }
+        public string? metodopago { get; set; }
 
         public bool estMetpago { get; set; }
 

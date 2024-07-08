@@ -26,9 +26,69 @@ namespace CapaDatos
         #endregion singleton
         #region metodos
         ////////////////////listado de Proveedores
+        /// <summary
+        /// </summary>
+        /// <returns></returns>
+        /// 
+
+        public List<string> ObtenerCiudad()
+        {
+            List<string> ciudad = new List<string>();
+            SqlCommand? cmd = null;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("ObtenerCiudad", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    ciudad.Add(dr["Ciudad"].ToString());
+                }
+            }
+            catch (Exception) { throw; }
+            finally
+            {
+                if (cmd != null && cmd.Connection != null && cmd.Connection.State == ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                }
+            }
+            return ciudad;
+        }
+        public List<string> ObtenerRubro()
+        {
+            List<string> rubro = new List<string>();
+            SqlCommand? cmd = null;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("ObtenerRubro", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    rubro.Add(dr["Rubro"].ToString());
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (cmd != null && cmd.Connection != null && cmd.Connection.State == ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                }
+            }
+            return rubro;
+        }
         public List<entProveedor> ListarProveedor()
         {
-            SqlCommand cmd = null;
+            SqlCommand? cmd = null;
             List<entProveedor> lista = new List<entProveedor>();
             try
             {
@@ -53,13 +113,10 @@ namespace CapaDatos
                     lista.Add(prov);
                 }
             }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            catch (Exception) { throw; }
             finally
             {
-                cmd.Connection.Close();
+                cmd?.Connection.Close();
             }
             return lista;
         }
@@ -68,7 +125,7 @@ namespace CapaDatos
         /////////////////////////InsertaCliente
         public Boolean InsertaProveedor(entProveedor prov)
         {
-            SqlCommand cmd = null;
+            SqlCommand? cmd = null;
             Boolean inserta = false;
             try
             {
@@ -91,9 +148,9 @@ namespace CapaDatos
                     inserta = true;
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                throw e;
+                throw;
             }
             finally
             {
@@ -107,8 +164,8 @@ namespace CapaDatos
 
         public entProveedor BuscarProveedorPorID(int id)
         {
-            SqlCommand cmd = null;
-            entProveedor prov = null;
+            SqlCommand? cmd = null;
+            entProveedor? prov = null;
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
@@ -134,9 +191,9 @@ namespace CapaDatos
                     };
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                throw e;
+                throw;
             }
             finally
             {
@@ -150,7 +207,7 @@ namespace CapaDatos
 
         public Boolean ModificarProveedor(entProveedor prov)
         {
-            SqlCommand cmd = null;
+            SqlCommand? cmd = null;
             Boolean modifica = false;
             try
             {
@@ -174,10 +231,7 @@ namespace CapaDatos
                     modifica = true;
                 }
             }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            catch (Exception) { throw; }
             finally
             {
                 if (cmd != null && cmd.Connection != null)

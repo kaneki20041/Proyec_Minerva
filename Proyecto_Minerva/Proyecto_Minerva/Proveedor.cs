@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Proyecto_Minerva
 {
@@ -18,6 +19,7 @@ namespace Proyecto_Minerva
         {
             InitializeComponent();
             listarProveedor();
+            InicializarComboBoxes();
             grupBoxDatos.Enabled = false;
             grupBoxDatos2.Enabled = false;
             //txtidCliente.Enabled = false;
@@ -28,7 +30,25 @@ namespace Proyecto_Minerva
             dvgProveedor.DataSource = logProveedor.Instancia.ListarProveedor();
         }
 
+        private void InicializarComboBoxes()
+        {
+            // Llenado de ComboBox comboBox2 (Categorias)
+            comboBox1.Items.Clear();
+            List<string> Rubro = logProveedor.Instancia.ObtenerRubro();
+            foreach (string rubro in Rubro)
+            {
+                comboBox1.Items.Add(rubro);
+            }
 
+            // Llenado de ComboBox comboBox1 (Colegios)
+            comboBox2.Items.Clear();
+            List<string> ciudad = logProveedor.Instancia.ObtenerCiudad();
+            foreach (string Ciudad in ciudad)
+            {
+                comboBox2.Items.Add(Ciudad);
+            }
+
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {

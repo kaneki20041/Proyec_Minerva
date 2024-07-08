@@ -64,9 +64,9 @@ namespace CapaPresentacion
                 }
 
                 // Captura los datos de los ComboBox y TextBox
-                string categoria = comboBox2.SelectedItem.ToString();
-                string colegio = comboBox1.SelectedItem.ToString();
-                string talla = comboBox3.SelectedItem.ToString();
+                string? categoria = comboBox2.SelectedItem.ToString();
+                string? colegio = comboBox1.SelectedItem.ToString();
+                string? talla = comboBox3.SelectedItem.ToString();
                 decimal precioCompra;
                 decimal precioVenta;
                 int stock;
