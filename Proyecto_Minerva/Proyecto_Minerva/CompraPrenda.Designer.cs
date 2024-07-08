@@ -42,7 +42,8 @@
             textBox6 = new TextBox();
             textBox7 = new TextBox();
             groupBox3 = new GroupBox();
-            domainUpDown1 = new DomainUpDown();
+            textBox1 = new TextBox();
+            label4 = new Label();
             label12 = new Label();
             label14 = new Label();
             textBox11 = new TextBox();
@@ -66,18 +67,19 @@
             AgreCompra = new Button();
             button4 = new Button();
             button5 = new Button();
-            dataGridView1 = new DataGridView();
+            tablaCompras = new DataGridView();
+            txtCantidad = new TextBox();
             groupBox3.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)tablaCompras).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(285, 4);
+            label1.Location = new Point(313, 4);
             label1.Name = "label1";
             label1.Size = new Size(132, 21);
             label1.TabIndex = 0;
@@ -139,7 +141,7 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(601, 130);
+            textBox2.Location = new Point(652, 131);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(85, 23);
             textBox2.TabIndex = 10;
@@ -184,7 +186,9 @@
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(domainUpDown1);
+            groupBox3.Controls.Add(txtCantidad);
+            groupBox3.Controls.Add(textBox1);
+            groupBox3.Controls.Add(label4);
             groupBox3.Controls.Add(label12);
             groupBox3.Controls.Add(label14);
             groupBox3.Controls.Add(textBox11);
@@ -199,24 +203,31 @@
             groupBox3.Controls.Add(btn_buscarPrenVen);
             groupBox3.Location = new Point(12, 122);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(450, 83);
+            groupBox3.Size = new Size(487, 83);
             groupBox3.TabIndex = 45;
             groupBox3.TabStop = false;
             groupBox3.Text = "Informacion prenda";
             // 
-            // domainUpDown1
+            // textBox1
             // 
-            domainUpDown1.Location = new Point(224, 49);
-            domainUpDown1.Margin = new Padding(3, 2, 3, 2);
-            domainUpDown1.Name = "domainUpDown1";
-            domainUpDown1.Size = new Size(82, 23);
-            domainUpDown1.TabIndex = 47;
-            domainUpDown1.Text = "0";
+            textBox1.Location = new Point(185, 49);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(88, 23);
+            textBox1.TabIndex = 49;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(128, 54);
+            label4.Name = "label4";
+            label4.Size = new Size(58, 15);
+            label4.TabIndex = 48;
+            label4.Text = "Categoria";
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(163, 52);
+            label12.Location = new Point(273, 53);
             label12.Name = "label12";
             label12.Size = new Size(55, 15);
             label12.TabIndex = 43;
@@ -225,7 +236,7 @@
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(319, 52);
+            label14.Location = new Point(379, 53);
             label14.Name = "label14";
             label14.Size = new Size(36, 15);
             label14.TabIndex = 41;
@@ -233,30 +244,30 @@
             // 
             // textBox11
             // 
-            textBox11.Location = new Point(367, 48);
+            textBox11.Location = new Point(421, 47);
             textBox11.Name = "textBox11";
-            textBox11.Size = new Size(75, 23);
+            textBox11.Size = new Size(60, 23);
             textBox11.TabIndex = 40;
             // 
             // textBox12
             // 
-            textBox12.Location = new Point(76, 49);
+            textBox12.Location = new Point(64, 50);
             textBox12.Name = "textBox12";
-            textBox12.Size = new Size(78, 23);
+            textBox12.Size = new Size(60, 23);
             textBox12.TabIndex = 39;
             // 
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(10, 52);
+            label15.Location = new Point(6, 55);
             label15.Name = "label15";
             label15.Size = new Size(60, 15);
             label15.TabIndex = 38;
-            label15.Text = "P,Compra";
+            label15.Text = "P.Compra";
             // 
             // textBox13
             // 
-            textBox13.Location = new Point(393, 16);
+            textBox13.Location = new Point(439, 18);
             textBox13.Name = "textBox13";
             textBox13.Size = new Size(42, 23);
             textBox13.TabIndex = 37;
@@ -275,7 +286,7 @@
             textBox14.Location = new Point(203, 18);
             textBox14.Multiline = true;
             textBox14.Name = "textBox14";
-            textBox14.Size = new Size(148, 22);
+            textBox14.Size = new Size(191, 22);
             textBox14.TabIndex = 32;
             // 
             // textBox15
@@ -298,7 +309,7 @@
             // label18
             // 
             label18.AutoSize = true;
-            label18.Location = new Point(357, 21);
+            label18.Location = new Point(403, 23);
             label18.Name = "label18";
             label18.Size = new Size(30, 15);
             label18.TabIndex = 5;
@@ -335,7 +346,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(552, 134);
+            label11.Location = new Point(603, 135);
             label11.Name = "label11";
             label11.Size = new Size(43, 15);
             label11.TabIndex = 44;
@@ -351,7 +362,7 @@
             groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(label2);
-            groupBox1.Location = new Point(12, 28);
+            groupBox1.Location = new Point(22, 28);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(365, 88);
             groupBox1.TabIndex = 49;
@@ -385,7 +396,7 @@
             groupBox2.Controls.Add(label6);
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(label3);
-            groupBox2.Location = new Point(388, 28);
+            groupBox2.Location = new Point(415, 28);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(300, 88);
             groupBox2.TabIndex = 50;
@@ -404,46 +415,54 @@
             // 
             // AgreCompra
             // 
-            AgreCompra.Location = new Point(471, 130);
+            AgreCompra.Location = new Point(516, 134);
             AgreCompra.Name = "AgreCompra";
             AgreCompra.Size = new Size(75, 23);
             AgreCompra.TabIndex = 51;
             AgreCompra.Text = "Agregar";
             AgreCompra.UseVisualStyleBackColor = true;
+            AgreCompra.Click += AgreCompra_Click;
             // 
             // button4
             // 
-            button4.Location = new Point(556, 160);
+            button4.Location = new Point(607, 165);
             button4.Name = "button4";
             button4.Size = new Size(130, 35);
             button4.TabIndex = 52;
-            button4.Text = "REGISTRAR COMPRA";
+            button4.Text = "GRABAR";
             button4.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
-            button5.Location = new Point(471, 166);
+            button5.Location = new Point(516, 170);
             button5.Name = "button5";
             button5.Size = new Size(75, 23);
             button5.TabIndex = 53;
             button5.Text = "Quitar";
             button5.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // tablaCompras
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 211);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(670, 108);
-            dataGridView1.TabIndex = 54;
+            tablaCompras.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            tablaCompras.Location = new Point(8, 211);
+            tablaCompras.Name = "tablaCompras";
+            tablaCompras.RowTemplate.Height = 25;
+            tablaCompras.Size = new Size(707, 204);
+            tablaCompras.TabIndex = 54;
+            // 
+            // txtCantidad
+            // 
+            txtCantidad.Location = new Point(329, 48);
+            txtCantidad.Name = "txtCantidad";
+            txtCantidad.Size = new Size(48, 23);
+            txtCantidad.TabIndex = 50;
             // 
             // CompraPrenda
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(696, 331);
-            Controls.Add(dataGridView1);
+            ClientSize = new Size(745, 427);
+            Controls.Add(tablaCompras);
             Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(AgreCompra);
@@ -463,7 +482,7 @@
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)tablaCompras).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -486,7 +505,6 @@
         private GroupBox groupBox3;
         private TextBox textBox9;
         private Label label13;
-        private DomainUpDown domainUpDown1;
         private Label label11;
         private Label label12;
         private Label label14;
@@ -508,6 +526,9 @@
         private Button AgreCompra;
         private Button button4;
         private Button button5;
-        private DataGridView dataGridView1;
+        private DataGridView tablaCompras;
+        private TextBox textBox1;
+        private Label label4;
+        private TextBox txtCantidad;
     }
 }

@@ -85,5 +85,10 @@ namespace Proyecto_Minerva
         {
             AbrirForm(new CompraPrenda());
         }
+
+        private void btnCategoria_Click(object sender, EventArgs e)
+        {
+            AbrirForm(new Categoriaa());
+        }
     }
 }

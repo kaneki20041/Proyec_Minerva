@@ -531,9 +531,15 @@
     "restore": {
       "projectUniqueName": "C:\\Users\\Luis Jhon\\Source\\Repos\\kaneki20041\\Proyec_Minerva\\Proyecto_Minerva\\Proyecto_Minerva\\CapaPresentacion.csproj",
       "projectName": "CapaPresentacion",
+<<<<<<< HEAD
       "projectPath": "C:\\Users\\Luis Jhon\\Source\\Repos\\kaneki20041\\Proyec_Minerva\\Proyecto_Minerva\\Proyecto_Minerva\\CapaPresentacion.csproj",
       "packagesPath": "C:\\Users\\Luis Jhon\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Luis Jhon\\Source\\Repos\\kaneki20041\\Proyec_Minerva\\Proyecto_Minerva\\Proyecto_Minerva\\obj\\",
+=======
+      "projectPath": "C:\\Users\\User\\Pictures\\minera proyecto nuevo\\Proyecto_Minerva\\Proyecto_Minerva\\CapaPresentacion.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\User\\Pictures\\minera proyecto nuevo\\Proyecto_Minerva\\Proyecto_Minerva\\obj\\",
+>>>>>>> aae6cc2a3514068cd5a09163125490e284e644bd
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Luis Jhon\\AppData\\Roaming\\NuGet\\NuGet.Config",
