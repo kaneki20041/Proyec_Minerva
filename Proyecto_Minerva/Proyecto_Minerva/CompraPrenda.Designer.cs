@@ -42,13 +42,10 @@
             textBox6 = new TextBox();
             textBox7 = new TextBox();
             groupBox3 = new GroupBox();
-            label9 = new Label();
-            textBox4 = new TextBox();
-            txtCantidad = new TextBox();
             textBox1 = new TextBox();
             label4 = new Label();
-            label14 = new Label();
             label12 = new Label();
+            label14 = new Label();
             textBox11 = new TextBox();
             textBox12 = new TextBox();
             label15 = new Label();
@@ -71,14 +68,7 @@
             button4 = new Button();
             button5 = new Button();
             tablaCompras = new DataGridView();
-            idprenda = new DataGridViewTextBoxColumn();
-            Descripcion = new DataGridViewTextBoxColumn();
-            Colegio = new DataGridViewTextBoxColumn();
-            Categoria = new DataGridViewTextBoxColumn();
-            Talla = new DataGridViewTextBoxColumn();
-            Cantidad = new DataGridViewTextBoxColumn();
-            Precio = new DataGridViewTextBoxColumn();
-            SubTotal = new DataGridViewTextBoxColumn();
+            txtCantidad = new TextBox();
             groupBox3.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -116,7 +106,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(164, 21);
+            label5.Location = new Point(164, 19);
             label5.Name = "label5";
             label5.Size = new Size(30, 15);
             label5.TabIndex = 4;
@@ -151,7 +141,7 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(704, 291);
+            textBox2.Location = new Point(652, 131);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(85, 23);
             textBox2.TabIndex = 10;
@@ -182,7 +172,7 @@
             // 
             // textBox6
             // 
-            textBox6.Location = new Point(200, 15);
+            textBox6.Location = new Point(194, 15);
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(100, 23);
             textBox6.TabIndex = 17;
@@ -196,13 +186,11 @@
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(label9);
-            groupBox3.Controls.Add(textBox4);
             groupBox3.Controls.Add(txtCantidad);
             groupBox3.Controls.Add(textBox1);
             groupBox3.Controls.Add(label4);
-            groupBox3.Controls.Add(label14);
             groupBox3.Controls.Add(label12);
+            groupBox3.Controls.Add(label14);
             groupBox3.Controls.Add(textBox11);
             groupBox3.Controls.Add(textBox12);
             groupBox3.Controls.Add(label15);
@@ -213,81 +201,57 @@
             groupBox3.Controls.Add(label17);
             groupBox3.Controls.Add(label18);
             groupBox3.Controls.Add(btn_buscarPrenVen);
-            groupBox3.Location = new Point(35, 122);
+            groupBox3.Location = new Point(12, 122);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(632, 83);
+            groupBox3.Size = new Size(487, 83);
             groupBox3.TabIndex = 45;
             groupBox3.TabStop = false;
             groupBox3.Text = "Informacion prenda";
             // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(434, 21);
-            label9.Name = "label9";
-            label9.Size = new Size(48, 15);
-            label9.TabIndex = 55;
-            label9.Text = "Colegio";
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(488, 16);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(131, 23);
-            textBox4.TabIndex = 56;
-            // 
-            // txtCantidad
-            // 
-            txtCantidad.Location = new Point(575, 49);
-            txtCantidad.Name = "txtCantidad";
-            txtCantidad.Size = new Size(51, 23);
-            txtCantidad.TabIndex = 50;
-            // 
             // textBox1
             // 
-            textBox1.Location = new Point(199, 48);
+            textBox1.Location = new Point(185, 49);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(104, 23);
+            textBox1.Size = new Size(88, 23);
             textBox1.TabIndex = 49;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(137, 51);
+            label4.Location = new Point(128, 54);
             label4.Name = "label4";
             label4.Size = new Size(58, 15);
             label4.TabIndex = 48;
             label4.Text = "Categoria";
-            label4.Click += label4_Click;
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Location = new Point(399, 54);
-            label14.Name = "label14";
-            label14.Size = new Size(36, 15);
-            label14.TabIndex = 41;
-            label14.Text = "Stock";
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(514, 54);
+            label12.Location = new Point(273, 53);
             label12.Name = "label12";
             label12.Size = new Size(55, 15);
             label12.TabIndex = 43;
             label12.Text = "Cantidad";
             // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(379, 53);
+            label14.Name = "label14";
+            label14.Size = new Size(36, 15);
+            label14.TabIndex = 41;
+            label14.Text = "Stock";
+            // 
             // textBox11
             // 
-            textBox11.Location = new Point(441, 49);
+            textBox11.Location = new Point(421, 47);
             textBox11.Name = "textBox11";
             textBox11.Size = new Size(60, 23);
             textBox11.TabIndex = 40;
             // 
             // textBox12
             // 
-            textBox12.Location = new Point(72, 48);
+            textBox12.Location = new Point(64, 50);
             textBox12.Name = "textBox12";
             textBox12.Size = new Size(60, 23);
             textBox12.TabIndex = 39;
@@ -295,7 +259,7 @@
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(10, 52);
+            label15.Location = new Point(6, 55);
             label15.Name = "label15";
             label15.Size = new Size(60, 15);
             label15.TabIndex = 38;
@@ -303,7 +267,7 @@
             // 
             // textBox13
             // 
-            textBox13.Location = new Point(351, 48);
+            textBox13.Location = new Point(439, 18);
             textBox13.Name = "textBox13";
             textBox13.Size = new Size(42, 23);
             textBox13.TabIndex = 37;
@@ -322,7 +286,7 @@
             textBox14.Location = new Point(203, 18);
             textBox14.Multiline = true;
             textBox14.Name = "textBox14";
-            textBox14.Size = new Size(225, 22);
+            textBox14.Size = new Size(191, 22);
             textBox14.TabIndex = 32;
             // 
             // textBox15
@@ -345,7 +309,7 @@
             // label18
             // 
             label18.AutoSize = true;
-            label18.Location = new Point(309, 52);
+            label18.Location = new Point(403, 23);
             label18.Name = "label18";
             label18.Size = new Size(30, 15);
             label18.TabIndex = 5;
@@ -364,7 +328,7 @@
             // 
             // textBox9
             // 
-            textBox9.Location = new Point(246, 52);
+            textBox9.Location = new Point(263, 87);
             textBox9.Multiline = true;
             textBox9.Name = "textBox9";
             textBox9.Size = new Size(113, 22);
@@ -382,7 +346,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(704, 273);
+            label11.Location = new Point(603, 135);
             label11.Name = "label11";
             label11.Size = new Size(43, 15);
             label11.TabIndex = 44;
@@ -394,7 +358,6 @@
             groupBox1.Controls.Add(label13);
             groupBox1.Controls.Add(BuscarMetPago);
             groupBox1.Controls.Add(textBox3);
-            groupBox1.Controls.Add(textBox9);
             groupBox1.Controls.Add(dateTimePicker1);
             groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(label7);
@@ -435,7 +398,7 @@
             groupBox2.Controls.Add(label3);
             groupBox2.Location = new Point(415, 28);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(312, 88);
+            groupBox2.Size = new Size(300, 88);
             groupBox2.TabIndex = 50;
             groupBox2.TabStop = false;
             groupBox2.Text = "Informacion proveedor";
@@ -452,9 +415,9 @@
             // 
             // AgreCompra
             // 
-            AgreCompra.Location = new Point(704, 128);
+            AgreCompra.Location = new Point(516, 134);
             AgreCompra.Name = "AgreCompra";
-            AgreCompra.Size = new Size(83, 30);
+            AgreCompra.Size = new Size(75, 23);
             AgreCompra.TabIndex = 51;
             AgreCompra.Text = "Agregar";
             AgreCompra.UseVisualStyleBackColor = true;
@@ -462,83 +425,48 @@
             // 
             // button4
             // 
-            button4.Location = new Point(702, 339);
+            button4.Location = new Point(607, 165);
             button4.Name = "button4";
-            button4.Size = new Size(100, 35);
+            button4.Size = new Size(130, 35);
             button4.TabIndex = 52;
             button4.Text = "GRABAR";
             button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
             // 
             // button5
             // 
-            button5.Location = new Point(704, 164);
+            button5.Location = new Point(516, 170);
             button5.Name = "button5";
-            button5.Size = new Size(83, 30);
+            button5.Size = new Size(75, 23);
             button5.TabIndex = 53;
             button5.Text = "Quitar";
             button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
             // 
             // tablaCompras
             // 
             tablaCompras.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tablaCompras.Columns.AddRange(new DataGridViewColumn[] { idprenda, Descripcion, Colegio, Categoria, Talla, Cantidad, Precio, SubTotal });
             tablaCompras.Location = new Point(8, 211);
             tablaCompras.Name = "tablaCompras";
             tablaCompras.RowTemplate.Height = 25;
-            tablaCompras.Size = new Size(688, 204);
+            tablaCompras.Size = new Size(707, 204);
             tablaCompras.TabIndex = 54;
             // 
-            // idprenda
+            // txtCantidad
             // 
-            idprenda.HeaderText = "IDprenda";
-            idprenda.Name = "idprenda";
-            // 
-            // Descripcion
-            // 
-            Descripcion.HeaderText = "Descripcion";
-            Descripcion.Name = "Descripcion";
-            // 
-            // Colegio
-            // 
-            Colegio.HeaderText = "Colegio";
-            Colegio.Name = "Colegio";
-            // 
-            // Categoria
-            // 
-            Categoria.HeaderText = "Categoria";
-            Categoria.Name = "Categoria";
-            // 
-            // Talla
-            // 
-            Talla.HeaderText = "Talla";
-            Talla.Name = "Talla";
-            // 
-            // Cantidad
-            // 
-            Cantidad.HeaderText = "Cantidad";
-            Cantidad.Name = "Cantidad";
-            // 
-            // Precio
-            // 
-            Precio.HeaderText = "Precio";
-            Precio.Name = "Precio";
-            // 
-            // SubTotal
-            // 
-            SubTotal.HeaderText = "SubTotal";
-            SubTotal.Name = "SubTotal";
+            txtCantidad.Location = new Point(329, 48);
+            txtCantidad.Name = "txtCantidad";
+            txtCantidad.Size = new Size(48, 23);
+            txtCantidad.TabIndex = 50;
             // 
             // CompraPrenda
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(809, 427);
+            ClientSize = new Size(745, 427);
             Controls.Add(tablaCompras);
             Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(AgreCompra);
+            Controls.Add(textBox9);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(groupBox3);
@@ -602,15 +530,5 @@
         private TextBox textBox1;
         private Label label4;
         private TextBox txtCantidad;
-        private Label label9;
-        private TextBox textBox4;
-        private DataGridViewTextBoxColumn idprenda;
-        private DataGridViewTextBoxColumn Descripcion;
-        private DataGridViewTextBoxColumn Colegio;
-        private DataGridViewTextBoxColumn Categoria;
-        private DataGridViewTextBoxColumn Talla;
-        private DataGridViewTextBoxColumn Cantidad;
-        private DataGridViewTextBoxColumn Precio;
-        private DataGridViewTextBoxColumn SubTotal;
     }
 }

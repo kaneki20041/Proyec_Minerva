@@ -23,20 +23,7 @@ namespace CapaLogica
 
         #region metodos
 
-        ///listado <summary>
-        /// listado
-        /// </summary>
-        /// <returns></returns>
-        /// 
-        public List<string> ObtenerCiudad()
-        {
-            return datProveedor.Instancia.ObtenerCiudad();
-        }
-
-        public List<string> ObtenerRubro()
-        {
-            return datProveedor.Instancia.ObtenerRubro();
-        }
+        ///listado
 
         public List<entProveedor> ListarProveedor()
         {

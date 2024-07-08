@@ -441,6 +441,7 @@
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
         private Panel panel2;
+        private Button btn_venderu;
         private Panel panelconteiner;
         private Panel panel3;
         private Label minervanombre;

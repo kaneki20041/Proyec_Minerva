@@ -24,7 +24,7 @@ namespace CapaDatos
         public List<string> ObtenerCategorias()
         {
             List<string> categorias = new List<string>();
-            SqlCommand? cmd = null;
+            SqlCommand cmd = null;
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
@@ -37,7 +37,10 @@ namespace CapaDatos
                     categorias.Add(dr["Categoria"].ToString());
                 }
             }
-            catch (Exception) { throw; }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
             finally
             {
                 if (cmd != null && cmd.Connection != null && cmd.Connection.State == ConnectionState.Open)
@@ -51,7 +54,7 @@ namespace CapaDatos
         public List<string> ObtenerColegios()
         {
             List<string> colegios = new List<string>();
-            SqlCommand? cmd = null;
+            SqlCommand cmd = null;
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
@@ -64,7 +67,10 @@ namespace CapaDatos
                     colegios.Add(dr["Colegio"].ToString());
                 }
             }
-            catch (Exception) { throw; }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
             finally
             {
                 if (cmd != null && cmd.Connection != null && cmd.Connection.State == ConnectionState.Open)
@@ -78,7 +84,7 @@ namespace CapaDatos
         public List<string> ObtenerTallas()
         {
             List<string> tallas = new List<string>();
-            SqlCommand? cmd = null;
+            SqlCommand cmd = null;
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
@@ -91,7 +97,10 @@ namespace CapaDatos
                     tallas.Add(dr["Talla"].ToString());
                 }
             }
-            catch (Exception) { throw; }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
             finally
             {
                 if (cmd != null && cmd.Connection != null && cmd.Connection.State == ConnectionState.Open)
@@ -105,7 +114,7 @@ namespace CapaDatos
         public List<entPrendas> ListarPrendas()
         {
             List<entPrendas> prendas = new List<entPrendas>();
-            SqlCommand? cmd = null;
+            SqlCommand cmd = null;
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
@@ -131,9 +140,9 @@ namespace CapaDatos
                     prendas.Add(prenda);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
             finally
             {
@@ -165,15 +174,15 @@ namespace CapaDatos
                 cn.Open();
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 
         public void ModificarPrenda(entPrendas prenda)
         {
-            SqlCommand? cmd = null;
+            SqlCommand cmd = null;
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
@@ -194,9 +203,9 @@ namespace CapaDatos
                 cn.Open();
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
             finally
             {
@@ -209,9 +218,9 @@ namespace CapaDatos
 
         public entPrendas BuscarPrendaPorID(int prendaID)
         {
-            SqlCommand? cmd = null;
-            SqlDataReader? dr = null;
-            entPrendas? prenda = null;
+            SqlCommand cmd = null;
+            SqlDataReader dr = null;
+            entPrendas prenda = null;
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
@@ -238,9 +247,9 @@ namespace CapaDatos
                     };
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
             finally
             {
