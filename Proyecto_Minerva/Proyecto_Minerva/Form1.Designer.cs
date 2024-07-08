@@ -35,7 +35,9 @@
             Button btn_Matyprod;
             Button button2;
             Button btnMotorizado;
+            Button btnDetalleComp;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            Button btnCategoria;
             panel1 = new Panel();
             pictureBox5 = new PictureBox();
             btnMinimizar = new PictureBox();
@@ -44,6 +46,7 @@
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
             panel2 = new Panel();
+            panel7 = new Panel();
             panel11 = new Panel();
             panel10 = new Panel();
             panel9 = new Panel();
@@ -53,6 +56,7 @@
             panel8 = new Panel();
             panel3 = new Panel();
             panelconteiner = new Panel();
+            panel12 = new Panel();
             btn_venderu = new Button();
             btn_Cliente = new Button();
             btn_IngMaterial = new Button();
@@ -60,6 +64,8 @@
             btn_Matyprod = new Button();
             button2 = new Button();
             btnMotorizado = new Button();
+            btnDetalleComp = new Button();
+            btnCategoria = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnMinimizar).BeginInit();
@@ -77,7 +83,7 @@
             btn_venderu.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
             btn_venderu.FlatStyle = FlatStyle.Flat;
             btn_venderu.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_venderu.Location = new Point(0, 11);
+            btn_venderu.Location = new Point(6, 11);
             btn_venderu.Name = "btn_venderu";
             btn_venderu.Size = new Size(150, 37);
             btn_venderu.TabIndex = 0;
@@ -92,7 +98,7 @@
             btn_Cliente.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
             btn_Cliente.FlatStyle = FlatStyle.Flat;
             btn_Cliente.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_Cliente.Location = new Point(0, 54);
+            btn_Cliente.Location = new Point(6, 97);
             btn_Cliente.Name = "btn_Cliente";
             btn_Cliente.Size = new Size(166, 37);
             btn_Cliente.TabIndex = 3;
@@ -107,11 +113,11 @@
             btn_IngMaterial.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
             btn_IngMaterial.FlatStyle = FlatStyle.Flat;
             btn_IngMaterial.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_IngMaterial.Location = new Point(0, 185);
+            btn_IngMaterial.Location = new Point(6, 312);
             btn_IngMaterial.Name = "btn_IngMaterial";
             btn_IngMaterial.Size = new Size(166, 37);
             btn_IngMaterial.TabIndex = 4;
-            btn_IngMaterial.Text = "Comprar prendas";
+            btn_IngMaterial.Text = "Detalle compras";
             btn_IngMaterial.UseVisualStyleBackColor = true;
             btn_IngMaterial.Click += btn_IngMaterial_Click;
             // 
@@ -122,7 +128,7 @@
             btnSalidaMaterial.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
             btnSalidaMaterial.FlatStyle = FlatStyle.Flat;
             btnSalidaMaterial.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSalidaMaterial.Location = new Point(0, 228);
+            btnSalidaMaterial.Location = new Point(6, 271);
             btnSalidaMaterial.Name = "btnSalidaMaterial";
             btnSalidaMaterial.Size = new Size(166, 37);
             btnSalidaMaterial.TabIndex = 6;
@@ -137,7 +143,7 @@
             btn_Matyprod.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
             btn_Matyprod.FlatStyle = FlatStyle.Flat;
             btn_Matyprod.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_Matyprod.Location = new Point(0, 97);
+            btn_Matyprod.Location = new Point(6, 140);
             btn_Matyprod.Name = "btn_Matyprod";
             btn_Matyprod.Size = new Size(166, 37);
             btn_Matyprod.TabIndex = 7;
@@ -152,7 +158,7 @@
             button2.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
             button2.FlatStyle = FlatStyle.Flat;
             button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(0, 140);
+            button2.Location = new Point(6, 185);
             button2.Name = "button2";
             button2.Size = new Size(166, 37);
             button2.TabIndex = 8;
@@ -167,13 +173,28 @@
             btnMotorizado.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
             btnMotorizado.FlatStyle = FlatStyle.Flat;
             btnMotorizado.ImageAlign = ContentAlignment.MiddleLeft;
-            btnMotorizado.Location = new Point(0, 271);
+            btnMotorizado.Location = new Point(6, 228);
             btnMotorizado.Name = "btnMotorizado";
             btnMotorizado.Size = new Size(166, 37);
             btnMotorizado.TabIndex = 9;
-            btnMotorizado.Text = "Detalle compras";
+            btnMotorizado.Text = "Metodo Pago";
             btnMotorizado.UseVisualStyleBackColor = true;
             btnMotorizado.Click += btnMotorizado_Click;
+            // 
+            // btnDetalleComp
+            // 
+            btnDetalleComp.Cursor = Cursors.Hand;
+            btnDetalleComp.FlatAppearance.BorderSize = 0;
+            btnDetalleComp.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
+            btnDetalleComp.FlatStyle = FlatStyle.Flat;
+            btnDetalleComp.ImageAlign = ContentAlignment.MiddleLeft;
+            btnDetalleComp.Location = new Point(6, 54);
+            btnDetalleComp.Name = "btnDetalleComp";
+            btnDetalleComp.Size = new Size(166, 37);
+            btnDetalleComp.TabIndex = 10;
+            btnDetalleComp.Text = "Comprar prendas";
+            btnDetalleComp.UseVisualStyleBackColor = true;
+            btnDetalleComp.Click += btnDetalleComp_Click;
             // 
             // panel1
             // 
@@ -262,6 +283,11 @@
             // panel2
             // 
             panel2.BackColor = Color.Gold;
+            panel2.Controls.Add(panel12);
+            panel2.Controls.Add(btnCategoria);
+            panel2.Controls.Add(btnDetalleComp);
+            panel2.Controls.Add(btn_venderu);
+            panel2.Controls.Add(panel7);
             panel2.Controls.Add(panel11);
             panel2.Controls.Add(btnMotorizado);
             panel2.Controls.Add(panel10);
@@ -275,12 +301,19 @@
             panel2.Controls.Add(panel4);
             panel2.Controls.Add(btn_Cliente);
             panel2.Controls.Add(panel3);
-            panel2.Controls.Add(btn_venderu);
             panel2.Dock = DockStyle.Left;
             panel2.Location = new Point(0, 74);
             panel2.Name = "panel2";
-            panel2.Size = new Size(156, 326);
+            panel2.Size = new Size(156, 400);
             panel2.TabIndex = 1;
+            // 
+            // panel7
+            // 
+            panel7.BackColor = SystemColors.Highlight;
+            panel7.Location = new Point(0, 312);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(7, 37);
+            panel7.TabIndex = 7;
             // 
             // panel11
             // 
@@ -353,14 +386,37 @@
             panelconteiner.Dock = DockStyle.Fill;
             panelconteiner.Location = new Point(156, 74);
             panelconteiner.Name = "panelconteiner";
-            panelconteiner.Size = new Size(694, 326);
+            panelconteiner.Size = new Size(694, 400);
             panelconteiner.TabIndex = 2;
+            // 
+            // btnCategoria
+            // 
+            btnCategoria.Cursor = Cursors.Hand;
+            btnCategoria.FlatAppearance.BorderSize = 0;
+            btnCategoria.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
+            btnCategoria.FlatStyle = FlatStyle.Flat;
+            btnCategoria.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCategoria.Location = new Point(0, 355);
+            btnCategoria.Name = "btnCategoria";
+            btnCategoria.Size = new Size(166, 37);
+            btnCategoria.TabIndex = 11;
+            btnCategoria.Text = "Categorias";
+            btnCategoria.UseVisualStyleBackColor = true;
+            btnCategoria.Click += btnCategoria_Click;
+            // 
+            // panel12
+            // 
+            panel12.BackColor = SystemColors.Highlight;
+            panel12.Location = new Point(0, 355);
+            panel12.Name = "panel12";
+            panel12.Size = new Size(7, 37);
+            panel12.TabIndex = 8;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(850, 400);
+            ClientSize = new Size(850, 474);
             Controls.Add(panelconteiner);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -399,5 +455,7 @@
         private Panel panel11;
         private PictureBox pictureBox4;
         private PictureBox pictureBox5;
+        private Panel panel7;
+        private Panel panel12;
     }
 }

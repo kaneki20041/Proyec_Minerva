@@ -1,6 +1,6 @@
 ﻿namespace Proyecto_Minerva
 {
-    partial class IngMaterial
+    partial class DetalleCompra
     {
         /// <summary>
         /// Required designer variable.

@@ -37,12 +37,12 @@ namespace Proyecto_Minerva
 
         private void btn_IngMaterial_Click(object sender, EventArgs e)
         {
-            AbrirForm(new IngMaterial());
+            AbrirForm(new DetalleCompra());
         }
 
         private void btnSalidaMaterial_Click(object sender, EventArgs e)
         {
-            AbrirForm(new SalidMaterial());
+            AbrirForm(new Detalleventa());
         }
 
         private void btn_Matyprod_Click(object sender, EventArgs e)
@@ -55,10 +55,7 @@ namespace Proyecto_Minerva
             AbrirForm(new Proveedor());
         }
 
-        private void btn_Cambiou_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void btnMotorizado_Click(object sender, EventArgs e)
         {
@@ -82,6 +79,16 @@ namespace Proyecto_Minerva
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnDetalleComp_Click(object sender, EventArgs e)
+        {
+            AbrirForm(new CompraPrenda());
+        }
+
+        private void btnCategoria_Click(object sender, EventArgs e)
+        {
+            AbrirForm(new Categoriaa());
         }
     }
 }
