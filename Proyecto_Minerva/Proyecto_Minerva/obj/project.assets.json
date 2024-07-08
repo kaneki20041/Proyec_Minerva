@@ -524,25 +524,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Luis Jhon\\.nuget\\packages\\": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Luis Jhon\\Source\\Repos\\kaneki20041\\Proyec_Minerva\\Proyecto_Minerva\\Proyecto_Minerva\\CapaPresentacion.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Pictures\\minera proyecto nuevo\\Proyecto_Minerva\\Proyecto_Minerva\\CapaPresentacion.csproj",
       "projectName": "CapaPresentacion",
-<<<<<<< HEAD
-      "projectPath": "C:\\Users\\Luis Jhon\\Source\\Repos\\kaneki20041\\Proyec_Minerva\\Proyecto_Minerva\\Proyecto_Minerva\\CapaPresentacion.csproj",
-      "packagesPath": "C:\\Users\\Luis Jhon\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Luis Jhon\\Source\\Repos\\kaneki20041\\Proyec_Minerva\\Proyecto_Minerva\\Proyecto_Minerva\\obj\\",
-=======
       "projectPath": "C:\\Users\\User\\Pictures\\minera proyecto nuevo\\Proyecto_Minerva\\Proyecto_Minerva\\CapaPresentacion.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\User\\Pictures\\minera proyecto nuevo\\Proyecto_Minerva\\Proyecto_Minerva\\obj\\",
->>>>>>> ae196a5626cc246f2321b403ea68dc8cc86e4ef7
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Luis Jhon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -556,11 +555,11 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\Luis Jhon\\Source\\Repos\\kaneki20041\\Proyec_Minerva\\Proyecto_Minerva\\CapaEntidad\\CapaEntidad.csproj": {
-              "projectPath": "C:\\Users\\Luis Jhon\\Source\\Repos\\kaneki20041\\Proyec_Minerva\\Proyecto_Minerva\\CapaEntidad\\CapaEntidad.csproj"
+            "C:\\Users\\User\\Pictures\\minera proyecto nuevo\\Proyecto_Minerva\\CapaEntidad\\CapaEntidad.csproj": {
+              "projectPath": "C:\\Users\\User\\Pictures\\minera proyecto nuevo\\Proyecto_Minerva\\CapaEntidad\\CapaEntidad.csproj"
             },
-            "C:\\Users\\Luis Jhon\\Source\\Repos\\kaneki20041\\Proyec_Minerva\\Proyecto_Minerva\\CapaLogica\\CapaLogica.csproj": {
-              "projectPath": "C:\\Users\\Luis Jhon\\Source\\Repos\\kaneki20041\\Proyec_Minerva\\Proyecto_Minerva\\CapaLogica\\CapaLogica.csproj"
+            "C:\\Users\\User\\Pictures\\minera proyecto nuevo\\Proyecto_Minerva\\CapaLogica\\CapaLogica.csproj": {
+              "projectPath": "C:\\Users\\User\\Pictures\\minera proyecto nuevo\\Proyecto_Minerva\\CapaLogica\\CapaLogica.csproj"
             }
           }
         }
@@ -593,16 +592,8 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problema al leer el archivo de caché C:\\Users\\Luis Jhon\\Source\\Repos\\kaneki20041\\Proyec_Minerva\\Proyecto_Minerva\\Proyecto_Minerva\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
