@@ -38,9 +38,15 @@ namespace CapaLogica
         }
 
         public void EliminarVenta(int oventaID)
-{
-    datOVenta.Instancia.EliminarVenta(oventaID);
-}
+        {
+            datOVenta.Instancia.EliminarVenta(oventaID);
+        }
+
+        public int GenerarDetalleVentaID()
+        {
+            // Implementa la lógica para generar un ID único
+            return datOVenta.Instancia.ObtenerNuevoDetalleVentaID();
+        }
 
     }
 }

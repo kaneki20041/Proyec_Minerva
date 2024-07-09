@@ -155,7 +155,7 @@ namespace CapaDatos
             {
                 CommandType = CommandType.StoredProcedure
             };
-            cmd.Parameters.AddWithValue("@OventaID", detalleVenta.OventaID); // Add OventaID parameter
+            cmd.Parameters.AddWithValue("@OventaID", detalleVenta.OventaID);
             cmd.Parameters.AddWithValue("@TipoComprobante", detalleVenta.TipoComprobante);
             cmd.Parameters.AddWithValue("@Nombre", detalleVenta.Nombre);
             cmd.Parameters.AddWithValue("@Monto", detalleVenta.Monto);
@@ -183,7 +183,6 @@ namespace CapaDatos
             }
         }
 
-
         public void EliminarVenta(int oventaID)
         {
             SqlConnection cn = Conexion.Instancia.Conectar();
@@ -206,6 +205,32 @@ namespace CapaDatos
             {
                 cn.Close();
             }
+        }
+
+        public int ObtenerNuevoDetalleVentaID()
+        {
+            int nuevoID = 0;
+            SqlConnection cn = Conexion.Instancia.Conectar();
+            SqlCommand cmd = new SqlCommand("spObtenerNuevoDetalleVentaID", cn)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+
+            try
+            {
+                cn.Open();
+                nuevoID = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocurrió un error al obtener el nuevo ID de detalle de venta: " + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+            return nuevoID;
         }
 
 
