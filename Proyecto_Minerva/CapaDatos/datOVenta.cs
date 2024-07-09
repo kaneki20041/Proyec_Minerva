@@ -155,6 +155,7 @@ namespace CapaDatos
             {
                 CommandType = CommandType.StoredProcedure
             };
+            cmd.Parameters.AddWithValue("@OventaID", detalleVenta.OventaID); // Add OventaID parameter
             cmd.Parameters.AddWithValue("@TipoComprobante", detalleVenta.TipoComprobante);
             cmd.Parameters.AddWithValue("@Nombre", detalleVenta.Nombre);
             cmd.Parameters.AddWithValue("@Monto", detalleVenta.Monto);

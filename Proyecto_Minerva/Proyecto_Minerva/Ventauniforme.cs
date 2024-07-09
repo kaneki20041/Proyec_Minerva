@@ -197,9 +197,12 @@ namespace Proyecto_Minerva
 
                 foreach (var venta in ventas)
                 {
-                    entOVenta detalleVenta = new entOVenta
+                    // Crear un nuevo detalle de venta con el mismo OventaID
+                    entOVenta detalleVenta1 = new entOVenta
                     {
+                        OventaID = venta.OventaID, // Same OventaID for both details
                         TipoComprobante = venta.TipoComprobante,
+                        Nombre = venta.Nombre,  // Asegúrate de que Nombre no sea nulo o vacío
                         Monto = venta.Monto ?? 0,
                         Prenda = venta.Prenda,
                         Precioventa = venta.Precioventa,
@@ -211,13 +214,38 @@ namespace Proyecto_Minerva
                         Categoria = venta.Categoria
                     };
 
-                    logOVenta.Instancia.RegistrarDetalleVenta(detalleVenta);
+                    entOVenta detalleVenta2 = new entOVenta
+                    {
+                        OventaID = venta.OventaID, // Same OventaID for both details
+                        TipoComprobante = venta.TipoComprobante,
+                        Nombre = venta.Nombre,  // Asegúrate de que Nombre no sea nulo o vacío
+                        Monto = venta.Monto ?? 0,
+                        Prenda = venta.Prenda,
+                        Precioventa = venta.Precioventa,
+                        MetodoPago = venta.MetodoPago,
+                        Cantidad = venta.Cantidad ?? 0,
+                        FRegistroV = venta.FRegistroV,
+                        Talla = venta.Talla,
+                        Colegio = venta.Colegio,
+                        Categoria = venta.Categoria
+                    };
+
+                    logOVenta.Instancia.RegistrarDetalleVenta(detalleVenta1);
+                    logOVenta.Instancia.RegistrarDetalleVenta(detalleVenta2);
 
                     // Descontar la cantidad del stock de la prenda
                     logPrendas.Instancia.ActualizarStock(venta.Prenda, venta.Cantidad ?? 0);
                 }
 
+                // Limpiar el DataGridView después de registrar los detalles de venta
+                dataGridView1.DataSource = null;
+                dataGridView1.Rows.Clear();
+                dataGridView1.Refresh();
+
                 MessageBox.Show("Detalles de venta registrados exitosamente.");
+
+                // Actualizar lista de ventas
+                ListarVentas();
             }
             catch (Exception ex)
             {

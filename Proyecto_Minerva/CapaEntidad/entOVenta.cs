@@ -20,5 +20,6 @@ namespace CapaEntidad
         public string Colegio { get; set; }
         public string Categoria { get; set; }
         public string TipoComprobante { get; set; }
+        public int DetalleVentaID { get; set; } // Nuevo campo
     }
 }
