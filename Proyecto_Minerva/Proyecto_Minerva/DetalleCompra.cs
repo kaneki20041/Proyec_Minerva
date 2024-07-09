@@ -1,24 +1,39 @@
-﻿namespace Proyecto_Minerva
+﻿using CapaEntidad;
+using CapaLogica;
+namespace Proyecto_Minerva
 {
     public partial class DetalleCompra : Form
     {
         public DetalleCompra()
         {
             InitializeComponent();
+            ListarPedidos();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        public void ListarPedidos()
         {
+            List<entCompra> listaCompra = logCompra.Instancia.ListarCompra();
 
-        }
+            if (listaCompra.Count >= 0)
+            {
+                detallito.Columns.Clear(); // se eliminan todas las columnas existentes del DataGridView antes de mostrar el resultado de la consulta
+                //BindingSource datosEnlazados = new BindingSource(); // objeto para vincular el resultado de la consulta al DataGridView
+                //datosEnlazados.DataSource = listaPedido;
+                ///tablaPedidos.DataSource = datosEnlazados; // se vincula el resultado de la consulta al DataGridView y se mostran los registros
+                detallito.DataSource = listaCompra; // se vincula el resultado de la consulta al DataGridView y se mostran los registros
+                                                    //tablaPedidos.Rows[listaPedido.Count - 1].Cells[2].Value = listaPedido[listaPedido.Count - 1].idCliente.idCliente;
 
-        private void button1_Click(object sender, EventArgs e)
-        {
+                this.detallito.Columns["ID"].Visible = false;
+                this.detallito.Columns["Metpagoid"].Visible = false;
+                //configurarColumnasDataGridView();
+                //tablaPedidos.Rows[0].Selected = false; // permite que la primera fila del DataGridView no esté seleccionada
 
-        }
 
-        private void label8_Click(object sender, EventArgs e)
-        {
+
+            }
+
+
+
 
         }
     }

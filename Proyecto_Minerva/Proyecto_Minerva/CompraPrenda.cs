@@ -1,20 +1,13 @@
-﻿using CapaEntidad;
+﻿using CapaDatos;
+using CapaEntidad;
 using CapaLogica;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Proyecto_Minerva
 {
     public partial class CompraPrenda : Form
     {
+        entCompra Compra = new entCompra();
+        entDetCompra dCom = new entDetCompra();
         public CompraPrenda()
         {
             InitializeComponent();
@@ -90,6 +83,7 @@ namespace Proyecto_Minerva
                 {
                     textBox14.Text = prenda.Prenda;
                     textBox12.Text = prenda.PrecioCompra.ToString("F2");
+                    textBox4.Text = prenda.Colegio;
                     textBox11.Text = prenda.Stock.ToString();
                     textBox13.Text = prenda.Talla;
                     textBox1.Text = prenda.Categoria;
@@ -104,42 +98,147 @@ namespace Proyecto_Minerva
                 MessageBox.Show($"Ocurrió un error: {ex.Message}");
             }
         }
+        public static int confilas = 0;
+        public static decimal Total = 0;
 
         private void AgreCompra_Click(object sender, EventArgs e)
         {
-            //entCompra dCom = new entCompra();
-            //entPrendas Pren = new entPrendas();
+            entCompra dCom = new entCompra();
+            entPrendas Pren = new entPrendas();
 
-            //if ((this.textBox5.Text.Trim() != "") && (textBox15.Text.Trim() != "") && (txtCantidad.Text.Trim() != ""))
-            //{
-            //    if ((Convert.ToInt32(txtCantidad.Text) > 0) && (Convert.ToInt32(txtCantidad.Text) <= Convert.ToInt32(textBox11.Text)))
-            //    {
-            //        if (confilas == 0)
-            //        {
-            
-            //            TablaCompra.Rows.Add(textBox15.Text, textBox14, txtCantidad.Text, textBox12.Text);
-            //            decimal subTotal = Convert.ToDecimal(TablaCompra.Rows[confilas].Cells[2].Value) * Convert.ToDecimal(TablaCompra.Rows[confilas].Cells[3].Value);
-            //            TablaCompra.Rows[confilas].Cells[4].Value = subTotal;
-            //            confilas++;
-            //        }
-            //        else
-            //        {
-            //            TablaDetallePedido.Rows.Add(txtProductoid.Text, txtDescProducto, txtCantidad.Text, txtPrecio.Text);
-            //            decimal subTotal = Convert.ToDecimal(TablaDetallePedido.Rows[confilas].Cells[2].Value) * Convert.ToDecimal(TablaDetallePedido.Rows[confilas].Cells[3].Value);
-            //            TablaDetallePedido.Rows[confilas].Cells[4].Value = subTotal;
-            //            confilas++;
-            //        }
+            if ((this.textBox5.Text.Trim() != "") && (textBox15.Text.Trim() != "") && (txtCantidad.Text.Trim() != ""))
+            {
+                if ((Convert.ToInt32(txtCantidad.Text) > 0) && (Convert.ToInt32(txtCantidad.Text) <= Convert.ToInt32(textBox11.Text)))
+                {
+                    if (confilas == 0)
+                    {
 
-            //        //Limpiar();
-            //    }
-            //    Total = 0;
-            //    foreach (DataGridViewRow Fila in TablaDetallePedido.Rows)
-            //    {
+                        tablaCompras.Rows.Add(textBox15.Text, textBox14.Text, textBox1.Text, textBox4.Text, textBox13.Text, txtCantidad.Text, textBox12.Text);
+                        decimal subTotal = Convert.ToDecimal(tablaCompras.Rows[confilas].Cells[5].Value) * Convert.ToDecimal(tablaCompras.Rows[confilas].Cells[6].Value);
+                        tablaCompras.Rows[confilas].Cells[7].Value = subTotal;
+                        confilas++;
+                    }
+                    else
+                    {
+                        tablaCompras.Rows.Add(textBox15.Text, textBox14.Text, textBox1.Text, textBox4.Text, textBox13.Text, txtCantidad.Text, textBox12.Text);
+                        decimal subTotal = Convert.ToDecimal(tablaCompras.Rows[confilas].Cells[5].Value) * Convert.ToDecimal(tablaCompras.Rows[confilas].Cells[6].Value);
+                        tablaCompras.Rows[confilas].Cells[7].Value = subTotal;
+                        confilas++;
+                    }
 
-            //        Total += Convert.ToDecimal(Fila.Cells[4].Value);
-            //    }
-            //    txtTotal.Text = Total.ToString();
+
+                }
+                Total = 0;
+                foreach (DataGridViewRow Fila in tablaCompras.Rows)
+                {
+                    
+                    Total += Convert.ToInt32(Fila.Cells[7].Value);
+                }
+                textBox2.Text = Total.ToString();
+                
+            }
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (confilas > 0)
+            {
+                Total -= Convert.ToDecimal(tablaCompras.Rows[tablaCompras.CurrentRow.Index].Cells[7].Value);
+                //txtTotal.Text = "S/." + Total.ToString();
+                textBox2.Text = Total.ToString();
+                tablaCompras.Rows.RemoveAt(tablaCompras.CurrentRow.Index);
+                confilas--;
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            int idCom;
+            try
+            {
+                entCompra Com = new entCompra();
+                //entDetPedido dPed = new entDetPedido();
+                entProveedor p = new entProveedor();
+                EntMetPago met = new EntMetPago();
+
+
+                Com.fechCompra = Convert.ToDateTime(dateTimePicker1.Value);
+                Com.Monto = Convert.ToDecimal(textBox2.Text);
+
+                p.ID = int.Parse(textBox5.Text);
+                met.MetPagoid = int.Parse(textBox3.Text);
+
+                Com.ID = p;
+                Com.ID.ID = p.ID;
+
+                Com.Metpagoid = met;
+                Com.Metpagoid.MetPagoid = met.MetPagoid;
+
+                //Ped.DetPedidos = (List<entDetPedido>)(listaDetPedido);
+
+
+                //Ped.estPedido = cbkEstado.Checked;
+
+                idCom = logCompra.Instancia.InsertarCompra(Com);
+
+                //MessageBox.Show(""+idPed);
+
+                GrabarDetalle(idCom);
+
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("error" + ex);
+                throw ex;
+            }
+
+        }
+
+        private void GrabarDetalle(int cod)
+        {
+
+            foreach (DataGridViewRow Fila in tablaCompras.Rows)
+            {
+                var tes = Fila.Cells[0].Value;
+                dCom.idCompra = cod;
+                entPrendas prod = new entPrendas();
+
+                if (Fila.Cells[0].Value != null)
+                {
+                    prod.PrendaID = Convert.ToInt32(Fila.Cells[0].Value.ToString());
+                    dCom.PrendaID = prod;
+                    dCom.PrendaID.PrendaID = prod.PrendaID;
+
+                    dCom.cantPrenda = Convert.ToInt32(Fila.Cells[5].Value.ToString());
+                    dCom.precPrenda = Convert.ToDecimal(Fila.Cells[6].Value.ToString());
+
+
+                    logCompra.Instancia.InsertarDetCompra(dCom);
+                }
+
+
+            }
+
+
+        }
+        public void Limpiar()
+        {
+            this.tablaCompras.Rows.Clear();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Limpiar();
         }
     }
+
+
 }
+
+
+
+
+
 

@@ -18,5 +18,7 @@ namespace CapaEntidad
         public int Telefono { get; set; }     
         public string Email { get; set; }
         public Boolean Estado { get; set; }
+
+
     }
 }

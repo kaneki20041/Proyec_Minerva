@@ -2,10 +2,22 @@
 {
     public class entCompra
     {
-        public int idDetCompra { get; set; }
         public int idCompra { get; set; }
-        public int cantCompra { get; set; }
-        public Decimal preciCompra { get; set; }
-        public entPrendas PrendaID { get; set; }
+        public DateTime fechCompra { get; set; }
+        public entProveedor ID { get; set; }
+        public EntMetPago Metpagoid { get; set; }
+        public Decimal Monto { get; set; }
+
+        public int IDProveedor { get; set; }
+
+        public int Metodopagoid { get; set; }
+
+        //public entCompra()
+        //{
+        //    ID=new entProveedor();
+        //    Metpagoid = new EntMetPago();
+        //}
+
+   
     }
 }
