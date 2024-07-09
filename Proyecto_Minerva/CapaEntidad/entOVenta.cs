@@ -13,7 +13,6 @@ namespace CapaEntidad
         public string Prenda { get; set; }
         public string Talla { get; set; }
         public decimal Precioventa { get; set; }
-        public int? Stock { get; set; }
         public int? Cantidad { get; set; }
         public string MetodoPago { get; set; }
         public decimal? Monto { get; set; }
@@ -21,5 +20,6 @@ namespace CapaEntidad
         public string Colegio { get; set; }
         public string Categoria { get; set; }
         public string TipoComprobante { get; set; }
+        public int DetalleVentaID { get; set; } // Nuevo campo
     }
 }

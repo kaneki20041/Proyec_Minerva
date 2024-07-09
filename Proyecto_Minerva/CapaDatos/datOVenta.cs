@@ -45,12 +45,15 @@ namespace CapaDatos
                     {
                         throw new Exception("Error al leer OventaID: " + ex.Message);
                     }
+                    venta.Nombre = dr["Nombre"].ToString();
+                    venta.MetodoPago = dr["MetodoPago"].ToString();
                     venta.Prenda = dr["Prenda"].ToString();
                     venta.Talla = dr["Talla"].ToString();
                     venta.Precioventa = Convert.ToDecimal(dr["Precioventa"]);
                     venta.Cantidad = dr["Cantidad"] == DBNull.Value ? (int?)null : Convert.ToInt32(dr["Cantidad"]);
                     venta.Monto = dr["Monto"] == DBNull.Value ? (decimal?)null : Convert.ToDecimal(dr["Monto"]);
                     venta.TipoComprobante = dr["TipoComprobante"].ToString();
+                    venta.FRegistroV = Convert.ToDateTime(dr["FRegistroV"]);
                     venta.Colegio = dr["Colegio"].ToString();
                     venta.Categoria = dr["Categoria"].ToString();
 
@@ -152,6 +155,7 @@ namespace CapaDatos
             {
                 CommandType = CommandType.StoredProcedure
             };
+            cmd.Parameters.AddWithValue("@OventaID", detalleVenta.OventaID);
             cmd.Parameters.AddWithValue("@TipoComprobante", detalleVenta.TipoComprobante);
             cmd.Parameters.AddWithValue("@Nombre", detalleVenta.Nombre);
             cmd.Parameters.AddWithValue("@Monto", detalleVenta.Monto);
@@ -179,7 +183,6 @@ namespace CapaDatos
             }
         }
 
-
         public void EliminarVenta(int oventaID)
         {
             SqlConnection cn = Conexion.Instancia.Conectar();
@@ -202,6 +205,32 @@ namespace CapaDatos
             {
                 cn.Close();
             }
+        }
+
+        public int ObtenerNuevoDetalleVentaID()
+        {
+            int nuevoID = 0;
+            SqlConnection cn = Conexion.Instancia.Conectar();
+            SqlCommand cmd = new SqlCommand("spObtenerNuevoDetalleVentaID", cn)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+
+            try
+            {
+                cn.Open();
+                nuevoID = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocurrió un error al obtener el nuevo ID de detalle de venta: " + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+            return nuevoID;
         }
 
 

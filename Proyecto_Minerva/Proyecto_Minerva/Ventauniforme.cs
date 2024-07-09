@@ -197,9 +197,12 @@ namespace Proyecto_Minerva
 
                 foreach (var venta in ventas)
                 {
+                    // Crear un nuevo detalle de venta con el mismo OventaID
                     entOVenta detalleVenta = new entOVenta
                     {
+                        OventaID = venta.OventaID,
                         TipoComprobante = venta.TipoComprobante,
+                        Nombre = venta.Nombre,
                         Monto = venta.Monto ?? 0,
                         Prenda = venta.Prenda,
                         Precioventa = venta.Precioventa,
@@ -217,6 +220,11 @@ namespace Proyecto_Minerva
                     logPrendas.Instancia.ActualizarStock(venta.Prenda, venta.Cantidad ?? 0);
                 }
 
+                // Limpiar el DataGridView después de registrar los detalles de venta
+                dataGridView1.DataSource = null;
+                dataGridView1.Rows.Clear();
+                dataGridView1.Refresh();
+
                 MessageBox.Show("Detalles de venta registrados exitosamente.");
             }
             catch (Exception ex)
@@ -224,5 +232,6 @@ namespace Proyecto_Minerva
                 MessageBox.Show($"Ocurrió un error al registrar los detalles de la venta: {ex.Message}");
             }
         }
+
     }
 }
