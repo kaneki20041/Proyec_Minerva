@@ -51,6 +51,7 @@ namespace CapaDatos
                     venta.Cantidad = dr["Cantidad"] == DBNull.Value ? (int?)null : Convert.ToInt32(dr["Cantidad"]);
                     venta.Monto = dr["Monto"] == DBNull.Value ? (decimal?)null : Convert.ToDecimal(dr["Monto"]);
                     venta.TipoComprobante = dr["TipoComprobante"].ToString();
+                    venta.FRegistroV = Convert.ToDateTime(dr["FRegistroV"]);
                     venta.Colegio = dr["Colegio"].ToString();
                     venta.Categoria = dr["Categoria"].ToString();
 
