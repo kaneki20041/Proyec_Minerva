@@ -64,7 +64,61 @@ namespace CapaDatos
             return lista;
         }
         #endregion metodos
-
+        public List<string> ObtenerCiudad()
+        {
+            List<string> ciudad = new List<string>();
+            SqlCommand? cmd = null;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("ObtenerCiudad", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    ciudad.Add(dr["Ciudad"].ToString());
+                }
+            }
+            catch (Exception) { throw; }
+            finally
+            {
+                if (cmd != null && cmd.Connection != null && cmd.Connection.State == ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                }
+            }
+            return ciudad;
+        }
+        public List<string> ObtenerRubro()
+        {
+            List<string> rubro = new List<string>();
+            SqlCommand? cmd = null;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("ObtenerRubro", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    rubro.Add(dr["Rubro"].ToString());
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (cmd != null && cmd.Connection != null && cmd.Connection.State == ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                }
+            }
+            return rubro;
+        }
         /////////////////////////InsertaCliente
         public Boolean InsertaProveedor(entProveedor prov)
         {

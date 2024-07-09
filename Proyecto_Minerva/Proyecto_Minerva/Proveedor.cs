@@ -18,9 +18,29 @@ namespace Proyecto_Minerva
         {
             InitializeComponent();
             listarProveedor();
+            InicializarComboBoxes();
             grupBoxDatos.Enabled = false;
             grupBoxDatos2.Enabled = false;
             //txtidCliente.Enabled = false;
+
+        }
+        private void InicializarComboBoxes()
+        {
+            // Llenado de ComboBox comboBox2 (Categorias)
+            comboBox1.Items.Clear();
+            List<string> Rubro = logProveedor.Instancia.ObtenerRubro();
+            foreach (string rubro in Rubro)
+            {
+                comboBox1.Items.Add(rubro);
+            }
+
+            // Llenado de ComboBox comboBox1 (Colegios)
+            comboBox2.Items.Clear();
+            List<string> ciudad = logProveedor.Instancia.ObtenerCiudad();
+            foreach (string Ciudad in ciudad)
+            {
+                comboBox2.Items.Add(Ciudad);
+            }
 
         }
         public void listarProveedor()

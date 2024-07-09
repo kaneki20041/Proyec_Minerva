@@ -31,7 +31,22 @@ namespace CapaLogica
             return datProveedor.Instancia.ListarProveedor();
         }
 
-        ///inserta
+        ///inserta <summary>
+        /// inserta
+        /// </summary>
+        /// <param name="prov"></param>
+        /// 
+
+        public List<string> ObtenerCiudad()
+        {
+            return datProveedor.Instancia.ObtenerCiudad();
+        }
+
+        public List<string> ObtenerRubro()
+        {
+            return datProveedor.Instancia.ObtenerRubro();
+        }
+
         public void InsertaProveedor(entProveedor prov)
         {
             datProveedor.Instancia.InsertaProveedor(prov);
