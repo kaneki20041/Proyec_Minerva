@@ -2,6 +2,18 @@
   "version": 3,
   "targets": {
     "net6.0-windows7.0": {
+      "FontAwesome.Sharp/6.6.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0-windows7.0/FontAwesome.Sharp.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/FontAwesome.Sharp.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App"
+        ]
+      },
       "Microsoft.NETCore.Platforms/3.1.0": {
         "type": "package",
         "compile": {
@@ -188,6 +200,23 @@
     }
   },
   "libraries": {
+    "FontAwesome.Sharp/6.6.0": {
+      "sha512": "bJCb2x73UC1nD9+9iMLaUy6Ujf9Pf+buL6FHwVnaoDYT4CQNLazz59hO5gQ0+SMSW0G+ZXmjjShOYr3Jn2UZiw==",
+      "type": "package",
+      "path": "fontawesome.sharp/6.6.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fontawesome.sharp.6.6.0.nupkg.sha512",
+        "fontawesome.sharp.nuspec",
+        "lib/net472/FontAwesome.Sharp.dll",
+        "lib/net48/FontAwesome.Sharp.dll",
+        "lib/net6.0-windows7.0/FontAwesome.Sharp.dll",
+        "lib/net7.0-windows7.0/FontAwesome.Sharp.dll",
+        "lib/net8.0-windows7.0/FontAwesome.Sharp.dll",
+        "lib/netcoreapp3.1/FontAwesome.Sharp.dll"
+      ]
+    },
     "Microsoft.NETCore.Platforms/3.1.0": {
       "sha512": "z7aeg8oHln2CuNulfhiLYxCVMPEwBl3rzicjvIX+4sUuCwvXw5oXQEtbiU2c0z4qYL5L3Kmx0mMA/+t/SbY67w==",
       "type": "package",
@@ -520,28 +549,24 @@
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
       "CapaEntidad >= 1.0.0",
-      "CapaLogica >= 1.0.0"
+      "CapaLogica >= 1.0.0",
+      "FontAwesome.Sharp >= 6.6.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\jhojan\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Pictures\\minera proyecto nuevo\\Proyecto_Minerva\\Proyecto_Minerva\\CapaPresentacion.csproj",
+      "projectUniqueName": "D:\\SEPTIMO CICLO\\DIARS\\Proyec_Minerva\\Proyecto_Minerva\\Proyecto_Minerva\\CapaPresentacion.csproj",
       "projectName": "CapaPresentacion",
-      "projectPath": "C:\\Users\\User\\Pictures\\minera proyecto nuevo\\Proyecto_Minerva\\Proyecto_Minerva\\CapaPresentacion.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Pictures\\minera proyecto nuevo\\Proyecto_Minerva\\Proyecto_Minerva\\obj\\",
+      "projectPath": "D:\\SEPTIMO CICLO\\DIARS\\Proyec_Minerva\\Proyecto_Minerva\\Proyecto_Minerva\\CapaPresentacion.csproj",
+      "packagesPath": "C:\\Users\\jhojan\\.nuget\\packages\\",
+      "outputPath": "D:\\SEPTIMO CICLO\\DIARS\\Proyec_Minerva\\Proyecto_Minerva\\Proyecto_Minerva\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\jhojan\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -555,11 +580,11 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\User\\Pictures\\minera proyecto nuevo\\Proyecto_Minerva\\CapaEntidad\\CapaEntidad.csproj": {
-              "projectPath": "C:\\Users\\User\\Pictures\\minera proyecto nuevo\\Proyecto_Minerva\\CapaEntidad\\CapaEntidad.csproj"
+            "D:\\SEPTIMO CICLO\\DIARS\\Proyec_Minerva\\Proyecto_Minerva\\CapaEntidad\\CapaEntidad.csproj": {
+              "projectPath": "D:\\SEPTIMO CICLO\\DIARS\\Proyec_Minerva\\Proyecto_Minerva\\CapaEntidad\\CapaEntidad.csproj"
             },
-            "C:\\Users\\User\\Pictures\\minera proyecto nuevo\\Proyecto_Minerva\\CapaLogica\\CapaLogica.csproj": {
-              "projectPath": "C:\\Users\\User\\Pictures\\minera proyecto nuevo\\Proyecto_Minerva\\CapaLogica\\CapaLogica.csproj"
+            "D:\\SEPTIMO CICLO\\DIARS\\Proyec_Minerva\\Proyecto_Minerva\\CapaLogica\\CapaLogica.csproj": {
+              "projectPath": "D:\\SEPTIMO CICLO\\DIARS\\Proyec_Minerva\\Proyecto_Minerva\\CapaLogica\\CapaLogica.csproj"
             }
           }
         }
@@ -568,11 +593,22 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
       "net6.0-windows7.0": {
         "targetAlias": "net6.0-windows",
+        "dependencies": {
+          "FontAwesome.Sharp": {
+            "target": "Package",
+            "version": "[6.6.0, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
@@ -592,7 +628,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }
