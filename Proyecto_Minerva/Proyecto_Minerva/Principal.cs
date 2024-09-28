@@ -1,17 +1,23 @@
+using CapaEntidad;
 using CapaPresentacion;
 
 namespace Proyecto_Minerva
 {
-    public partial class Form1 : Form
+    public partial class Principal : Form
     {
-        public Form1()
+        private static entUsuario usuarioActual;
+        public Principal(entUsuario objusuario)
         {
+            usuarioActual = objusuario;
             InitializeComponent();
         }
-
+        private void Principal_Load(object sender, EventArgs e)
+        {
+            lblUser.Text = usuarioActual.NombreCompleto;
+        }
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
         private void AbrirForm(object form)
         {
@@ -90,5 +96,7 @@ namespace Proyecto_Minerva
         {
             AbrirForm(new Categoriaa());
         }
+
+
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Proyecto_Minerva
 {
-    partial class Form1
+    partial class Principal
     {
         /// <summary>
         ///  Required designer variable.
@@ -36,9 +36,12 @@
             Button button2;
             Button btnMotorizado;
             Button btnDetalleComp;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            Button btnCategoria;
+            Button btnUsuarios;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
+            btnCategoria = new Button();
             panel1 = new Panel();
+            lblUser = new Label();
+            label1 = new Label();
             pictureBox5 = new PictureBox();
             btnMinimizar = new PictureBox();
             pictureBox4 = new PictureBox();
@@ -46,6 +49,8 @@
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
             panel2 = new Panel();
+            panel8 = new Panel();
+            panel12 = new Panel();
             panel7 = new Panel();
             panel11 = new Panel();
             panel10 = new Panel();
@@ -53,10 +58,8 @@
             panel6 = new Panel();
             panel5 = new Panel();
             panel4 = new Panel();
-            panel8 = new Panel();
             panel3 = new Panel();
             panelconteiner = new Panel();
-            panel12 = new Panel();
             btn_venderu = new Button();
             btn_Cliente = new Button();
             btn_IngMaterial = new Button();
@@ -65,7 +68,7 @@
             button2 = new Button();
             btnMotorizado = new Button();
             btnDetalleComp = new Button();
-            btnCategoria = new Button();
+            btnUsuarios = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnMinimizar).BeginInit();
@@ -73,7 +76,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
-            panel4.SuspendLayout();
             SuspendLayout();
             // 
             // btn_venderu
@@ -83,9 +85,9 @@
             btn_venderu.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
             btn_venderu.FlatStyle = FlatStyle.Flat;
             btn_venderu.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_venderu.Location = new Point(6, 11);
+            btn_venderu.Location = new Point(22, 64);
             btn_venderu.Name = "btn_venderu";
-            btn_venderu.Size = new Size(150, 37);
+            btn_venderu.Size = new Size(141, 37);
             btn_venderu.TabIndex = 0;
             btn_venderu.Text = "Vender prendas";
             btn_venderu.UseVisualStyleBackColor = true;
@@ -98,9 +100,9 @@
             btn_Cliente.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
             btn_Cliente.FlatStyle = FlatStyle.Flat;
             btn_Cliente.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_Cliente.Location = new Point(6, 97);
+            btn_Cliente.Location = new Point(24, 150);
             btn_Cliente.Name = "btn_Cliente";
-            btn_Cliente.Size = new Size(166, 37);
+            btn_Cliente.Size = new Size(142, 37);
             btn_Cliente.TabIndex = 3;
             btn_Cliente.Text = "Registrar Cliente";
             btn_Cliente.UseVisualStyleBackColor = true;
@@ -113,9 +115,9 @@
             btn_IngMaterial.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
             btn_IngMaterial.FlatStyle = FlatStyle.Flat;
             btn_IngMaterial.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_IngMaterial.Location = new Point(6, 312);
+            btn_IngMaterial.Location = new Point(27, 365);
             btn_IngMaterial.Name = "btn_IngMaterial";
-            btn_IngMaterial.Size = new Size(166, 37);
+            btn_IngMaterial.Size = new Size(139, 37);
             btn_IngMaterial.TabIndex = 4;
             btn_IngMaterial.Text = "Detalle compras";
             btn_IngMaterial.UseVisualStyleBackColor = true;
@@ -128,9 +130,9 @@
             btnSalidaMaterial.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
             btnSalidaMaterial.FlatStyle = FlatStyle.Flat;
             btnSalidaMaterial.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSalidaMaterial.Location = new Point(6, 271);
+            btnSalidaMaterial.Location = new Point(27, 324);
             btnSalidaMaterial.Name = "btnSalidaMaterial";
-            btnSalidaMaterial.Size = new Size(166, 37);
+            btnSalidaMaterial.Size = new Size(139, 37);
             btnSalidaMaterial.TabIndex = 6;
             btnSalidaMaterial.Text = "Detalle ventas";
             btnSalidaMaterial.UseVisualStyleBackColor = true;
@@ -143,9 +145,9 @@
             btn_Matyprod.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
             btn_Matyprod.FlatStyle = FlatStyle.Flat;
             btn_Matyprod.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_Matyprod.Location = new Point(6, 140);
+            btn_Matyprod.Location = new Point(24, 193);
             btn_Matyprod.Name = "btn_Matyprod";
-            btn_Matyprod.Size = new Size(166, 37);
+            btn_Matyprod.Size = new Size(142, 37);
             btn_Matyprod.TabIndex = 7;
             btn_Matyprod.Text = "Prendas";
             btn_Matyprod.UseVisualStyleBackColor = true;
@@ -158,9 +160,9 @@
             button2.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
             button2.FlatStyle = FlatStyle.Flat;
             button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(6, 185);
+            button2.Location = new Point(22, 238);
             button2.Name = "button2";
-            button2.Size = new Size(166, 37);
+            button2.Size = new Size(144, 37);
             button2.TabIndex = 8;
             button2.Text = "Proveedores";
             button2.UseVisualStyleBackColor = true;
@@ -173,9 +175,9 @@
             btnMotorizado.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
             btnMotorizado.FlatStyle = FlatStyle.Flat;
             btnMotorizado.ImageAlign = ContentAlignment.MiddleLeft;
-            btnMotorizado.Location = new Point(6, 228);
+            btnMotorizado.Location = new Point(24, 281);
             btnMotorizado.Name = "btnMotorizado";
-            btnMotorizado.Size = new Size(166, 37);
+            btnMotorizado.Size = new Size(142, 37);
             btnMotorizado.TabIndex = 9;
             btnMotorizado.Text = "Metodo Pago";
             btnMotorizado.UseVisualStyleBackColor = true;
@@ -188,17 +190,48 @@
             btnDetalleComp.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
             btnDetalleComp.FlatStyle = FlatStyle.Flat;
             btnDetalleComp.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDetalleComp.Location = new Point(6, 54);
+            btnDetalleComp.Location = new Point(24, 107);
             btnDetalleComp.Name = "btnDetalleComp";
-            btnDetalleComp.Size = new Size(166, 37);
+            btnDetalleComp.Size = new Size(139, 37);
             btnDetalleComp.TabIndex = 10;
             btnDetalleComp.Text = "Comprar prendas";
             btnDetalleComp.UseVisualStyleBackColor = true;
             btnDetalleComp.Click += btnDetalleComp_Click;
             // 
+            // btnUsuarios
+            // 
+            btnUsuarios.Cursor = Cursors.Hand;
+            btnUsuarios.FlatAppearance.BorderSize = 0;
+            btnUsuarios.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
+            btnUsuarios.FlatStyle = FlatStyle.Flat;
+            btnUsuarios.ImageAlign = ContentAlignment.MiddleLeft;
+            btnUsuarios.Location = new Point(22, 21);
+            btnUsuarios.Name = "btnUsuarios";
+            btnUsuarios.Size = new Size(141, 37);
+            btnUsuarios.TabIndex = 12;
+            btnUsuarios.Text = "Usuarios";
+            btnUsuarios.UseVisualStyleBackColor = true;
+            // 
+            // btnCategoria
+            // 
+            btnCategoria.Cursor = Cursors.Hand;
+            btnCategoria.FlatAppearance.BorderSize = 0;
+            btnCategoria.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
+            btnCategoria.FlatStyle = FlatStyle.Flat;
+            btnCategoria.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCategoria.Location = new Point(27, 408);
+            btnCategoria.Name = "btnCategoria";
+            btnCategoria.Size = new Size(139, 37);
+            btnCategoria.TabIndex = 11;
+            btnCategoria.Text = "Categorias";
+            btnCategoria.UseVisualStyleBackColor = true;
+            btnCategoria.Click += btnCategoria_Click;
+            // 
             // panel1
             // 
             panel1.BackColor = SystemColors.Highlight;
+            panel1.Controls.Add(lblUser);
+            panel1.Controls.Add(label1);
             panel1.Controls.Add(pictureBox5);
             panel1.Controls.Add(btnMinimizar);
             panel1.Controls.Add(pictureBox4);
@@ -208,14 +241,34 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(850, 74);
+            panel1.Size = new Size(1000, 92);
             panel1.TabIndex = 0;
+            // 
+            // lblUser
+            // 
+            lblUser.AutoSize = true;
+            lblUser.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblUser.Location = new Point(738, 22);
+            lblUser.Name = "lblUser";
+            lblUser.Size = new Size(131, 20);
+            lblUser.TabIndex = 15;
+            lblUser.Text = "lblNombreUsuario";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(670, 22);
+            label1.Name = "label1";
+            label1.Size = new Size(62, 20);
+            label1.TabIndex = 14;
+            label1.Text = "Usuario:";
             // 
             // pictureBox5
             // 
             pictureBox5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox5.Image = CapaPresentacion.Properties.Resources.maximizar_tamano;
-            pictureBox5.Location = new Point(773, 13);
+            pictureBox5.Location = new Point(923, 13);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(32, 32);
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
@@ -228,7 +281,7 @@
             // 
             btnMinimizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnMinimizar.Image = (Image)resources.GetObject("btnMinimizar.Image");
-            btnMinimizar.Location = new Point(741, 13);
+            btnMinimizar.Location = new Point(891, 13);
             btnMinimizar.Name = "btnMinimizar";
             btnMinimizar.Size = new Size(26, 32);
             btnMinimizar.SizeMode = PictureBoxSizeMode.Zoom;
@@ -240,7 +293,7 @@
             // 
             pictureBox4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox4.Image = CapaPresentacion.Properties.Resources.maximizar;
-            pictureBox4.Location = new Point(779, 15);
+            pictureBox4.Location = new Point(929, 15);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(25, 27);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
@@ -252,7 +305,7 @@
             // 
             minervanombre.AutoSize = true;
             minervanombre.Font = new Font("Sitka Small", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            minervanombre.Location = new Point(315, 24);
+            minervanombre.Location = new Point(249, 31);
             minervanombre.Name = "minervanombre";
             minervanombre.Size = new Size(295, 29);
             minervanombre.TabIndex = 2;
@@ -262,7 +315,7 @@
             // 
             pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox2.Image = CapaPresentacion.Properties.Resources._2618352;
-            pictureBox2.Location = new Point(810, 13);
+            pictureBox2.Location = new Point(960, 13);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(32, 31);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
@@ -273,9 +326,9 @@
             // pictureBox1
             // 
             pictureBox1.Image = CapaPresentacion.Properties.Resources.minerva_logo;
-            pictureBox1.Location = new Point(12, 9);
+            pictureBox1.Location = new Point(12, 12);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(154, 59);
+            pictureBox1.Size = new Size(170, 76);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -283,6 +336,8 @@
             // panel2
             // 
             panel2.BackColor = Color.Gold;
+            panel2.Controls.Add(btnUsuarios);
+            panel2.Controls.Add(panel8);
             panel2.Controls.Add(panel12);
             panel2.Controls.Add(btnCategoria);
             panel2.Controls.Add(btnDetalleComp);
@@ -302,127 +357,113 @@
             panel2.Controls.Add(btn_Cliente);
             panel2.Controls.Add(panel3);
             panel2.Dock = DockStyle.Left;
-            panel2.Location = new Point(0, 74);
+            panel2.Location = new Point(0, 92);
             panel2.Name = "panel2";
-            panel2.Size = new Size(156, 400);
+            panel2.Size = new Size(166, 485);
             panel2.TabIndex = 1;
+            // 
+            // panel8
+            // 
+            panel8.BackColor = SystemColors.Highlight;
+            panel8.Location = new Point(0, 21);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(10, 37);
+            panel8.TabIndex = 13;
+            // 
+            // panel12
+            // 
+            panel12.BackColor = SystemColors.Highlight;
+            panel12.Location = new Point(0, 408);
+            panel12.Name = "panel12";
+            panel12.Size = new Size(10, 37);
+            panel12.TabIndex = 8;
             // 
             // panel7
             // 
             panel7.BackColor = SystemColors.Highlight;
-            panel7.Location = new Point(0, 312);
+            panel7.Location = new Point(0, 365);
             panel7.Name = "panel7";
-            panel7.Size = new Size(7, 37);
+            panel7.Size = new Size(10, 37);
             panel7.TabIndex = 7;
             // 
             // panel11
             // 
             panel11.BackColor = SystemColors.Highlight;
-            panel11.Location = new Point(0, 271);
+            panel11.Location = new Point(0, 324);
             panel11.Name = "panel11";
-            panel11.Size = new Size(7, 37);
+            panel11.Size = new Size(10, 37);
             panel11.TabIndex = 6;
             // 
             // panel10
             // 
             panel10.BackColor = SystemColors.Highlight;
-            panel10.Location = new Point(0, 140);
+            panel10.Location = new Point(0, 193);
             panel10.Name = "panel10";
-            panel10.Size = new Size(7, 37);
+            panel10.Size = new Size(10, 37);
             panel10.TabIndex = 4;
             // 
             // panel9
             // 
             panel9.BackColor = SystemColors.Highlight;
-            panel9.Location = new Point(0, 97);
+            panel9.Location = new Point(0, 150);
             panel9.Name = "panel9";
-            panel9.Size = new Size(7, 37);
+            panel9.Size = new Size(10, 37);
             panel9.TabIndex = 4;
             // 
             // panel6
             // 
             panel6.BackColor = SystemColors.Highlight;
-            panel6.Location = new Point(0, 228);
+            panel6.Location = new Point(0, 281);
             panel6.Name = "panel6";
-            panel6.Size = new Size(7, 37);
+            panel6.Size = new Size(10, 37);
             panel6.TabIndex = 4;
             // 
             // panel5
             // 
             panel5.BackColor = SystemColors.Highlight;
-            panel5.Location = new Point(0, 185);
+            panel5.Location = new Point(0, 238);
             panel5.Name = "panel5";
-            panel5.Size = new Size(7, 37);
+            panel5.Size = new Size(10, 37);
             panel5.TabIndex = 3;
             // 
             // panel4
             // 
             panel4.BackColor = SystemColors.Highlight;
-            panel4.Controls.Add(panel8);
-            panel4.Location = new Point(0, 54);
+            panel4.Location = new Point(0, 107);
             panel4.Name = "panel4";
-            panel4.Size = new Size(7, 37);
+            panel4.Size = new Size(10, 37);
             panel4.TabIndex = 2;
-            // 
-            // panel8
-            // 
-            panel8.BackColor = SystemColors.Highlight;
-            panel8.Location = new Point(0, 0);
-            panel8.Name = "panel8";
-            panel8.Size = new Size(7, 37);
-            panel8.TabIndex = 3;
             // 
             // panel3
             // 
             panel3.BackColor = SystemColors.Highlight;
-            panel3.Location = new Point(0, 11);
+            panel3.Location = new Point(0, 64);
             panel3.Name = "panel3";
-            panel3.Size = new Size(7, 37);
+            panel3.Size = new Size(10, 37);
             panel3.TabIndex = 1;
             // 
             // panelconteiner
             // 
             panelconteiner.BackColor = SystemColors.ControlLight;
             panelconteiner.Dock = DockStyle.Fill;
-            panelconteiner.Location = new Point(156, 74);
+            panelconteiner.Location = new Point(166, 92);
             panelconteiner.Name = "panelconteiner";
-            panelconteiner.Size = new Size(694, 400);
+            panelconteiner.Size = new Size(834, 485);
             panelconteiner.TabIndex = 2;
             // 
-            // btnCategoria
-            // 
-            btnCategoria.Cursor = Cursors.Hand;
-            btnCategoria.FlatAppearance.BorderSize = 0;
-            btnCategoria.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
-            btnCategoria.FlatStyle = FlatStyle.Flat;
-            btnCategoria.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCategoria.Location = new Point(0, 355);
-            btnCategoria.Name = "btnCategoria";
-            btnCategoria.Size = new Size(166, 37);
-            btnCategoria.TabIndex = 11;
-            btnCategoria.Text = "Categorias";
-            btnCategoria.UseVisualStyleBackColor = true;
-            btnCategoria.Click += btnCategoria_Click;
-            // 
-            // panel12
-            // 
-            panel12.BackColor = SystemColors.Highlight;
-            panel12.Location = new Point(0, 355);
-            panel12.Name = "panel12";
-            panel12.Size = new Size(7, 37);
-            panel12.TabIndex = 8;
-            // 
-            // Form1
+            // Principal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(850, 474);
+            ClientSize = new Size(1000, 577);
             Controls.Add(panelconteiner);
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Form1";
+            Name = "Principal";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
+            Load += Principal_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
@@ -431,7 +472,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
-            panel4.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -442,7 +482,6 @@
         private PictureBox pictureBox1;
         private Panel panel2;
         private Button btn_venderu;
-        private Panel panelconteiner;
         private Panel panel3;
         private Label minervanombre;
         private PictureBox btnMinimizar;
@@ -451,11 +490,15 @@
         private Panel panel6;
         private Panel panel10;
         private Panel panel9;
-        private Panel panel8;
         private Panel panel11;
         private PictureBox pictureBox4;
         private PictureBox pictureBox5;
         private Panel panel7;
         private Panel panel12;
+        private Button btnCategoria;
+        private Label lblUser;
+        private Label label1;
+        private Panel panel8;
+        private Panel panelconteiner;
     }
 }
