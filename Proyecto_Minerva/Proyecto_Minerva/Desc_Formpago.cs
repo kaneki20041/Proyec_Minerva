@@ -25,13 +25,13 @@ namespace Proyecto_Minerva
         {
             txtid.Clear();
             txtMetpago.Enabled = true;
-            txtid.Enabled=false;
+            txtid.Enabled = false;
             cbkEstMetPago.Checked = true;
-            cbkEstMetPago.Enabled=false;
+            cbkEstMetPago.Enabled = false;
             btnAgreMpag.Visible = true;
             btnModFpag.Visible = false;
             LimpiarVariables();
-            
+
         }
 
 

@@ -21,6 +21,7 @@ namespace CapaPresentacion
             InitializeComponent();
             btnMostrar.Visible = true;
             btnOcultar.Visible = false;
+            txtPassword.UseSystemPasswordChar = true;
         }
 
         private void frm_closing(object sender, FormClosingEventArgs e)
@@ -28,32 +29,28 @@ namespace CapaPresentacion
             txtDocumento.Text = "";
             txtPassword.Text = "";
             this.Show();
-
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            // Mostrar un cuadro de diálogo de confirmación
-            DialogResult dialogResult = MessageBox.Show("¿Estás seguro de que quieres salir?", "Confirmacion", MessageBoxButtons.YesNo);
-            // Verificar la respuesta del usuario
+            DialogResult dialogResult = MessageBox.Show("¿Estás seguro de que quieres salir?", "Confirmación", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 MessageBox.Show("Gracias por su visita");
-
                 Application.Exit();
             }
         }
 
         private void btnOcultar_Click(object sender, EventArgs e)
         {
-            txtPassword.PasswordChar = '*';
+            txtPassword.UseSystemPasswordChar = true; // Vuelve a censurar
             btnOcultar.Visible = false;
             btnMostrar.Visible = true;
         }
 
         private void btnMostrar_Click(object sender, EventArgs e)
         {
-            txtPassword.PasswordChar = '\0';
+            txtPassword.UseSystemPasswordChar = false; // Muestra el texto
             btnMostrar.Visible = false;
             btnOcultar.Visible = true;
         }
@@ -78,10 +75,9 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    MessageBox.Show("Uusuario o Contraseña incorrecta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Usuario o Contraseña incorrecta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
-
         }
 
         private void txtDocumento_KeyPress(object sender, KeyPressEventArgs e)
@@ -97,9 +93,7 @@ namespace CapaPresentacion
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                // Llamar al método o realizar la acción deseada al presionar Enter
                 btnIngresar.PerformClick();
-                // Evitar que se procese la tecla Enter más de una vez
                 e.Handled = true;
             }
         }
@@ -108,10 +102,46 @@ namespace CapaPresentacion
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                // Llamar al método o realizar la acción deseada al presionar Enter
                 btnIngresar.PerformClick();
-                // Evitar que se procese la tecla Enter más de una vez
                 e.Handled = true;
+            }
+        }
+
+        private void txtPassword_Enter(object sender, EventArgs e)
+        {
+            if (txtPassword.Text == "Contraseña")
+            {
+                txtPassword.Text = "";
+                txtPassword.ForeColor = Color.Black;
+                txtPassword.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void txtPassword_Leave(object sender, EventArgs e)
+        {
+            if (txtPassword.Text == "")
+            {
+                txtPassword.Text = "Contraseña";
+                txtPassword.ForeColor = Color.Gray;
+                txtPassword.UseSystemPasswordChar = false;
+            }
+        }
+
+        private void txtDocumento_Enter(object sender, EventArgs e)
+        {
+            if (txtDocumento.Text == "Documento de Identidad")
+            {
+                txtDocumento.Text = "";
+                txtDocumento.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtDocumento_Leave(object sender, EventArgs e)
+        {
+            if (txtDocumento.Text == "")
+            {
+                txtDocumento.Text = "Documento de Identidad";
+                txtDocumento.ForeColor = Color.Gray;
             }
         }
     }

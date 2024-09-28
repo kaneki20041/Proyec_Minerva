@@ -34,19 +34,22 @@
             // 
             // detallito
             // 
+            detallito.BackgroundColor = Color.MintCream;
+            detallito.BorderStyle = BorderStyle.None;
             detallito.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            detallito.Location = new Point(49, 25);
+            detallito.Location = new Point(33, 33);
             detallito.Name = "detallito";
             detallito.RowHeadersWidth = 51;
             detallito.RowTemplate.Height = 25;
-            detallito.Size = new Size(641, 299);
+            detallito.Size = new Size(786, 505);
             detallito.TabIndex = 29;
             // 
             // DetalleCompra
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(728, 350);
+            BackColor = Color.MintCream;
+            ClientSize = new Size(851, 573);
             Controls.Add(detallito);
             FormBorderStyle = FormBorderStyle.None;
             Name = "DetalleCompra";

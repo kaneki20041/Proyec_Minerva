@@ -28,375 +28,366 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dgvCliente = new System.Windows.Forms.DataGridView();
-            this.btn_AgregarCliente = new System.Windows.Forms.Button();
-            this.btnModifCliente = new System.Windows.Forms.Button();
-            this.btnInhabilitarCliente = new System.Windows.Forms.Button();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtCel = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtDireccion = new System.Windows.Forms.TextBox();
-            this.txtBuscarIDCli = new System.Windows.Forms.TextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnBuscarCli = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cbxDocumento = new System.Windows.Forms.ComboBox();
-            this.cbxTipoCliente = new System.Windows.Forms.ComboBox();
-            this.txtDocumento = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtApellido = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.btnNuevoCliente = new System.Windows.Forms.Button();
-            this.chkEstado = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(333, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(174, 30);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Registro Clientes";
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
+            label6 = new Label();
+            label8 = new Label();
+            dateTimePicker1 = new DateTimePicker();
+            dgvCliente = new DataGridView();
+            btn_AgregarCliente = new Button();
+            btnModifCliente = new Button();
+            btnInhabilitarCliente = new Button();
+            txtEmail = new TextBox();
+            txtCel = new TextBox();
+            groupBox1 = new GroupBox();
+            label11 = new Label();
+            txtDireccion = new TextBox();
+            txtBuscarIDCli = new TextBox();
+            txtNombre = new TextBox();
+            groupBox2 = new GroupBox();
+            chkEstado = new CheckBox();
+            btnBuscarCli = new Button();
+            label7 = new Label();
+            cbxDocumento = new ComboBox();
+            cbxTipoCliente = new ComboBox();
+            txtDocumento = new TextBox();
+            label10 = new Label();
+            txtApellido = new TextBox();
+            label9 = new Label();
+            btnNuevoCliente = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgvCliente).BeginInit();
+            groupBox1.SuspendLayout();
+            groupBox2.SuspendLayout();
+            SuspendLayout();
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(24, 32);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "ID cliente";
+            label2.AutoSize = true;
+            label2.Location = new Point(75, 32);
+            label2.Name = "label2";
+            label2.Size = new Size(20, 17);
+            label2.TabIndex = 1;
+            label2.Text = "ID";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 69);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 20);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Tipo Cliente";
+            label3.AutoSize = true;
+            label3.Location = new Point(17, 60);
+            label3.Name = "label3";
+            label3.Size = new Size(78, 17);
+            label3.TabIndex = 2;
+            label3.Text = "Tipo Cliente";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(24, 113);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 20);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Nombres";
+            label4.AutoSize = true;
+            label4.Location = new Point(34, 91);
+            label4.Name = "label4";
+            label4.Size = new Size(61, 17);
+            label4.TabIndex = 3;
+            label4.Text = "Nombres";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 76);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 20);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Celular";
+            label5.AutoSize = true;
+            label5.Location = new Point(23, 96);
+            label5.Name = "label5";
+            label5.Size = new Size(50, 17);
+            label5.TabIndex = 4;
+            label5.Text = "Celular";
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(21, 37);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(46, 20);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Email";
+            label6.AutoSize = true;
+            label6.Location = new Point(31, 67);
+            label6.Name = "label6";
+            label6.Size = new Size(39, 17);
+            label6.TabIndex = 5;
+            label6.Text = "Email";
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(603, 19);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(78, 20);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "F. Registro";
+            label8.AutoSize = true;
+            label8.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.Location = new Point(681, 15);
+            label8.Name = "label8";
+            label8.Size = new Size(45, 17);
+            label8.TabIndex = 7;
+            label8.Text = "Fecha";
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.CustomFormat = "dd-MM-yyyy";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(702, 13);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(111, 27);
-            this.dateTimePicker1.TabIndex = 13;
-            this.dateTimePicker1.UseWaitCursor = true;
+            dateTimePicker1.CustomFormat = "dd-MM-yyyy";
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.Location = new Point(734, 12);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(98, 23);
+            dateTimePicker1.TabIndex = 13;
+            dateTimePicker1.UseWaitCursor = true;
             // 
             // dgvCliente
             // 
-            this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCliente.Location = new System.Drawing.Point(14, 277);
-            this.dgvCliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dgvCliente.Name = "dgvCliente";
-            this.dgvCliente.RowHeadersWidth = 51;
-            this.dgvCliente.RowTemplate.Height = 25;
-            this.dgvCliente.Size = new System.Drawing.Size(879, 200);
-            this.dgvCliente.TabIndex = 15;
+            dgvCliente.BackgroundColor = Color.MintCream;
+            dgvCliente.BorderStyle = BorderStyle.None;
+            dgvCliente.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCliente.Location = new Point(21, 260);
+            dgvCliente.Name = "dgvCliente";
+            dgvCliente.RowHeadersWidth = 51;
+            dgvCliente.RowTemplate.Height = 25;
+            dgvCliente.Size = new Size(680, 296);
+            dgvCliente.TabIndex = 15;
             // 
             // btn_AgregarCliente
             // 
-            this.btn_AgregarCliente.Location = new System.Drawing.Point(870, 88);
-            this.btn_AgregarCliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btn_AgregarCliente.Name = "btn_AgregarCliente";
-            this.btn_AgregarCliente.Size = new System.Drawing.Size(86, 31);
-            this.btn_AgregarCliente.TabIndex = 16;
-            this.btn_AgregarCliente.Text = "Agregar";
-            this.btn_AgregarCliente.UseVisualStyleBackColor = true;
-            this.btn_AgregarCliente.Click += new System.EventHandler(this.btn_AgregarCliente_Click);
+            btn_AgregarCliente.BackColor = Color.PowderBlue;
+            btn_AgregarCliente.FlatAppearance.BorderSize = 0;
+            btn_AgregarCliente.FlatStyle = FlatStyle.Flat;
+            btn_AgregarCliente.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_AgregarCliente.Location = new Point(725, 353);
+            btn_AgregarCliente.Name = "btn_AgregarCliente";
+            btn_AgregarCliente.Size = new Size(98, 40);
+            btn_AgregarCliente.TabIndex = 16;
+            btn_AgregarCliente.Text = "Agregar";
+            btn_AgregarCliente.UseVisualStyleBackColor = false;
+            btn_AgregarCliente.Click += btn_AgregarCliente_Click;
             // 
             // btnModifCliente
             // 
-            this.btnModifCliente.Location = new System.Drawing.Point(870, 127);
-            this.btnModifCliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnModifCliente.Name = "btnModifCliente";
-            this.btnModifCliente.Size = new System.Drawing.Size(86, 31);
-            this.btnModifCliente.TabIndex = 17;
-            this.btnModifCliente.Text = "Modificar";
-            this.btnModifCliente.UseVisualStyleBackColor = true;
-            this.btnModifCliente.Click += new System.EventHandler(this.btnModifCliente_Click);
+            btnModifCliente.BackColor = Color.PowderBlue;
+            btnModifCliente.FlatAppearance.BorderSize = 0;
+            btnModifCliente.FlatStyle = FlatStyle.Flat;
+            btnModifCliente.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnModifCliente.Location = new Point(725, 399);
+            btnModifCliente.Name = "btnModifCliente";
+            btnModifCliente.Size = new Size(98, 40);
+            btnModifCliente.TabIndex = 17;
+            btnModifCliente.Text = "Modificar";
+            btnModifCliente.UseVisualStyleBackColor = false;
+            btnModifCliente.Click += btnModifCliente_Click;
             // 
             // btnInhabilitarCliente
             // 
-            this.btnInhabilitarCliente.Location = new System.Drawing.Point(870, 166);
-            this.btnInhabilitarCliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnInhabilitarCliente.Name = "btnInhabilitarCliente";
-            this.btnInhabilitarCliente.Size = new System.Drawing.Size(86, 31);
-            this.btnInhabilitarCliente.TabIndex = 18;
-            this.btnInhabilitarCliente.Text = "Inhabilitar";
-            this.btnInhabilitarCliente.UseVisualStyleBackColor = true;
+            btnInhabilitarCliente.BackColor = Color.PowderBlue;
+            btnInhabilitarCliente.FlatAppearance.BorderSize = 0;
+            btnInhabilitarCliente.FlatStyle = FlatStyle.Flat;
+            btnInhabilitarCliente.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnInhabilitarCliente.Location = new Point(725, 445);
+            btnInhabilitarCliente.Name = "btnInhabilitarCliente";
+            btnInhabilitarCliente.Size = new Size(98, 40);
+            btnInhabilitarCliente.TabIndex = 18;
+            btnInhabilitarCliente.Text = "Inhabilitar";
+            btnInhabilitarCliente.UseVisualStyleBackColor = false;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(78, 33);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(186, 27);
-            this.txtEmail.TabIndex = 20;
+            txtEmail.Location = new Point(93, 64);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(163, 22);
+            txtEmail.TabIndex = 20;
             // 
             // txtCel
             // 
-            this.txtCel.Location = new System.Drawing.Point(78, 72);
-            this.txtCel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtCel.Name = "txtCel";
-            this.txtCel.Size = new System.Drawing.Size(134, 27);
-            this.txtCel.TabIndex = 21;
+            txtCel.Location = new Point(93, 93);
+            txtCel.Name = "txtCel";
+            txtCel.Size = new Size(163, 22);
+            txtCel.TabIndex = 21;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtCel);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.txtDireccion);
-            this.groupBox1.Controls.Add(this.txtEmail);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Location = new System.Drawing.Point(558, 67);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(289, 164);
-            this.groupBox1.TabIndex = 22;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Contacto";
+            groupBox1.Controls.Add(txtCel);
+            groupBox1.Controls.Add(label11);
+            groupBox1.Controls.Add(txtDireccion);
+            groupBox1.Controls.Add(txtEmail);
+            groupBox1.Controls.Add(label6);
+            groupBox1.Controls.Add(label5);
+            groupBox1.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox1.Location = new Point(426, 39);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(275, 215);
+            groupBox1.TabIndex = 22;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Contacto";
             // 
             // label11
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(7, 119);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(72, 20);
-            this.label11.TabIndex = 32;
-            this.label11.Text = "Dirección";
+            label11.AutoSize = true;
+            label11.Location = new Point(10, 125);
+            label11.Name = "label11";
+            label11.Size = new Size(66, 17);
+            label11.TabIndex = 32;
+            label11.Text = "Dirección";
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(79, 115);
-            this.txtDireccion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(204, 27);
-            this.txtDireccion.TabIndex = 33;
+            txtDireccion.Location = new Point(93, 122);
+            txtDireccion.Name = "txtDireccion";
+            txtDireccion.Size = new Size(163, 22);
+            txtDireccion.TabIndex = 33;
             // 
             // txtBuscarIDCli
             // 
-            this.txtBuscarIDCli.Location = new System.Drawing.Point(112, 29);
-            this.txtBuscarIDCli.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtBuscarIDCli.Name = "txtBuscarIDCli";
-            this.txtBuscarIDCli.Size = new System.Drawing.Size(91, 27);
-            this.txtBuscarIDCli.TabIndex = 23;
+            txtBuscarIDCli.Location = new Point(107, 29);
+            txtBuscarIDCli.Name = "txtBuscarIDCli";
+            txtBuscarIDCli.Size = new Size(158, 22);
+            txtBuscarIDCli.TabIndex = 23;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(112, 112);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(180, 27);
-            this.txtNombre.TabIndex = 25;
+            txtNombre.Location = new Point(107, 88);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(158, 22);
+            txtNombre.TabIndex = 25;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnBuscarCli);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.cbxDocumento);
-            this.groupBox2.Controls.Add(this.cbxTipoCliente);
-            this.groupBox2.Controls.Add(this.txtDocumento);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.txtApellido);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.txtNombre);
-            this.groupBox2.Controls.Add(this.txtBuscarIDCli);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(25, 64);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(527, 205);
-            this.groupBox2.TabIndex = 26;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Informacion personal";
-            // 
-            // btnBuscarCli
-            // 
-            this.btnBuscarCli.Location = new System.Drawing.Point(223, 28);
-            this.btnBuscarCli.Name = "btnBuscarCli";
-            this.btnBuscarCli.Size = new System.Drawing.Size(94, 29);
-            this.btnBuscarCli.TabIndex = 37;
-            this.btnBuscarCli.Text = "Buscar";
-            this.btnBuscarCli.UseVisualStyleBackColor = true;
-            this.btnBuscarCli.Click += new System.EventHandler(this.btnBuscarCli_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(309, 122);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 20);
-            this.label7.TabIndex = 36;
-            this.label7.Text = "Nº Doc";
-            // 
-            // cbxDocumento
-            // 
-            this.cbxDocumento.FormattingEnabled = true;
-            this.cbxDocumento.Location = new System.Drawing.Point(378, 79);
-            this.cbxDocumento.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cbxDocumento.Name = "cbxDocumento";
-            this.cbxDocumento.Size = new System.Drawing.Size(113, 28);
-            this.cbxDocumento.TabIndex = 35;
-            // 
-            // cbxTipoCliente
-            // 
-            this.cbxTipoCliente.FormattingEnabled = true;
-            this.cbxTipoCliente.Location = new System.Drawing.Point(112, 68);
-            this.cbxTipoCliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cbxTipoCliente.Name = "cbxTipoCliente";
-            this.cbxTipoCliente.Size = new System.Drawing.Size(105, 28);
-            this.cbxTipoCliente.TabIndex = 34;
-            // 
-            // txtDocumento
-            // 
-            this.txtDocumento.Location = new System.Drawing.Point(378, 117);
-            this.txtDocumento.Name = "txtDocumento";
-            this.txtDocumento.Size = new System.Drawing.Size(118, 27);
-            this.txtDocumento.TabIndex = 30;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(295, 83);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(87, 20);
-            this.label10.TabIndex = 28;
-            this.label10.Text = "Documento";
-            // 
-            // txtApellido
-            // 
-            this.txtApellido.Location = new System.Drawing.Point(112, 160);
-            this.txtApellido.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(180, 27);
-            this.txtApellido.TabIndex = 27;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(24, 160);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(72, 20);
-            this.label9.TabIndex = 26;
-            this.label9.Text = "Apellidos";
-            // 
-            // btnNuevoCliente
-            // 
-            this.btnNuevoCliente.Location = new System.Drawing.Point(25, 9);
-            this.btnNuevoCliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnNuevoCliente.Name = "btnNuevoCliente";
-            this.btnNuevoCliente.Size = new System.Drawing.Size(117, 31);
-            this.btnNuevoCliente.TabIndex = 27;
-            this.btnNuevoCliente.Text = "Nuevo Cliente";
-            this.btnNuevoCliente.UseVisualStyleBackColor = true;
-            this.btnNuevoCliente.Click += new System.EventHandler(this.btnNuevoCliente_Click);
+            groupBox2.Controls.Add(chkEstado);
+            groupBox2.Controls.Add(btnBuscarCli);
+            groupBox2.Controls.Add(label7);
+            groupBox2.Controls.Add(cbxDocumento);
+            groupBox2.Controls.Add(cbxTipoCliente);
+            groupBox2.Controls.Add(txtDocumento);
+            groupBox2.Controls.Add(label10);
+            groupBox2.Controls.Add(txtApellido);
+            groupBox2.Controls.Add(label9);
+            groupBox2.Controls.Add(txtNombre);
+            groupBox2.Controls.Add(txtBuscarIDCli);
+            groupBox2.Controls.Add(label4);
+            groupBox2.Controls.Add(label3);
+            groupBox2.Controls.Add(label2);
+            groupBox2.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox2.Location = new Point(21, 39);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(385, 215);
+            groupBox2.TabIndex = 26;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Informacion";
             // 
             // chkEstado
             // 
-            this.chkEstado.AutoSize = true;
-            this.chkEstado.Location = new System.Drawing.Point(591, 239);
-            this.chkEstado.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.chkEstado.Name = "chkEstado";
-            this.chkEstado.Size = new System.Drawing.Size(126, 24);
-            this.chkEstado.TabIndex = 28;
-            this.chkEstado.Text = "Estado Cliente";
-            this.chkEstado.UseVisualStyleBackColor = true;
+            chkEstado.AutoSize = true;
+            chkEstado.Location = new Point(290, 118);
+            chkEstado.Name = "chkEstado";
+            chkEstado.Size = new Size(67, 21);
+            chkEstado.TabIndex = 28;
+            chkEstado.Text = "Estado";
+            chkEstado.UseVisualStyleBackColor = true;
+            // 
+            // btnBuscarCli
+            // 
+            btnBuscarCli.BackColor = Color.LightCyan;
+            btnBuscarCli.FlatAppearance.BorderSize = 0;
+            btnBuscarCli.FlatStyle = FlatStyle.Flat;
+            btnBuscarCli.Location = new Point(281, 28);
+            btnBuscarCli.Margin = new Padding(3, 2, 3, 2);
+            btnBuscarCli.Name = "btnBuscarCli";
+            btnBuscarCli.Size = new Size(82, 23);
+            btnBuscarCli.TabIndex = 37;
+            btnBuscarCli.Text = "Buscar";
+            btnBuscarCli.UseVisualStyleBackColor = false;
+            btnBuscarCli.Click += btnBuscarCli_Click;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(46, 182);
+            label7.Name = "label7";
+            label7.Size = new Size(49, 17);
+            label7.TabIndex = 36;
+            label7.Text = "Nº Doc";
+            // 
+            // cbxDocumento
+            // 
+            cbxDocumento.FormattingEnabled = true;
+            cbxDocumento.Location = new Point(107, 146);
+            cbxDocumento.Name = "cbxDocumento";
+            cbxDocumento.Size = new Size(158, 25);
+            cbxDocumento.TabIndex = 35;
+            // 
+            // cbxTipoCliente
+            // 
+            cbxTipoCliente.FormattingEnabled = true;
+            cbxTipoCliente.Location = new Point(107, 57);
+            cbxTipoCliente.Name = "cbxTipoCliente";
+            cbxTipoCliente.Size = new Size(158, 25);
+            cbxTipoCliente.TabIndex = 34;
+            // 
+            // txtDocumento
+            // 
+            txtDocumento.Location = new Point(107, 179);
+            txtDocumento.Margin = new Padding(3, 2, 3, 2);
+            txtDocumento.Name = "txtDocumento";
+            txtDocumento.Size = new Size(158, 22);
+            txtDocumento.TabIndex = 30;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(16, 149);
+            label10.Name = "label10";
+            label10.Size = new Size(79, 17);
+            label10.TabIndex = 28;
+            label10.Text = "Documento";
+            // 
+            // txtApellido
+            // 
+            txtApellido.Location = new Point(107, 116);
+            txtApellido.Name = "txtApellido";
+            txtApellido.Size = new Size(158, 22);
+            txtApellido.TabIndex = 27;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(32, 119);
+            label9.Name = "label9";
+            label9.Size = new Size(63, 17);
+            label9.TabIndex = 26;
+            label9.Text = "Apellidos";
+            // 
+            // btnNuevoCliente
+            // 
+            btnNuevoCliente.BackColor = Color.PowderBlue;
+            btnNuevoCliente.FlatAppearance.BorderSize = 0;
+            btnNuevoCliente.FlatStyle = FlatStyle.Flat;
+            btnNuevoCliente.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnNuevoCliente.Location = new Point(725, 307);
+            btnNuevoCliente.Name = "btnNuevoCliente";
+            btnNuevoCliente.Size = new Size(98, 40);
+            btnNuevoCliente.TabIndex = 27;
+            btnNuevoCliente.Text = "Nuevo";
+            btnNuevoCliente.UseVisualStyleBackColor = false;
+            btnNuevoCliente.Click += btnNuevoCliente_Click;
             // 
             // Registrocliente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(1040, 513);
-            this.Controls.Add(this.chkEstado);
-            this.Controls.Add(this.btnNuevoCliente);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnInhabilitarCliente);
-            this.Controls.Add(this.btnModifCliente);
-            this.Controls.Add(this.btn_AgregarCliente);
-            this.Controls.Add(this.dgvCliente);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "Registrocliente";
-            this.Text = "Registrocliente";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.MintCream;
+            ClientSize = new Size(851, 573);
+            Controls.Add(btnNuevoCliente);
+            Controls.Add(groupBox2);
+            Controls.Add(groupBox1);
+            Controls.Add(btnInhabilitarCliente);
+            Controls.Add(btnModifCliente);
+            Controls.Add(btn_AgregarCliente);
+            Controls.Add(dgvCliente);
+            Controls.Add(dateTimePicker1);
+            Controls.Add(label8);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "Registrocliente";
+            Text = "Registrocliente";
+            ((System.ComponentModel.ISupportInitialize)dgvCliente).EndInit();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-
-        private Label label1;
         private Label label2;
         private Label label3;
         private Label label4;

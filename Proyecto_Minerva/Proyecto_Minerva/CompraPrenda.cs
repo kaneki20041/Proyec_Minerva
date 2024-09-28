@@ -131,11 +131,11 @@ namespace Proyecto_Minerva
                 Total = 0;
                 foreach (DataGridViewRow Fila in tablaCompras.Rows)
                 {
-                    
+
                     Total += Convert.ToInt32(Fila.Cells[7].Value);
                 }
                 textBox2.Text = Total.ToString();
-                
+
             }
 
         }
