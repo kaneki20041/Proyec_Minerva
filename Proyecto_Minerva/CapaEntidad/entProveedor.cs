@@ -19,6 +19,7 @@ namespace CapaEntidad
         public string Email { get; set; }
         public Boolean Estado { get; set; }
 
+        public int Ubigeo { get; set; }
 
     }
 }

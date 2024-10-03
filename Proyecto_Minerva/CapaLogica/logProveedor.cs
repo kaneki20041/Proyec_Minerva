@@ -37,9 +37,9 @@ namespace CapaLogica
         /// <param name="prov"></param>
         /// 
 
-        public List<string> ObtenerCiudad()
+        public entUbigeo BuscarUbigeo(string codigoUbigeo)
         {
-            return datProveedor.Instancia.ObtenerCiudad();
+            return datProveedor.Instancia.BuscarUbigeo(codigoUbigeo);
         }
 
         public List<string> ObtenerRubro()
@@ -61,6 +61,12 @@ namespace CapaLogica
         {
             datProveedor.Instancia.ModificarProveedor(prov);
         }
+
+        public void InhabilitarProveedor(int id)
+        {
+            datProveedor.Instancia.InhabilitarProveedor(id);
+        }
+
 
         #endregion metodos
     }
