@@ -25,7 +25,7 @@ namespace CapaDatos
         }
         #endregion singleton
         #region metodos
-        //////////////////listado de Proveedores
+        ////////////////////listado de Proveedores
         public List<entProveedor> ListarProveedor()
         {
             SqlCommand cmd = null;
@@ -49,7 +49,6 @@ namespace CapaDatos
                     prov.Direccion = dr["Direccion"].ToString();
                     prov.Telefono = Convert.ToInt32(dr["Telefono"]);
                     prov.Email = dr["Email"].ToString();
-                    prov.Ubigeo= Convert.ToInt32(dr["Ubigeo"]);
                     prov.Estado = Convert.ToBoolean(dr["Estado"]);
                     lista.Add(prov);
                 }
@@ -65,7 +64,6 @@ namespace CapaDatos
             return lista;
         }
         #endregion metodos
-
         public List<string> ObtenerCiudad()
         {
             List<string> ciudad = new List<string>();
@@ -140,7 +138,6 @@ namespace CapaDatos
                 cmd.Parameters.AddWithValue("@Telefono", prov.Telefono);
                 cmd.Parameters.AddWithValue("@Estado", prov.Estado);
                 cmd.Parameters.AddWithValue("@Rubro", prov.Rubro);
-                cmd.Parameters.AddWithValue("@Ubigeo", prov.Ubigeo);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
@@ -187,8 +184,7 @@ namespace CapaDatos
                         Direccion = dr["Direccion"].ToString(),
                         Telefono = Convert.ToInt32(dr["Telefono"]),
                         Email = dr["Email"].ToString(),
-                        Estado = Convert.ToBoolean(dr["Estado"]),
-                        Ubigeo = Convert.ToInt32(dr["Ubigeo"])
+                        Estado = Convert.ToBoolean(dr["Estado"])
                     };
                 }
             }
@@ -215,12 +211,15 @@ namespace CapaDatos
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("spModificarProveedor", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("ID", prov.ID);
+                cmd.Parameters.AddWithValue("@ID", prov.ID);
+                cmd.Parameters.AddWithValue("@RazonSocial", prov.RazonSocial);
+                cmd.Parameters.AddWithValue("@RUC", prov.RUC);
                 cmd.Parameters.AddWithValue("@NomPro", prov.NomPro);
-                cmd.Parameters.AddWithValue("@RazonSocial",prov.RazonSocial);
+                cmd.Parameters.AddWithValue("@Ciudad", prov.Ciudad);
                 cmd.Parameters.AddWithValue("@Direccion", prov.Direccion);
                 cmd.Parameters.AddWithValue("@Email", prov.Email);
                 cmd.Parameters.AddWithValue("@Telefono", prov.Telefono);
+                cmd.Parameters.AddWithValue("@Estado", prov.Estado);
                 cmd.Parameters.AddWithValue("@Rubro", prov.Rubro);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
@@ -243,79 +242,5 @@ namespace CapaDatos
             return modifica;
         }
 
-        public entUbigeo BuscarUbigeo(string codigoUbigeo)
-        {
-            SqlCommand cmd = null;
-            entUbigeo ubigeo = null;
-            try
-            {
-                SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spBuscarUbigeoPorCodigo", cn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@CodigoUbigeo", codigoUbigeo);
-                cn.Open();
-
-                using (SqlDataReader dr = cmd.ExecuteReader())
-                {
-                    if (dr.Read())
-                    {
-                        ubigeo = new entUbigeo
-                        {
-                            Ubigeo = dr["Ubigeo"].ToString(),
-                            Departamento = dr["Departamento"].ToString(),
-                            Provincia = dr["Provincia"].ToString(),
-                            Distrito = dr["Distrito"].ToString()
-                        };
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                // Considera loggear la excepción aquí
-                throw;
-            }
-            finally
-            {
-                if (cmd?.Connection != null)
-                {
-                    cmd.Connection.Close();
-                }
-            }
-            return ubigeo;
-        }
-        public Boolean InhabilitarProveedor(int id)
-        {
-            SqlCommand cmd = null;
-            Boolean inhabilita = false;
-            try
-            {
-                SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spInhabilitarProveedor", cn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@ID", id);
-                cn.Open();
-                int i = cmd.ExecuteNonQuery();
-                if (i > 0)
-                {
-                    inhabilita = true;
-                }
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-            finally
-            {
-                if (cmd != null && cmd.Connection != null)
-                {
-                    cmd.Connection.Close();
-                }
-            }
-            return inhabilita;
-        }
-
     }
 }
-
-
-

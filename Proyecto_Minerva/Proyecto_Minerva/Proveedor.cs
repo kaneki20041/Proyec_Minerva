@@ -33,6 +33,15 @@ namespace Proyecto_Minerva
             {
                 comboBox1.Items.Add(rubro);
             }
+
+            // Llenado de ComboBox comboBox1 (Colegios)
+            comboBox2.Items.Clear();
+            List<string> ciudad = logProveedor.Instancia.ObtenerCiudad();
+            foreach (string Ciudad in ciudad)
+            {
+                comboBox2.Items.Add(Ciudad);
+            }
+
         }
         public void listarProveedor()
         {
@@ -47,6 +56,7 @@ namespace Proyecto_Minerva
             grupBoxDatos2.Enabled = true;
             btnAgregar.Visible = true;
             //LimpiarVariables();
+            btnModificar.Visible = false;
 
         }
 
@@ -55,14 +65,16 @@ namespace Proyecto_Minerva
             try
             {
                 // Verifica que los ComboBox tienen un ítem seleccionado
-                if (comboBox1.SelectedItem == null)
+                if (comboBox2.SelectedItem == null || comboBox1.SelectedItem == null)
                 {
-                    MessageBox.Show("Por favor, selecciona una opción en los campos Rubro.");
+                    MessageBox.Show("Por favor, selecciona una opción en los campos Ciudad y Rubro.");
                     return;
                 }
 
+                // Captura los datos de los ComboBox y TextBox
+                string ciudad = comboBox2.SelectedItem.ToString();
                 string rubro = comboBox1.SelectedItem.ToString();
-                int ruc, telefono, ubigeo;
+                int ruc, telefono;
 
                 // Verifica que el RUC y el teléfono son números válidos
                 if (!int.TryParse(textBox3.Text, out ruc))
@@ -77,19 +89,11 @@ namespace Proyecto_Minerva
                     return;
                 }
 
-                if (!int.TryParse(txtCodigoUbigeo.Text, out ubigeo))
-                {
-                    MessageBox.Show("Por favor, ingresa un número válido en el campo Ubigeo.");
-                    return;
-                }
-
                 string razonSocial = textBox7.Text.Trim();
                 string nomPro = textBox1.Text.Trim();
                 string direccion = textBox6.Text.Trim();
                 string email = textBox4.Text.Trim();
                 bool estado = checkBox1.Checked;
-                string distrito = txtDistrito.Text.Trim();
-
 
                 // Crea un objeto entProveedor
                 entProveedor nuevoProveedor = new entProveedor
@@ -97,13 +101,12 @@ namespace Proyecto_Minerva
                     RazonSocial = razonSocial,
                     RUC = ruc,
                     NomPro = nomPro,
-                    Ciudad = distrito,
+                    Ciudad = ciudad,
                     Direccion = direccion,
                     Email = email,
                     Telefono = telefono,
                     Estado = estado,
-                    Rubro = rubro,
-                    Ubigeo = ubigeo
+                    Rubro = rubro
                 };
 
                 // Llama a la capa lógica para insertar el proveedor
@@ -132,6 +135,7 @@ namespace Proyecto_Minerva
             txtBuscarID.Clear();
             textBox3.Clear();
             textBox1.Clear();
+            comboBox2.SelectedIndex = -1; // Resetea el ComboBox
             textBox6.Clear();
             textBox4.Clear();
             textBox5.Clear();
@@ -157,6 +161,7 @@ namespace Proyecto_Minerva
                     textBox7.Text = prov.RazonSocial;
                     textBox3.Text = prov.RUC.ToString();
                     textBox1.Text = prov.NomPro;
+                    comboBox2.SelectedItem = prov.Ciudad;
                     textBox6.Text = prov.Direccion;
                     textBox4.Text = prov.Email;
                     textBox5.Text = prov.Telefono.ToString();
@@ -191,13 +196,14 @@ namespace Proyecto_Minerva
                 }
 
                 // Verifica que los ComboBox tienen un ítem seleccionado
-                if (comboBox1.SelectedItem == null)
+                if (comboBox2.SelectedItem == null || comboBox1.SelectedItem == null)
                 {
-                    MessageBox.Show("Por favor, selecciona una opción para Rubro.");
+                    MessageBox.Show("Por favor, selecciona una opción en los campos Ciudad y Rubro.");
                     return;
                 }
 
-                // Captura los datos del ComboBox y TextBox
+                // Captura los datos de los ComboBox y TextBox
+                string ciudad = comboBox2.SelectedItem.ToString();
                 string rubro = comboBox1.SelectedItem.ToString();
                 int ruc, telefono;
 
@@ -218,7 +224,7 @@ namespace Proyecto_Minerva
                 string nomPro = textBox1.Text.Trim();
                 string direccion = textBox6.Text.Trim();
                 string email = textBox4.Text.Trim();
-                string distrito = txtDistrito.Text.Trim();
+                bool estado = checkBox1.Checked;
 
                 // Crea un objeto entProveedor
                 entProveedor proveedorActualizado = new entProveedor
@@ -227,10 +233,11 @@ namespace Proyecto_Minerva
                     RazonSocial = razonSocial,
                     RUC = ruc,
                     NomPro = nomPro,
-                    Ciudad = distrito,
+                    Ciudad = ciudad,
                     Direccion = direccion,
                     Email = email,
                     Telefono = telefono,
+                    Estado = estado,
                     Rubro = rubro
                 };
 
@@ -255,50 +262,6 @@ namespace Proyecto_Minerva
             // Desactiva el grupo de datos
             grupBoxDatos.Enabled = false;
             grupBoxDatos2.Enabled = false;
-
-
-        }
-
-        private void btnBuscUbigeo_Click(object sender, EventArgs e)
-        {
-            string codigoUbigeo = txtCodigoUbigeo.Text.Trim();
-
-            if (!string.IsNullOrEmpty(codigoUbigeo))
-            {
-                // Instancia de la lógica de negocio
-                logProveedor logProv = new logProveedor();
-
-                try
-                {
-                    // Llamada al método BuscarUbigeo
-                    entUbigeo ubigeo = logProv.BuscarUbigeo(codigoUbigeo);
-
-                    if (ubigeo != null)
-                    {
-                        // Mostrar los datos en los controles correspondientes
-                        txtDepartamento.Text = ubigeo.Departamento;
-                        txtProvincia.Text = ubigeo.Provincia;
-                        txtDistrito.Text = ubigeo.Distrito;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ubigeo no encontrado.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Ocurrió un error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Por favor ingrese un código de Ubigeo válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void btnRemover_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

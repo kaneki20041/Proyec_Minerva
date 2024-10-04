@@ -41,7 +41,7 @@
             button1 = new Button();
             btnAgregar = new Button();
             btnModificar = new Button();
-            btnRemover = new Button();
+            button4 = new Button();
             dateTimePicker1 = new DateTimePicker();
             grupBoxDatos = new GroupBox();
             checkBox1 = new CheckBox();
@@ -52,29 +52,20 @@
             comboBox1 = new ComboBox();
             btnBuscProov = new Button();
             grupBoxDatos2 = new GroupBox();
+            comboBox2 = new ComboBox();
             textBox6 = new TextBox();
-            label8 = new Label();
             label10 = new Label();
+            label8 = new Label();
             dvgProveedor = new DataGridView();
-            label1 = new Label();
-            txtCodigoUbigeo = new TextBox();
-            groupBox1 = new GroupBox();
-            btnBuscUbigeo = new Button();
-            txtProvincia = new TextBox();
-            txtDistrito = new TextBox();
-            label13 = new Label();
-            label12 = new Label();
-            txtDepartamento = new TextBox();
             grupBoxDatos.SuspendLayout();
             grupBoxDatos2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dvgProveedor).BeginInit();
-            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(34, 52);
+            label2.Location = new Point(34, 71);
             label2.Name = "label2";
             label2.Size = new Size(61, 17);
             label2.TabIndex = 1;
@@ -83,7 +74,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(41, 143);
+            label3.Location = new Point(63, 161);
             label3.Name = "label3";
             label3.Size = new Size(32, 17);
             label3.TabIndex = 2;
@@ -92,7 +83,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(53, 80);
+            label4.Location = new Point(53, 102);
             label4.Name = "label4";
             label4.Size = new Size(42, 17);
             label4.TabIndex = 3;
@@ -101,7 +92,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(13, 54);
+            label5.Location = new Point(28, 112);
             label5.Name = "label5";
             label5.Size = new Size(59, 17);
             label5.TabIndex = 4;
@@ -110,7 +101,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(22, 83);
+            label6.Location = new Point(48, 141);
             label6.Name = "label6";
             label6.Size = new Size(39, 17);
             label6.TabIndex = 5;
@@ -118,30 +109,30 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(101, 49);
+            textBox1.Location = new Point(101, 68);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(218, 22);
             textBox1.TabIndex = 6;
             // 
             // txtBuscarID
             // 
-            txtBuscarID.Location = new Point(101, 21);
+            txtBuscarID.Location = new Point(101, 39);
             txtBuscarID.Name = "txtBuscarID";
             txtBuscarID.Size = new Size(218, 22);
             txtBuscarID.TabIndex = 7;
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(78, 77);
+            textBox4.Location = new Point(94, 138);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(174, 22);
+            textBox4.Size = new Size(137, 22);
             textBox4.TabIndex = 9;
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(78, 49);
+            textBox5.Location = new Point(94, 109);
             textBox5.Name = "textBox5";
-            textBox5.Size = new Size(174, 22);
+            textBox5.Size = new Size(137, 22);
             textBox5.TabIndex = 10;
             // 
             // label7
@@ -196,19 +187,18 @@
             btnModificar.UseVisualStyleBackColor = false;
             btnModificar.Click += btnModificar_Click;
             // 
-            // btnRemover
+            // button4
             // 
-            btnRemover.BackColor = Color.PowderBlue;
-            btnRemover.FlatAppearance.BorderSize = 0;
-            btnRemover.FlatStyle = FlatStyle.Flat;
-            btnRemover.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnRemover.Location = new Point(736, 466);
-            btnRemover.Name = "btnRemover";
-            btnRemover.Size = new Size(94, 44);
-            btnRemover.TabIndex = 15;
-            btnRemover.Text = "Remover";
-            btnRemover.UseVisualStyleBackColor = false;
-            btnRemover.Click += btnRemover_Click;
+            button4.BackColor = Color.PowderBlue;
+            button4.FlatAppearance.BorderSize = 0;
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            button4.Location = new Point(736, 466);
+            button4.Name = "button4";
+            button4.Size = new Size(94, 44);
+            button4.TabIndex = 15;
+            button4.Text = "Remover";
+            button4.UseVisualStyleBackColor = false;
             // 
             // dateTimePicker1
             // 
@@ -235,9 +225,9 @@
             grupBoxDatos.Controls.Add(label3);
             grupBoxDatos.Controls.Add(label2);
             grupBoxDatos.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            grupBoxDatos.Location = new Point(12, 56);
+            grupBoxDatos.Location = new Point(17, 35);
             grupBoxDatos.Name = "grupBoxDatos";
-            grupBoxDatos.Size = new Size(424, 178);
+            grupBoxDatos.Size = new Size(424, 209);
             grupBoxDatos.TabIndex = 17;
             grupBoxDatos.TabStop = false;
             grupBoxDatos.Text = "Informacion";
@@ -245,7 +235,7 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(340, 138);
+            checkBox1.Location = new Point(336, 131);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(67, 21);
             checkBox1.TabIndex = 21;
@@ -254,14 +244,14 @@
             // 
             // textBox7
             // 
-            textBox7.Location = new Point(101, 112);
+            textBox7.Location = new Point(101, 129);
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(218, 22);
             textBox7.TabIndex = 14;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(101, 140);
+            textBox3.Location = new Point(101, 158);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(218, 22);
             textBox3.TabIndex = 13;
@@ -269,7 +259,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(12, 114);
+            label11.Location = new Point(13, 132);
             label11.Name = "label11";
             label11.Size = new Size(83, 17);
             label11.TabIndex = 12;
@@ -278,7 +268,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(53, 22);
+            label9.Location = new Point(76, 42);
             label9.Name = "label9";
             label9.Size = new Size(20, 17);
             label9.TabIndex = 11;
@@ -287,7 +277,7 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(101, 80);
+            comboBox1.Location = new Point(101, 97);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(218, 25);
             comboBox1.TabIndex = 10;
@@ -297,7 +287,7 @@
             btnBuscProov.BackColor = Color.LightCyan;
             btnBuscProov.FlatAppearance.BorderSize = 0;
             btnBuscProov.FlatStyle = FlatStyle.Flat;
-            btnBuscProov.Location = new Point(325, 21);
+            btnBuscProov.Location = new Point(333, 39);
             btnBuscProov.Name = "btnBuscProov";
             btnBuscProov.Size = new Size(70, 23);
             btnBuscProov.TabIndex = 9;
@@ -307,7 +297,9 @@
             // 
             // grupBoxDatos2
             // 
+            grupBoxDatos2.Controls.Add(comboBox2);
             grupBoxDatos2.Controls.Add(textBox6);
+            grupBoxDatos2.Controls.Add(label10);
             grupBoxDatos2.Controls.Add(label8);
             grupBoxDatos2.Controls.Add(textBox5);
             grupBoxDatos2.Controls.Add(textBox4);
@@ -316,134 +308,55 @@
             grupBoxDatos2.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
             grupBoxDatos2.Location = new Point(447, 35);
             grupBoxDatos2.Name = "grupBoxDatos2";
-            grupBoxDatos2.Size = new Size(374, 112);
+            grupBoxDatos2.Size = new Size(269, 209);
             grupBoxDatos2.TabIndex = 18;
             grupBoxDatos2.TabStop = false;
             grupBoxDatos2.Text = "Contacto";
             // 
+            // comboBox2
+            // 
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(94, 51);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(137, 25);
+            comboBox2.TabIndex = 21;
+            // 
             // textBox6
             // 
-            textBox6.Location = new Point(78, 21);
+            textBox6.Location = new Point(94, 80);
             textBox6.Name = "textBox6";
-            textBox6.Size = new Size(290, 22);
+            textBox6.Size = new Size(137, 22);
             textBox6.TabIndex = 12;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(6, 24);
-            label8.Name = "label8";
-            label8.Size = new Size(66, 17);
-            label8.TabIndex = 11;
-            label8.Text = "Direccion";
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(10, 85);
+            label10.Location = new Point(36, 54);
             label10.Name = "label10";
             label10.Size = new Size(51, 17);
             label10.TabIndex = 20;
             label10.Text = "Ciudad";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(22, 83);
+            label8.Name = "label8";
+            label8.Size = new Size(66, 17);
+            label8.TabIndex = 11;
+            label8.Text = "Direccion";
             // 
             // dvgProveedor
             // 
             dvgProveedor.BackgroundColor = Color.MintCream;
             dvgProveedor.BorderStyle = BorderStyle.None;
             dvgProveedor.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dvgProveedor.Location = new Point(27, 279);
+            dvgProveedor.Location = new Point(17, 258);
             dvgProveedor.Name = "dvgProveedor";
             dvgProveedor.RowHeadersWidth = 51;
             dvgProveedor.RowTemplate.Height = 25;
             dvgProveedor.Size = new Size(699, 303);
             dvgProveedor.TabIndex = 19;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(32, 23);
-            label1.Name = "label1";
-            label1.Size = new Size(51, 17);
-            label1.TabIndex = 22;
-            label1.Text = "Ubigeo";
-            // 
-            // txtCodigoUbigeo
-            // 
-            txtCodigoUbigeo.Location = new Point(106, 21);
-            txtCodigoUbigeo.Name = "txtCodigoUbigeo";
-            txtCodigoUbigeo.Size = new Size(87, 22);
-            txtCodigoUbigeo.TabIndex = 23;
-            // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(btnBuscUbigeo);
-            groupBox1.Controls.Add(txtProvincia);
-            groupBox1.Controls.Add(txtDistrito);
-            groupBox1.Controls.Add(label13);
-            groupBox1.Controls.Add(label12);
-            groupBox1.Controls.Add(txtDepartamento);
-            groupBox1.Controls.Add(label10);
-            groupBox1.Controls.Add(txtCodigoUbigeo);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox1.Location = new Point(447, 153);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(392, 120);
-            groupBox1.TabIndex = 24;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Ubigeo";
-            // 
-            // btnBuscUbigeo
-            // 
-            btnBuscUbigeo.BackColor = Color.LightCyan;
-            btnBuscUbigeo.FlatAppearance.BorderSize = 0;
-            btnBuscUbigeo.FlatStyle = FlatStyle.Flat;
-            btnBuscUbigeo.Location = new Point(199, 21);
-            btnBuscUbigeo.Name = "btnBuscUbigeo";
-            btnBuscUbigeo.Size = new Size(64, 22);
-            btnBuscUbigeo.TabIndex = 22;
-            btnBuscUbigeo.Text = "Buscar";
-            btnBuscUbigeo.UseVisualStyleBackColor = false;
-            btnBuscUbigeo.Click += btnBuscUbigeo_Click;
-            // 
-            // txtProvincia
-            // 
-            txtProvincia.Location = new Point(257, 80);
-            txtProvincia.Name = "txtProvincia";
-            txtProvincia.Size = new Size(122, 22);
-            txtProvincia.TabIndex = 28;
-            // 
-            // txtDistrito
-            // 
-            txtDistrito.Location = new Point(67, 82);
-            txtDistrito.Name = "txtDistrito";
-            txtDistrito.Size = new Size(121, 22);
-            txtDistrito.TabIndex = 27;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Location = new Point(6, 56);
-            label13.Name = "label13";
-            label13.Size = new Size(97, 17);
-            label13.TabIndex = 26;
-            label13.Text = "Departamento";
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Location = new Point(191, 83);
-            label12.Name = "label12";
-            label12.Size = new Size(64, 17);
-            label12.TabIndex = 25;
-            label12.Text = "Provincia";
-            // 
-            // txtDepartamento
-            // 
-            txtDepartamento.Location = new Point(106, 52);
-            txtDepartamento.Name = "txtDepartamento";
-            txtDepartamento.Size = new Size(273, 22);
-            txtDepartamento.TabIndex = 24;
             // 
             // Proveedor
             // 
@@ -451,12 +364,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MintCream;
             ClientSize = new Size(851, 573);
-            Controls.Add(groupBox1);
             Controls.Add(dvgProveedor);
             Controls.Add(grupBoxDatos2);
             Controls.Add(grupBoxDatos);
             Controls.Add(dateTimePicker1);
-            Controls.Add(btnRemover);
+            Controls.Add(button4);
             Controls.Add(btnModificar);
             Controls.Add(btnAgregar);
             Controls.Add(button1);
@@ -469,8 +381,6 @@
             grupBoxDatos2.ResumeLayout(false);
             grupBoxDatos2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dvgProveedor).EndInit();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -489,7 +399,7 @@
         private Button button1;
         private Button btnAgregar;
         private Button btnModificar;
-        private Button btnRemover;
+        private Button button4;
         private DateTimePicker dateTimePicker1;
         private GroupBox grupBoxDatos;
         private GroupBox grupBoxDatos2;
@@ -502,16 +412,8 @@
         private Label label11;
         private Label label9;
         private Button btnBuscProov;
+        private ComboBox comboBox2;
         private Label label10;
         private CheckBox checkBox1;
-        private Label label1;
-        private TextBox txtCodigoUbigeo;
-        private GroupBox groupBox1;
-        private Button btnBuscUbigeo;
-        private TextBox txtProvincia;
-        private TextBox txtDistrito;
-        private Label label13;
-        private Label label12;
-        private TextBox txtDepartamento;
     }
 }

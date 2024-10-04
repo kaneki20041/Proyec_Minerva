@@ -10,11 +10,24 @@ namespace CapaEntidad
     {
         public int UsuarioID {  get; set; }
         public int Documento {  get; set; }
-        public entRol objRol { get; set; }
+        public int idRol { get; set; }
         public string NombreCompleto { get; set; }
         public bool Estado { get; set; }
         public string Clave { get; set; }
-        public string FechaRegistro { get; set; }
+        public DateTime FechaRegistro { get; set; }
+        public string Correo { get; set; }
+
+    }
+
+    public class entdescUsuario
+    {
+        public int UsuarioID { get; set; }
+        public int Documento { get; set; }
+        public string descripcion { get; set; }
+        public string NombreCompleto { get; set; }
+        public bool Estado { get; set; }
+        public string Clave { get; set; }
+        public DateTime FechaRegistro { get; set; }
         public string Correo { get; set; }
 
     }

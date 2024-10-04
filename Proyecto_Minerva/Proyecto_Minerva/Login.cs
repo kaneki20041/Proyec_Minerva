@@ -57,25 +57,39 @@ namespace CapaPresentacion
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            List<entUsuario> login = new logUsuario().ListarUsuario();
+            List<entUsuario> login = new logUsuario().ListarValidarUsuario();
 
             int Documento;
             if (int.TryParse(txtDocumento.Text, out Documento))
             {
-                entUsuario usuario = login.Where(u => u.Documento == Documento && u.Clave == txtPassword.Text).FirstOrDefault();
+                entUsuario usuario = login.Where(u => u.Documento == Documento).FirstOrDefault();
                 if (usuario != null)
                 {
-                    Principal form = new Principal(usuario);
-                    form.Show();
-                    this.Hide();
-                    form.FormClosing += frm_closing;
+                    if (usuario.Clave == txtPassword.Text)
+                    {
+                        if (usuario.Estado == true)
+                        {
+                            Principal form = new Principal(usuario);
+                            form.Show();
+                            this.Hide();
+                            form.FormClosing += frm_closing;
 
-                    string mensajeBienvenida = $"Bienvenido, {usuario.NombreCompleto}!";
-                    MessageBox.Show(mensajeBienvenida);
+                            string mensajeBienvenida = $"Bienvenido, {usuario.NombreCompleto}!";
+                            MessageBox.Show(mensajeBienvenida);
+                        }
+                        else
+                        {
+                            MessageBox.Show("El usuario está deshabilitado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Contraseña incorrecta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Usuario o Contraseña incorrecta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Documento incorrecto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
         }
