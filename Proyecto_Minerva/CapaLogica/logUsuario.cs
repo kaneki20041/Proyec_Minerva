@@ -28,42 +28,32 @@ namespace CapaLogica
 
         #region metodos
 
-        public List<entUsuario> ListarValidarUsuario()
-        {
-            //return datCliente.Instancia.ListarCliente();
-            return datUsuario.Instancia.ListarValidacionUsuario();
-        }
-        public List<entdescUsuario> ListarUsuario()
+
+        public List<entUsuario> ListarUsuario()
         {
             //return datCliente.Instancia.ListarCliente();
             return datUsuario.Instancia.ListarUsuario();
-
         }
 
-        public void InsertarUsuarios(entUsuario Use)
+
+        /*public entUsuario login(string username, string password)
         {
-            datUsuario.Instancia.InsertarUsuario(Use);
+            return datUsuario.Instancia.IngresoUsuario(username, password);
         }
 
-        public void ModificarUsuario(entUsuario user)
+
+        public List<entUsuario> ListarUsuario()
         {
-            datUsuario.Instancia.ModificarUsuario(user);
-        }
+            try
+            {
+                return datUsuario.Instancia.ListarUsuario();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
 
-        public void DeshabilitarUsuarios(entUsuario user)
-        {
-            datUsuario.Instancia.DeshabilitarUsuarios(user);
-        }
-
-        public List<entUsuario> BuscarUsuarios(entUsuario usuario)
-        {
-            int? Documento = usuario.Documento;
-            string NombreCompleto = usuario.NombreCompleto;
-            int? RolID = usuario.idRol;
-            bool? Estado = usuario.Estado;
-
-            return datUsuario.Instancia.BuscarUsuarios(Documento, NombreCompleto, RolID, Estado);
-        }
+        }*/
 
         #endregion metodos
     }
