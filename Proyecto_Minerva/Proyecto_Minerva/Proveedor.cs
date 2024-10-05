@@ -21,7 +21,11 @@ namespace Proyecto_Minerva
             InicializarComboBoxes();
             grupBoxDatos.Enabled = false;
             grupBoxDatos2.Enabled = false;
+            groupBoxUbigeo.Enabled = false;
             //txtidCliente.Enabled = false;
+            btnAgregar.Enabled = false;
+            btnInhabilitar.Enabled = false;
+            btnModificar.Enabled = false;
 
         }
         private void InicializarComboBoxes()
@@ -38,18 +42,6 @@ namespace Proyecto_Minerva
         {
             dvgProveedor.DataSource = logProveedor.Instancia.ListarProveedor();
         }
-
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            grupBoxDatos.Enabled = true;
-            grupBoxDatos2.Enabled = true;
-            btnAgregar.Visible = true;
-            //LimpiarVariables();
-
-        }
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             try
@@ -165,8 +157,8 @@ namespace Proyecto_Minerva
 
                     grupBoxDatos.Enabled = true;
                     grupBoxDatos2.Enabled = true;
-                    btnAgregar.Visible = false;
-                    btnModificar.Visible = true;
+                    btnAgregar.Enabled = false;
+                    btnModificar.Enabled = true;
                 }
                 else
                 {
@@ -183,20 +175,18 @@ namespace Proyecto_Minerva
         {
             try
             {
-                // Verifica que hay una fila seleccionada en el DataGridView
-                if (dvgProveedor.SelectedRows.Count == 0)
+                // Verifica que se ha buscado un proveedor
+                if (string.IsNullOrEmpty(txtBuscarID.Text))
                 {
-                    MessageBox.Show("Por favor, selecciona un proveedor de la lista.");
+                    MessageBox.Show("Por favor, busca un proveedor antes de modificarlo.");
                     return;
                 }
-
                 // Verifica que los ComboBox tienen un ítem seleccionado
                 if (comboBox1.SelectedItem == null)
                 {
                     MessageBox.Show("Por favor, selecciona una opción para Rubro.");
                     return;
                 }
-
                 // Captura los datos del ComboBox y TextBox
                 string rubro = comboBox1.SelectedItem.ToString();
                 int ruc, telefono;
@@ -223,15 +213,15 @@ namespace Proyecto_Minerva
                 // Crea un objeto entProveedor
                 entProveedor proveedorActualizado = new entProveedor
                 {
-                    ID = int.Parse(dvgProveedor.SelectedRows[0].Cells["ID"].Value.ToString()),
+                    ID = int.Parse(txtBuscarID.Text),
                     RazonSocial = razonSocial,
                     RUC = ruc,
                     NomPro = nomPro,
-                    Ciudad = distrito,
                     Direccion = direccion,
                     Email = email,
                     Telefono = telefono,
-                    Rubro = rubro
+                    Rubro = rubro,
+                    Estado = checkBox1.Checked
                 };
 
                 // Llama a la capa lógica para modificar el proveedor
@@ -255,8 +245,6 @@ namespace Proyecto_Minerva
             // Desactiva el grupo de datos
             grupBoxDatos.Enabled = false;
             grupBoxDatos2.Enabled = false;
-
-
         }
 
         private void btnBuscUbigeo_Click(object sender, EventArgs e)
@@ -296,9 +284,68 @@ namespace Proyecto_Minerva
             }
         }
 
-        private void btnRemover_Click(object sender, EventArgs e)
+        private void btnInhabilitar_Click(object sender, EventArgs e)
         {
+            // Verifica si el campo txtBuscarID no está vacío
+            if (string.IsNullOrWhiteSpace(txtBuscarID.Text))
+            {
+                MessageBox.Show("Por favor, ingresa un ID válido para inhabilitar.");
+                return;
+            }
 
+            // Intenta convertir el valor del txtBuscarID a un número entero
+            if (!int.TryParse(txtBuscarID.Text, out int proveedorID))
+            {
+                MessageBox.Show("El ID ingresado no es válido. Debe ser un número.");
+                return;
+            }
+
+            // Confirmación de inhabilitación
+            DialogResult result = MessageBox.Show("¿Estás seguro que deseas inhabilitar este proveedor?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    // Llama al método de la capa lógica para inhabilitar el proveedor
+                    logProveedor.Instancia.InhabilitarProveedor(proveedorID);
+
+                    // Muestra un mensaje de éxito
+                    MessageBox.Show("Proveedor inhabilitado con éxito.");
+
+                    // Limpia el campo de búsqueda
+                    txtBuscarID.Clear();
+
+                    // Actualiza la lista de proveedores
+                    listarProveedor();
+                }
+                catch (Exception ex)
+                {
+                    // Muestra un mensaje de error en caso de excepciones
+                    MessageBox.Show($"Ocurrió un error: {ex.Message}");
+                }
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            grupBoxDatos.Enabled = false;
+            grupBoxDatos2.Enabled = false;
+            groupBoxUbigeo.Enabled = false;
+            btnAgregar.Enabled = false;
+            btnInhabilitar.Enabled = false;
+            btnModificar.Enabled = false;
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            grupBoxDatos.Enabled = true;
+            grupBoxDatos2.Enabled = true;
+            groupBoxUbigeo.Enabled = true;
+            btnAgregar.Visible = true;
+            btnAgregar.Enabled = true;
+            btnInhabilitar.Enabled = true;
+            btnModificar.Enabled = true;
         }
     }
 }

@@ -30,12 +30,6 @@ namespace Proyecto_Minerva
             this.panelconteiner.Tag = fr;
             fr.Show();
         }
-
-        private void btn_venderu_Click(object sender, EventArgs e)
-        {
-            AbrirForm(new Ventauniforme());
-        }
-
         private void btn_Cliente_Click(object sender, EventArgs e)
         {
             AbrirForm(new Registrocliente());
@@ -44,28 +38,6 @@ namespace Proyecto_Minerva
         private void btn_IngMaterial_Click(object sender, EventArgs e)
         {
             AbrirForm(new DetalleCompra());
-        }
-
-        private void btnSalidaMaterial_Click(object sender, EventArgs e)
-        {
-            AbrirForm(new Detalleventa());
-        }
-
-        private void btn_Matyprod_Click(object sender, EventArgs e)
-        {
-            AbrirForm(new Prendas1());
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            AbrirForm(new Proveedor());
-        }
-
-
-
-        private void btnMotorizado_Click(object sender, EventArgs e)
-        {
-            AbrirForm(new Desc_Formpago());
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
@@ -87,16 +59,39 @@ namespace Proyecto_Minerva
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void btnDetalleComp_Click(object sender, EventArgs e)
-        {
-            AbrirForm(new CompraPrenda());
-        }
-
         private void btnCategoria_Click(object sender, EventArgs e)
         {
             AbrirForm(new Categoriaa());
         }
 
+        private void btnSalidaMaterial_Click(object sender, EventArgs e)
+        {
+            AbrirForm(new Detalleventa());
+        }
 
+        private void btnMetodoPago_Click(object sender, EventArgs e)
+        {
+            AbrirForm(new Desc_Formpago());
+        }
+
+        private void btnProveedores_Click(object sender, EventArgs e)
+        {
+            AbrirForm(new Proveedor());
+        }
+
+        private void btnPrendas_Click(object sender, EventArgs e)
+        {
+            AbrirForm(new Prendas1());
+        }
+
+        private void btnComprarPrendas_Click(object sender, EventArgs e)
+        {
+            AbrirForm(new CompraPrenda());
+        }
+
+        private void btnVenderPrendas_Click(object sender, EventArgs e)
+        {
+            AbrirForm(new Ventauniforme());
+        }
     }
 }

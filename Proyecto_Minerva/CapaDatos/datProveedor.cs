@@ -188,7 +188,6 @@ namespace CapaDatos
                         Telefono = Convert.ToInt32(dr["Telefono"]),
                         Email = dr["Email"].ToString(),
                         Estado = Convert.ToBoolean(dr["Estado"]),
-                        Ubigeo = Convert.ToInt32(dr["Ubigeo"])
                     };
                 }
             }
@@ -215,13 +214,15 @@ namespace CapaDatos
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("spModificarProveedor", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("ID", prov.ID);
+                cmd.Parameters.AddWithValue("@ID", prov.ID);
                 cmd.Parameters.AddWithValue("@NomPro", prov.NomPro);
-                cmd.Parameters.AddWithValue("@RazonSocial",prov.RazonSocial);
+                cmd.Parameters.AddWithValue("@RazonSocial", prov.RazonSocial);
                 cmd.Parameters.AddWithValue("@Direccion", prov.Direccion);
                 cmd.Parameters.AddWithValue("@Email", prov.Email);
                 cmd.Parameters.AddWithValue("@Telefono", prov.Telefono);
                 cmd.Parameters.AddWithValue("@Rubro", prov.Rubro);
+                cmd.Parameters.AddWithValue("@Estado", prov.Estado);
+                cmd.Parameters.AddWithValue("@RUC", prov.RUC);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
@@ -316,6 +317,3 @@ namespace CapaDatos
 
     }
 }
-
-
-

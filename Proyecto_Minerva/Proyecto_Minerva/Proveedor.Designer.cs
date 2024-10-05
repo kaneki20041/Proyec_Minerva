@@ -38,10 +38,10 @@
             textBox4 = new TextBox();
             textBox5 = new TextBox();
             label7 = new Label();
-            button1 = new Button();
+            btnNuevo = new Button();
             btnAgregar = new Button();
             btnModificar = new Button();
-            btnRemover = new Button();
+            btnInhabilitar = new Button();
             dateTimePicker1 = new DateTimePicker();
             grupBoxDatos = new GroupBox();
             checkBox1 = new CheckBox();
@@ -58,23 +58,24 @@
             dvgProveedor = new DataGridView();
             label1 = new Label();
             txtCodigoUbigeo = new TextBox();
-            groupBox1 = new GroupBox();
+            groupBoxUbigeo = new GroupBox();
             btnBuscUbigeo = new Button();
             txtProvincia = new TextBox();
             txtDistrito = new TextBox();
             label13 = new Label();
             label12 = new Label();
             txtDepartamento = new TextBox();
+            btnCancelar = new Button();
             grupBoxDatos.SuspendLayout();
             grupBoxDatos2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dvgProveedor).BeginInit();
-            groupBox1.SuspendLayout();
+            groupBoxUbigeo.SuspendLayout();
             SuspendLayout();
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(34, 52);
+            label2.Location = new Point(34, 82);
             label2.Name = "label2";
             label2.Size = new Size(61, 17);
             label2.TabIndex = 1;
@@ -83,7 +84,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(41, 143);
+            label3.Location = new Point(63, 173);
             label3.Name = "label3";
             label3.Size = new Size(32, 17);
             label3.TabIndex = 2;
@@ -92,7 +93,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(53, 80);
+            label4.Location = new Point(53, 113);
             label4.Name = "label4";
             label4.Size = new Size(42, 17);
             label4.TabIndex = 3;
@@ -118,14 +119,14 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(101, 49);
+            textBox1.Location = new Point(101, 79);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(218, 22);
             textBox1.TabIndex = 6;
             // 
             // txtBuscarID
             // 
-            txtBuscarID.Location = new Point(101, 21);
+            txtBuscarID.Location = new Point(101, 51);
             txtBuscarID.Name = "txtBuscarID";
             txtBuscarID.Size = new Size(218, 22);
             txtBuscarID.TabIndex = 7;
@@ -154,19 +155,19 @@
             label7.TabIndex = 11;
             label7.Text = "Fecha";
             // 
-            // button1
+            // btnNuevo
             // 
-            button1.BackColor = Color.PowderBlue;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(736, 316);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 44);
-            button1.TabIndex = 12;
-            button1.Text = "Nuevo";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            btnNuevo.BackColor = Color.PowderBlue;
+            btnNuevo.FlatAppearance.BorderSize = 0;
+            btnNuevo.FlatStyle = FlatStyle.Flat;
+            btnNuevo.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnNuevo.Location = new Point(736, 296);
+            btnNuevo.Name = "btnNuevo";
+            btnNuevo.Size = new Size(94, 44);
+            btnNuevo.TabIndex = 12;
+            btnNuevo.Text = "Nuevo";
+            btnNuevo.UseVisualStyleBackColor = false;
+            btnNuevo.Click += btnNuevo_Click;
             // 
             // btnAgregar
             // 
@@ -174,7 +175,7 @@
             btnAgregar.FlatAppearance.BorderSize = 0;
             btnAgregar.FlatStyle = FlatStyle.Flat;
             btnAgregar.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAgregar.Location = new Point(736, 366);
+            btnAgregar.Location = new Point(736, 346);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(94, 44);
             btnAgregar.TabIndex = 13;
@@ -188,7 +189,7 @@
             btnModificar.FlatAppearance.BorderSize = 0;
             btnModificar.FlatStyle = FlatStyle.Flat;
             btnModificar.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnModificar.Location = new Point(736, 416);
+            btnModificar.Location = new Point(736, 396);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(94, 44);
             btnModificar.TabIndex = 14;
@@ -196,19 +197,19 @@
             btnModificar.UseVisualStyleBackColor = false;
             btnModificar.Click += btnModificar_Click;
             // 
-            // btnRemover
+            // btnInhabilitar
             // 
-            btnRemover.BackColor = Color.PowderBlue;
-            btnRemover.FlatAppearance.BorderSize = 0;
-            btnRemover.FlatStyle = FlatStyle.Flat;
-            btnRemover.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnRemover.Location = new Point(736, 466);
-            btnRemover.Name = "btnRemover";
-            btnRemover.Size = new Size(94, 44);
-            btnRemover.TabIndex = 15;
-            btnRemover.Text = "Remover";
-            btnRemover.UseVisualStyleBackColor = false;
-            btnRemover.Click += btnRemover_Click;
+            btnInhabilitar.BackColor = Color.PowderBlue;
+            btnInhabilitar.FlatAppearance.BorderSize = 0;
+            btnInhabilitar.FlatStyle = FlatStyle.Flat;
+            btnInhabilitar.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnInhabilitar.Location = new Point(736, 446);
+            btnInhabilitar.Name = "btnInhabilitar";
+            btnInhabilitar.Size = new Size(94, 44);
+            btnInhabilitar.TabIndex = 15;
+            btnInhabilitar.Text = "Inhabilitar";
+            btnInhabilitar.UseVisualStyleBackColor = false;
+            btnInhabilitar.Click += btnInhabilitar_Click;
             // 
             // dateTimePicker1
             // 
@@ -235,9 +236,9 @@
             grupBoxDatos.Controls.Add(label3);
             grupBoxDatos.Controls.Add(label2);
             grupBoxDatos.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            grupBoxDatos.Location = new Point(12, 56);
+            grupBoxDatos.Location = new Point(12, 35);
             grupBoxDatos.Name = "grupBoxDatos";
-            grupBoxDatos.Size = new Size(424, 178);
+            grupBoxDatos.Size = new Size(424, 238);
             grupBoxDatos.TabIndex = 17;
             grupBoxDatos.TabStop = false;
             grupBoxDatos.Text = "Informacion";
@@ -245,7 +246,7 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(340, 138);
+            checkBox1.Location = new Point(340, 168);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(67, 21);
             checkBox1.TabIndex = 21;
@@ -254,14 +255,14 @@
             // 
             // textBox7
             // 
-            textBox7.Location = new Point(101, 112);
+            textBox7.Location = new Point(101, 142);
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(218, 22);
             textBox7.TabIndex = 14;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(101, 140);
+            textBox3.Location = new Point(101, 170);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(218, 22);
             textBox3.TabIndex = 13;
@@ -269,7 +270,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(12, 114);
+            label11.Location = new Point(12, 145);
             label11.Name = "label11";
             label11.Size = new Size(83, 17);
             label11.TabIndex = 12;
@@ -278,7 +279,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(53, 22);
+            label9.Location = new Point(75, 54);
             label9.Name = "label9";
             label9.Size = new Size(20, 17);
             label9.TabIndex = 11;
@@ -287,7 +288,7 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(101, 80);
+            comboBox1.Location = new Point(101, 110);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(218, 25);
             comboBox1.TabIndex = 10;
@@ -297,7 +298,7 @@
             btnBuscProov.BackColor = Color.LightCyan;
             btnBuscProov.FlatAppearance.BorderSize = 0;
             btnBuscProov.FlatStyle = FlatStyle.Flat;
-            btnBuscProov.Location = new Point(325, 21);
+            btnBuscProov.Location = new Point(325, 51);
             btnBuscProov.Name = "btnBuscProov";
             btnBuscProov.Size = new Size(70, 23);
             btnBuscProov.TabIndex = 9;
@@ -351,17 +352,17 @@
             dvgProveedor.BackgroundColor = Color.MintCream;
             dvgProveedor.BorderStyle = BorderStyle.None;
             dvgProveedor.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dvgProveedor.Location = new Point(27, 279);
+            dvgProveedor.Location = new Point(12, 279);
             dvgProveedor.Name = "dvgProveedor";
             dvgProveedor.RowHeadersWidth = 51;
             dvgProveedor.RowTemplate.Height = 25;
-            dvgProveedor.Size = new Size(699, 303);
+            dvgProveedor.Size = new Size(699, 282);
             dvgProveedor.TabIndex = 19;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(32, 23);
+            label1.Location = new Point(49, 24);
             label1.Name = "label1";
             label1.Size = new Size(51, 17);
             label1.TabIndex = 22;
@@ -374,24 +375,24 @@
             txtCodigoUbigeo.Size = new Size(87, 22);
             txtCodigoUbigeo.TabIndex = 23;
             // 
-            // groupBox1
+            // groupBoxUbigeo
             // 
-            groupBox1.Controls.Add(btnBuscUbigeo);
-            groupBox1.Controls.Add(txtProvincia);
-            groupBox1.Controls.Add(txtDistrito);
-            groupBox1.Controls.Add(label13);
-            groupBox1.Controls.Add(label12);
-            groupBox1.Controls.Add(txtDepartamento);
-            groupBox1.Controls.Add(label10);
-            groupBox1.Controls.Add(txtCodigoUbigeo);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox1.Location = new Point(447, 153);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(392, 120);
-            groupBox1.TabIndex = 24;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Ubigeo";
+            groupBoxUbigeo.Controls.Add(btnBuscUbigeo);
+            groupBoxUbigeo.Controls.Add(txtProvincia);
+            groupBoxUbigeo.Controls.Add(txtDistrito);
+            groupBoxUbigeo.Controls.Add(label13);
+            groupBoxUbigeo.Controls.Add(label12);
+            groupBoxUbigeo.Controls.Add(txtDepartamento);
+            groupBoxUbigeo.Controls.Add(label10);
+            groupBoxUbigeo.Controls.Add(txtCodigoUbigeo);
+            groupBoxUbigeo.Controls.Add(label1);
+            groupBoxUbigeo.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBoxUbigeo.Location = new Point(447, 153);
+            groupBoxUbigeo.Name = "groupBoxUbigeo";
+            groupBoxUbigeo.Size = new Size(392, 120);
+            groupBoxUbigeo.TabIndex = 24;
+            groupBoxUbigeo.TabStop = false;
+            groupBoxUbigeo.Text = "Ubigeo";
             // 
             // btnBuscUbigeo
             // 
@@ -423,7 +424,7 @@
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(6, 56);
+            label13.Location = new Point(6, 55);
             label13.Name = "label13";
             label13.Size = new Size(97, 17);
             label13.TabIndex = 26;
@@ -445,21 +446,36 @@
             txtDepartamento.Size = new Size(273, 22);
             txtDepartamento.TabIndex = 24;
             // 
+            // btnCancelar
+            // 
+            btnCancelar.BackColor = Color.PowderBlue;
+            btnCancelar.FlatAppearance.BorderSize = 0;
+            btnCancelar.FlatStyle = FlatStyle.Flat;
+            btnCancelar.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCancelar.Location = new Point(736, 496);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(94, 44);
+            btnCancelar.TabIndex = 25;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
+            // 
             // Proveedor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MintCream;
             ClientSize = new Size(851, 573);
-            Controls.Add(groupBox1);
+            Controls.Add(btnCancelar);
+            Controls.Add(groupBoxUbigeo);
             Controls.Add(dvgProveedor);
             Controls.Add(grupBoxDatos2);
             Controls.Add(grupBoxDatos);
             Controls.Add(dateTimePicker1);
-            Controls.Add(btnRemover);
+            Controls.Add(btnInhabilitar);
             Controls.Add(btnModificar);
             Controls.Add(btnAgregar);
-            Controls.Add(button1);
+            Controls.Add(btnNuevo);
             Controls.Add(label7);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Proveedor";
@@ -469,8 +485,8 @@
             grupBoxDatos2.ResumeLayout(false);
             grupBoxDatos2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dvgProveedor).EndInit();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            groupBoxUbigeo.ResumeLayout(false);
+            groupBoxUbigeo.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -486,10 +502,10 @@
         private TextBox textBox4;
         private TextBox textBox5;
         private Label label7;
-        private Button button1;
+        private Button btnNuevo;
         private Button btnAgregar;
         private Button btnModificar;
-        private Button btnRemover;
+        private Button btnInhabilitar;
         private DateTimePicker dateTimePicker1;
         private GroupBox grupBoxDatos;
         private GroupBox grupBoxDatos2;
@@ -506,12 +522,13 @@
         private CheckBox checkBox1;
         private Label label1;
         private TextBox txtCodigoUbigeo;
-        private GroupBox groupBox1;
+        private GroupBox groupBoxUbigeo;
         private Button btnBuscUbigeo;
         private TextBox txtProvincia;
         private TextBox txtDistrito;
         private Label label13;
         private Label label12;
         private TextBox txtDepartamento;
+        private Button btnCancelar;
     }
 }
