@@ -184,7 +184,7 @@
             groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(label7);
             groupBox1.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox1.Location = new Point(17, 12);
+            groupBox1.Location = new Point(64, 21);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(331, 104);
             groupBox1.TabIndex = 34;
@@ -217,7 +217,7 @@
             groupBox2.Controls.Add(textBox7);
             groupBox2.Controls.Add(textBox1);
             groupBox2.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox2.Location = new Point(373, 12);
+            groupBox2.Location = new Point(420, 21);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(352, 104);
             groupBox2.TabIndex = 35;
@@ -327,7 +327,7 @@
             groupBox3.Controls.Add(label5);
             groupBox3.Controls.Add(btn_buscarPrenVen);
             groupBox3.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox3.Location = new Point(17, 122);
+            groupBox3.Location = new Point(64, 131);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(708, 168);
             groupBox3.TabIndex = 44;
@@ -430,11 +430,11 @@
             dataGridView1.BackgroundColor = Color.MintCream;
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(13, 301);
+            dataGridView1.Location = new Point(13, 315);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(712, 260);
+            dataGridView1.Size = new Size(712, 246);
             dataGridView1.TabIndex = 47;
             // 
             // button3

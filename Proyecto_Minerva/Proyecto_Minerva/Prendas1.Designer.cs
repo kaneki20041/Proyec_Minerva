@@ -136,9 +136,9 @@
             groupBox1.Controls.Add(txtPrenda);
             groupBox1.Controls.Add(label1);
             groupBox1.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox1.Location = new Point(18, 15);
+            groupBox1.Location = new Point(18, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(681, 199);
+            groupBox1.Size = new Size(808, 199);
             groupBox1.TabIndex = 84;
             groupBox1.TabStop = false;
             groupBox1.Text = "Informacion";
@@ -146,7 +146,7 @@
             // cbxEstado
             // 
             cbxEstado.AutoSize = true;
-            cbxEstado.Location = new Point(278, 123);
+            cbxEstado.Location = new Point(327, 123);
             cbxEstado.Margin = new Padding(3, 2, 3, 2);
             cbxEstado.Name = "cbxEstado";
             cbxEstado.Size = new Size(67, 21);
@@ -156,7 +156,7 @@
             // 
             // txtPrecioCompra
             // 
-            txtPrecioCompra.Location = new Point(491, 150);
+            txtPrecioCompra.Location = new Point(542, 149);
             txtPrecioCompra.Name = "txtPrecioCompra";
             txtPrecioCompra.Size = new Size(174, 22);
             txtPrecioCompra.TabIndex = 76;
@@ -164,7 +164,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(370, 153);
+            label6.Location = new Point(421, 152);
             label6.Name = "label6";
             label6.Size = new Size(115, 17);
             label6.TabIndex = 86;
@@ -172,15 +172,15 @@
             // 
             // txtDescripcion
             // 
-            txtDescripcion.Location = new Point(491, 36);
+            txtDescripcion.Location = new Point(542, 35);
             txtDescripcion.Multiline = true;
             txtDescripcion.Name = "txtDescripcion";
-            txtDescripcion.Size = new Size(174, 78);
+            txtDescripcion.Size = new Size(233, 78);
             txtDescripcion.TabIndex = 77;
             // 
             // txtPrevioVenta
             // 
-            txtPrevioVenta.Location = new Point(491, 121);
+            txtPrevioVenta.Location = new Point(542, 120);
             txtPrevioVenta.Name = "txtPrevioVenta";
             txtPrevioVenta.Size = new Size(174, 22);
             txtPrevioVenta.TabIndex = 84;
@@ -188,7 +188,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(406, 39);
+            label4.Location = new Point(457, 38);
             label4.Name = "label4";
             label4.Size = new Size(79, 17);
             label4.TabIndex = 76;
@@ -197,7 +197,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(381, 124);
+            label8.Location = new Point(432, 123);
             label8.Name = "label8";
             label8.Size = new Size(104, 17);
             label8.TabIndex = 82;
@@ -207,7 +207,7 @@
             // 
             txtStock.Location = new Point(85, 146);
             txtStock.Name = "txtStock";
-            txtStock.Size = new Size(167, 22);
+            txtStock.Size = new Size(216, 22);
             txtStock.TabIndex = 81;
             // 
             // button2
@@ -216,7 +216,7 @@
             button2.FlatAppearance.BorderSize = 0;
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.Location = new Point(276, 67);
+            button2.Location = new Point(325, 67);
             button2.Name = "button2";
             button2.Size = new Size(77, 36);
             button2.TabIndex = 66;
@@ -249,7 +249,7 @@
             comboBox3.Location = new Point(85, 118);
             comboBox3.Margin = new Padding(3, 2, 3, 2);
             comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(167, 25);
+            comboBox3.Size = new Size(216, 25);
             comboBox3.TabIndex = 72;
             // 
             // comboBox2
@@ -258,7 +258,7 @@
             comboBox2.Location = new Point(85, 64);
             comboBox2.Margin = new Padding(3, 2, 3, 2);
             comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(167, 25);
+            comboBox2.Size = new Size(216, 25);
             comboBox2.TabIndex = 71;
             // 
             // comboBox1
@@ -267,7 +267,7 @@
             comboBox1.Location = new Point(85, 91);
             comboBox1.Margin = new Padding(3, 2, 3, 2);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(167, 25);
+            comboBox1.Size = new Size(216, 25);
             comboBox1.TabIndex = 70;
             // 
             // label12
@@ -290,7 +290,7 @@
             // 
             // textBox8
             // 
-            textBox8.Location = new Point(300, 36);
+            textBox8.Location = new Point(349, 36);
             textBox8.Name = "textBox8";
             textBox8.Size = new Size(53, 22);
             textBox8.TabIndex = 65;
@@ -298,7 +298,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(276, 40);
+            label9.Location = new Point(325, 40);
             label9.Name = "label9";
             label9.Size = new Size(20, 17);
             label9.TabIndex = 64;
@@ -308,7 +308,7 @@
             // 
             txtPrenda.Location = new Point(85, 36);
             txtPrenda.Name = "txtPrenda";
-            txtPrenda.Size = new Size(167, 22);
+            txtPrenda.Size = new Size(216, 22);
             txtPrenda.TabIndex = 50;
             // 
             // label1

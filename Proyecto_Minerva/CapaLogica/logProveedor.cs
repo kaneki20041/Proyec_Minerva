@@ -56,10 +56,18 @@ namespace CapaLogica
         {
             return datProveedor.Instancia.BuscarProveedorPorID(id);
         }
+        public entUbigeo BuscarUbigeo(string codigoUbigeo)
+        {
+            return datProveedor.Instancia.BuscarUbigeo(codigoUbigeo);
+        }
 
         public void ModificarProveedor(entProveedor prov)
         {
             datProveedor.Instancia.ModificarProveedor(prov);
+        }
+        public void InhabilitarProveedor(int id)
+        {
+            datProveedor.Instancia.InhabilitarProveedor(id);
         }
 
         #endregion metodos

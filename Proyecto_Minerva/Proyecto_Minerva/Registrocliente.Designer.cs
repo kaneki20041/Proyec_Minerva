@@ -132,11 +132,11 @@
             dgvCliente.BackgroundColor = Color.MintCream;
             dgvCliente.BorderStyle = BorderStyle.None;
             dgvCliente.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCliente.Location = new Point(21, 260);
+            dgvCliente.Location = new Point(21, 274);
             dgvCliente.Name = "dgvCliente";
             dgvCliente.RowHeadersWidth = 51;
             dgvCliente.RowTemplate.Height = 25;
-            dgvCliente.Size = new Size(680, 296);
+            dgvCliente.Size = new Size(680, 282);
             dgvCliente.TabIndex = 15;
             // 
             // btn_AgregarCliente
@@ -145,7 +145,7 @@
             btn_AgregarCliente.FlatAppearance.BorderSize = 0;
             btn_AgregarCliente.FlatStyle = FlatStyle.Flat;
             btn_AgregarCliente.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_AgregarCliente.Location = new Point(725, 353);
+            btn_AgregarCliente.Location = new Point(734, 374);
             btn_AgregarCliente.Name = "btn_AgregarCliente";
             btn_AgregarCliente.Size = new Size(98, 40);
             btn_AgregarCliente.TabIndex = 16;
@@ -159,7 +159,7 @@
             btnModifCliente.FlatAppearance.BorderSize = 0;
             btnModifCliente.FlatStyle = FlatStyle.Flat;
             btnModifCliente.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnModifCliente.Location = new Point(725, 399);
+            btnModifCliente.Location = new Point(734, 420);
             btnModifCliente.Name = "btnModifCliente";
             btnModifCliente.Size = new Size(98, 40);
             btnModifCliente.TabIndex = 17;
@@ -173,7 +173,7 @@
             btnInhabilitarCliente.FlatAppearance.BorderSize = 0;
             btnInhabilitarCliente.FlatStyle = FlatStyle.Flat;
             btnInhabilitarCliente.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnInhabilitarCliente.Location = new Point(725, 445);
+            btnInhabilitarCliente.Location = new Point(734, 466);
             btnInhabilitarCliente.Name = "btnInhabilitarCliente";
             btnInhabilitarCliente.Size = new Size(98, 40);
             btnInhabilitarCliente.TabIndex = 18;
@@ -352,7 +352,7 @@
             btnNuevoCliente.FlatAppearance.BorderSize = 0;
             btnNuevoCliente.FlatStyle = FlatStyle.Flat;
             btnNuevoCliente.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnNuevoCliente.Location = new Point(725, 307);
+            btnNuevoCliente.Location = new Point(734, 328);
             btnNuevoCliente.Name = "btnNuevoCliente";
             btnNuevoCliente.Size = new Size(98, 40);
             btnNuevoCliente.TabIndex = 27;

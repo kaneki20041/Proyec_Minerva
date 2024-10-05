@@ -129,6 +129,14 @@ namespace CapaPresentacion
             txtPass.Text = "";
             cbRol.Text = "";
             cbEstado.Text = "";
+
+            txtID.Enabled = false;
+            gboDetalleUsuario.Enabled = false;
+            btnAgregar.Enabled = false;
+            btnCancelar.Enabled = false;
+            btnModificar.Enabled = false;
+            btnInhabilitar.Enabled = false;
+            gboxBusqueda.Enabled = false;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

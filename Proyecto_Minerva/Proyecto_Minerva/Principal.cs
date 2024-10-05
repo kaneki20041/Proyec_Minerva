@@ -93,5 +93,10 @@ namespace Proyecto_Minerva
         {
             AbrirForm(new Ventauniforme());
         }
+
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            AbrirForm(new RegistroUsuarios());
+        }
     }
 }

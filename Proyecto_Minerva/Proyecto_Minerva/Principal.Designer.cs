@@ -36,7 +36,7 @@
             pictureBox4 = new PictureBox();
             pictureBox2 = new PictureBox();
             panel2 = new Panel();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
+            btnUsuarios = new FontAwesome.Sharp.IconButton();
             btnVenderPrendas = new FontAwesome.Sharp.IconButton();
             btnComprarPrendas = new FontAwesome.Sharp.IconButton();
             btn_Cliente = new FontAwesome.Sharp.IconButton();
@@ -141,7 +141,7 @@
             // panel2
             // 
             panel2.BackColor = Color.Khaki;
-            panel2.Controls.Add(iconButton1);
+            panel2.Controls.Add(btnUsuarios);
             panel2.Controls.Add(btnVenderPrendas);
             panel2.Controls.Add(btnComprarPrendas);
             panel2.Controls.Add(btn_Cliente);
@@ -167,25 +167,26 @@
             panel2.Size = new Size(188, 573);
             panel2.TabIndex = 1;
             // 
-            // iconButton1
+            // btnUsuarios
             // 
-            iconButton1.Cursor = Cursors.Hand;
-            iconButton1.FlatAppearance.BorderSize = 0;
-            iconButton1.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
-            iconButton1.FlatStyle = FlatStyle.Flat;
-            iconButton1.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.Users;
-            iconButton1.IconColor = Color.Black;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.IconSize = 30;
-            iconButton1.ImageAlign = ContentAlignment.TopLeft;
-            iconButton1.Location = new Point(12, 6);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(176, 37);
-            iconButton1.TabIndex = 23;
-            iconButton1.Text = "Usuarios";
-            iconButton1.TextAlign = ContentAlignment.MiddleRight;
-            iconButton1.UseVisualStyleBackColor = true;
+            btnUsuarios.Cursor = Cursors.Hand;
+            btnUsuarios.FlatAppearance.BorderSize = 0;
+            btnUsuarios.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
+            btnUsuarios.FlatStyle = FlatStyle.Flat;
+            btnUsuarios.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            btnUsuarios.IconChar = FontAwesome.Sharp.IconChar.Users;
+            btnUsuarios.IconColor = Color.Black;
+            btnUsuarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnUsuarios.IconSize = 30;
+            btnUsuarios.ImageAlign = ContentAlignment.TopLeft;
+            btnUsuarios.Location = new Point(12, 6);
+            btnUsuarios.Name = "btnUsuarios";
+            btnUsuarios.Size = new Size(176, 37);
+            btnUsuarios.TabIndex = 23;
+            btnUsuarios.Text = "Usuarios";
+            btnUsuarios.TextAlign = ContentAlignment.MiddleRight;
+            btnUsuarios.UseVisualStyleBackColor = true;
+            btnUsuarios.Click += btnUsuarios_Click;
             // 
             // btnVenderPrendas
             // 
@@ -517,6 +518,6 @@
         private FontAwesome.Sharp.IconButton btn_Cliente;
         private FontAwesome.Sharp.IconButton btnComprarPrendas;
         private FontAwesome.Sharp.IconButton btnVenderPrendas;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton btnUsuarios;
     }
 }
