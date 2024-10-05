@@ -645,24 +645,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\jhojan\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Pictures\\minera proyecto nuevo\\Proyecto_Minerva\\Proyecto_Minerva\\CapaPresentacion.csproj",
+      "projectUniqueName": "D:\\SEPTIMO CICLO\\DIARS\\Proyecto\\Proyecto_Minerva\\Proyecto_Minerva\\CapaPresentacion.csproj",
       "projectName": "CapaPresentacion",
-      "projectPath": "C:\\Users\\User\\Pictures\\minera proyecto nuevo\\Proyecto_Minerva\\Proyecto_Minerva\\CapaPresentacion.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Pictures\\minera proyecto nuevo\\Proyecto_Minerva\\Proyecto_Minerva\\obj\\",
+      "projectPath": "D:\\SEPTIMO CICLO\\DIARS\\Proyecto\\Proyecto_Minerva\\Proyecto_Minerva\\CapaPresentacion.csproj",
+      "packagesPath": "C:\\Users\\jhojan\\.nuget\\packages\\",
+      "outputPath": "D:\\SEPTIMO CICLO\\DIARS\\Proyecto\\Proyecto_Minerva\\Proyecto_Minerva\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\jhojan\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -676,11 +671,11 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\User\\Pictures\\minera proyecto nuevo\\Proyecto_Minerva\\CapaEntidad\\CapaEntidad.csproj": {
-              "projectPath": "C:\\Users\\User\\Pictures\\minera proyecto nuevo\\Proyecto_Minerva\\CapaEntidad\\CapaEntidad.csproj"
+            "D:\\SEPTIMO CICLO\\DIARS\\Proyecto\\Proyecto_Minerva\\CapaEntidad\\CapaEntidad.csproj": {
+              "projectPath": "D:\\SEPTIMO CICLO\\DIARS\\Proyecto\\Proyecto_Minerva\\CapaEntidad\\CapaEntidad.csproj"
             },
-            "C:\\Users\\User\\Pictures\\minera proyecto nuevo\\Proyecto_Minerva\\CapaLogica\\CapaLogica.csproj": {
-              "projectPath": "C:\\Users\\User\\Pictures\\minera proyecto nuevo\\Proyecto_Minerva\\CapaLogica\\CapaLogica.csproj"
+            "D:\\SEPTIMO CICLO\\DIARS\\Proyecto\\Proyecto_Minerva\\CapaLogica\\CapaLogica.csproj": {
+              "projectPath": "D:\\SEPTIMO CICLO\\DIARS\\Proyecto\\Proyecto_Minerva\\CapaLogica\\CapaLogica.csproj"
             }
           }
         }
@@ -689,6 +684,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -727,7 +727,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }
