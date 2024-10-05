@@ -30,7 +30,6 @@
         {
             btnAgregarPre = new Button();
             dataGridView1 = new DataGridView();
-            button4 = new Button();
             button1 = new Button();
             groupBox1 = new GroupBox();
             cbxEstado = new CheckBox();
@@ -66,7 +65,7 @@
             btnAgregarPre.FlatAppearance.BorderSize = 0;
             btnAgregarPre.FlatStyle = FlatStyle.Flat;
             btnAgregarPre.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAgregarPre.Location = new Point(721, 303);
+            btnAgregarPre.Location = new Point(721, 352);
             btnAgregarPre.Margin = new Padding(3, 2, 3, 2);
             btnAgregarPre.Name = "btnAgregarPre";
             btnAgregarPre.Size = new Size(105, 42);
@@ -86,19 +85,6 @@
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(681, 328);
             dataGridView1.TabIndex = 87;
-            // 
-            // button4
-            // 
-            button4.BackColor = Color.PowderBlue;
-            button4.FlatAppearance.BorderSize = 0;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            button4.Location = new Point(721, 399);
-            button4.Name = "button4";
-            button4.Size = new Size(105, 43);
-            button4.TabIndex = 86;
-            button4.Text = "Editar";
-            button4.UseVisualStyleBackColor = false;
             // 
             // button1
             // 
@@ -326,12 +312,13 @@
             button3.FlatAppearance.BorderSize = 0;
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            button3.Location = new Point(721, 256);
+            button3.Location = new Point(721, 305);
             button3.Name = "button3";
             button3.Size = new Size(105, 42);
             button3.TabIndex = 83;
             button3.Text = "Nuevo";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // BtnRemovPro
             // 
@@ -353,7 +340,7 @@
             btnEditPro.FlatAppearance.BorderSize = 0;
             btnEditPro.FlatStyle = FlatStyle.Flat;
             btnEditPro.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnEditPro.Location = new Point(721, 350);
+            btnEditPro.Location = new Point(721, 399);
             btnEditPro.Name = "btnEditPro";
             btnEditPro.Size = new Size(105, 43);
             btnEditPro.TabIndex = 80;
@@ -369,7 +356,6 @@
             ClientSize = new Size(851, 573);
             Controls.Add(btnAgregarPre);
             Controls.Add(dataGridView1);
-            Controls.Add(button4);
             Controls.Add(button1);
             Controls.Add(groupBox1);
             Controls.Add(button3);
@@ -379,6 +365,7 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "Prendas1";
             Text = "Prendas1";
+            Load += Prendas1_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -389,7 +376,6 @@
 
         private Button btnAgregarPre;
         private DataGridView dataGridView1;
-        private Button button4;
         private Button button1;
         private GroupBox groupBox1;
         private CheckBox cbxEstado;

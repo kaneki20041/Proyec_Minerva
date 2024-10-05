@@ -20,6 +20,7 @@ namespace CapaPresentacion
             InitializeComponent();
             listarPrendas();
             InicializarComboBoxes();
+            groupBox1.Enabled = false;
         }
         public void listarPrendas()
         {
@@ -106,7 +107,9 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+            listarPrendas();
         }
+
 
         private void LimpiarCampos()
         {
@@ -216,7 +219,7 @@ namespace CapaPresentacion
 
         private void BtnRemovPro_Click(object sender, EventArgs e)
         {
-
+            groupBox1.Enabled = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -239,11 +242,16 @@ namespace CapaPresentacion
                 {
                     // Muestra los datos de la prenda encontrada en los campos correspondientes
                     txtPrenda.Text = prendaEncontrada.Prenda;
+
                     txtDescripcion.Text = prendaEncontrada.Descripcion;
                     txtPrecioCompra.Text = prendaEncontrada.PrecioCompra.ToString();
                     txtPrevioVenta.Text = prendaEncontrada.PrecioVenta.ToString();
                     txtStock.Text = prendaEncontrada.Stock.ToString();
                     cbxEstado.Checked = prendaEncontrada.Estado;
+
+                    comboBox2.SelectedItem = prendaEncontrada.Categoria;
+                    comboBox1.SelectedItem = prendaEncontrada.Colegio;
+                    comboBox3.SelectedItem = prendaEncontrada.Talla;
                 }
                 else
                 {
@@ -254,6 +262,22 @@ namespace CapaPresentacion
             {
                 MessageBox.Show($"Ocurrió un error: {ex.Message}");
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Prendas1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            groupBox1.Enabled = true;
+
         }
     }
 }
