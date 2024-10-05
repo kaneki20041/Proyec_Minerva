@@ -25,6 +25,8 @@ namespace Proyecto_Minerva
 
                 this.detallito.Columns["ID"].Visible = false;
                 this.detallito.Columns["Metpagoid"].Visible = false;
+                this.detallito.Columns["UsuarioID"].Visible = false;
+                this.detallito.Columns["RazonSocial"].Visible = false;
                 //configurarColumnasDataGridView();
                 //tablaPedidos.Rows[0].Selected = false; // permite que la primera fila del DataGridView no esté seleccionada
 

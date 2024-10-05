@@ -13,6 +13,7 @@ namespace CapaEntidad
         public int cantPrenda { get; set; }
         public Decimal precPrenda { get; set; }
         public entPrendas PrendaID {  get; set; }
+        public entPrendas Prenda { get; set; }
 
     }
 }
