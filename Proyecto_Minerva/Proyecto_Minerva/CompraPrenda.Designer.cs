@@ -79,6 +79,7 @@
             Column6 = new DataGridViewTextBoxColumn();
             Column8 = new DataGridViewTextBoxColumn();
             button1 = new Button();
+            txtUsuarioID = new TextBox();
             groupBox3.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -88,11 +89,11 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(115, 71);
+            label2.Location = new Point(144, 70);
             label2.Name = "label2";
-            label2.Size = new Size(92, 17);
+            label2.Size = new Size(63, 17);
             label2.TabIndex = 1;
-            label2.Text = "Comprobante";
+            label2.Text = "UsuarioID";
             // 
             // label3
             // 
@@ -397,7 +398,7 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(comboBox1);
+            groupBox1.Controls.Add(txtUsuarioID);
             groupBox1.Controls.Add(label13);
             groupBox1.Controls.Add(BuscarMetPago);
             groupBox1.Controls.Add(textBox3);
@@ -417,9 +418,9 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(213, 67);
+            comboBox1.Location = new Point(703, 17);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 25);
+            comboBox1.Size = new Size(121, 23);
             comboBox1.TabIndex = 16;
             // 
             // dateTimePicker1
@@ -570,12 +571,20 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
+            // txtUsuarioID
+            // 
+            txtUsuarioID.Location = new Point(213, 67);
+            txtUsuarioID.Name = "txtUsuarioID";
+            txtUsuarioID.Size = new Size(121, 22);
+            txtUsuarioID.TabIndex = 51;
+            // 
             // CompraPrenda
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MintCream;
             ClientSize = new Size(851, 573);
+            Controls.Add(comboBox1);
             Controls.Add(button1);
             Controls.Add(tablaCompras);
             Controls.Add(button5);
@@ -660,5 +669,6 @@
         private DataGridViewTextBoxColumn Column6;
         private DataGridViewTextBoxColumn Column8;
         private Button button1;
+        private TextBox txtUsuarioID;
     }
 }

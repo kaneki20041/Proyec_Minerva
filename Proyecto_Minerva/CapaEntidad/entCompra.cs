@@ -10,7 +10,15 @@
 
         public int IDProveedor { get; set; }
 
+        public entProveedor RazonSocial { get; set; }
+
+        public string RazonSocia { get; set; }
+
         public int Metodopagoid { get; set; }
+
+        public entUsuario UsuarioID { get; set; }
+
+        public int UsuID { get; set; }
 
         //public entCompra()
         //{

@@ -158,43 +158,40 @@ namespace Proyecto_Minerva
             try
             {
                 entCompra Com = new entCompra();
-                //entDetPedido dPed = new entDetPedido();
                 entProveedor p = new entProveedor();
                 EntMetPago met = new EntMetPago();
+                entUsuario u = new entUsuario();
 
-
+                // Asignar valores
                 Com.fechCompra = Convert.ToDateTime(dateTimePicker1.Value);
                 Com.Monto = Convert.ToDecimal(textBox2.Text);
 
-                p.ID = int.Parse(textBox5.Text);
-                met.MetPagoid = int.Parse(textBox3.Text);
+                // Asignar directamente los IDs
+                p.ID = int.Parse(textBox5.Text); // Asignar ID del proveedor
+                p.RazonSocial = textBox7.Text;
+                met.MetPagoid = int.Parse(textBox3.Text); // Asignar ID del método de pago
+                u.UsuarioID = int.Parse(txtUsuarioID.Text); // Asignar el ID del usuario
 
+                Com.UsuarioID = u; // Si necesitas el objeto completo
+                Com.Metpagoid= met;
                 Com.ID = p;
-                Com.ID.ID = p.ID;
+                Com.RazonSocial = p;
 
-                Com.Metpagoid = met;
-                Com.Metpagoid.MetPagoid = met.MetPagoid;
-
-                //Ped.DetPedidos = (List<entDetPedido>)(listaDetPedido);
-
-
-                //Ped.estPedido = cbkEstado.Checked;
-
+                // Llamar al método de inserción
                 idCom = logCompra.Instancia.InsertarCompra(Com);
 
-                //MessageBox.Show(""+idPed);
-
+                // Graba el detalle si es necesario
                 GrabarDetalle(idCom);
 
                 Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("error" + ex);
-                throw ex;
+                MessageBox.Show("error: " + ex.Message);
+                throw;
             }
-
         }
+
 
         private void GrabarDetalle(int cod)
         {
@@ -204,12 +201,17 @@ namespace Proyecto_Minerva
                 var tes = Fila.Cells[0].Value;
                 dCom.idCompra = cod;
                 entPrendas prod = new entPrendas();
+                entPrendas pren = new entPrendas();
+
 
                 if (Fila.Cells[0].Value != null)
                 {
                     prod.PrendaID = Convert.ToInt32(Fila.Cells[0].Value.ToString());
+                    pren.Prenda = Fila.Cells[1].Value.ToString(); 
                     dCom.PrendaID = prod;
+                    dCom.Prenda = pren;
                     dCom.PrendaID.PrendaID = prod.PrendaID;
+                    dCom.Prenda.Prenda = pren.Prenda;
 
                     dCom.cantPrenda = Convert.ToInt32(Fila.Cells[5].Value.ToString());
                     dCom.precPrenda = Convert.ToDecimal(Fila.Cells[6].Value.ToString());
