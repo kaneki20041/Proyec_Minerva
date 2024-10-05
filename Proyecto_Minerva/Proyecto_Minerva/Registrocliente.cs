@@ -1,5 +1,7 @@
 ﻿using CapaEntidad;
 using CapaLogica;
+using CapaPresentacion;
+using CapaPresentacion.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,11 +16,58 @@ namespace Proyecto_Minerva
 {
     public partial class Registrocliente : Form
     {
+        ApisPeru ApísPeru = new ApisPeru();
+
         public Registrocliente()
         {
             InitializeComponent();
+
+        }
+        private void Registrocliente_Load_1(object sender, EventArgs e)
+        {
+            txtID.Enabled = false;
+            gboInformacion.Enabled = false;
+            gbContacto.Enabled = false;
+            gboDatosBusqueda.Enabled = false;
+            btnAgregar.Enabled = false;
+            btnCancelar.Enabled = false;
+            btnModificar.Enabled = false;
+            btnInhabilitar.Enabled = false;
+            chkEstado.Enabled = false;
+
+            //Para impedir que dentro de los combo box se pueda escribir
+            cbxDocumento.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbxTipoCliente.DropDownStyle = ComboBoxStyle.DropDownList;
+
+
+
             listarCliente();
             InicializarComboBoxes();
+        }
+
+        private void btnNuevoCliente_Click(object sender, EventArgs e)
+        {
+            gboInformacion.Enabled = true;
+            gbContacto.Enabled = true;
+            gboDatosBusqueda.Enabled = true;
+            btnAgregar.Enabled = true;
+            btnCancelar.Enabled = true;
+            btnModificar.Enabled = true;
+            btnInhabilitar.Enabled = true;
+            chkEstado.Enabled = true;
+
+        }
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            gboInformacion.Enabled = false;
+            gbContacto.Enabled = false;
+            gboDatosBusqueda.Enabled = false;
+            btnAgregar.Enabled = false;
+            btnCancelar.Enabled = false;
+            btnModificar.Enabled = false;
+            btnInhabilitar.Enabled = false;
+            chkEstado.Enabled = false;
+            LimpiarCampos();
         }
 
         public void listarCliente()
@@ -43,32 +92,6 @@ namespace Proyecto_Minerva
             {
                 cbxDocumento.Items.Add(tipo);
             }
-        }
-
-
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Registrocliente_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnNuevoCliente_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btn_AgregarCliente_Click(object sender, EventArgs e)
@@ -120,6 +143,7 @@ namespace Proyecto_Minerva
 
                 // Muestra un mensaje de éxito
                 MessageBox.Show("Cliente insertado con éxito");
+                listarCliente();
 
                 // Limpia los campos del formulario
                 LimpiarCampos();
@@ -232,7 +256,7 @@ namespace Proyecto_Minerva
         private void btnBuscarCli_Click(object sender, EventArgs e)
         {
             int id;
-            if (!int.TryParse(txtBuscarIDCli.Text, out id))
+            if (!int.TryParse(txtBuscarDocumento.Text, out id))
             {
                 MessageBox.Show("Por favor, ingresa un número válido en el campo ID.");
                 return;
@@ -254,9 +278,9 @@ namespace Proyecto_Minerva
                     txtCel.Text = cli.Celular;
                     chkEstado.Checked = cli.Estado;
 
-                    groupBox2.Enabled = true;
-                    btn_AgregarCliente.Visible = false;
-                    btnModifCliente.Visible = true;
+                    gboInformacion.Enabled = true;
+                    btnAgregar.Visible = false;
+                    btnModificar.Visible = true;
                 }
                 else
                 {
@@ -268,5 +292,42 @@ namespace Proyecto_Minerva
                 MessageBox.Show($"Ocurrió un error: {ex.Message}");
             }
         }
+
+        private void consultar()
+        {
+            try
+            {
+                //---------DNI-----------
+                if (txtDocumento.Text.Length == 8)
+                {
+                    var apisPeru = new ApisPeru();
+                    dynamic respuesta = apisPeru.Get("https://dniruc.apisperu.com/api/v1/dni/" + txtDocumento.Text + "?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImRhdmlsYWpob2phbkBnbWFpbC5jb20ifQ.OexW2Uf_nGrZjUiqutNGmMODVk4zHCDV7CA9SHR8HVM");
+                    txtNombre.Text = respuesta.nombres.ToString();
+                    txtApellido.Text = respuesta.apellidoPaterno.ToString() + " " + respuesta.apellidoMaterno.ToString();
+
+                }
+                else if (txtDocumento.Text.Length == 11)
+                {
+                    var apisPeru = new ApisPeru();
+                    dynamic respuesta = apisPeru.Get("https://dniruc.apisperu.com/api/v1/ruc/" + txtDocumento.Text + "?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImRhdmlsYWpob2phbkBnbWFpbC5jb20ifQ.OexW2Uf_nGrZjUiqutNGmMODVk4zHCDV7CA9SHR8HVM");
+                    txtNombre.Text = respuesta.razonSocial.ToString() + " " + respuesta.apellidoMaterno.ToString(); ;
+                    txtCel.Text = respuesta.telefonos.ToString();
+                    txtDireccion.Text = respuesta.direccion.ToString();
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error... " + ex.Message);
+            }
+        }
+
+        private void btnBuscarDni_Click(object sender, EventArgs e)
+        {
+            consultar();
+        }
+
+
     }
 }
