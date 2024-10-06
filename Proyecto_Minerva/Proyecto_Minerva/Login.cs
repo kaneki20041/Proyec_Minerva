@@ -16,6 +16,7 @@ namespace CapaPresentacion
 {
     public partial class Login : Form
     {
+        private System.Windows.Forms.Timer activityTimer;
         public Login()
         {
             InitializeComponent();
@@ -26,6 +27,11 @@ namespace CapaPresentacion
 
         private void frm_closing(object sender, FormClosingEventArgs e)
         {
+            Principal form = sender as Principal;
+            if (form != null && form.UsuarioActual != null)
+            {
+                new logUsuario().ActualizarEstadoConexion(form.UsuarioActual.Documento, false);
+            }
             txtDocumento.Text = "";
             txtPassword.Text = "";
             this.Show();
@@ -57,42 +63,73 @@ namespace CapaPresentacion
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            List<entUsuario> login = new logUsuario().ListarValidarUsuario();
-
-            int Documento;
-            if (int.TryParse(txtDocumento.Text, out Documento))
+            if (int.TryParse(txtDocumento.Text, out int documentoIngresado))
             {
-                entUsuario usuario = login.Where(u => u.Documento == Documento).FirstOrDefault();
+                // Obtener la lista de usuarios
+                List<entUsuario> usuarios = logUsuario.Instancia.ListarValidarUsuario();
+
+                // Buscar el usuario por documento
+                entUsuario? entUsuario = usuarios.FirstOrDefault(u => u.Documento == documentoIngresado);
+                entUsuario usuario = entUsuario;
+
                 if (usuario != null)
                 {
                     if (usuario.Clave == txtPassword.Text)
                     {
-                        if (usuario.Estado == true)
+                        if (usuario.Estado)
                         {
+                            // Verificar si el usuario ya está conectado
+                            if (usuario.EstaConectado)
+                            {
+                                // Verificar si la última actividad fue hace más de 30 minutos
+                                if (usuario.UltimaActividad != DateTime.MinValue &&
+                                    (DateTime.Now - usuario.UltimaActividad).TotalMinutes > 30)
+                                {
+                                    // Forzar cierre de la sesión anterior por inactividad
+                                    logUsuario.Instancia.ActualizarEstadoConexion(usuario.Documento, false);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Este usuario ya tiene una sesión activa en otro equipo.",
+                                                    "Sesión activa", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    return;
+                                }
+                            }
+
+                            // Marcar al usuario como conectado
+                            logUsuario.Instancia.ActualizarEstadoConexion(usuario.Documento, true);
+
                             Principal form = new Principal(usuario);
                             form.Show();
                             this.Hide();
                             form.FormClosing += frm_closing;
-
-                            string mensajeBienvenida = $"Bienvenido, {usuario.NombreCompleto}!";
-                            MessageBox.Show(mensajeBienvenida);
+                            MessageBox.Show($"Bienvenido, {usuario.NombreCompleto}!");
                         }
                         else
                         {
-                            MessageBox.Show("El usuario está deshabilitado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            MessageBox.Show("El usuario está deshabilitado", "Mensaje",
+                                            MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Contraseña incorrecta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("Contraseña incorrecta", "Mensaje",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Documento incorrecto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Documento incorrecto", "Mensaje",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
+            else
+            {
+                MessageBox.Show("Por favor, ingrese un documento válido", "Error de validación",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
         private void txtDocumento_KeyPress(object sender, KeyPressEventArgs e)
         {

@@ -27,6 +27,11 @@ namespace CapaLogica
 
 
         #region metodos
+        public bool ActualizarEstadoConexion(int documento, bool estaConectado)
+        {
+            return new datUsuario().ActualizarEstadoConexion(documento, estaConectado, DateTime.Now);
+        }
+
 
         public List<entUsuario> ListarValidarUsuario()
         {

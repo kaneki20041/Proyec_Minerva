@@ -64,6 +64,30 @@ namespace CapaDatos
             return lista;
         }
 
+        public bool ActualizarEstadoConexion(int? Documento, bool estaConectado, DateTime ultimaActividad)
+        {
+            try
+            {
+                using (SqlConnection cn = Conexion.Instancia.Conectar())
+                {
+                    SqlCommand cmd = new SqlCommand("spActualizarEstadoConexion", cn);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Documento", Documento.HasValue ? (object)Documento.Value : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@EstaConectado", estaConectado);
+                    cmd.Parameters.AddWithValue("@UltimaActividad", ultimaActividad);
+
+                    cn.Open();
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                return false;
+            }
+        }
+
 
         public List<entUsuario> ListarValidacionUsuario()
         {
@@ -71,27 +95,49 @@ namespace CapaDatos
             List<entUsuario> lista = new List<entUsuario>();
             try
             {
-                SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spListarValidacionUsuario", cn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cn.Open();
-                SqlDataReader dr = cmd.ExecuteReader();
-                while (dr.Read())
+                using (SqlConnection cn = Conexion.Instancia.Conectar())
                 {
-                    entUsuario User = new entUsuario();
-                    User.UsuarioID = Convert.ToInt32(dr["UsuarioID"]);
-                    User.idRol = Convert.ToInt32(dr["RolID"]);
-                    User.Documento = Convert.ToInt32(dr["Documento"]);
-                    User.NombreCompleto = Convert.ToString(dr["NombreCompleto"]);
-                    User.Estado = Convert.ToBoolean(dr["Estado"]);
-                    User.Clave = Convert.ToString(dr["Clave"]);
-                    User.Correo = Convert.ToString(dr["Correo"]);
-                    lista.Add(User);
+                    SqlCommand cmd1 = new SqlCommand("spListarValidacionUsuario", cn);
+                    cmd1.CommandType = System.Data.CommandType.StoredProcedure;
+                    cn.Open();
+
+                    SqlDataReader dr = cmd1.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        entUsuario user = new entUsuario();
+
+                        // Manejar DBNull para cada campo
+                        user.Documento = dr["Documento"] != DBNull.Value
+                                         ? Convert.ToInt32(dr["Documento"])
+                                         : 0; // o manejar como desees
+
+                        user.NombreCompleto = dr["NombreCompleto"] != DBNull.Value
+                                              ? dr["NombreCompleto"].ToString()
+                                              : string.Empty; // o manejar como desees
+
+                        user.Clave = dr["Clave"] != DBNull.Value
+                                     ? dr["Clave"].ToString()
+                                     : string.Empty; // o manejar como desees
+
+                        user.Estado = dr["Estado"] != DBNull.Value
+                                       ? Convert.ToBoolean(dr["Estado"])
+                                       : false; // o manejar como desees
+
+                        user.EstaConectado = dr["EstaConectado"] != DBNull.Value
+                                             ? Convert.ToBoolean(dr["EstaConectado"])
+                                             : false; // o manejar como desees
+
+                        user.UltimaActividad = dr["UltimaActividad"] != DBNull.Value
+                                               ? Convert.ToDateTime(dr["UltimaActividad"])
+                                               : DateTime.MinValue; // o manejar como desees
+
+                        lista.Add(user);
+                    }
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                throw e;
+                throw ex;
             }
             finally
             {
@@ -100,8 +146,10 @@ namespace CapaDatos
                     cmd.Connection.Close();
                 }
             }
+
             return lista;
         }
+
 
 
         public Boolean InsertarUsuario(entUsuario User)

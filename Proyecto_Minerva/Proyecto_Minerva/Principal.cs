@@ -1,19 +1,90 @@
 using CapaEntidad;
+using CapaLogica;
 using CapaPresentacion;
 
 namespace Proyecto_Minerva
 {
     public partial class Principal : Form
     {
-        private static entUsuario usuarioActual;
-        public Principal(entUsuario objusuario)
+        private entUsuario _usuarioActual;
+        public entUsuario UsuarioActual
         {
-            usuarioActual = objusuario;
+            get { return _usuarioActual; }
+            private set { _usuarioActual = value; }
+        }
+        public Principal(entUsuario usuario)
+        {
             InitializeComponent();
+            this.UsuarioActual = usuario;
+
+            // Aquí puedes agregar código para personalizar el formulario según el usuario
+            // Por ejemplo:
+            this.Text = $"Sistema Minera - Usuario: {usuario.NombreCompleto}";
+
+            // Si tienes un label para mostrar el usuario actual:
+            // lblUsuarioActual.Text = usuario.NombreCompleto;
+
+            // Configurar permisos según el rol del usuario
+            ConfigurarPermisosSegunRol();
+        }
+
+        private void ConfigurarPermisosSegunRol()
+        {
+            // Aquí puedes agregar lógica para mostrar u ocultar elementos
+            // según el rol del usuario actual
+            switch (UsuarioActual.idRol)
+            {
+                case 1: // Administrador
+                        // Mostrar todas las opciones
+                    break;
+                case 2: // Otro rol
+                        // Mostrar opciones limitadas
+                    break;
+                    // etc.
+            }
+        }
+
+        // Agregar método para el cierre del formulario
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+
+            // Asegurarse de desconectar al usuario al cerrar
+            if (UsuarioActual != null)
+            {
+                try
+                {
+                    new logUsuario().ActualizarEstadoConexion(UsuarioActual.Documento, false);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al cerrar sesión: " + ex.Message,
+                                  "Error",
+                                  MessageBoxButtons.OK,
+                                  MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        // También puedes agregar un método para actualizar la última actividad
+        private void ActualizarUltimaActividad()
+        {
+            if (UsuarioActual != null)
+            {
+                try
+                {
+                    new logUsuario().ActualizarEstadoConexion(UsuarioActual.Documento, true);
+                }
+                catch (Exception ex)
+                {
+                    // Manejar el error si es necesario
+                    Console.WriteLine($"Error al actualizar última actividad: {ex.Message}");
+                }
+            }
         }
         private void Principal_Load(object sender, EventArgs e)
         {
-            lblUser.Text = usuarioActual.NombreCompleto;
+            lblUser.Text = UsuarioActual.NombreCompleto;
         }
         private void pictureBox2_Click(object sender, EventArgs e)
         {

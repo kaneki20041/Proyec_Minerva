@@ -17,6 +17,8 @@ namespace CapaEntidad
         public DateTime FechaRegistro { get; set; }
         public string Correo { get; set; }
 
+        public bool EstaConectado { get; set; }
+        public DateTime UltimaActividad { get; set; }
     }
 
     public class entdescUsuario
