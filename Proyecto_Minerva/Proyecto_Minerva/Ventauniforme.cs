@@ -47,33 +47,6 @@ namespace Proyecto_Minerva
             }
         }
 
-        private void btnBuscCliV_Click(object sender, EventArgs e)
-        {
-            int clienteID;
-            if (!int.TryParse(textBox7.Text, out clienteID))
-            {
-                MessageBox.Show("Por favor, ingresa un número válido en el campo ID del Cliente.");
-                return;
-            }
-
-            try
-            {
-                entCliente cliente = logCliente.Instancia.BuscarClientePorID(clienteID);
-                if (cliente != null)
-                {
-                    textBox1.Text = cliente.Nombre;
-                }
-                else
-                {
-                    MessageBox.Show("Cliente no encontrado.");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ocurrió un error: {ex.Message}");
-            }
-        }
-
         private void btn_buscarPrenVen_Click(object sender, EventArgs e)
         {
             int prendaID;
@@ -113,17 +86,17 @@ namespace Proyecto_Minerva
                 // Crear nueva venta
                 entOVenta nuevaVenta = new entOVenta
                 {
-                    Nombre = textBox1.Text,
-                    Prenda = textBox10.Text,
-                    Talla = textBox2.Text,
-                    Precioventa = decimal.Parse(textBox3.Text),
-                    Cantidad = int.Parse(domainUpDown1.Text),
-                    MetodoPago = textBox9.Text,
-                    Monto = decimal.Parse(textBox6.Text),
-                    FRegistroV = DateTime.Now,
-                    TipoComprobante = textBox8.Text,
-                    Colegio = textBox11.Text,
-                    Categoria = textBox12.Text,
+                    //Nombre = textBox1.Text,
+                    //Prenda = textBox10.Text,
+                    //Talla = textBox2.Text,
+                    //Precioventa = decimal.Parse(textBox3.Text),
+                    //Cantidad = int.Parse(domainUpDown1.Text),
+                    //MetodoPago = textBox9.Text,
+                    //Monto = decimal.Parse(textBox6.Text),
+                    //FRegistroV = DateTime.Now,
+                    //TipoComprobante = textBox8.Text,
+                    //Colegio = textBox11.Text,
+                    //Categoria = textBox12.Text,
                 };
 
                 // Registrar la venta
@@ -200,24 +173,23 @@ namespace Proyecto_Minerva
                     // Crear un nuevo detalle de venta con el mismo OventaID
                     entOVenta detalleVenta = new entOVenta
                     {
-                        OventaID = venta.OventaID,
-                        TipoComprobante = venta.TipoComprobante,
-                        Nombre = venta.Nombre,
-                        Monto = venta.Monto ?? 0,
-                        Prenda = venta.Prenda,
-                        Precioventa = venta.Precioventa,
-                        MetodoPago = venta.MetodoPago,
-                        Cantidad = venta.Cantidad ?? 0,
-                        FRegistroV = venta.FRegistroV,
-                        Talla = venta.Talla,
-                        Colegio = venta.Colegio,
-                        Categoria = venta.Categoria
+                        //OventaID = venta.OventaID,
+                        //Nombre = venta.Nombre,
+                        //Monto = venta.Monto ?? 0,
+                        //Prenda = venta.Prenda,
+                        //Precioventa = venta.Precioventa,
+                        //MetodoPago = venta.MetodoPago,
+                        //Cantidad = venta.Cantidad ?? 0,
+                        //FRegistroV = venta.FRegistroV,
+                        //Talla = venta.Talla,
+                        //Colegio = venta.Colegio,
+                        //Categoria = venta.Categoria
                     };
 
                     logOVenta.Instancia.RegistrarDetalleVenta(detalleVenta);
 
                     // Descontar la cantidad del stock de la prenda
-                    logPrendas.Instancia.ActualizarStock(venta.Prenda, venta.Cantidad ?? 0);
+                    //logPrendas.Instancia.ActualizarStock(venta.Prenda, venta.Cantidad ?? 0);
                 }
 
                 // Limpiar el DataGridView después de registrar los detalles de venta
@@ -233,5 +205,31 @@ namespace Proyecto_Minerva
             }
         }
 
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            int clienteID;
+            if (!int.TryParse(textBox7.Text, out clienteID))
+            {
+                MessageBox.Show("Por favor, ingresa un número válido en el campo ID del Cliente.");
+                return;
+            }
+
+            try
+            {
+                entCliente cliente = logCliente.Instancia.BuscarClientePorID(clienteID);
+                if (cliente != null)
+                {
+                    textBox1.Text = cliente.Nombre;
+                }
+                else
+                {
+                    MessageBox.Show("Cliente no encontrado.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error: {ex.Message}");
+            }
+        }
     }
 }

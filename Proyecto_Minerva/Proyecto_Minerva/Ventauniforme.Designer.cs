@@ -35,15 +35,18 @@
             button1 = new Button();
             label6 = new Label();
             label7 = new Label();
-            label8 = new Label();
             textBox7 = new TextBox();
             textBox4 = new TextBox();
             textBox10 = new TextBox();
             groupBox1 = new GroupBox();
+            btnBuscarDni = new FontAwesome.Sharp.IconButton();
+            label4 = new Label();
             textBox8 = new TextBox();
+            textBox9 = new TextBox();
             dateTimePicker2 = new DateTimePicker();
+            label8 = new Label();
             groupBox2 = new GroupBox();
-            btnBuscCliV = new Button();
+            iconButton1 = new FontAwesome.Sharp.IconButton();
             label12 = new Label();
             label1 = new Label();
             textBox2 = new TextBox();
@@ -57,8 +60,6 @@
             textBox12 = new TextBox();
             label14 = new Label();
             textBox11 = new TextBox();
-            textBox9 = new TextBox();
-            label13 = new Label();
             textBox6 = new TextBox();
             domainUpDown1 = new DomainUpDown();
             label11 = new Label();
@@ -98,7 +99,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(196, 76);
+            label5.Location = new Point(196, 54);
             label5.Name = "label5";
             label5.Size = new Size(35, 17);
             label5.TabIndex = 5;
@@ -130,30 +131,20 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(43, 36);
+            label6.Location = new Point(31, 37);
             label6.Name = "label6";
-            label6.Size = new Size(66, 17);
+            label6.Size = new Size(79, 17);
             label6.TabIndex = 15;
-            label6.Text = "ID Cliente";
+            label6.Text = "Documento";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(102, 36);
+            label7.Location = new Point(102, 23);
             label7.Name = "label7";
             label7.Size = new Size(45, 17);
             label7.TabIndex = 16;
             label7.Text = "Fecha";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(28, 65);
-            label8.Name = "label8";
-            label8.Size = new Size(119, 17);
-            label8.TabIndex = 19;
-            label8.Text = "Tipo Comprobante";
             // 
             // textBox7
             // 
@@ -179,7 +170,10 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(btnBuscarDni);
+            groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(textBox8);
+            groupBox1.Controls.Add(textBox9);
             groupBox1.Controls.Add(dateTimePicker2);
             groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(label7);
@@ -191,27 +185,68 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Informacion de Venta";
             // 
+            // btnBuscarDni
+            // 
+            btnBuscarDni.BackColor = Color.PowderBlue;
+            btnBuscarDni.Cursor = Cursors.Hand;
+            btnBuscarDni.FlatStyle = FlatStyle.Popup;
+            btnBuscarDni.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            btnBuscarDni.IconColor = Color.Black;
+            btnBuscarDni.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnBuscarDni.IconSize = 15;
+            btnBuscarDni.Location = new Point(209, 47);
+            btnBuscarDni.Name = "btnBuscarDni";
+            btnBuscarDni.Size = new Size(34, 23);
+            btnBuscarDni.TabIndex = 55;
+            btnBuscarDni.UseVisualStyleBackColor = false;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(127, 50);
+            label4.Name = "label4";
+            label4.Size = new Size(20, 17);
+            label4.TabIndex = 54;
+            label4.Text = "ID";
+            // 
             // textBox8
             // 
-            textBox8.Location = new Point(153, 62);
+            textBox8.Location = new Point(153, 72);
             textBox8.Multiline = true;
             textBox8.Name = "textBox8";
             textBox8.Size = new Size(131, 22);
             textBox8.TabIndex = 37;
             // 
+            // textBox9
+            // 
+            textBox9.Location = new Point(153, 47);
+            textBox9.Name = "textBox9";
+            textBox9.Size = new Size(50, 22);
+            textBox9.TabIndex = 53;
+            // 
             // dateTimePicker2
             // 
             dateTimePicker2.CustomFormat = "dd-MM-yyyy";
             dateTimePicker2.Format = DateTimePickerFormat.Custom;
-            dateTimePicker2.Location = new Point(153, 34);
+            dateTimePicker2.Location = new Point(153, 21);
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.Size = new Size(131, 22);
             dateTimePicker2.TabIndex = 36;
             dateTimePicker2.UseWaitCursor = true;
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.Location = new Point(60, 77);
+            label8.Name = "label8";
+            label8.Size = new Size(87, 17);
+            label8.TabIndex = 19;
+            label8.Text = "MetodoPago";
+            // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(btnBuscCliV);
+            groupBox2.Controls.Add(iconButton1);
             groupBox2.Controls.Add(label12);
             groupBox2.Controls.Add(label6);
             groupBox2.Controls.Add(textBox7);
@@ -224,23 +259,26 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Informacion de Cliente";
             // 
-            // btnBuscCliV
+            // iconButton1
             // 
-            btnBuscCliV.BackColor = Color.LightCyan;
-            btnBuscCliV.FlatAppearance.BorderSize = 0;
-            btnBuscCliV.FlatStyle = FlatStyle.Flat;
-            btnBuscCliV.Location = new Point(222, 31);
-            btnBuscCliV.Name = "btnBuscCliV";
-            btnBuscCliV.Size = new Size(62, 23);
-            btnBuscCliV.TabIndex = 37;
-            btnBuscCliV.Text = "Buscar";
-            btnBuscCliV.UseVisualStyleBackColor = false;
-            btnBuscCliV.Click += btnBuscCliV_Click;
+            iconButton1.BackColor = Color.PowderBlue;
+            iconButton1.Cursor = Cursors.Hand;
+            iconButton1.FlatStyle = FlatStyle.Popup;
+            iconButton1.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            iconButton1.IconColor = Color.Black;
+            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton1.IconSize = 15;
+            iconButton1.Location = new Point(222, 34);
+            iconButton1.Name = "iconButton1";
+            iconButton1.Size = new Size(34, 23);
+            iconButton1.TabIndex = 56;
+            iconButton1.UseVisualStyleBackColor = false;
+            iconButton1.Click += iconButton1_Click;
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(53, 64);
+            label12.Location = new Point(46, 64);
             label12.Name = "label12";
             label12.Size = new Size(56, 17);
             label12.TabIndex = 35;
@@ -257,7 +295,7 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(237, 73);
+            textBox2.Location = new Point(237, 51);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(148, 22);
             textBox2.TabIndex = 37;
@@ -265,7 +303,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(476, 36);
+            label3.Location = new Point(419, 57);
             label3.Name = "label3";
             label3.Size = new Size(46, 17);
             label3.TabIndex = 38;
@@ -273,14 +311,14 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(528, 33);
+            textBox3.Location = new Point(471, 54);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(148, 22);
             textBox3.TabIndex = 39;
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(528, 61);
+            textBox5.Location = new Point(471, 82);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(148, 22);
             textBox5.TabIndex = 40;
@@ -288,7 +326,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(480, 64);
+            label9.Location = new Point(423, 85);
             label9.Name = "label9";
             label9.Size = new Size(42, 17);
             label9.TabIndex = 41;
@@ -297,7 +335,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(167, 48);
+            label10.Location = new Point(402, 22);
             label10.Name = "label10";
             label10.Size = new Size(64, 17);
             label10.TabIndex = 43;
@@ -309,8 +347,6 @@
             groupBox3.Controls.Add(textBox12);
             groupBox3.Controls.Add(label14);
             groupBox3.Controls.Add(textBox11);
-            groupBox3.Controls.Add(textBox9);
-            groupBox3.Controls.Add(label13);
             groupBox3.Controls.Add(textBox6);
             groupBox3.Controls.Add(domainUpDown1);
             groupBox3.Controls.Add(label11);
@@ -329,7 +365,7 @@
             groupBox3.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox3.Location = new Point(64, 131);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(708, 168);
+            groupBox3.Size = new Size(696, 164);
             groupBox3.TabIndex = 44;
             groupBox3.TabStop = false;
             groupBox3.Text = "Informacion de Prenda";
@@ -337,7 +373,7 @@
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(162, 132);
+            label15.Location = new Point(162, 110);
             label15.Name = "label15";
             label15.Size = new Size(69, 17);
             label15.TabIndex = 51;
@@ -345,7 +381,7 @@
             // 
             // textBox12
             // 
-            textBox12.Location = new Point(237, 129);
+            textBox12.Location = new Point(237, 107);
             textBox12.Multiline = true;
             textBox12.Name = "textBox12";
             textBox12.Size = new Size(148, 22);
@@ -354,7 +390,7 @@
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(176, 104);
+            label14.Location = new Point(176, 82);
             label14.Name = "label14";
             label14.Size = new Size(55, 17);
             label14.TabIndex = 38;
@@ -362,49 +398,35 @@
             // 
             // textBox11
             // 
-            textBox11.Location = new Point(237, 101);
+            textBox11.Location = new Point(237, 79);
             textBox11.Multiline = true;
             textBox11.Name = "textBox11";
             textBox11.Size = new Size(148, 22);
             textBox11.TabIndex = 38;
             // 
-            // textBox9
-            // 
-            textBox9.Location = new Point(528, 117);
-            textBox9.Multiline = true;
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(148, 22);
-            textBox9.TabIndex = 50;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Location = new Point(413, 120);
-            label13.Name = "label13";
-            label13.Size = new Size(109, 17);
-            label13.TabIndex = 49;
-            label13.Text = "Metodo de Pago";
-            // 
             // textBox6
             // 
-            textBox6.Location = new Point(528, 89);
+            textBox6.Location = new Point(471, 110);
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(148, 22);
             textBox6.TabIndex = 48;
             // 
             // domainUpDown1
             // 
-            domainUpDown1.Location = new Point(237, 46);
+            domainUpDown1.Location = new Point(471, 19);
             domainUpDown1.Margin = new Padding(3, 2, 3, 2);
             domainUpDown1.Name = "domainUpDown1";
             domainUpDown1.Size = new Size(148, 22);
             domainUpDown1.TabIndex = 47;
+            domainUpDown1.Tag = "";
+            domainUpDown1.Text = "0";
+            domainUpDown1.TextAlign = HorizontalAlignment.Right;
             domainUpDown1.SelectedItemChanged += domainUpDown1_SelectedItemChanged_1;
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(475, 92);
+            label11.Location = new Point(418, 113);
             label11.Name = "label11";
             label11.Size = new Size(47, 17);
             label11.TabIndex = 44;
@@ -485,7 +507,6 @@
         private Button button1;
         private Label label6;
         private Label label7;
-        private Label label8;
         private TextBox textBox7;
         private TextBox textBox4;
         private TextBox textBox10;
@@ -493,7 +514,6 @@
         private GroupBox groupBox2;
         private DateTimePicker dateTimePicker2;
         private Label label12;
-        private Button btnBuscCliV;
         private Label label1;
         private TextBox textBox2;
         private Label label3;
@@ -503,11 +523,8 @@
         private Label label10;
         private GroupBox groupBox3;
         private Label label11;
-        private TextBox textBox8;
         private DomainUpDown domainUpDown1;
         private TextBox textBox6;
-        private TextBox textBox9;
-        private Label label13;
         private Button button2;
         private TextBox textBox11;
         private Label label15;
@@ -515,5 +532,11 @@
         private Label label14;
         private DataGridView dataGridView1;
         private Button button3;
+        private TextBox textBox8;
+        private Label label8;
+        private Label label4;
+        private TextBox textBox9;
+        private FontAwesome.Sharp.IconButton btnBuscarDni;
+        private FontAwesome.Sharp.IconButton iconButton1;
     }
 }
