@@ -42,7 +42,7 @@ namespace CapaDatos
                     entProveedor prov = new entProveedor();
                     prov.ID = Convert.ToInt32(dr["ID"]);
                     prov.NomPro = dr["NomPro"].ToString();
-                    prov.RUC = Convert.ToInt32(dr["RUC"]);
+                    prov.RUC = dr["RUC"].ToString();
                     prov.Ciudad = dr["Ciudad"].ToString();
                     prov.Rubro = dr["Rubro"].ToString();
                     prov.RazonSocial = dr["RazonSocial"].ToString();
@@ -161,17 +161,16 @@ namespace CapaDatos
             }
             return inserta;
         }
-
-        public entProveedor BuscarProveedorPorID(int id)
+        public entProveedor BuscarProveedorPorNombre(string nombre)
         {
             SqlCommand cmd = null;
             entProveedor prov = null;
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spBuscarProveedorPorID", cn);
+                cmd = new SqlCommand("spBuscarProveedorPorNombre", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@ID", id);
+                cmd.Parameters.AddWithValue("@NomPro", nombre);
                 cn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
@@ -180,7 +179,7 @@ namespace CapaDatos
                     {
                         ID = Convert.ToInt32(dr["ID"]),
                         NomPro = dr["NomPro"].ToString(),
-                        RUC = Convert.ToInt32(dr["RUC"]),
+                        RUC = dr["RUC"].ToString(),
                         Ciudad = dr["Ciudad"].ToString(),
                         Rubro = dr["Rubro"].ToString(),
                         RazonSocial = dr["RazonSocial"].ToString(),
@@ -197,7 +196,49 @@ namespace CapaDatos
             }
             finally
             {
-                if (cmd.Connection != null)
+                if (cmd?.Connection != null)
+                {
+                    cmd.Connection.Close();
+                }
+            }
+            return prov;
+        }
+        public entProveedor BuscarProveedorPorRUC(string ruc)
+        {
+            SqlCommand cmd = null;
+            entProveedor prov = null;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spBuscarProveedorPorID", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@RUC", ruc);
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    prov = new entProveedor
+                    {
+                        ID = Convert.ToInt32(dr["ID"]),
+                        NomPro = dr["NomPro"].ToString(),
+                        RUC = dr["RUC"].ToString(),
+                        Ciudad = dr["Ciudad"].ToString(),
+                        Rubro = dr["Rubro"].ToString(),
+                        RazonSocial = dr["RazonSocial"].ToString(),
+                        Direccion = dr["Direccion"].ToString(),
+                        Telefono = Convert.ToInt32(dr["Telefono"]),
+                        Email = dr["Email"].ToString(),
+                        Estado = Convert.ToBoolean(dr["Estado"]),
+                    };
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                if (cmd?.Connection != null)
                 {
                     cmd.Connection.Close();
                 }
@@ -214,7 +255,7 @@ namespace CapaDatos
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("spModificarProveedor", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@ID", prov.ID);
+                cmd.Parameters.AddWithValue("@RUC", prov.RUC);
                 cmd.Parameters.AddWithValue("@NomPro", prov.NomPro);
                 cmd.Parameters.AddWithValue("@RazonSocial", prov.RazonSocial);
                 cmd.Parameters.AddWithValue("@Direccion", prov.Direccion);
@@ -222,7 +263,6 @@ namespace CapaDatos
                 cmd.Parameters.AddWithValue("@Telefono", prov.Telefono);
                 cmd.Parameters.AddWithValue("@Rubro", prov.Rubro);
                 cmd.Parameters.AddWithValue("@Estado", prov.Estado);
-                cmd.Parameters.AddWithValue("@RUC", prov.RUC);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
@@ -284,7 +324,7 @@ namespace CapaDatos
             }
             return ubigeo;
         }
-        public Boolean InhabilitarProveedor(int id)
+        public Boolean InhabilitarProveedor(string ruc)
         {
             SqlCommand cmd = null;
             Boolean inhabilita = false;
@@ -293,7 +333,7 @@ namespace CapaDatos
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("spInhabilitarProveedor", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@ID", id);
+                cmd.Parameters.AddWithValue("@RUC", ruc);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
@@ -314,6 +354,5 @@ namespace CapaDatos
             }
             return inhabilita;
         }
-
     }
 }

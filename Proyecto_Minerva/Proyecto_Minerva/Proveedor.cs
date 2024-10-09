@@ -1,5 +1,6 @@
 ﻿using CapaEntidad;
 using CapaLogica;
+using CapaPresentacion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,11 +32,11 @@ namespace Proyecto_Minerva
         private void InicializarComboBoxes()
         {
             // Llenado de ComboBox comboBox2 (Categorias)
-            comboBox1.Items.Clear();
+            comboBoxRubro.Items.Clear();
             List<string> Rubro = logProveedor.Instancia.ObtenerRubro();
             foreach (string rubro in Rubro)
             {
-                comboBox1.Items.Add(rubro);
+                comboBoxRubro.Items.Add(rubro);
             }
         }
         public void listarProveedor()
@@ -47,23 +48,24 @@ namespace Proyecto_Minerva
             try
             {
                 // Verifica que los ComboBox tienen un ítem seleccionado
-                if (comboBox1.SelectedItem == null)
+                if (comboBoxRubro.SelectedItem == null)
                 {
                     MessageBox.Show("Por favor, selecciona una opción en los campos Rubro.");
                     return;
                 }
 
-                string rubro = comboBox1.SelectedItem.ToString();
-                int ruc, telefono, ubigeo;
+                string rubro = comboBoxRubro.SelectedItem.ToString();
+                string ruc = txtRUC.Text.Trim();
+                int telefono, ubigeo;
 
-                // Verifica que el RUC y el teléfono son números válidos
-                if (!int.TryParse(textBox3.Text, out ruc))
+                // Verifica que el RUC no está vacío
+                if (string.IsNullOrWhiteSpace(ruc))
                 {
                     MessageBox.Show("Por favor, ingresa un número válido en el campo RUC.");
                     return;
                 }
 
-                if (!int.TryParse(textBox5.Text, out telefono))
+                if (!int.TryParse(txtTelefono.Text, out telefono))
                 {
                     MessageBox.Show("Por favor, ingresa un número válido en el campo Teléfono.");
                     return;
@@ -75,13 +77,12 @@ namespace Proyecto_Minerva
                     return;
                 }
 
-                string razonSocial = textBox7.Text.Trim();
-                string nomPro = textBox1.Text.Trim();
-                string direccion = textBox6.Text.Trim();
-                string email = textBox4.Text.Trim();
-                bool estado = checkBox1.Checked;
+                string razonSocial = txtRazonSocial.Text.Trim();
+                string nomPro = txtNombre.Text.Trim();
+                string direccion = txtDireccion.Text.Trim();
+                string email = txtEmail.Text.Trim();
+                bool estado = cbEstado.Checked;
                 string distrito = txtDistrito.Text.Trim();
-
 
                 // Crea un objeto entProveedor
                 entProveedor nuevoProveedor = new entProveedor
@@ -120,40 +121,43 @@ namespace Proyecto_Minerva
 
         private void LimpiarCampos()
         {
-            textBox7.Clear();
-            txtBuscarID.Clear();
-            textBox3.Clear();
-            textBox1.Clear();
-            textBox6.Clear();
-            textBox4.Clear();
-            textBox5.Clear();
-            checkBox1.Checked = false;
-            comboBox1.SelectedIndex = -1; // Resetea el ComboBox
+            txtRazonSocial.Clear();
+            txtRUC.Clear();
+            txtNombre.Clear();
+            txtDireccion.Clear();
+            txtEmail.Clear();
+            txtTelefono.Clear();
+            cbEstado.Checked = false;
+            comboBoxRubro.SelectedIndex = -1;
+            txtCodigoUbigeo.Clear();
+            txtDepartamento.Clear();
+            txtDistrito.Clear();
+            txtProvincia.Clear();
         }
 
         private void btnBuscProov_Click(object sender, EventArgs e)
         {
-            int id;
-            if (!int.TryParse(txtBuscarID.Text, out id))
+            string nombre = txtNombre.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(nombre))
             {
-                MessageBox.Show("Por favor, ingresa un número válido en el campo ID.");
+                MessageBox.Show("Por favor, ingresa un nombre válido.");
                 return;
             }
 
             try
             {
-                entProveedor prov = logProveedor.Instancia.BuscarProveedorPorID(id);
+                entProveedor prov = logProveedor.Instancia.BuscarProveedorPorNombre(nombre);
                 if (prov != null)
                 {
-                    // Llena los campos del formulario con los datos del proveedor encontrado
-                    textBox7.Text = prov.RazonSocial;
-                    textBox3.Text = prov.RUC.ToString();
-                    textBox1.Text = prov.NomPro;
-                    textBox6.Text = prov.Direccion;
-                    textBox4.Text = prov.Email;
-                    textBox5.Text = prov.Telefono.ToString();
-                    checkBox1.Checked = prov.Estado;
-                    comboBox1.SelectedItem = prov.Rubro;
+                    txtRazonSocial.Text = prov.RazonSocial;
+                    txtRUC.Text = prov.RUC;
+                    txtNombre.Text = prov.NomPro;
+                    txtDireccion.Text = prov.Direccion;
+                    txtEmail.Text = prov.Email;
+                    txtTelefono.Text = prov.Telefono.ToString();
+                    cbEstado.Checked = prov.Estado;
+                    comboBoxRubro.SelectedItem = prov.Rubro;
 
                     grupBoxDatos.Enabled = true;
                     grupBoxDatos2.Enabled = true;
@@ -176,44 +180,46 @@ namespace Proyecto_Minerva
             try
             {
                 // Verifica que se ha buscado un proveedor
-                if (string.IsNullOrEmpty(txtBuscarID.Text))
+                if (string.IsNullOrEmpty(txtRUC.Text))
                 {
                     MessageBox.Show("Por favor, busca un proveedor antes de modificarlo.");
                     return;
                 }
+
                 // Verifica que los ComboBox tienen un ítem seleccionado
-                if (comboBox1.SelectedItem == null)
+                if (comboBoxRubro.SelectedItem == null)
                 {
                     MessageBox.Show("Por favor, selecciona una opción para Rubro.");
                     return;
                 }
-                // Captura los datos del ComboBox y TextBox
-                string rubro = comboBox1.SelectedItem.ToString();
-                int ruc, telefono;
 
-                // Verifica que el RUC y el teléfono son números válidos
-                if (!int.TryParse(textBox3.Text, out ruc))
+                // Captura los datos del ComboBox y TextBox
+                string rubro = comboBoxRubro.SelectedItem.ToString();
+                string ruc = txtRUC.Text.Trim();
+                int telefono;
+
+                // Verifica que el RUC no está vacío
+                if (string.IsNullOrWhiteSpace(ruc))
                 {
                     MessageBox.Show("Por favor, ingresa un número válido en el campo RUC.");
                     return;
                 }
 
-                if (!int.TryParse(textBox5.Text, out telefono))
+                if (!int.TryParse(txtTelefono.Text, out telefono))
                 {
                     MessageBox.Show("Por favor, ingresa un número válido en el campo Teléfono.");
                     return;
                 }
 
-                string razonSocial = textBox7.Text.Trim();
-                string nomPro = textBox1.Text.Trim();
-                string direccion = textBox6.Text.Trim();
-                string email = textBox4.Text.Trim();
+                string razonSocial = txtRazonSocial.Text.Trim();
+                string nomPro = txtNombre.Text.Trim();
+                string direccion = txtDireccion.Text.Trim();
+                string email = txtEmail.Text.Trim();
                 string distrito = txtDistrito.Text.Trim();
+                bool estado = cbEstado.Checked;
 
-                // Crea un objeto entProveedor
                 entProveedor proveedorActualizado = new entProveedor
                 {
-                    ID = int.Parse(txtBuscarID.Text),
                     RazonSocial = razonSocial,
                     RUC = ruc,
                     NomPro = nomPro,
@@ -221,19 +227,12 @@ namespace Proyecto_Minerva
                     Email = email,
                     Telefono = telefono,
                     Rubro = rubro,
-                    Estado = checkBox1.Checked
+                    Estado = estado
                 };
 
-                // Llama a la capa lógica para modificar el proveedor
                 logProveedor.Instancia.ModificarProveedor(proveedorActualizado);
-
-                // Muestra un mensaje de éxito
                 MessageBox.Show("Proveedor modificado con éxito");
-
-                // Limpia los campos del formulario
                 LimpiarCampos();
-
-                // Refresca la lista de proveedores
                 listarProveedor();
             }
             catch (Exception ex)
@@ -242,9 +241,9 @@ namespace Proyecto_Minerva
                 MessageBox.Show($"Ocurrió un error: {ex.Message}");
             }
 
-            // Desactiva el grupo de datos
             grupBoxDatos.Enabled = false;
             grupBoxDatos2.Enabled = false;
+            groupBoxUbigeo.Enabled = false;
         }
 
         private void btnBuscUbigeo_Click(object sender, EventArgs e)
@@ -287,16 +286,16 @@ namespace Proyecto_Minerva
         private void btnInhabilitar_Click(object sender, EventArgs e)
         {
             // Verifica si el campo txtBuscarID no está vacío
-            if (string.IsNullOrWhiteSpace(txtBuscarID.Text))
+            if (string.IsNullOrWhiteSpace(txtRUC.Text))
             {
-                MessageBox.Show("Por favor, ingresa un ID válido para inhabilitar.");
+                MessageBox.Show("Por favor, ingresa un RUC válido para inhabilitar.");
                 return;
             }
 
             // Intenta convertir el valor del txtBuscarID a un número entero
-            if (!int.TryParse(txtBuscarID.Text, out int proveedorID))
+            if (txtRUC.Text.Length != 11 || !txtRUC.Text.All(char.IsDigit))
             {
-                MessageBox.Show("El ID ingresado no es válido. Debe ser un número.");
+                MessageBox.Show("El RUC ingresado no es válido. Debe tener 11 dígitos numéricos.");
                 return;
             }
 
@@ -307,21 +306,13 @@ namespace Proyecto_Minerva
             {
                 try
                 {
-                    // Llama al método de la capa lógica para inhabilitar el proveedor
-                    logProveedor.Instancia.InhabilitarProveedor(proveedorID);
-
-                    // Muestra un mensaje de éxito
+                    logProveedor.Instancia.InhabilitarProveedor(txtRUC.Text);
                     MessageBox.Show("Proveedor inhabilitado con éxito.");
-
-                    // Limpia el campo de búsqueda
-                    txtBuscarID.Clear();
-
-                    // Actualiza la lista de proveedores
+                    txtRUC.Clear();
                     listarProveedor();
                 }
                 catch (Exception ex)
                 {
-                    // Muestra un mensaje de error en caso de excepciones
                     MessageBox.Show($"Ocurrió un error: {ex.Message}");
                 }
             }
@@ -339,6 +330,7 @@ namespace Proyecto_Minerva
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            cbEstado.Checked = true;
             grupBoxDatos.Enabled = true;
             grupBoxDatos2.Enabled = true;
             groupBoxUbigeo.Enabled = true;
@@ -347,5 +339,41 @@ namespace Proyecto_Minerva
             btnInhabilitar.Enabled = true;
             btnModificar.Enabled = true;
         }
+
+        private void btnBuscarPorRUC_Click(object sender, EventArgs e)
+        {
+            consultar();
+        }
+        private void consultar()
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(txtRUC.Text))
+                {
+                    MessageBox.Show("Ingrese un numero RUC.");
+                }
+                else if (txtRUC.Text.Length == 11)
+                {
+                    var apisPeru = new ApisPeru();
+                    dynamic respuesta = apisPeru.Get("https://dniruc.apisperu.com/api/v1/ruc/" + txtRUC.Text + "?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImRhdmlsYWpob2phbkBnbWFpbC5jb20ifQ.OexW2Uf_nGrZjUiqutNGmMODVk4zHCDV7CA9SHR8HVM");
+                    txtNombre.Text = respuesta.nombreComercial.ToString();
+                    txtRazonSocial.Text = respuesta.razonSocial.ToString();
+                    txtDireccion.Text = respuesta.direccion.ToString();
+                    txtCodigoUbigeo.Text = respuesta.ubigeo.ToString();
+                    txtDepartamento.Text = respuesta.departamento.ToString();
+                    txtProvincia.Text = respuesta.provincia.ToString();
+                    txtDistrito.Text = respuesta.distrito.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Ingrese su RUC correctamente.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error... " + ex.Message);
+            }
+        }
+
     }
 }

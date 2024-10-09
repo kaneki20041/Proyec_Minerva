@@ -10,7 +10,7 @@ namespace CapaEntidad
     {
         public int ID { get; set; }
         public string NomPro { get; set; }
-        public int RUC { get; set; }
+        public string RUC { get; set; }
         public string Ciudad { get; set; }
         public string Rubro { get; set; }
         public string RazonSocial { get; set; }

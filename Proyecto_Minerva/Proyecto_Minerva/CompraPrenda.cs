@@ -16,24 +16,41 @@ namespace Proyecto_Minerva
 
         private void BuscProveedor_Click(object sender, EventArgs e)
         {
-            int proveedorID;
-            if (!int.TryParse(textBox5.Text, out proveedorID))
+            string ruc = txtRUC.Text.Trim();
+            string nombre = txtNombreRUC.Text.Trim();
+
+            // Verifica si ambos campos están vacíos
+            if (string.IsNullOrWhiteSpace(ruc) && string.IsNullOrWhiteSpace(nombre))
             {
-                MessageBox.Show("Por favor, ingresa un número válido en el campo ID del Proveedor.");
+                MessageBox.Show("Por favor, ingresa un RUC o un nombre válido.");
                 return;
             }
 
             try
             {
-                entProveedor proveedor = logProveedor.Instancia.BuscarProveedorPorID(proveedorID);
+                entProveedor proveedor = null;
+
+                // Busca por RUC si se ingresó
+                if (!string.IsNullOrWhiteSpace(ruc))
+                {
+                    proveedor = logProveedor.Instancia.BuscarProveedorPorRUC(ruc);
+                }
+                // Busca por nombre si se ingresó
+                else if (!string.IsNullOrWhiteSpace(nombre))
+                {
+                    proveedor = logProveedor.Instancia.BuscarProveedorPorNombre(nombre);
+                }
+
+                // Verifica si se encontró al proveedor
                 if (proveedor != null)
                 {
-                    textBox6.Text = proveedor.RUC.ToString();
-                    textBox7.Text = proveedor.RazonSocial;
+                    txtNombreRUC.Text = proveedor.NomPro.ToString();
+                    txtRUC.Text = proveedor.RUC.ToString();
+                    txtRazonRUC.Text = proveedor.RazonSocial;
                 }
                 else
                 {
-                    MessageBox.Show("Cliente no encontrado.");
+                    MessageBox.Show("Proveedor no encontrado.");
                 }
             }
             catch (Exception ex)
@@ -107,7 +124,7 @@ namespace Proyecto_Minerva
             entCompra dCom = new entCompra();
             entPrendas Pren = new entPrendas();
 
-            if ((this.textBox5.Text.Trim() != "") && (txtCantidad.Text.Trim() != ""))
+            if ((this.txtRUC.Text.Trim() != "") && (txtCantidad.Text.Trim() != ""))
             {
                 if ((Convert.ToInt32(txtCantidad.Text) > 0) && (Convert.ToInt32(txtCantidad.Text) <= Convert.ToInt32(textBox11.Text)))
                 {
@@ -156,7 +173,7 @@ namespace Proyecto_Minerva
             try
             {
                 // Validar campos requeridos antes de proceder
-                if (string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(textBox5.Text) ||
+                if (string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(txtRUC.Text) ||
                     string.IsNullOrEmpty(textBox3.Text) || string.IsNullOrEmpty(txtUsuarioID.Text))
                 {
                     MessageBox.Show("Todos los campos son requeridos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -180,8 +197,8 @@ namespace Proyecto_Minerva
                 {
                     Com.fechCompra = dateTimePicker1.Value;
                     Com.Monto = Convert.ToDecimal(textBox2.Text);
-                    p.ID = int.Parse(textBox5.Text);
-                    p.RazonSocial = textBox7.Text;
+                    p.RUC = txtRUC.Text;
+                    p.RazonSocial = txtRazonRUC.Text;
                     met.MetPagoid = int.Parse(textBox3.Text);
                     u.UsuarioID = int.Parse(txtUsuarioID.Text);
                 }
@@ -210,7 +227,6 @@ namespace Proyecto_Minerva
                 if (GrabarDetalle(idCom))
                 {
                     MessageBox.Show("Compra registrada correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Close();
                 }
                 else
                 {
@@ -325,8 +341,6 @@ namespace Proyecto_Minerva
             Limpiar();
         }
     }
-
-
 }
 
 

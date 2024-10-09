@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             label2 = new Label();
-            label3 = new Label();
             label5 = new Label();
             label6 = new Label();
             label7 = new Label();
@@ -37,9 +36,8 @@
             textBox2 = new TextBox();
             textBox3 = new TextBox();
             BuscarMetPago = new Button();
-            textBox5 = new TextBox();
-            textBox6 = new TextBox();
-            textBox7 = new TextBox();
+            txtRUC = new TextBox();
+            txtRazonRUC = new TextBox();
             groupBox3 = new GroupBox();
             textBox4 = new TextBox();
             txtCantidad = new TextBox();
@@ -62,8 +60,9 @@
             groupBox1 = new GroupBox();
             txtUsuarioID = new TextBox();
             dateTimePicker1 = new DateTimePicker();
-            comboBox1 = new ComboBox();
             groupBox2 = new GroupBox();
+            txtNombreRUC = new TextBox();
+            label1 = new Label();
             BuscProveedor = new Button();
             AgreCompra = new Button();
             button4 = new Button();
@@ -92,19 +91,10 @@
             label2.TabIndex = 1;
             label2.Text = "UsuarioID";
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(82, 36);
-            label3.Name = "label3";
-            label3.Size = new Size(20, 17);
-            label3.TabIndex = 2;
-            label3.Text = "ID";
-            // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(70, 64);
+            label5.Location = new Point(63, 65);
             label5.Name = "label5";
             label5.Size = new Size(32, 17);
             label5.TabIndex = 4;
@@ -113,7 +103,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(19, 92);
+            label6.Location = new Point(12, 93);
             label6.Name = "label6";
             label6.Size = new Size(83, 17);
             label6.TabIndex = 5;
@@ -122,7 +112,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(162, 42);
+            label7.Location = new Point(162, 38);
             label7.Name = "label7";
             label7.Size = new Size(45, 17);
             label7.TabIndex = 6;
@@ -166,29 +156,21 @@
             BuscarMetPago.UseVisualStyleBackColor = false;
             BuscarMetPago.Click += BuscarMetPago_Click;
             // 
-            // textBox5
+            // txtRUC
             // 
-            textBox5.Location = new Point(108, 33);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(94, 22);
-            textBox5.TabIndex = 16;
+            txtRUC.Location = new Point(101, 62);
+            txtRUC.Name = "txtRUC";
+            txtRUC.Size = new Size(166, 22);
+            txtRUC.TabIndex = 17;
             // 
-            // textBox6
+            // txtRazonRUC
             // 
-            textBox6.Location = new Point(108, 61);
-            textBox6.Name = "textBox6";
-            textBox6.ReadOnly = true;
-            textBox6.Size = new Size(169, 22);
-            textBox6.TabIndex = 17;
-            // 
-            // textBox7
-            // 
-            textBox7.Location = new Point(108, 89);
-            textBox7.Multiline = true;
-            textBox7.Name = "textBox7";
-            textBox7.ReadOnly = true;
-            textBox7.Size = new Size(169, 43);
-            textBox7.TabIndex = 18;
+            txtRazonRUC.Location = new Point(101, 90);
+            txtRazonRUC.Multiline = true;
+            txtRazonRUC.Name = "txtRazonRUC";
+            txtRazonRUC.ReadOnly = true;
+            txtRazonRUC.Size = new Size(264, 50);
+            txtRazonRUC.TabIndex = 18;
             // 
             // groupBox3
             // 
@@ -208,9 +190,9 @@
             groupBox3.Controls.Add(label18);
             groupBox3.Controls.Add(btn_buscarPrenVen);
             groupBox3.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox3.Location = new Point(38, 177);
+            groupBox3.Location = new Point(13, 177);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(659, 161);
+            groupBox3.Size = new Size(697, 161);
             groupBox3.TabIndex = 45;
             groupBox3.TabStop = false;
             groupBox3.Text = "Informacion de Prenda";
@@ -359,11 +341,11 @@
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(116, 101);
+            label13.Location = new Point(117, 101);
             label13.Name = "label13";
-            label13.Size = new Size(91, 17);
+            label13.Size = new Size(90, 17);
             label13.TabIndex = 49;
-            label13.Text = "Metodo pago";
+            label13.Text = "Metodo Pago";
             // 
             // label11
             // 
@@ -405,45 +387,53 @@
             // 
             dateTimePicker1.CustomFormat = "dd-MM-yyyy";
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.Location = new Point(213, 39);
+            dateTimePicker1.Location = new Point(213, 35);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(121, 22);
             dateTimePicker1.TabIndex = 14;
             dateTimePicker1.UseWaitCursor = true;
             // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(703, 17);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
-            comboBox1.TabIndex = 16;
-            // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(txtNombreRUC);
+            groupBox2.Controls.Add(label1);
             groupBox2.Controls.Add(BuscProveedor);
-            groupBox2.Controls.Add(textBox7);
-            groupBox2.Controls.Add(textBox6);
-            groupBox2.Controls.Add(textBox5);
+            groupBox2.Controls.Add(txtRazonRUC);
+            groupBox2.Controls.Add(txtRUC);
             groupBox2.Controls.Add(label6);
             groupBox2.Controls.Add(label5);
-            groupBox2.Controls.Add(label3);
             groupBox2.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox2.Location = new Point(397, 17);
+            groupBox2.Location = new Point(444, 17);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(300, 154);
+            groupBox2.Size = new Size(380, 154);
             groupBox2.TabIndex = 50;
             groupBox2.TabStop = false;
             groupBox2.Text = "Informacion de Proveedor";
+            // 
+            // txtNombreRUC
+            // 
+            txtNombreRUC.Location = new Point(101, 34);
+            txtNombreRUC.Name = "txtNombreRUC";
+            txtNombreRUC.Size = new Size(166, 22);
+            txtNombreRUC.TabIndex = 52;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(39, 37);
+            label1.Name = "label1";
+            label1.Size = new Size(56, 17);
+            label1.TabIndex = 51;
+            label1.Text = "Nombre";
             // 
             // BuscProveedor
             // 
             BuscProveedor.BackColor = Color.LightCyan;
             BuscProveedor.FlatAppearance.BorderSize = 0;
             BuscProveedor.FlatStyle = FlatStyle.Flat;
-            BuscProveedor.Location = new Point(214, 32);
+            BuscProveedor.Location = new Point(290, 41);
             BuscProveedor.Name = "BuscProveedor";
-            BuscProveedor.Size = new Size(63, 23);
+            BuscProveedor.Size = new Size(63, 29);
             BuscProveedor.TabIndex = 50;
             BuscProveedor.Text = "Buscar";
             BuscProveedor.UseVisualStyleBackColor = false;
@@ -455,7 +445,7 @@
             AgreCompra.FlatAppearance.BorderSize = 0;
             AgreCompra.FlatStyle = FlatStyle.Flat;
             AgreCompra.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            AgreCompra.Location = new Point(726, 131);
+            AgreCompra.Location = new Point(726, 194);
             AgreCompra.Name = "AgreCompra";
             AgreCompra.Size = new Size(98, 40);
             AgreCompra.TabIndex = 51;
@@ -483,7 +473,7 @@
             button5.FlatAppearance.BorderSize = 0;
             button5.FlatStyle = FlatStyle.Flat;
             button5.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            button5.Location = new Point(726, 177);
+            button5.Location = new Point(726, 240);
             button5.Name = "button5";
             button5.Size = new Size(98, 39);
             button5.TabIndex = 53;
@@ -500,7 +490,7 @@
             tablaCompras.Location = new Point(13, 357);
             tablaCompras.Name = "tablaCompras";
             tablaCompras.RowTemplate.Height = 25;
-            tablaCompras.Size = new Size(704, 204);
+            tablaCompras.Size = new Size(697, 204);
             tablaCompras.TabIndex = 54;
             // 
             // Column2
@@ -544,7 +534,7 @@
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(726, 222);
+            button1.Location = new Point(726, 285);
             button1.Name = "button1";
             button1.Size = new Size(98, 41);
             button1.TabIndex = 55;
@@ -558,7 +548,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MintCream;
             ClientSize = new Size(851, 573);
-            Controls.Add(comboBox1);
             Controls.Add(button1);
             Controls.Add(tablaCompras);
             Controls.Add(button5);
@@ -585,7 +574,6 @@
 
         #endregion
         private Label label2;
-        private Label label3;
         private Label label5;
         private Label label6;
         private Label label7;
@@ -593,9 +581,8 @@
         private TextBox textBox2;
         private TextBox textBox3;
         private Button BuscarMetPago;
-        private TextBox textBox5;
-        private TextBox textBox6;
-        private TextBox textBox7;
+        private TextBox txtRUC;
+        private TextBox txtRazonRUC;
         private GroupBox groupBox3;
         private TextBox textBox9;
         private Label label13;
@@ -611,7 +598,6 @@
         private Label label18;
         private Button btn_buscarPrenVen;
         private GroupBox groupBox1;
-        private ComboBox comboBox1;
         private DateTimePicker dateTimePicker1;
         private GroupBox groupBox2;
         private Button BuscProveedor;
@@ -641,5 +627,7 @@
         private DataGridViewTextBoxColumn Column7;
         private DataGridViewTextBoxColumn Column6;
         private DataGridViewTextBoxColumn Column8;
+        private TextBox txtNombreRUC;
+        private Label label1;
     }
 }

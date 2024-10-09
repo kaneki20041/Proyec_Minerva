@@ -27,7 +27,6 @@ namespace CapaLogica
 
         public List<entProveedor> ListarProveedor()
         {
-            //return datCliente.Instancia.ListarCliente();
             return datProveedor.Instancia.ListarProveedor();
         }
 
@@ -52,9 +51,13 @@ namespace CapaLogica
             datProveedor.Instancia.InsertaProveedor(prov);
         }
 
-        public entProveedor BuscarProveedorPorID(int id)
+        public entProveedor BuscarProveedorPorRUC(string ruc)
         {
-            return datProveedor.Instancia.BuscarProveedorPorID(id);
+            return datProveedor.Instancia.BuscarProveedorPorRUC(ruc);
+        }
+        public entProveedor BuscarProveedorPorNombre(string nombre)
+        {
+            return datProveedor.Instancia.BuscarProveedorPorNombre(nombre);
         }
         public entUbigeo BuscarUbigeo(string codigoUbigeo)
         {
@@ -65,9 +68,9 @@ namespace CapaLogica
         {
             datProveedor.Instancia.ModificarProveedor(prov);
         }
-        public void InhabilitarProveedor(int id)
+        public void InhabilitarProveedor(string ruc)
         {
-            datProveedor.Instancia.InhabilitarProveedor(id);
+            datProveedor.Instancia.InhabilitarProveedor(ruc);
         }
 
         #endregion metodos
