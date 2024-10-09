@@ -116,32 +116,37 @@ namespace CapaDatos
         public Boolean InsertarDetCompra(entDetCompra dCom)
         {
             SqlCommand cmd = null;
-            Boolean inserta = false;
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("spInsertarDetCom", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@PrendaID", dCom.PrendaID.PrendaID);
-                cmd.Parameters.AddWithValue("@Prenda", dCom.Prenda.Prenda);
+                cmd.Parameters.AddWithValue("@Descripcion", dCom.Prenda.Descripcion);
                 cmd.Parameters.AddWithValue("@OcompraID", dCom.idCompra);
                 cmd.Parameters.AddWithValue("@Cantidad", dCom.cantPrenda);
                 cmd.Parameters.AddWithValue("@PrecioCompra", dCom.precPrenda);
-                //cmd.Parameters.AddWithValue("@igv", dPed. );
 
                 cn.Open();
-                int i = cmd.ExecuteNonQuery();
-                if (i > 0)
-                { inserta = true; }
+                int filasAfectadas = cmd.ExecuteNonQuery();
+                return filasAfectadas > 0;
             }
-            catch (Exception e)
+            catch (SqlException sqlEx)
             {
-                throw e;
+                throw new Exception($"Error en la base de datos: {sqlEx.Message}", sqlEx);
             }
-            finally { cmd.Connection.Close(); }
-            return inserta;
-        }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error al insertar detalle de compra: {ex.Message}", ex);
+            }
+            finally
+            {
+                if (cmd != null && cmd.Connection != null && cmd.Connection.State == ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                }
+            }
         #endregion metodos
+        }
     }
 }

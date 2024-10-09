@@ -11,6 +11,7 @@ namespace Proyecto_Minerva
         public CompraPrenda()
         {
             InitializeComponent();
+            dCom = new entDetCompra();
         }
 
         private void BuscProveedor_Click(object sender, EventArgs e)
@@ -69,8 +70,8 @@ namespace Proyecto_Minerva
 
         private void btn_buscarPrenVen_Click(object sender, EventArgs e)
         {
-            int prendaID;
-            if (!int.TryParse(textBox15.Text, out prendaID))
+            string descripcion = textBox14.Text.Trim();
+            if (string.IsNullOrWhiteSpace(descripcion))
             {
                 MessageBox.Show("Por favor, ingresa un número válido en el campo ID de la Prenda.");
                 return;
@@ -78,10 +79,9 @@ namespace Proyecto_Minerva
 
             try
             {
-                entPrendas prenda = logPrendas.Instancia.BuscarPrendaPorID(prendaID);
+                entPrendas prenda = logPrendas.Instancia.BuscarPrendaPorDescripcion(descripcion);
                 if (prenda != null)
                 {
-                    textBox14.Text = prenda.Prenda;
                     textBox12.Text = prenda.PrecioCompra.ToString("F2");
                     textBox4.Text = prenda.Colegio;
                     textBox11.Text = prenda.Stock.ToString();
@@ -98,41 +98,40 @@ namespace Proyecto_Minerva
                 MessageBox.Show($"Ocurrió un error: {ex.Message}");
             }
         }
-        public static int confilas = 0;
-        public static decimal Total = 0;
+
+        public int confilas = 0;
+        public decimal Total = 0;
 
         private void AgreCompra_Click(object sender, EventArgs e)
         {
             entCompra dCom = new entCompra();
             entPrendas Pren = new entPrendas();
 
-            if ((this.textBox5.Text.Trim() != "") && (textBox15.Text.Trim() != "") && (txtCantidad.Text.Trim() != ""))
+            if ((this.textBox5.Text.Trim() != "") && (txtCantidad.Text.Trim() != ""))
             {
                 if ((Convert.ToInt32(txtCantidad.Text) > 0) && (Convert.ToInt32(txtCantidad.Text) <= Convert.ToInt32(textBox11.Text)))
                 {
                     if (confilas == 0)
                     {
 
-                        tablaCompras.Rows.Add(textBox15.Text, textBox14.Text, textBox1.Text, textBox4.Text, textBox13.Text, txtCantidad.Text, textBox12.Text);
-                        decimal subTotal = Convert.ToDecimal(tablaCompras.Rows[confilas].Cells[5].Value) * Convert.ToDecimal(tablaCompras.Rows[confilas].Cells[6].Value);
-                        tablaCompras.Rows[confilas].Cells[7].Value = subTotal;
+                        tablaCompras.Rows.Add(textBox14.Text, textBox1.Text, textBox4.Text, textBox13.Text, txtCantidad.Text, textBox12.Text);
+                        decimal subTotal = Convert.ToDecimal(tablaCompras.Rows[confilas].Cells[4].Value) * Convert.ToDecimal(tablaCompras.Rows[confilas].Cells[5].Value);
+                        tablaCompras.Rows[confilas].Cells[6].Value = subTotal;
                         confilas++;
                     }
                     else
                     {
-                        tablaCompras.Rows.Add(textBox15.Text, textBox14.Text, textBox1.Text, textBox4.Text, textBox13.Text, txtCantidad.Text, textBox12.Text);
-                        decimal subTotal = Convert.ToDecimal(tablaCompras.Rows[confilas].Cells[5].Value) * Convert.ToDecimal(tablaCompras.Rows[confilas].Cells[6].Value);
-                        tablaCompras.Rows[confilas].Cells[7].Value = subTotal;
+                        tablaCompras.Rows.Add(textBox14.Text, textBox1.Text, textBox4.Text, textBox13.Text, txtCantidad.Text, textBox12.Text);
+                        decimal subTotal = Convert.ToDecimal(tablaCompras.Rows[confilas].Cells[4].Value) * Convert.ToDecimal(tablaCompras.Rows[confilas].Cells[5].Value);
+                        tablaCompras.Rows[confilas].Cells[6].Value = subTotal;
                         confilas++;
                     }
-
-
                 }
                 Total = 0;
                 foreach (DataGridViewRow Fila in tablaCompras.Rows)
                 {
 
-                    Total += Convert.ToInt32(Fila.Cells[7].Value);
+                    Total += Convert.ToInt32(Fila.Cells[6].Value);
                 }
                 textBox2.Text = Total.ToString();
 
@@ -144,86 +143,177 @@ namespace Proyecto_Minerva
         {
             if (confilas > 0)
             {
-                Total -= Convert.ToDecimal(tablaCompras.Rows[tablaCompras.CurrentRow.Index].Cells[7].Value);
+                Total -= Convert.ToDecimal(tablaCompras.Rows[tablaCompras.CurrentRow.Index].Cells[6].Value);
                 //txtTotal.Text = "S/." + Total.ToString();
                 textBox2.Text = Total.ToString();
                 tablaCompras.Rows.RemoveAt(tablaCompras.CurrentRow.Index);
                 confilas--;
             }
-        }
+        }//quitar
 
         private void button4_Click(object sender, EventArgs e)
         {
-            int idCom;
             try
             {
+                // Validar campos requeridos antes de proceder
+                if (string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(textBox5.Text) ||
+                    string.IsNullOrEmpty(textBox3.Text) || string.IsNullOrEmpty(txtUsuarioID.Text))
+                {
+                    MessageBox.Show("Todos los campos son requeridos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Validar que haya detalles en la tabla
+                if (tablaCompras.Rows.Count <= 1) // Considerando la fila nueva
+                {
+                    MessageBox.Show("Debe agregar al menos un detalle de compra", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Crear y poblar el objeto de compra
                 entCompra Com = new entCompra();
                 entProveedor p = new entProveedor();
                 EntMetPago met = new EntMetPago();
                 entUsuario u = new entUsuario();
 
-                // Asignar valores
-                Com.fechCompra = Convert.ToDateTime(dateTimePicker1.Value);
-                Com.Monto = Convert.ToDecimal(textBox2.Text);
+                try
+                {
+                    Com.fechCompra = dateTimePicker1.Value;
+                    Com.Monto = Convert.ToDecimal(textBox2.Text);
+                    p.ID = int.Parse(textBox5.Text);
+                    p.RazonSocial = textBox7.Text;
+                    met.MetPagoid = int.Parse(textBox3.Text);
+                    u.UsuarioID = int.Parse(txtUsuarioID.Text);
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Por favor, verifique que los valores numéricos sean correctos",
+                                  "Error de formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-                // Asignar directamente los IDs
-                p.ID = int.Parse(textBox5.Text); // Asignar ID del proveedor
-                p.RazonSocial = textBox7.Text;
-                met.MetPagoid = int.Parse(textBox3.Text); // Asignar ID del método de pago
-                u.UsuarioID = int.Parse(txtUsuarioID.Text); // Asignar el ID del usuario
-
-                Com.UsuarioID = u; // Si necesitas el objeto completo
-                Com.Metpagoid= met;
+                Com.UsuarioID = u;
+                Com.Metpagoid = met;
                 Com.ID = p;
                 Com.RazonSocial = p;
 
-                // Llamar al método de inserción
-                idCom = logCompra.Instancia.InsertarCompra(Com);
+                // Iniciar la transacción de grabación
+                int idCom = logCompra.Instancia.InsertarCompra(Com);
 
-                // Graba el detalle si es necesario
-                GrabarDetalle(idCom);
+                if (idCom <= 0)
+                {
+                    MessageBox.Show("Error al registrar la compra", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-                Close();
+                // Si la compra se registró correctamente, grabar los detalles
+                if (GrabarDetalle(idCom))
+                {
+                    MessageBox.Show("Compra registrada correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Close();
+                }
+                else
+                {
+                    // Si hubo algún error en los detalles, informar al usuario
+                    MessageBox.Show("La compra se registró pero hubo errores en algunos detalles. " +
+                                  "Por favor, revise los mensajes de error mostrados.",
+                                  "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("error: " + ex.Message);
-                throw;
+                MessageBox.Show($"Error al procesar la compra: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
 
-        private void GrabarDetalle(int cod)
+        private bool GrabarDetalle(int cod)
         {
+            bool todoCorrecto = true;
+            List<string> errores = new List<string>();
 
-            foreach (DataGridViewRow Fila in tablaCompras.Rows)
+            try
             {
-                var tes = Fila.Cells[0].Value;
-                dCom.idCompra = cod;
-                entPrendas prod = new entPrendas();
-                entPrendas pren = new entPrendas();
-
-
-                if (Fila.Cells[0].Value != null)
+                foreach (DataGridViewRow fila in tablaCompras.Rows)
                 {
-                    prod.PrendaID = Convert.ToInt32(Fila.Cells[0].Value.ToString());
-                    pren.Prenda = Fila.Cells[1].Value.ToString(); 
-                    dCom.PrendaID = prod;
-                    dCom.Prenda = pren;
-                    dCom.PrendaID.PrendaID = prod.PrendaID;
-                    dCom.Prenda.Prenda = pren.Prenda;
+                    if (fila.IsNewRow || fila.Cells[0].Value == null)
+                        continue;
 
-                    dCom.cantPrenda = Convert.ToInt32(Fila.Cells[5].Value.ToString());
-                    dCom.precPrenda = Convert.ToDecimal(Fila.Cells[6].Value.ToString());
+                    try
+                    {
+                        // Crear nuevo objeto para cada detalle
+                        entDetCompra detalleCompra = new entDetCompra();
+                        detalleCompra.idCompra = cod;
 
+                        // Validar y obtener la descripción
+                        if (string.IsNullOrWhiteSpace(fila.Cells[0].Value?.ToString()))
+                        {
+                            errores.Add($"Fila {fila.Index + 1}: La descripción está vacía");
+                            todoCorrecto = false;
+                            continue;
+                        }
 
-                    logCompra.Instancia.InsertarDetCompra(dCom);
+                        entPrendas pren = new entPrendas();
+                        pren.Descripcion = fila.Cells[0].Value.ToString().Trim();
+                        detalleCompra.Prenda = pren;
+
+                        // Validar y obtener la cantidad y precio
+                        if (!int.TryParse(fila.Cells[4].Value?.ToString(), out int cantidad))
+                        {
+                            errores.Add($"Fila {fila.Index + 1}: Cantidad inválida");
+                            todoCorrecto = false;
+                            continue;
+                        }
+
+                        if (!decimal.TryParse(fila.Cells[5].Value?.ToString(), out decimal precio))
+                        {
+                            errores.Add($"Fila {fila.Index + 1}: Precio inválido");
+                            todoCorrecto = false;
+                            continue;
+                        }
+
+                        if (cantidad <= 0 || precio <= 0)
+                        {
+                            errores.Add($"Fila {fila.Index + 1}: Cantidad y precio deben ser mayores a 0");
+                            todoCorrecto = false;
+                            continue;
+                        }
+
+                        detalleCompra.cantPrenda = cantidad;
+                        detalleCompra.precPrenda = precio;
+
+                        // Intentar insertar el detalle
+                        try
+                        {
+                            logCompra.Instancia.InsertarDetCompra(detalleCompra);
+                        }
+                        catch (Exception ex)
+                        {
+                            errores.Add($"Fila {fila.Index + 1}: Error al grabar el detalle - {ex.Message}");
+                            todoCorrecto = false;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        errores.Add($"Fila {fila.Index + 1}: {ex.Message}");
+                        todoCorrecto = false;
+                    }
                 }
 
+                if (errores.Count > 0)
+                {
+                    string mensajeError = "Se encontraron los siguientes errores:\n\n" +
+                                        string.Join("\n", errores);
+                    MessageBox.Show(mensajeError, "Errores en detalles", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
 
+                return todoCorrecto;
             }
-
-
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error general al grabar detalles: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
         public void Limpiar()
         {

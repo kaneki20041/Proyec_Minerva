@@ -52,9 +52,7 @@
             textBox12 = new TextBox();
             label15 = new Label();
             textBox13 = new TextBox();
-            label16 = new Label();
             textBox14 = new TextBox();
-            textBox15 = new TextBox();
             label17 = new Label();
             label18 = new Label();
             btn_buscarPrenVen = new Button();
@@ -62,15 +60,15 @@
             label13 = new Label();
             label11 = new Label();
             groupBox1 = new GroupBox();
-            comboBox1 = new ComboBox();
+            txtUsuarioID = new TextBox();
             dateTimePicker1 = new DateTimePicker();
+            comboBox1 = new ComboBox();
             groupBox2 = new GroupBox();
             BuscProveedor = new Button();
             AgreCompra = new Button();
             button4 = new Button();
             button5 = new Button();
             tablaCompras = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
             Column4 = new DataGridViewTextBoxColumn();
@@ -79,7 +77,6 @@
             Column6 = new DataGridViewTextBoxColumn();
             Column8 = new DataGridViewTextBoxColumn();
             button1 = new Button();
-            txtUsuarioID = new TextBox();
             groupBox3.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -144,6 +141,7 @@
             // 
             textBox2.Location = new Point(726, 443);
             textBox2.Name = "textBox2";
+            textBox2.ReadOnly = true;
             textBox2.Size = new Size(98, 23);
             textBox2.TabIndex = 10;
             // 
@@ -205,23 +203,21 @@
             groupBox3.Controls.Add(textBox12);
             groupBox3.Controls.Add(label15);
             groupBox3.Controls.Add(textBox13);
-            groupBox3.Controls.Add(label16);
             groupBox3.Controls.Add(textBox14);
-            groupBox3.Controls.Add(textBox15);
             groupBox3.Controls.Add(label17);
             groupBox3.Controls.Add(label18);
             groupBox3.Controls.Add(btn_buscarPrenVen);
             groupBox3.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox3.Location = new Point(13, 177);
+            groupBox3.Location = new Point(38, 177);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(684, 161);
+            groupBox3.Size = new Size(659, 161);
             groupBox3.TabIndex = 45;
             groupBox3.TabStop = false;
             groupBox3.Text = "Informacion de Prenda";
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(168, 92);
+            textBox4.Location = new Point(110, 89);
             textBox4.Name = "textBox4";
             textBox4.ReadOnly = true;
             textBox4.Size = new Size(166, 22);
@@ -229,7 +225,7 @@
             // 
             // txtCantidad
             // 
-            txtCantidad.Location = new Point(454, 77);
+            txtCantidad.Location = new Point(503, 75);
             txtCantidad.Name = "txtCantidad";
             txtCantidad.Size = new Size(128, 22);
             txtCantidad.TabIndex = 50;
@@ -237,7 +233,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(107, 95);
+            label9.Location = new Point(49, 92);
             label9.Name = "label9";
             label9.Size = new Size(55, 17);
             label9.TabIndex = 55;
@@ -245,7 +241,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(168, 120);
+            textBox1.Location = new Point(110, 117);
             textBox1.Name = "textBox1";
             textBox1.ReadOnly = true;
             textBox1.Size = new Size(166, 22);
@@ -254,7 +250,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(93, 123);
+            label4.Location = new Point(35, 120);
             label4.Name = "label4";
             label4.Size = new Size(69, 17);
             label4.TabIndex = 48;
@@ -263,7 +259,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(384, 80);
+            label12.Location = new Point(433, 78);
             label12.Name = "label12";
             label12.Size = new Size(64, 17);
             label12.TabIndex = 43;
@@ -272,7 +268,7 @@
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(406, 108);
+            label14.Location = new Point(455, 106);
             label14.Name = "label14";
             label14.Size = new Size(42, 17);
             label14.TabIndex = 41;
@@ -280,7 +276,7 @@
             // 
             // textBox11
             // 
-            textBox11.Location = new Point(454, 105);
+            textBox11.Location = new Point(503, 103);
             textBox11.Name = "textBox11";
             textBox11.ReadOnly = true;
             textBox11.Size = new Size(128, 22);
@@ -288,7 +284,7 @@
             // 
             // textBox12
             // 
-            textBox12.Location = new Point(454, 47);
+            textBox12.Location = new Point(503, 45);
             textBox12.Name = "textBox12";
             textBox12.ReadOnly = true;
             textBox12.Size = new Size(128, 22);
@@ -297,7 +293,7 @@
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(382, 50);
+            label15.Location = new Point(431, 48);
             label15.Name = "label15";
             label15.Size = new Size(66, 17);
             label15.TabIndex = 38;
@@ -305,41 +301,24 @@
             // 
             // textBox13
             // 
-            textBox13.Location = new Point(168, 64);
+            textBox13.Location = new Point(110, 61);
             textBox13.Name = "textBox13";
             textBox13.ReadOnly = true;
             textBox13.Size = new Size(166, 22);
             textBox13.TabIndex = 37;
             // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.Location = new Point(25, 37);
-            label16.Name = "label16";
-            label16.Size = new Size(20, 17);
-            label16.TabIndex = 36;
-            label16.Text = "ID";
-            // 
             // textBox14
             // 
-            textBox14.Location = new Point(168, 34);
+            textBox14.Location = new Point(110, 31);
             textBox14.Multiline = true;
             textBox14.Name = "textBox14";
-            textBox14.ReadOnly = true;
             textBox14.Size = new Size(166, 22);
             textBox14.TabIndex = 32;
-            // 
-            // textBox15
-            // 
-            textBox15.Location = new Point(51, 34);
-            textBox15.Name = "textBox15";
-            textBox15.Size = new Size(36, 22);
-            textBox15.TabIndex = 22;
             // 
             // label17
             // 
             label17.AutoSize = true;
-            label17.Location = new Point(112, 39);
+            label17.Location = new Point(54, 36);
             label17.Name = "label17";
             label17.Size = new Size(50, 17);
             label17.TabIndex = 2;
@@ -348,7 +327,7 @@
             // label18
             // 
             label18.AutoSize = true;
-            label18.Location = new Point(127, 67);
+            label18.Location = new Point(69, 64);
             label18.Name = "label18";
             label18.Size = new Size(35, 17);
             label18.TabIndex = 5;
@@ -360,9 +339,9 @@
             btn_buscarPrenVen.Cursor = Cursors.Hand;
             btn_buscarPrenVen.FlatAppearance.BorderSize = 0;
             btn_buscarPrenVen.FlatStyle = FlatStyle.Flat;
-            btn_buscarPrenVen.Location = new Point(25, 62);
+            btn_buscarPrenVen.Location = new Point(295, 29);
             btn_buscarPrenVen.Name = "btn_buscarPrenVen";
-            btn_buscarPrenVen.Size = new Size(62, 36);
+            btn_buscarPrenVen.Size = new Size(62, 24);
             btn_buscarPrenVen.TabIndex = 0;
             btn_buscarPrenVen.Text = "Buscar";
             btn_buscarPrenVen.UseVisualStyleBackColor = false;
@@ -415,13 +394,12 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Informacion de Compra";
             // 
-            // comboBox1
+            // txtUsuarioID
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(703, 17);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
-            comboBox1.TabIndex = 16;
+            txtUsuarioID.Location = new Point(213, 67);
+            txtUsuarioID.Name = "txtUsuarioID";
+            txtUsuarioID.Size = new Size(121, 22);
+            txtUsuarioID.TabIndex = 51;
             // 
             // dateTimePicker1
             // 
@@ -432,6 +410,14 @@
             dateTimePicker1.Size = new Size(121, 22);
             dateTimePicker1.TabIndex = 14;
             dateTimePicker1.UseWaitCursor = true;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(703, 17);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(121, 23);
+            comboBox1.TabIndex = 16;
             // 
             // groupBox2
             // 
@@ -510,17 +496,12 @@
             tablaCompras.BackgroundColor = Color.MintCream;
             tablaCompras.BorderStyle = BorderStyle.None;
             tablaCompras.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tablaCompras.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column7, Column6, Column8 });
+            tablaCompras.Columns.AddRange(new DataGridViewColumn[] { Column2, Column3, Column4, Column5, Column7, Column6, Column8 });
             tablaCompras.Location = new Point(13, 357);
             tablaCompras.Name = "tablaCompras";
             tablaCompras.RowTemplate.Height = 25;
-            tablaCompras.Size = new Size(684, 204);
+            tablaCompras.Size = new Size(704, 204);
             tablaCompras.TabIndex = 54;
-            // 
-            // Column1
-            // 
-            Column1.HeaderText = "id";
-            Column1.Name = "Column1";
             // 
             // Column2
             // 
@@ -570,13 +551,6 @@
             button1.Text = "Limpiar";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
-            // 
-            // txtUsuarioID
-            // 
-            txtUsuarioID.Location = new Point(213, 67);
-            txtUsuarioID.Name = "txtUsuarioID";
-            txtUsuarioID.Size = new Size(121, 22);
-            txtUsuarioID.TabIndex = 51;
             // 
             // CompraPrenda
             // 
@@ -632,9 +606,7 @@
         private TextBox textBox12;
         private Label label15;
         private TextBox textBox13;
-        private Label label16;
         private TextBox textBox14;
-        private TextBox textBox15;
         private Label label17;
         private Label label18;
         private Button btn_buscarPrenVen;
@@ -660,7 +632,8 @@
         private DataGridViewTextBoxColumn Cantidad;
         private DataGridViewTextBoxColumn PCompra;
         private DataGridViewTextBoxColumn Subtotal;
-        private DataGridViewTextBoxColumn Column1;
+        private Button button1;
+        private TextBox txtUsuarioID;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column4;
@@ -668,7 +641,5 @@
         private DataGridViewTextBoxColumn Column7;
         private DataGridViewTextBoxColumn Column6;
         private DataGridViewTextBoxColumn Column8;
-        private Button button1;
-        private TextBox txtUsuarioID;
     }
 }

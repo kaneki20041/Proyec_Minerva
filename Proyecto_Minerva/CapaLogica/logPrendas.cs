@@ -49,9 +49,14 @@ namespace CapaLogica
             datPrendas.Instancia.ModificarPrenda(prenda);
         }
 
-        public entPrendas BuscarPrendaPorID(int prendaID)
+        //public entPrendas BuscarPrendaPorID(int prendaID)
+        //{
+        //    return datPrendas.Instancia.BuscarPrendaPorID(prendaID);
+        //}
+
+        public entPrendas BuscarPrendaPorDescripcion(string descripcion)
         {
-            return datPrendas.Instancia.BuscarPrendaPorID(prendaID);
+            return datPrendas.Instancia.BuscarPrendaPorDescripcion(descripcion);
         }
 
         public void ActualizarStock(string prenda, int cantidadVendida)

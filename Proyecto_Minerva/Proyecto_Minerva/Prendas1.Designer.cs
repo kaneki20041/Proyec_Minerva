@@ -48,10 +48,7 @@
             comboBox1 = new ComboBox();
             label12 = new Label();
             label11 = new Label();
-            textBox8 = new TextBox();
             label9 = new Label();
-            txtPrenda = new TextBox();
-            label1 = new Label();
             button3 = new Button();
             BtnRemovPro = new Button();
             btnEditPro = new Button();
@@ -65,10 +62,10 @@
             btnAgregarPre.FlatAppearance.BorderSize = 0;
             btnAgregarPre.FlatStyle = FlatStyle.Flat;
             btnAgregarPre.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAgregarPre.Location = new Point(721, 352);
+            btnAgregarPre.Location = new Point(706, 60);
             btnAgregarPre.Margin = new Padding(3, 2, 3, 2);
             btnAgregarPre.Name = "btnAgregarPre";
-            btnAgregarPre.Size = new Size(105, 42);
+            btnAgregarPre.Size = new Size(94, 41);
             btnAgregarPre.TabIndex = 88;
             btnAgregarPre.Text = "Agregar";
             btnAgregarPre.UseVisualStyleBackColor = false;
@@ -79,11 +76,11 @@
             dataGridView1.BackgroundColor = Color.MintCream;
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(18, 229);
+            dataGridView1.Location = new Point(24, 253);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(681, 328);
+            dataGridView1.Size = new Size(815, 297);
             dataGridView1.TabIndex = 87;
             // 
             // button1
@@ -92,9 +89,9 @@
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(721, 448);
+            button1.Location = new Point(706, 156);
             button1.Name = "button1";
-            button1.Size = new Size(105, 43);
+            button1.Size = new Size(94, 42);
             button1.TabIndex = 85;
             button1.Text = "Deshabilitar";
             button1.UseVisualStyleBackColor = false;
@@ -117,22 +114,18 @@
             groupBox1.Controls.Add(comboBox1);
             groupBox1.Controls.Add(label12);
             groupBox1.Controls.Add(label11);
-            groupBox1.Controls.Add(textBox8);
-            groupBox1.Controls.Add(label9);
-            groupBox1.Controls.Add(txtPrenda);
-            groupBox1.Controls.Add(label1);
             groupBox1.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox1.Location = new Point(18, 12);
+            groupBox1.Location = new Point(70, 24);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(808, 199);
+            groupBox1.Size = new Size(610, 211);
             groupBox1.TabIndex = 84;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Informacion";
+            groupBox1.Text = "Informacion de prenda";
             // 
             // cbxEstado
             // 
             cbxEstado.AutoSize = true;
-            cbxEstado.Location = new Point(327, 123);
+            cbxEstado.Location = new Point(448, 156);
             cbxEstado.Margin = new Padding(3, 2, 3, 2);
             cbxEstado.Name = "cbxEstado";
             cbxEstado.Size = new Size(67, 21);
@@ -142,15 +135,15 @@
             // 
             // txtPrecioCompra
             // 
-            txtPrecioCompra.Location = new Point(542, 149);
+            txtPrecioCompra.Location = new Point(147, 168);
             txtPrecioCompra.Name = "txtPrecioCompra";
-            txtPrecioCompra.Size = new Size(174, 22);
+            txtPrecioCompra.Size = new Size(184, 22);
             txtPrecioCompra.TabIndex = 76;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(421, 152);
+            label6.Location = new Point(26, 171);
             label6.Name = "label6";
             label6.Size = new Size(115, 17);
             label6.TabIndex = 86;
@@ -158,23 +151,23 @@
             // 
             // txtDescripcion
             // 
-            txtDescripcion.Location = new Point(542, 35);
+            txtDescripcion.Location = new Point(109, 32);
             txtDescripcion.Multiline = true;
             txtDescripcion.Name = "txtDescripcion";
-            txtDescripcion.Size = new Size(233, 78);
+            txtDescripcion.Size = new Size(250, 25);
             txtDescripcion.TabIndex = 77;
             // 
             // txtPrevioVenta
             // 
-            txtPrevioVenta.Location = new Point(542, 120);
+            txtPrevioVenta.Location = new Point(147, 139);
             txtPrevioVenta.Name = "txtPrevioVenta";
-            txtPrevioVenta.Size = new Size(174, 22);
+            txtPrevioVenta.Size = new Size(184, 22);
             txtPrevioVenta.TabIndex = 84;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(457, 38);
+            label4.Location = new Point(24, 35);
             label4.Name = "label4";
             label4.Size = new Size(79, 17);
             label4.TabIndex = 76;
@@ -183,7 +176,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(432, 123);
+            label8.Location = new Point(37, 142);
             label8.Name = "label8";
             label8.Size = new Size(104, 17);
             label8.TabIndex = 82;
@@ -191,9 +184,9 @@
             // 
             // txtStock
             // 
-            txtStock.Location = new Point(85, 146);
+            txtStock.Location = new Point(423, 75);
             txtStock.Name = "txtStock";
-            txtStock.Size = new Size(216, 22);
+            txtStock.Size = new Size(143, 22);
             txtStock.TabIndex = 81;
             // 
             // button2
@@ -202,9 +195,9 @@
             button2.FlatAppearance.BorderSize = 0;
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.Location = new Point(325, 67);
+            button2.Location = new Point(365, 29);
             button2.Name = "button2";
-            button2.Size = new Size(77, 36);
+            button2.Size = new Size(68, 28);
             button2.TabIndex = 66;
             button2.Text = "Buscar";
             button2.UseVisualStyleBackColor = false;
@@ -213,7 +206,7 @@
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(44, 121);
+            label13.Location = new Point(400, 116);
             label13.Name = "label13";
             label13.Size = new Size(35, 17);
             label13.TabIndex = 73;
@@ -222,7 +215,7 @@
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(37, 149);
+            label16.Location = new Point(375, 81);
             label16.Name = "label16";
             label16.Size = new Size(42, 17);
             label16.TabIndex = 80;
@@ -232,16 +225,16 @@
             // 
             comboBox3.FormattingEnabled = true;
             comboBox3.Items.AddRange(new object[] { "12", "14", "16", "S", "M", "L", "XL" });
-            comboBox3.Location = new Point(85, 118);
+            comboBox3.Location = new Point(456, 113);
             comboBox3.Margin = new Padding(3, 2, 3, 2);
             comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(216, 25);
+            comboBox3.Size = new Size(59, 25);
             comboBox3.TabIndex = 72;
             // 
             // comboBox2
             // 
             comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(85, 64);
+            comboBox2.Location = new Point(115, 64);
             comboBox2.Margin = new Padding(3, 2, 3, 2);
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(216, 25);
@@ -250,7 +243,7 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(85, 91);
+            comboBox1.Location = new Point(115, 99);
             comboBox1.Margin = new Padding(3, 2, 3, 2);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(216, 25);
@@ -259,7 +252,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(24, 94);
+            label12.Location = new Point(48, 102);
             label12.Name = "label12";
             label12.Size = new Size(55, 17);
             label12.TabIndex = 69;
@@ -268,43 +261,20 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(10, 67);
+            label11.Location = new Point(34, 67);
             label11.Name = "label11";
             label11.Size = new Size(69, 17);
             label11.TabIndex = 68;
             label11.Text = "Categoria";
             // 
-            // textBox8
-            // 
-            textBox8.Location = new Point(349, 36);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(53, 22);
-            textBox8.TabIndex = 65;
-            // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(325, 40);
+            label9.Location = new Point(738, 233);
             label9.Name = "label9";
-            label9.Size = new Size(20, 17);
+            label9.Size = new Size(18, 15);
             label9.TabIndex = 64;
             label9.Text = "ID";
-            // 
-            // txtPrenda
-            // 
-            txtPrenda.Location = new Point(85, 36);
-            txtPrenda.Name = "txtPrenda";
-            txtPrenda.Size = new Size(216, 22);
-            txtPrenda.TabIndex = 50;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(29, 39);
-            label1.Name = "label1";
-            label1.Size = new Size(50, 17);
-            label1.TabIndex = 39;
-            label1.Text = "Prenda";
             // 
             // button3
             // 
@@ -312,9 +282,9 @@
             button3.FlatAppearance.BorderSize = 0;
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            button3.Location = new Point(721, 305);
+            button3.Location = new Point(706, 12);
             button3.Name = "button3";
-            button3.Size = new Size(105, 42);
+            button3.Size = new Size(94, 41);
             button3.TabIndex = 83;
             button3.Text = "Nuevo";
             button3.UseVisualStyleBackColor = false;
@@ -326,9 +296,9 @@
             BtnRemovPro.FlatAppearance.BorderSize = 0;
             BtnRemovPro.FlatStyle = FlatStyle.Flat;
             BtnRemovPro.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            BtnRemovPro.Location = new Point(721, 497);
+            BtnRemovPro.Location = new Point(706, 205);
             BtnRemovPro.Name = "BtnRemovPro";
-            BtnRemovPro.Size = new Size(105, 43);
+            BtnRemovPro.Size = new Size(94, 42);
             BtnRemovPro.TabIndex = 81;
             BtnRemovPro.Text = "Cancelar";
             BtnRemovPro.UseVisualStyleBackColor = false;
@@ -340,9 +310,9 @@
             btnEditPro.FlatAppearance.BorderSize = 0;
             btnEditPro.FlatStyle = FlatStyle.Flat;
             btnEditPro.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnEditPro.Location = new Point(721, 399);
+            btnEditPro.Location = new Point(706, 107);
             btnEditPro.Name = "btnEditPro";
-            btnEditPro.Size = new Size(105, 43);
+            btnEditPro.Size = new Size(94, 42);
             btnEditPro.TabIndex = 80;
             btnEditPro.Text = "Modificar";
             btnEditPro.UseVisualStyleBackColor = false;
@@ -361,6 +331,7 @@
             Controls.Add(button3);
             Controls.Add(BtnRemovPro);
             Controls.Add(btnEditPro);
+            Controls.Add(label9);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
             Name = "Prendas1";
@@ -370,6 +341,7 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -394,10 +366,7 @@
         private Label label12;
         private Label label11;
         private Button button2;
-        private TextBox textBox8;
         private Label label9;
-        private TextBox txtPrenda;
-        private Label label1;
         private Button button3;
         private Button BtnRemovPro;
         private Button btnEditPro;

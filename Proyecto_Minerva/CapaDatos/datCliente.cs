@@ -140,6 +140,39 @@ namespace CapaDatos
             return cli;
         }
 
+        public string BuscarDocCliente(int documento)
+        {
+            SqlCommand cmd = null;
+            string nombreCompleto = null;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("BuscarDocCliente", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Documento", documento);
+
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    nombreCompleto = dr["NombreCompleto"].ToString();
+                }
+            }
+            catch (Exception e)
+            {
+                // Puedes manejar el error de manera más específica o registrar el error
+                throw e;
+            }
+            finally
+            {
+                if (cmd.Connection != null)
+                {
+                    cmd.Connection.Close();
+                }
+            }
+            return nombreCompleto;
+        }
         public void ModificarCliente(entCliente cliente)
         {
             SqlCommand cmd = null;

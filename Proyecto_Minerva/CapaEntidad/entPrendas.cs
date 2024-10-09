@@ -9,7 +9,7 @@ namespace CapaEntidad
     public class entPrendas
     {
         public int PrendaID { get; set; }
-        public string Prenda { get; set; }
+        //public string Prenda { get; set; }
         public string Descripcion { get; set; }
         public string Categoria { get; set; } // Nueva propiedad
         public string Talla { get; set; } // Nueva propiedad

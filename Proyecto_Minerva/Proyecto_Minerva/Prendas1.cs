@@ -88,7 +88,6 @@ namespace CapaPresentacion
                 // Crea una nueva prenda con los datos capturados
                 entPrendas prenda = new entPrendas
                 {
-                    Prenda = txtPrenda.Text.Trim(),
                     Descripcion = txtDescripcion.Text.Trim(),
                     Categoria = categoria,
                     Colegio = colegio,
@@ -113,7 +112,6 @@ namespace CapaPresentacion
 
         private void LimpiarCampos()
         {
-            txtPrenda.Clear();
             txtDescripcion.Clear();
             txtPrecioCompra.Clear();
             txtPrevioVenta.Clear();
@@ -136,7 +134,6 @@ namespace CapaPresentacion
                 }
 
                 // Captura los datos de los ComboBox y TextBox
-                string prenda = txtPrenda.Text;
                 string descripcion = txtDescripcion.Text;
                 string categoria = comboBox2.SelectedItem.ToString();
                 string talla = comboBox3.SelectedItem.ToString();
@@ -164,7 +161,6 @@ namespace CapaPresentacion
                 entPrendas prendaActualizada = new entPrendas
                 {
                     PrendaID = int.Parse(dataGridView1.SelectedRows[0].Cells["PrendaID"].Value.ToString()),
-                    Prenda = prenda,
                     Descripcion = descripcion,
                     Categoria = categoria,
                     Talla = talla,
@@ -195,7 +191,6 @@ namespace CapaPresentacion
         }
         private void LimpiarCamposPrenda()
         {
-            txtPrenda.Clear();
             txtDescripcion.Clear();
             txtPrecioCompra.Clear();
             txtPrevioVenta.Clear();
@@ -208,7 +203,6 @@ namespace CapaPresentacion
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 var selectedRow = dataGridView1.SelectedRows[0];
-                txtPrenda.Text = selectedRow.Cells["Prenda"].Value.ToString();
                 txtDescripcion.Text = selectedRow.Cells["Descripcion"].Value.ToString();
                 txtPrecioCompra.Text = selectedRow.Cells["PrecioCompra"].Value.ToString();
                 txtPrevioVenta.Text = selectedRow.Cells["PrecioVenta"].Value.ToString();
@@ -226,24 +220,21 @@ namespace CapaPresentacion
         {
             try
             {
-                int prendaID;
+                string descripcion = txtDescripcion.Text.Trim(); // Obtener la descripción desde el TextBox
 
-                // Verifica que el PrendaID es un número válido
-                if (!int.TryParse(textBox8.Text, out prendaID))
+                // Verifica que la descripción no esté vacía
+                if (string.IsNullOrEmpty(descripcion))
                 {
-                    MessageBox.Show("Por favor, ingresa un ID válido.");
+                    MessageBox.Show("Por favor, ingresa una descripción válida.");
                     return;
                 }
 
-                // Llama a la capa lógica para buscar la prenda
-                entPrendas prendaEncontrada = logPrendas.Instancia.BuscarPrendaPorID(prendaID);
+                // Llama a la capa lógica para buscar la prenda por descripción
+                entPrendas prendaEncontrada = logPrendas.Instancia.BuscarPrendaPorDescripcion(descripcion);
 
                 if (prendaEncontrada != null)
                 {
                     // Muestra los datos de la prenda encontrada en los campos correspondientes
-                    txtPrenda.Text = prendaEncontrada.Prenda;
-
-                    txtDescripcion.Text = prendaEncontrada.Descripcion;
                     txtPrecioCompra.Text = prendaEncontrada.PrecioCompra.ToString();
                     txtPrevioVenta.Text = prendaEncontrada.PrecioVenta.ToString();
                     txtStock.Text = prendaEncontrada.Stock.ToString();

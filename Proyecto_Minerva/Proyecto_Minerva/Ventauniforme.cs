@@ -19,7 +19,8 @@ namespace Proyecto_Minerva
         public Ventauniforme()
         {
             InitializeComponent();
-            ListarVentas();
+            //ListarVentas();
+
         }
 
         private void Ventauniforme_Load(object sender, EventArgs e)
@@ -49,8 +50,8 @@ namespace Proyecto_Minerva
 
         private void btn_buscarPrenVen_Click(object sender, EventArgs e)
         {
-            int prendaID;
-            if (!int.TryParse(textBox4.Text, out prendaID))
+            string descripcion = textBox10.Text.Trim();
+            if (string.IsNullOrWhiteSpace(descripcion))
             {
                 MessageBox.Show("Por favor, ingresa un número válido en el campo ID de la Prenda.");
                 return;
@@ -58,10 +59,9 @@ namespace Proyecto_Minerva
 
             try
             {
-                entPrendas prenda = logPrendas.Instancia.BuscarPrendaPorID(prendaID);
+                entPrendas prenda = logPrendas.Instancia.BuscarPrendaPorDescripcion(descripcion);
                 if (prenda != null)
                 {
-                    textBox10.Text = prenda.Prenda;
                     textBox3.Text = prenda.PrecioVenta.ToString("F2");
                     textBox5.Text = prenda.Stock.ToString();
                     textBox2.Text = prenda.Talla;
@@ -207,28 +207,106 @@ namespace Proyecto_Minerva
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            int clienteID;
-            if (!int.TryParse(textBox7.Text, out clienteID))
+            int metpago;
+            if (int.TryParse(textBox9.Text, out metpago))
             {
-                MessageBox.Show("Por favor, ingresa un número válido en el campo ID del Cliente.");
-                return;
-            }
-
-            try
-            {
-                entCliente cliente = logCliente.Instancia.BuscarClientePorID(clienteID);
-                if (cliente != null)
+                logMetPago logicalMetpago = new logMetPago();
+                try
                 {
-                    textBox1.Text = cliente.Nombre;
+                    // Llama a la función que devuelve el objeto EntMetPago
+                    EntMetPago metpag = logicalMetpago.BuscarMetodoPagoPorID(metpago);
+
+                    if (metpag != null)
+                    {
+                        textBox8.Text = metpag.metodopago;
+                    }
+                    else
+                    {
+                        // Si no se encuentra el método de pago
+                        MessageBox.Show("Método de pago no encontrado.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Método de pago no encontrado.");
+                    textBox8.Clear(); // Limpia textBox8 si no se encuentra
+                }
+            }
+            else
+            {
+                // Mensaje si la conversión de texto a entero falla
+                MessageBox.Show("Por favor, ingrese un ID de método de pago válido.");
+            }
+        }
+
+        private void btnBuscarDni_Click(object sender, EventArgs e)
+        {
+            int documento;
+            if (int.TryParse(textBox7.Text, out documento))
+            {
+                logCliente logicaCliente = new logCliente();
+                string nombreCompleto = logicaCliente.BuscarNombreCompletoPorDocumento(documento);
+
+                if (!string.IsNullOrEmpty(nombreCompleto))
+                {
+                    textBox1.Text = $"{nombreCompleto}";
                 }
                 else
                 {
-                    MessageBox.Show("Cliente no encontrado.");
+                    DialogResult result = MessageBox.Show("Cliente no encontrado. ¿Desea registrar un nuevo cliente?",
+    "Cliente no encontrado", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        // Obtener referencia al formulario principal
+                        Form Principal = this.ParentForm;
+
+                        // Obtener referencia al panel contenedor
+                        Panel panelContainer = (Panel)Principal.Controls["panelconteiner"];
+
+                        // Limpiar el panel contenedor
+                        panelContainer.Controls.Clear();
+
+                        // Crear nueva instancia del formulario de registro
+                        Registrocliente formRegistro = new Registrocliente();
+                        formRegistro.TopLevel = false;
+                        formRegistro.FormBorderStyle = FormBorderStyle.None;
+                        formRegistro.Dock = DockStyle.Fill;
+
+                        // Agregar el formulario al panel
+                        panelContainer.Controls.Add(formRegistro);
+                        formRegistro.Show();
+                    }
+
                 }
             }
-            catch (Exception ex)
+        }
+
+        private void iconButton2_Click(object sender, EventArgs e)
+        {
+            string descripcion = textBox10.Text.Trim(); // Obtener la descripción desde el TextBox
+
+            // Verifica que la descripción no esté vacía
+            if (string.IsNullOrEmpty(descripcion))
             {
-                MessageBox.Show($"Ocurrió un error: {ex.Message}");
+                MessageBox.Show("Por favor, ingresa una descripción válida.");
+                return;
+            }
+            entPrendas prendaEncontrada = logPrendas.Instancia.BuscarPrendaPorDescripcion(descripcion);
+
+            if (prendaEncontrada != null)
+            {
+                // Muestra los datos de la prenda encontrada en los campos correspondientes
+                textBox3.Text = prendaEncontrada.PrecioVenta.ToString();
+                textBox5.Text = prendaEncontrada.Stock.ToString();
+
+                textBox12.Text = prendaEncontrada.Categoria;
+                textBox11.Text = prendaEncontrada.Colegio;
+                textBox2.Text = prendaEncontrada.Talla;
+            }
+            else
+            {
+                MessageBox.Show("Prenda no encontrada.");
             }
         }
     }

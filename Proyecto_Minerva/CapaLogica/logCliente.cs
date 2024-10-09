@@ -33,7 +33,10 @@ namespace CapaLogica
         {
             datCliente.Instancia.ModificarCliente(cliente);
         }
-
+        public string BuscarNombreCompletoPorDocumento(int documento)
+        {
+            return datCliente.Instancia.BuscarDocCliente(documento);
+        }
         public entCliente BuscarClientePorID(int id)
         {
             return datCliente.Instancia.BuscarClientePorID(id);
