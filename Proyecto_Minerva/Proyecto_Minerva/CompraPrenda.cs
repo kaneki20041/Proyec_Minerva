@@ -1,6 +1,7 @@
 ﻿using CapaDatos;
 using CapaEntidad;
 using CapaLogica;
+using CapaPresentacion;
 
 namespace Proyecto_Minerva
 {
@@ -12,107 +13,48 @@ namespace Proyecto_Minerva
         {
             InitializeComponent();
             dCom = new entDetCompra();
+
+            cbMetodoPago.DropDownStyle = ComboBoxStyle.DropDownList;
+            listarMetodoPago();
+
         }
 
         private void BuscProveedor_Click(object sender, EventArgs e)
         {
-            string ruc = txtRUC.Text.Trim();
-            string nombre = txtNombreRUC.Text.Trim();
-
-            // Verifica si ambos campos están vacíos
-            if (string.IsNullOrWhiteSpace(ruc) && string.IsNullOrWhiteSpace(nombre))
+            using (ReporteProveedor formRepProve = new ReporteProveedor())
             {
-                MessageBox.Show("Por favor, ingresa un RUC o un nombre válido.");
-                return;
-            }
-
-            try
-            {
-                entProveedor proveedor = null;
-
-                // Busca por RUC si se ingresó
-                if (!string.IsNullOrWhiteSpace(ruc))
+                if (formRepProve.ShowDialog() == DialogResult.OK)
                 {
-                    proveedor = logProveedor.Instancia.BuscarProveedorPorRUC(ruc);
-                }
-                // Busca por nombre si se ingresó
-                //else if (!string.IsNullOrWhiteSpace(nombre))
-                //{
-                //    proveedor = logProveedor.Instancia.BuscarProveedorPorNombre(nombre);
-                //}
-
-                // Verifica si se encontró al proveedor
-                if (proveedor != null)
-                {
-                    //txtNombreRUC.Text = proveedor.NomPro.ToString();
-                    txtRUC.Text = proveedor.RUC.ToString();
-                    txtRazonRUC.Text = proveedor.RazonSocial;
-                }
-                else
-                {
-                    MessageBox.Show("Proveedor no encontrado.");
+                    txtNombreRUC.Text = formRepProve.nombreComercial;
+                    txtRazonRUC.Text = formRepProve.razonSocial;
+                    txtRUC.Text = formRepProve.ruc;
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ocurrió un error: {ex.Message}");
-            }
+        }
+        public void listarMetodoPago()
+        {
+            cbMetodoPago.DataSource = logMetPago.Instancia.ListarMetPago();
+            cbMetodoPago.DisplayMember = "metodopago";
+            cbMetodoPago.ValueMember = "MetPagoid";
         }
 
         private void BuscarMetPago_Click(object sender, EventArgs e)
         {
-            try
-            {
-                int metPagoID = int.Parse(textBox3.Text.Trim());
-                EntMetPago metodoPago = logMetPago.Instancia.BuscarMetodoPagoPorID(metPagoID);
-
-                if (metodoPago != null)
-                {
-                    textBox9.Text = metodoPago.metodopago;
-                }
-                else
-                {
-                    MessageBox.Show("Método de pago no encontrado.");
-                }
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Por favor, ingresa un ID válido.");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
         }
 
         private void btn_buscarPrenVen_Click(object sender, EventArgs e)
         {
-            string descripcion = textBox14.Text.Trim();
-            if (string.IsNullOrWhiteSpace(descripcion))
+            using (ReportePrendas formRepPrenda = new ReportePrendas())
             {
-                MessageBox.Show("Por favor, ingresa un número válido en el campo ID de la Prenda.");
-                return;
-            }
-
-            try
-            {
-                entPrendas prenda = logPrendas.Instancia.BuscarPrendaPorDescripcion(descripcion);
-                if (prenda != null)
+                if (formRepPrenda.ShowDialog() == DialogResult.OK)
                 {
-                    textBox12.Text = prenda.PrecioCompra.ToString("F2");
-                    textBox4.Text = prenda.Colegio;
-                    textBox11.Text = prenda.Stock.ToString();
-                    textBox13.Text = prenda.Talla;
-                    textBox1.Text = prenda.Categoria;
+                    txtNombrePrenda.Text = formRepPrenda.descripcion;
+                    txtTalla.Text = formRepPrenda.talla;
+                    txtColegio.Text = formRepPrenda.colegio;
+                    txtCategoria.Text = formRepPrenda.categoria;
+                    txtPrecioCompra.Text = formRepPrenda.precioCompra;
+                    txtStock.Text = formRepPrenda.stock;
                 }
-                else
-                {
-                    MessageBox.Show("Prenda no encontrada.");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ocurrió un error: {ex.Message}");
             }
         }
 
@@ -126,19 +68,19 @@ namespace Proyecto_Minerva
 
             if ((this.txtRUC.Text.Trim() != "") && (txtCantidad.Text.Trim() != ""))
             {
-                if ((Convert.ToInt32(txtCantidad.Text) > 0) && (Convert.ToInt32(txtCantidad.Text) <= Convert.ToInt32(textBox11.Text)))
+                if ((Convert.ToInt32(txtCantidad.Text) > 0) && (Convert.ToInt32(txtCantidad.Text) <= Convert.ToInt32(txtStock.Text)))
                 {
                     if (confilas == 0)
                     {
 
-                        tablaCompras.Rows.Add(textBox14.Text, textBox1.Text, textBox4.Text, textBox13.Text, txtCantidad.Text, textBox12.Text);
+                        tablaCompras.Rows.Add(txtNombrePrenda.Text, txtCategoria.Text, txtColegio.Text, txtTalla.Text, txtCantidad.Text, txtPrecioCompra.Text);
                         decimal subTotal = Convert.ToDecimal(tablaCompras.Rows[confilas].Cells[4].Value) * Convert.ToDecimal(tablaCompras.Rows[confilas].Cells[5].Value);
                         tablaCompras.Rows[confilas].Cells[6].Value = subTotal;
                         confilas++;
                     }
                     else
                     {
-                        tablaCompras.Rows.Add(textBox14.Text, textBox1.Text, textBox4.Text, textBox13.Text, txtCantidad.Text, textBox12.Text);
+                        tablaCompras.Rows.Add(txtNombrePrenda.Text, txtCategoria.Text, txtColegio.Text, txtTalla.Text, txtCantidad.Text, txtPrecioCompra.Text);
                         decimal subTotal = Convert.ToDecimal(tablaCompras.Rows[confilas].Cells[4].Value) * Convert.ToDecimal(tablaCompras.Rows[confilas].Cells[5].Value);
                         tablaCompras.Rows[confilas].Cells[6].Value = subTotal;
                         confilas++;
@@ -174,7 +116,7 @@ namespace Proyecto_Minerva
             {
                 // Validar campos requeridos antes de proceder
                 if (string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(txtRUC.Text) ||
-                    string.IsNullOrEmpty(textBox3.Text) || string.IsNullOrEmpty(txtUsuarioID.Text))
+                    string.IsNullOrEmpty(cbMetodoPago.Text) || string.IsNullOrEmpty(txtUsuarioID.Text))
                 {
                     MessageBox.Show("Todos los campos son requeridos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
@@ -199,7 +141,7 @@ namespace Proyecto_Minerva
                     Com.Monto = Convert.ToDecimal(textBox2.Text);
                     p.RUC = txtRUC.Text;
                     p.RazonSocial = txtRazonRUC.Text;
-                    met.MetPagoid = int.Parse(textBox3.Text);
+                    met.MetPagoid = Convert.ToInt32(cbMetodoPago.SelectedValue);
                     u.UsuarioID = int.Parse(txtUsuarioID.Text);
                 }
                 catch (FormatException)

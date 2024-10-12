@@ -32,41 +32,37 @@
             label5 = new Label();
             label6 = new Label();
             label7 = new Label();
-            label8 = new Label();
             textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            BuscarMetPago = new Button();
             txtRUC = new TextBox();
             txtRazonRUC = new TextBox();
-            groupBox3 = new GroupBox();
-            textBox4 = new TextBox();
+            gbInfoPrenda = new GroupBox();
+            txtColegio = new TextBox();
             txtCantidad = new TextBox();
             label9 = new Label();
-            textBox1 = new TextBox();
+            txtCategoria = new TextBox();
             label4 = new Label();
             label12 = new Label();
             label14 = new Label();
-            textBox11 = new TextBox();
-            textBox12 = new TextBox();
+            txtStock = new TextBox();
+            txtPrecioCompra = new TextBox();
             label15 = new Label();
-            textBox13 = new TextBox();
-            textBox14 = new TextBox();
+            txtTalla = new TextBox();
+            txtNombrePrenda = new TextBox();
             label17 = new Label();
             label18 = new Label();
             btn_buscarPrenVen = new Button();
-            textBox9 = new TextBox();
             label13 = new Label();
             label11 = new Label();
-            groupBox1 = new GroupBox();
+            gbInfoUser = new GroupBox();
             txtUsuarioID = new TextBox();
             dateTimePicker1 = new DateTimePicker();
-            groupBox2 = new GroupBox();
+            gbInfoProveedor = new GroupBox();
             txtNombreRUC = new TextBox();
             label1 = new Label();
             BuscProveedor = new Button();
             AgreCompra = new Button();
-            button4 = new Button();
-            button5 = new Button();
+            btnGrabar = new Button();
+            btnQuitar = new Button();
             tablaCompras = new DataGridView();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
@@ -75,17 +71,20 @@
             Column7 = new DataGridViewTextBoxColumn();
             Column6 = new DataGridViewTextBoxColumn();
             Column8 = new DataGridViewTextBoxColumn();
-            button1 = new Button();
-            groupBox3.SuspendLayout();
-            groupBox1.SuspendLayout();
-            groupBox2.SuspendLayout();
+            btnLimpiar = new Button();
+            cbMetodoPago = new ComboBox();
+            btnNuevo = new Button();
+            btnCancelar = new Button();
+            gbInfoPrenda.SuspendLayout();
+            gbInfoUser.SuspendLayout();
+            gbInfoProveedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tablaCompras).BeginInit();
             SuspendLayout();
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(144, 70);
+            label2.Location = new Point(16, 33);
             label2.Name = "label2";
             label2.Size = new Size(63, 17);
             label2.TabIndex = 1;
@@ -112,49 +111,20 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(162, 38);
+            label7.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Location = new Point(490, 9);
             label7.Name = "label7";
             label7.Size = new Size(45, 17);
             label7.TabIndex = 6;
             label7.Text = "Fecha";
             // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(23, 51);
-            label8.Name = "label8";
-            label8.Size = new Size(20, 17);
-            label8.TabIndex = 7;
-            label8.Text = "ID";
-            // 
             // textBox2
             // 
-            textBox2.Location = new Point(726, 443);
+            textBox2.Location = new Point(734, 455);
             textBox2.Name = "textBox2";
             textBox2.ReadOnly = true;
             textBox2.Size = new Size(98, 23);
             textBox2.TabIndex = 10;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(49, 48);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(38, 22);
-            textBox3.TabIndex = 11;
-            // 
-            // BuscarMetPago
-            // 
-            BuscarMetPago.BackColor = Color.LightCyan;
-            BuscarMetPago.FlatAppearance.BorderSize = 0;
-            BuscarMetPago.FlatStyle = FlatStyle.Flat;
-            BuscarMetPago.Font = new Font("Century Gothic", 8.75F, FontStyle.Regular, GraphicsUnit.Point);
-            BuscarMetPago.Location = new Point(25, 76);
-            BuscarMetPago.Name = "BuscarMetPago";
-            BuscarMetPago.Size = new Size(62, 33);
-            BuscarMetPago.TabIndex = 15;
-            BuscarMetPago.Text = "Buscar";
-            BuscarMetPago.UseVisualStyleBackColor = false;
-            BuscarMetPago.Click += BuscarMetPago_Click;
             // 
             // txtRUC
             // 
@@ -172,38 +142,38 @@
             txtRazonRUC.Size = new Size(264, 50);
             txtRazonRUC.TabIndex = 18;
             // 
-            // groupBox3
+            // gbInfoPrenda
             // 
-            groupBox3.Controls.Add(textBox4);
-            groupBox3.Controls.Add(txtCantidad);
-            groupBox3.Controls.Add(label9);
-            groupBox3.Controls.Add(textBox1);
-            groupBox3.Controls.Add(label4);
-            groupBox3.Controls.Add(label12);
-            groupBox3.Controls.Add(label14);
-            groupBox3.Controls.Add(textBox11);
-            groupBox3.Controls.Add(textBox12);
-            groupBox3.Controls.Add(label15);
-            groupBox3.Controls.Add(textBox13);
-            groupBox3.Controls.Add(textBox14);
-            groupBox3.Controls.Add(label17);
-            groupBox3.Controls.Add(label18);
-            groupBox3.Controls.Add(btn_buscarPrenVen);
-            groupBox3.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox3.Location = new Point(13, 177);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(697, 161);
-            groupBox3.TabIndex = 45;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "Informacion de Prenda";
+            gbInfoPrenda.Controls.Add(txtColegio);
+            gbInfoPrenda.Controls.Add(txtCantidad);
+            gbInfoPrenda.Controls.Add(label9);
+            gbInfoPrenda.Controls.Add(txtCategoria);
+            gbInfoPrenda.Controls.Add(label4);
+            gbInfoPrenda.Controls.Add(label12);
+            gbInfoPrenda.Controls.Add(label14);
+            gbInfoPrenda.Controls.Add(txtStock);
+            gbInfoPrenda.Controls.Add(txtPrecioCompra);
+            gbInfoPrenda.Controls.Add(label15);
+            gbInfoPrenda.Controls.Add(txtTalla);
+            gbInfoPrenda.Controls.Add(txtNombrePrenda);
+            gbInfoPrenda.Controls.Add(label17);
+            gbInfoPrenda.Controls.Add(label18);
+            gbInfoPrenda.Controls.Add(btn_buscarPrenVen);
+            gbInfoPrenda.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            gbInfoPrenda.Location = new Point(12, 196);
+            gbInfoPrenda.Name = "gbInfoPrenda";
+            gbInfoPrenda.Size = new Size(697, 161);
+            gbInfoPrenda.TabIndex = 45;
+            gbInfoPrenda.TabStop = false;
+            gbInfoPrenda.Text = "Informacion de Prenda";
             // 
-            // textBox4
+            // txtColegio
             // 
-            textBox4.Location = new Point(110, 89);
-            textBox4.Name = "textBox4";
-            textBox4.ReadOnly = true;
-            textBox4.Size = new Size(166, 22);
-            textBox4.TabIndex = 56;
+            txtColegio.Location = new Point(110, 89);
+            txtColegio.Name = "txtColegio";
+            txtColegio.ReadOnly = true;
+            txtColegio.Size = new Size(166, 22);
+            txtColegio.TabIndex = 56;
             // 
             // txtCantidad
             // 
@@ -221,13 +191,13 @@
             label9.TabIndex = 55;
             label9.Text = "Colegio";
             // 
-            // textBox1
+            // txtCategoria
             // 
-            textBox1.Location = new Point(110, 117);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(166, 22);
-            textBox1.TabIndex = 49;
+            txtCategoria.Location = new Point(110, 117);
+            txtCategoria.Name = "txtCategoria";
+            txtCategoria.ReadOnly = true;
+            txtCategoria.Size = new Size(166, 22);
+            txtCategoria.TabIndex = 49;
             // 
             // label4
             // 
@@ -256,21 +226,21 @@
             label14.TabIndex = 41;
             label14.Text = "Stock";
             // 
-            // textBox11
+            // txtStock
             // 
-            textBox11.Location = new Point(503, 103);
-            textBox11.Name = "textBox11";
-            textBox11.ReadOnly = true;
-            textBox11.Size = new Size(128, 22);
-            textBox11.TabIndex = 40;
+            txtStock.Location = new Point(503, 103);
+            txtStock.Name = "txtStock";
+            txtStock.ReadOnly = true;
+            txtStock.Size = new Size(128, 22);
+            txtStock.TabIndex = 40;
             // 
-            // textBox12
+            // txtPrecioCompra
             // 
-            textBox12.Location = new Point(503, 45);
-            textBox12.Name = "textBox12";
-            textBox12.ReadOnly = true;
-            textBox12.Size = new Size(128, 22);
-            textBox12.TabIndex = 39;
+            txtPrecioCompra.Location = new Point(503, 45);
+            txtPrecioCompra.Name = "txtPrecioCompra";
+            txtPrecioCompra.ReadOnly = true;
+            txtPrecioCompra.Size = new Size(128, 22);
+            txtPrecioCompra.TabIndex = 39;
             // 
             // label15
             // 
@@ -281,21 +251,21 @@
             label15.TabIndex = 38;
             label15.Text = "P.Compra";
             // 
-            // textBox13
+            // txtTalla
             // 
-            textBox13.Location = new Point(110, 61);
-            textBox13.Name = "textBox13";
-            textBox13.ReadOnly = true;
-            textBox13.Size = new Size(166, 22);
-            textBox13.TabIndex = 37;
+            txtTalla.Location = new Point(110, 61);
+            txtTalla.Name = "txtTalla";
+            txtTalla.ReadOnly = true;
+            txtTalla.Size = new Size(166, 22);
+            txtTalla.TabIndex = 37;
             // 
-            // textBox14
+            // txtNombrePrenda
             // 
-            textBox14.Location = new Point(110, 31);
-            textBox14.Multiline = true;
-            textBox14.Name = "textBox14";
-            textBox14.Size = new Size(166, 22);
-            textBox14.TabIndex = 32;
+            txtNombrePrenda.Location = new Point(110, 31);
+            txtNombrePrenda.Multiline = true;
+            txtNombrePrenda.Name = "txtNombrePrenda";
+            txtNombrePrenda.Size = new Size(166, 22);
+            txtNombrePrenda.TabIndex = 32;
             // 
             // label17
             // 
@@ -329,19 +299,11 @@
             btn_buscarPrenVen.UseVisualStyleBackColor = false;
             btn_buscarPrenVen.Click += btn_buscarPrenVen_Click;
             // 
-            // textBox9
-            // 
-            textBox9.Location = new Point(213, 98);
-            textBox9.Multiline = true;
-            textBox9.Name = "textBox9";
-            textBox9.ReadOnly = true;
-            textBox9.Size = new Size(121, 22);
-            textBox9.TabIndex = 50;
-            // 
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(117, 101);
+            label13.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label13.Location = new Point(742, 379);
             label13.Name = "label13";
             label13.Size = new Size(90, 17);
             label13.TabIndex = 49;
@@ -351,34 +313,27 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label11.Location = new Point(750, 420);
+            label11.Location = new Point(758, 435);
             label11.Name = "label11";
             label11.Size = new Size(47, 17);
             label11.TabIndex = 44;
             label11.Text = "Monto";
             // 
-            // groupBox1
+            // gbInfoUser
             // 
-            groupBox1.Controls.Add(txtUsuarioID);
-            groupBox1.Controls.Add(label13);
-            groupBox1.Controls.Add(BuscarMetPago);
-            groupBox1.Controls.Add(textBox3);
-            groupBox1.Controls.Add(dateTimePicker1);
-            groupBox1.Controls.Add(label8);
-            groupBox1.Controls.Add(textBox9);
-            groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox1.Location = new Point(13, 17);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(370, 154);
-            groupBox1.TabIndex = 49;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Informacion de Compra";
+            gbInfoUser.Controls.Add(txtUsuarioID);
+            gbInfoUser.Controls.Add(label2);
+            gbInfoUser.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            gbInfoUser.Location = new Point(26, 89);
+            gbInfoUser.Name = "gbInfoUser";
+            gbInfoUser.Size = new Size(374, 73);
+            gbInfoUser.TabIndex = 49;
+            gbInfoUser.TabStop = false;
+            gbInfoUser.Text = "Informacion de Compra";
             // 
             // txtUsuarioID
             // 
-            txtUsuarioID.Location = new Point(213, 67);
+            txtUsuarioID.Location = new Point(85, 30);
             txtUsuarioID.Name = "txtUsuarioID";
             txtUsuarioID.Size = new Size(121, 22);
             txtUsuarioID.TabIndex = 51;
@@ -386,29 +341,29 @@
             // dateTimePicker1
             // 
             dateTimePicker1.CustomFormat = "dd-MM-yyyy";
-            dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.Location = new Point(213, 35);
+            dateTimePicker1.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dateTimePicker1.Location = new Point(551, 8);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(121, 22);
+            dateTimePicker1.Size = new Size(256, 22);
             dateTimePicker1.TabIndex = 14;
             dateTimePicker1.UseWaitCursor = true;
             // 
-            // groupBox2
+            // gbInfoProveedor
             // 
-            groupBox2.Controls.Add(txtNombreRUC);
-            groupBox2.Controls.Add(label1);
-            groupBox2.Controls.Add(BuscProveedor);
-            groupBox2.Controls.Add(txtRazonRUC);
-            groupBox2.Controls.Add(txtRUC);
-            groupBox2.Controls.Add(label6);
-            groupBox2.Controls.Add(label5);
-            groupBox2.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox2.Location = new Point(444, 17);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(380, 154);
-            groupBox2.TabIndex = 50;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Informacion de Proveedor";
+            gbInfoProveedor.Controls.Add(txtNombreRUC);
+            gbInfoProveedor.Controls.Add(label1);
+            gbInfoProveedor.Controls.Add(BuscProveedor);
+            gbInfoProveedor.Controls.Add(txtRazonRUC);
+            gbInfoProveedor.Controls.Add(txtRUC);
+            gbInfoProveedor.Controls.Add(label6);
+            gbInfoProveedor.Controls.Add(label5);
+            gbInfoProveedor.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            gbInfoProveedor.Location = new Point(427, 36);
+            gbInfoProveedor.Name = "gbInfoProveedor";
+            gbInfoProveedor.Size = new Size(380, 154);
+            gbInfoProveedor.TabIndex = 50;
+            gbInfoProveedor.TabStop = false;
+            gbInfoProveedor.Text = "Informacion de Proveedor";
             // 
             // txtNombreRUC
             // 
@@ -445,7 +400,7 @@
             AgreCompra.FlatAppearance.BorderSize = 0;
             AgreCompra.FlatStyle = FlatStyle.Flat;
             AgreCompra.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            AgreCompra.Location = new Point(726, 194);
+            AgreCompra.Location = new Point(734, 215);
             AgreCompra.Name = "AgreCompra";
             AgreCompra.Size = new Size(98, 40);
             AgreCompra.TabIndex = 51;
@@ -453,33 +408,33 @@
             AgreCompra.UseVisualStyleBackColor = false;
             AgreCompra.Click += AgreCompra_Click;
             // 
-            // button4
+            // btnGrabar
             // 
-            button4.BackColor = Color.LightBlue;
-            button4.FlatAppearance.BorderSize = 0;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            button4.Location = new Point(726, 472);
-            button4.Name = "button4";
-            button4.Size = new Size(98, 35);
-            button4.TabIndex = 52;
-            button4.Text = "Grabar";
-            button4.UseVisualStyleBackColor = false;
-            button4.Click += button4_Click;
+            btnGrabar.BackColor = Color.LightBlue;
+            btnGrabar.FlatAppearance.BorderSize = 0;
+            btnGrabar.FlatStyle = FlatStyle.Flat;
+            btnGrabar.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnGrabar.Location = new Point(734, 494);
+            btnGrabar.Name = "btnGrabar";
+            btnGrabar.Size = new Size(98, 35);
+            btnGrabar.TabIndex = 52;
+            btnGrabar.Text = "Grabar";
+            btnGrabar.UseVisualStyleBackColor = false;
+            btnGrabar.Click += button4_Click;
             // 
-            // button5
+            // btnQuitar
             // 
-            button5.BackColor = Color.LightBlue;
-            button5.FlatAppearance.BorderSize = 0;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            button5.Location = new Point(726, 240);
-            button5.Name = "button5";
-            button5.Size = new Size(98, 39);
-            button5.TabIndex = 53;
-            button5.Text = "Quitar";
-            button5.UseVisualStyleBackColor = false;
-            button5.Click += button5_Click;
+            btnQuitar.BackColor = Color.LightBlue;
+            btnQuitar.FlatAppearance.BorderSize = 0;
+            btnQuitar.FlatStyle = FlatStyle.Flat;
+            btnQuitar.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnQuitar.Location = new Point(734, 261);
+            btnQuitar.Name = "btnQuitar";
+            btnQuitar.Size = new Size(98, 39);
+            btnQuitar.TabIndex = 53;
+            btnQuitar.Text = "Quitar";
+            btnQuitar.UseVisualStyleBackColor = false;
+            btnQuitar.Click += button5_Click;
             // 
             // tablaCompras
             // 
@@ -487,10 +442,10 @@
             tablaCompras.BorderStyle = BorderStyle.None;
             tablaCompras.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             tablaCompras.Columns.AddRange(new DataGridViewColumn[] { Column2, Column3, Column4, Column5, Column7, Column6, Column8 });
-            tablaCompras.Location = new Point(13, 357);
+            tablaCompras.Location = new Point(12, 363);
             tablaCompras.Name = "tablaCompras";
             tablaCompras.RowTemplate.Height = 25;
-            tablaCompras.Size = new Size(697, 204);
+            tablaCompras.Size = new Size(697, 185);
             tablaCompras.TabIndex = 54;
             // 
             // Column2
@@ -528,45 +483,85 @@
             Column8.HeaderText = "Subtotal";
             Column8.Name = "Column8";
             // 
-            // button1
+            // btnLimpiar
             // 
-            button1.BackColor = Color.LightBlue;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(726, 285);
-            button1.Name = "button1";
-            button1.Size = new Size(98, 41);
-            button1.TabIndex = 55;
-            button1.Text = "Limpiar";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            btnLimpiar.BackColor = Color.LightBlue;
+            btnLimpiar.FlatAppearance.BorderSize = 0;
+            btnLimpiar.FlatStyle = FlatStyle.Flat;
+            btnLimpiar.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnLimpiar.Location = new Point(734, 306);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(98, 41);
+            btnLimpiar.TabIndex = 55;
+            btnLimpiar.Text = "Limpiar";
+            btnLimpiar.UseVisualStyleBackColor = false;
+            btnLimpiar.Click += button1_Click;
+            // 
+            // cbMetodoPago
+            // 
+            cbMetodoPago.FormattingEnabled = true;
+            cbMetodoPago.Location = new Point(734, 399);
+            cbMetodoPago.Name = "cbMetodoPago";
+            cbMetodoPago.Size = new Size(98, 23);
+            cbMetodoPago.TabIndex = 52;
+            // 
+            // btnNuevo
+            // 
+            btnNuevo.BackColor = Color.LightBlue;
+            btnNuevo.FlatAppearance.BorderSize = 0;
+            btnNuevo.FlatStyle = FlatStyle.Flat;
+            btnNuevo.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnNuevo.Location = new Point(62, 37);
+            btnNuevo.Name = "btnNuevo";
+            btnNuevo.Size = new Size(138, 31);
+            btnNuevo.TabIndex = 56;
+            btnNuevo.Text = "Nuevo";
+            btnNuevo.UseVisualStyleBackColor = false;
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.BackColor = Color.LightBlue;
+            btnCancelar.FlatAppearance.BorderSize = 0;
+            btnCancelar.FlatStyle = FlatStyle.Flat;
+            btnCancelar.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCancelar.Location = new Point(232, 37);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(138, 31);
+            btnCancelar.TabIndex = 57;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = false;
             // 
             // CompraPrenda
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MintCream;
-            ClientSize = new Size(851, 573);
-            Controls.Add(button1);
+            ClientSize = new Size(868, 565);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnNuevo);
+            Controls.Add(cbMetodoPago);
+            Controls.Add(dateTimePicker1);
+            Controls.Add(label7);
+            Controls.Add(label13);
+            Controls.Add(btnLimpiar);
             Controls.Add(tablaCompras);
-            Controls.Add(button5);
-            Controls.Add(button4);
+            Controls.Add(btnQuitar);
+            Controls.Add(btnGrabar);
             Controls.Add(AgreCompra);
-            Controls.Add(groupBox2);
-            Controls.Add(groupBox1);
-            Controls.Add(groupBox3);
+            Controls.Add(gbInfoProveedor);
+            Controls.Add(gbInfoUser);
+            Controls.Add(gbInfoPrenda);
             Controls.Add(textBox2);
             Controls.Add(label11);
             FormBorderStyle = FormBorderStyle.None;
             Name = "CompraPrenda";
             Text = "Cambio";
-            groupBox3.ResumeLayout(false);
-            groupBox3.PerformLayout();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
+            gbInfoPrenda.ResumeLayout(false);
+            gbInfoPrenda.PerformLayout();
+            gbInfoUser.ResumeLayout(false);
+            gbInfoUser.PerformLayout();
+            gbInfoProveedor.ResumeLayout(false);
+            gbInfoProveedor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)tablaCompras).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -577,38 +572,34 @@
         private Label label5;
         private Label label6;
         private Label label7;
-        private Label label8;
         private TextBox textBox2;
-        private TextBox textBox3;
-        private Button BuscarMetPago;
         private TextBox txtRUC;
         private TextBox txtRazonRUC;
-        private GroupBox groupBox3;
-        private TextBox textBox9;
+        private GroupBox gbInfoPrenda;
         private Label label13;
         private Label label11;
         private Label label12;
         private Label label14;
-        private TextBox textBox11;
-        private TextBox textBox12;
+        private TextBox txtStock;
+        private TextBox txtPrecioCompra;
         private Label label15;
-        private TextBox textBox13;
-        private TextBox textBox14;
+        private TextBox txtTalla;
+        private TextBox txtNombrePrenda;
         private Label label17;
         private Label label18;
         private Button btn_buscarPrenVen;
-        private GroupBox groupBox1;
+        private GroupBox gbInfoUser;
         private DateTimePicker dateTimePicker1;
-        private GroupBox groupBox2;
+        private GroupBox gbInfoProveedor;
         private Button BuscProveedor;
         private Button AgreCompra;
-        private Button button4;
-        private Button button5;
+        private Button btnGrabar;
+        private Button btnQuitar;
         private DataGridView tablaCompras;
-        private TextBox textBox1;
+        private TextBox txtCategoria;
         private Label label4;
         private TextBox txtCantidad;
-        private TextBox textBox4;
+        private TextBox txtColegio;
         private Label label9;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn Descripcion;
@@ -618,7 +609,7 @@
         private DataGridViewTextBoxColumn Cantidad;
         private DataGridViewTextBoxColumn PCompra;
         private DataGridViewTextBoxColumn Subtotal;
-        private Button button1;
+        private Button btnLimpiar;
         private TextBox txtUsuarioID;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
@@ -629,5 +620,8 @@
         private DataGridViewTextBoxColumn Column8;
         private TextBox txtNombreRUC;
         private Label label1;
+        private ComboBox cbMetodoPago;
+        private Button btnNuevo;
+        private Button btnCancelar;
     }
 }
