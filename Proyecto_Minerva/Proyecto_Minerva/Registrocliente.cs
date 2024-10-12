@@ -21,28 +21,11 @@ namespace Proyecto_Minerva
         public Registrocliente()
         {
             InitializeComponent();
-
+            listarCliente();
+            InicializarComboBoxes();
         }
         private void Registrocliente_Load_1(object sender, EventArgs e)
         {
-            txtID.Enabled = false;
-            gboInformacion.Enabled = false;
-            gbContacto.Enabled = false;
-            gboDatosBusqueda.Enabled = false;
-            btnAgregar.Enabled = false;
-            btnCancelar.Enabled = false;
-            btnModificar.Enabled = false;
-            btnInhabilitar.Enabled = false;
-            chkEstado.Enabled = false;
-
-            //Para impedir que dentro de los combo box se pueda escribir
-            cbxDocumento.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbxTipoCliente.DropDownStyle = ComboBoxStyle.DropDownList;
-
-
-
-            listarCliente();
-            InicializarComboBoxes();
         }
 
         private void btnNuevoCliente_Click(object sender, EventArgs e)
@@ -120,16 +103,24 @@ namespace Proyecto_Minerva
                 string direccion = txtDireccion.Text;
                 string email = txtEmail.Text;
                 string celular = txtCel.Text;
+
+                // Valida campos obligatorios
+                if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtApellido.Text) || string.IsNullOrEmpty(direccion))
+                {
+                    MessageBox.Show("Por favor, completa todos los campos obligatorios.");
+                    return;
+                }
+
                 DateTime fRegistro = DateTime.Now;
                 bool estado = chkEstado.Checked;
 
-                // Crea un objeto entCliente
+                // Crea un objeto entCliente con los datos capturados
                 entCliente nuevoCliente = new entCliente
                 {
                     Nombre = txtNombre.Text,
                     Apellidos = txtApellido.Text,
-                    Tipocliente = tipocliente,
-                    TipoDoc = tipoDoc,
+                    Tipocliente = tipocliente, // Asume que la capa lógica obtendrá el ID a partir de esta descripción
+                    TipoDoc = tipoDoc, // Asume que la capa lógica obtendrá el ID a partir de esta descripción
                     Documento = documento,
                     Direccion = direccion,
                     Email = email,
@@ -142,8 +133,8 @@ namespace Proyecto_Minerva
                 logCliente.Instancia.InsertaCliente(nuevoCliente);
 
                 // Muestra un mensaje de éxito
-                MessageBox.Show("Cliente insertado con éxito");
-                listarCliente();
+                MessageBox.Show("Cliente insertado con éxito.");
+                listarCliente(); // Refresca la lista de clientes si corresponde
 
                 // Limpia los campos del formulario
                 LimpiarCampos();
@@ -207,8 +198,8 @@ namespace Proyecto_Minerva
                 entCliente clienteActualizado = new entCliente
                 {
                     ID = int.Parse(dgvCliente.SelectedRows[0].Cells["ID"].Value.ToString()), // Asegúrate de tener una columna ID en el DataGridView
-                    Nombre = txtNombre.Text,
-                    Apellidos = txtApellido.Text,
+                    //Nombre = txtNombre.Text,
+                    //Apellidos = txtApellido.Text,
                     Tipocliente = tipocliente,
                     TipoDoc = tipoDoc,
                     Documento = documento,
@@ -219,7 +210,7 @@ namespace Proyecto_Minerva
                 };
 
                 // Llama a la capa lógica para modificar el cliente
-                logCliente.Instancia.ModificarCliente(clienteActualizado);
+                //logCliente.Instancia.ModificarCliente(clienteActualizado);
 
                 // Muestra un mensaje de éxito
                 MessageBox.Show("Cliente modificado con éxito");
@@ -264,28 +255,28 @@ namespace Proyecto_Minerva
 
             try
             {
-                entCliente cli = logCliente.Instancia.BuscarClientePorID(id);
-                if (cli != null)
-                {
-                    // Llena los campos del formulario con los datos del cliente encontrado
-                    txtNombre.Text = cli.Nombre;
-                    txtApellido.Text = cli.Apellidos;
-                    cbxTipoCliente.SelectedItem = cli.Tipocliente;
-                    cbxDocumento.Text = cli.TipoDoc;
-                    txtDocumento.Text = cli.Documento.ToString();
-                    txtDireccion.Text = cli.Direccion;
-                    txtEmail.Text = cli.Email;
-                    txtCel.Text = cli.Celular;
-                    chkEstado.Checked = cli.Estado;
+                //entCliente cli = logCliente.Instancia.BuscarClientePorID(id);
+                //if (cli != null)
+                //{
+                //    // Llena los campos del formulario con los datos del cliente encontrado
+                //    txtNombre.Text = cli.Nombre;
+                //    txtApellido.Text = cli.Apellidos;
+                //    cbxTipoCliente.SelectedItem = cli.Tipocliente;
+                //    cbxDocumento.Text = cli.TipoDoc;
+                //    txtDocumento.Text = cli.Documento.ToString();
+                //    txtDireccion.Text = cli.Direccion;
+                //    txtEmail.Text = cli.Email;
+                //    txtCel.Text = cli.Celular;
+                //    chkEstado.Checked = cli.Estado;
 
-                    gboInformacion.Enabled = true;
-                    btnAgregar.Visible = false;
-                    btnModificar.Visible = true;
-                }
-                else
-                {
-                    MessageBox.Show("Cliente no encontrado.");
-                }
+                //    gboInformacion.Enabled = true;
+                //    btnAgregar.Visible = false;
+                //    btnModificar.Visible = true;
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Cliente no encontrado.");
+                //}
             }
             catch (Exception ex)
             {

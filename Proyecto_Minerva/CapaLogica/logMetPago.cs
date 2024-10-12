@@ -40,6 +40,10 @@ namespace CapaLogica
         {
             return datMetPago.Instancia.BuscarMetodoPagoPorID(metPagoID);
         }
+        public List<string> ObtenerMetodosPago()
+        {
+            return datMetPago.Instancia.ObtenerMetodosPago();
+        }
         public void EditaMetPago(EntMetPago Met)
         {
             datMetPago.Instancia.EditarMetPago(Met);

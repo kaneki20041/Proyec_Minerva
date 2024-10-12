@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btn_buscarPrenVen = new Button();
             label2 = new Label();
             label5 = new Label();
             textBox1 = new TextBox();
@@ -36,19 +35,14 @@
             label6 = new Label();
             label7 = new Label();
             textBox7 = new TextBox();
-            textBox4 = new TextBox();
             textBox10 = new TextBox();
             groupBox1 = new GroupBox();
+            textBox4 = new TextBox();
             label4 = new Label();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
-            textBox8 = new TextBox();
-            textBox9 = new TextBox();
             dateTimePicker2 = new DateTimePicker();
-            label8 = new Label();
             btnBuscarDni = new FontAwesome.Sharp.IconButton();
             groupBox2 = new GroupBox();
             label12 = new Label();
-            label1 = new Label();
             textBox2 = new TextBox();
             label3 = new Label();
             textBox3 = new TextBox();
@@ -56,16 +50,23 @@
             label9 = new Label();
             label10 = new Label();
             groupBox3 = new GroupBox();
+            txtCantidad = new TextBox();
             iconButton2 = new FontAwesome.Sharp.IconButton();
             label15 = new Label();
             textBox12 = new TextBox();
             label14 = new Label();
             textBox11 = new TextBox();
-            domainUpDown1 = new DomainUpDown();
             textBox6 = new TextBox();
             label11 = new Label();
             button2 = new Button();
-            dataGridView1 = new DataGridView();
+            tablaVentas = new DataGridView();
+            Descripcion = new DataGridViewTextBoxColumn();
+            Colegio = new DataGridViewTextBoxColumn();
+            Categoria = new DataGridViewTextBoxColumn();
+            Talla = new DataGridViewTextBoxColumn();
+            Cantidad = new DataGridViewTextBoxColumn();
+            Precio = new DataGridViewTextBoxColumn();
+            SubTotal = new DataGridViewTextBoxColumn();
             button3 = new Button();
             label13 = new Label();
             label16 = new Label();
@@ -74,23 +75,8 @@
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)tablaVentas).BeginInit();
             SuspendLayout();
-            // 
-            // btn_buscarPrenVen
-            // 
-            btn_buscarPrenVen.BackColor = Color.LightCyan;
-            btn_buscarPrenVen.Cursor = Cursors.Hand;
-            btn_buscarPrenVen.FlatAppearance.BorderSize = 0;
-            btn_buscarPrenVen.FlatStyle = FlatStyle.Flat;
-            btn_buscarPrenVen.Font = new Font("Century Gothic", 8.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_buscarPrenVen.Location = new Point(765, 78);
-            btn_buscarPrenVen.Name = "btn_buscarPrenVen";
-            btn_buscarPrenVen.Size = new Size(76, 37);
-            btn_buscarPrenVen.TabIndex = 0;
-            btn_buscarPrenVen.Text = "Buscar";
-            btn_buscarPrenVen.UseVisualStyleBackColor = false;
-            btn_buscarPrenVen.Click += btn_buscarPrenVen_Click;
             // 
             // label2
             // 
@@ -145,7 +131,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(102, 23);
+            label7.Location = new Point(89, 30);
             label7.Name = "label7";
             label7.Size = new Size(45, 17);
             label7.TabIndex = 16;
@@ -159,13 +145,6 @@
             textBox7.Size = new Size(101, 22);
             textBox7.TabIndex = 20;
             // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(791, 44);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(50, 23);
-            textBox4.TabIndex = 22;
-            // 
             // textBox10
             // 
             textBox10.Location = new Point(125, 23);
@@ -175,12 +154,9 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(textBox4);
             groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(iconButton1);
-            groupBox1.Controls.Add(textBox8);
-            groupBox1.Controls.Add(textBox9);
             groupBox1.Controls.Add(dateTimePicker2);
-            groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(label7);
             groupBox1.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox1.Location = new Point(64, 21);
@@ -190,65 +166,31 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Informacion de Venta";
             // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(155, 59);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(131, 22);
+            textBox4.TabIndex = 58;
+            // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(127, 50);
+            label4.Location = new Point(81, 62);
             label4.Name = "label4";
-            label4.Size = new Size(20, 17);
+            label4.Size = new Size(68, 17);
             label4.TabIndex = 54;
-            label4.Text = "ID";
-            // 
-            // iconButton1
-            // 
-            iconButton1.BackColor = Color.PowderBlue;
-            iconButton1.Cursor = Cursors.Hand;
-            iconButton1.FlatStyle = FlatStyle.Popup;
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            iconButton1.IconColor = Color.Black;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.IconSize = 15;
-            iconButton1.Location = new Point(209, 46);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(34, 23);
-            iconButton1.TabIndex = 56;
-            iconButton1.UseVisualStyleBackColor = false;
-            iconButton1.Click += iconButton1_Click;
-            // 
-            // textBox8
-            // 
-            textBox8.Location = new Point(153, 72);
-            textBox8.Multiline = true;
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(131, 22);
-            textBox8.TabIndex = 37;
-            // 
-            // textBox9
-            // 
-            textBox9.Location = new Point(153, 47);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(50, 22);
-            textBox9.TabIndex = 53;
+            label4.Text = "Vendedor";
             // 
             // dateTimePicker2
             // 
             dateTimePicker2.CustomFormat = "dd-MM-yyyy";
             dateTimePicker2.Format = DateTimePickerFormat.Custom;
-            dateTimePicker2.Location = new Point(153, 21);
+            dateTimePicker2.Location = new Point(155, 30);
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.Size = new Size(131, 22);
             dateTimePicker2.TabIndex = 36;
             dateTimePicker2.UseWaitCursor = true;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(60, 77);
-            label8.Name = "label8";
-            label8.Size = new Size(87, 17);
-            label8.TabIndex = 19;
-            label8.Text = "MetodoPago";
             // 
             // btnBuscarDni
             // 
@@ -290,19 +232,11 @@
             label12.TabIndex = 35;
             label12.Text = "Nombre";
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(808, 131);
-            label1.Name = "label1";
-            label1.Size = new Size(18, 15);
-            label1.TabIndex = 36;
-            label1.Text = "ID";
-            // 
             // textBox2
             // 
             textBox2.Location = new Point(154, 115);
             textBox2.Name = "textBox2";
+            textBox2.ReadOnly = true;
             textBox2.Size = new Size(85, 22);
             textBox2.TabIndex = 37;
             // 
@@ -319,6 +253,7 @@
             // 
             textBox3.Location = new Point(426, 71);
             textBox3.Name = "textBox3";
+            textBox3.ReadOnly = true;
             textBox3.Size = new Size(148, 22);
             textBox3.TabIndex = 39;
             // 
@@ -326,6 +261,7 @@
             // 
             textBox5.Location = new Point(426, 103);
             textBox5.Name = "textBox5";
+            textBox5.ReadOnly = true;
             textBox5.Size = new Size(148, 22);
             textBox5.TabIndex = 40;
             // 
@@ -349,12 +285,12 @@
             // 
             // groupBox3
             // 
+            groupBox3.Controls.Add(txtCantidad);
             groupBox3.Controls.Add(iconButton2);
             groupBox3.Controls.Add(label15);
             groupBox3.Controls.Add(textBox12);
             groupBox3.Controls.Add(label14);
             groupBox3.Controls.Add(textBox11);
-            groupBox3.Controls.Add(domainUpDown1);
             groupBox3.Controls.Add(label10);
             groupBox3.Controls.Add(label9);
             groupBox3.Controls.Add(textBox5);
@@ -371,6 +307,13 @@
             groupBox3.TabIndex = 44;
             groupBox3.TabStop = false;
             groupBox3.Text = "Informacion de Prenda";
+            // 
+            // txtCantidad
+            // 
+            txtCantidad.Location = new Point(426, 40);
+            txtCantidad.Name = "txtCantidad";
+            txtCantidad.Size = new Size(148, 22);
+            txtCantidad.TabIndex = 57;
             // 
             // iconButton2
             // 
@@ -402,6 +345,7 @@
             textBox12.Location = new Point(125, 85);
             textBox12.Multiline = true;
             textBox12.Name = "textBox12";
+            textBox12.ReadOnly = true;
             textBox12.Size = new Size(148, 22);
             textBox12.TabIndex = 52;
             // 
@@ -419,25 +363,15 @@
             textBox11.Location = new Point(125, 55);
             textBox11.Multiline = true;
             textBox11.Name = "textBox11";
+            textBox11.ReadOnly = true;
             textBox11.Size = new Size(148, 22);
             textBox11.TabIndex = 38;
-            // 
-            // domainUpDown1
-            // 
-            domainUpDown1.Location = new Point(426, 40);
-            domainUpDown1.Margin = new Padding(3, 2, 3, 2);
-            domainUpDown1.Name = "domainUpDown1";
-            domainUpDown1.Size = new Size(148, 22);
-            domainUpDown1.TabIndex = 47;
-            domainUpDown1.Tag = "";
-            domainUpDown1.Text = "0";
-            domainUpDown1.TextAlign = HorizontalAlignment.Right;
-            domainUpDown1.SelectedItemChanged += domainUpDown1_SelectedItemChanged_1;
             // 
             // textBox6
             // 
             textBox6.Location = new Point(731, 376);
             textBox6.Name = "textBox6";
+            textBox6.ReadOnly = true;
             textBox6.Size = new Size(100, 23);
             textBox6.TabIndex = 48;
             // 
@@ -446,9 +380,9 @@
             label11.AutoSize = true;
             label11.Location = new Point(728, 412);
             label11.Name = "label11";
-            label11.Size = new Size(88, 15);
+            label11.Size = new Size(55, 15);
             label11.TabIndex = 44;
-            label11.Text = "Monto Cambio";
+            label11.Text = "Sub Total";
             // 
             // button2
             // 
@@ -465,17 +399,59 @@
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
-            // dataGridView1
+            // tablaVentas
             // 
-            dataGridView1.BackgroundColor = Color.MintCream;
-            dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(13, 315);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(697, 246);
-            dataGridView1.TabIndex = 47;
+            tablaVentas.BackgroundColor = Color.MintCream;
+            tablaVentas.BorderStyle = BorderStyle.None;
+            tablaVentas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            tablaVentas.Columns.AddRange(new DataGridViewColumn[] { Descripcion, Colegio, Categoria, Talla, Cantidad, Precio, SubTotal });
+            tablaVentas.Location = new Point(13, 315);
+            tablaVentas.Name = "tablaVentas";
+            tablaVentas.RowHeadersWidth = 51;
+            tablaVentas.RowTemplate.Height = 25;
+            tablaVentas.Size = new Size(703, 246);
+            tablaVentas.TabIndex = 47;
+            tablaVentas.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // Descripcion
+            // 
+            Descripcion.HeaderText = "Descripcion";
+            Descripcion.Name = "Descripcion";
+            Descripcion.Width = 150;
+            // 
+            // Colegio
+            // 
+            Colegio.HeaderText = "Colegio";
+            Colegio.Name = "Colegio";
+            // 
+            // Categoria
+            // 
+            Categoria.HeaderText = "Categoria";
+            Categoria.Name = "Categoria";
+            // 
+            // Talla
+            // 
+            Talla.HeaderText = "Talla";
+            Talla.Name = "Talla";
+            Talla.Width = 60;
+            // 
+            // Cantidad
+            // 
+            Cantidad.HeaderText = "Cantidad";
+            Cantidad.Name = "Cantidad";
+            Cantidad.Width = 80;
+            // 
+            // Precio
+            // 
+            Precio.HeaderText = "Precio";
+            Precio.Name = "Precio";
+            Precio.Width = 80;
+            // 
+            // SubTotal
+            // 
+            SubTotal.HeaderText = "SubTotal";
+            SubTotal.Name = "SubTotal";
+            SubTotal.Width = 80;
             // 
             // button3
             // 
@@ -497,18 +473,18 @@
             label13.AutoSize = true;
             label13.Location = new Point(728, 350);
             label13.Name = "label13";
-            label13.Size = new Size(73, 15);
+            label13.Size = new Size(88, 15);
             label13.TabIndex = 49;
-            label13.Text = "Monto Pago";
+            label13.Text = "Monto Cambio";
             // 
             // label16
             // 
             label16.AutoSize = true;
             label16.Location = new Point(730, 289);
             label16.Name = "label16";
-            label16.Size = new Size(71, 15);
+            label16.Size = new Size(73, 15);
             label16.TabIndex = 50;
-            label16.Text = "Monto Total";
+            label16.Text = "Monto Pago";
             // 
             // textBox13
             // 
@@ -521,6 +497,7 @@
             // 
             textBox14.Location = new Point(731, 430);
             textBox14.Name = "textBox14";
+            textBox14.ReadOnly = true;
             textBox14.Size = new Size(100, 23);
             textBox14.TabIndex = 52;
             // 
@@ -533,11 +510,8 @@
             Controls.Add(textBox14);
             Controls.Add(textBox13);
             Controls.Add(button3);
-            Controls.Add(dataGridView1);
+            Controls.Add(tablaVentas);
             Controls.Add(label16);
-            Controls.Add(label1);
-            Controls.Add(btn_buscarPrenVen);
-            Controls.Add(textBox4);
             Controls.Add(button2);
             Controls.Add(groupBox3);
             Controls.Add(label13);
@@ -548,19 +522,19 @@
             Controls.Add(textBox6);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Ventauniforme";
+            Load += Ventauniforme_Load_1;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)tablaVentas).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private Button btn_buscarPrenVen;
         private Label label2;
         private Label label5;
         private TextBox textBox1;
@@ -568,13 +542,11 @@
         private Label label6;
         private Label label7;
         private TextBox textBox7;
-        private TextBox textBox4;
         private TextBox textBox10;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
         private DateTimePicker dateTimePicker2;
         private Label label12;
-        private Label label1;
         private TextBox textBox2;
         private Label label3;
         private TextBox textBox3;
@@ -583,25 +555,29 @@
         private Label label10;
         private GroupBox groupBox3;
         private Label label11;
-        private DomainUpDown domainUpDown1;
         private TextBox textBox6;
         private Button button2;
         private TextBox textBox11;
         private Label label15;
         private TextBox textBox12;
         private Label label14;
-        private DataGridView dataGridView1;
+        private DataGridView tablaVentas;
         private Button button3;
-        private TextBox textBox8;
-        private Label label8;
         private Label label4;
-        private TextBox textBox9;
         private FontAwesome.Sharp.IconButton btnBuscarDni;
-        private FontAwesome.Sharp.IconButton iconButton1;
         private FontAwesome.Sharp.IconButton iconButton2;
         private Label label13;
         private Label label16;
         private TextBox textBox13;
         private TextBox textBox14;
+        private DataGridViewTextBoxColumn Descripcion;
+        private DataGridViewTextBoxColumn Colegio;
+        private DataGridViewTextBoxColumn Categoria;
+        private DataGridViewTextBoxColumn Talla;
+        private DataGridViewTextBoxColumn Cantidad;
+        private DataGridViewTextBoxColumn Precio;
+        private DataGridViewTextBoxColumn SubTotal;
+        private TextBox txtCantidad;
+        private TextBox textBox4;
     }
 }

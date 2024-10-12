@@ -29,18 +29,19 @@ namespace CapaLogica
         {
             datCliente.Instancia.InsertaCliente(cli);
         }
-        public void ModificarCliente(entCliente cliente)
-        {
-            datCliente.Instancia.ModificarCliente(cliente);
-        }
+
+        //public void ModificarCliente(entCliente cliente)
+        //{
+        //    datCliente.Instancia.ModificarCliente(cliente);
+        //}
         public string BuscarNombreCompletoPorDocumento(int documento)
         {
             return datCliente.Instancia.BuscarDocCliente(documento);
         }
-        public entCliente BuscarClientePorID(int id)
-        {
-            return datCliente.Instancia.BuscarClientePorID(id);
-        }
+        //public entCliente BuscarClientePorID(int id)
+        //{
+        //    //return datCliente.Instancia.BuscarClientePorID(id);
+        //}
 
         public List<string> ObtenerTiposClientes()
         {

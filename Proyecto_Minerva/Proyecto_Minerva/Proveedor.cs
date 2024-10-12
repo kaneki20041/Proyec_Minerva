@@ -78,19 +78,19 @@ namespace Proyecto_Minerva
                 }
 
                 string razonSocial = txtRazonSocial.Text.Trim();
+                string distrito=txtDistrito.Text.Trim();
                 string nomPro = txtNombre.Text.Trim();
                 string direccion = txtDireccion.Text.Trim();
                 string email = txtEmail.Text.Trim();
                 bool estado = cbEstado.Checked;
-                string distrito = txtDistrito.Text.Trim();
 
                 // Crea un objeto entProveedor
                 entProveedor nuevoProveedor = new entProveedor
                 {
                     RazonSocial = razonSocial,
                     RUC = ruc,
-                    NomPro = nomPro,
-                    Ciudad = distrito,
+                    Distrito=distrito,
+                    NombreComercial = nomPro,
                     Direccion = direccion,
                     Email = email,
                     Telefono = telefono,
@@ -137,42 +137,41 @@ namespace Proyecto_Minerva
 
         private void btnBuscProov_Click(object sender, EventArgs e)
         {
-            string nombre = txtNombre.Text.Trim();
+            //string nombre = txtNombre.Text.Trim();
 
-            if (string.IsNullOrWhiteSpace(nombre))
-            {
-                MessageBox.Show("Por favor, ingresa un nombre válido.");
-                return;
-            }
+            //if (string.IsNullOrWhiteSpace(nombre))
+            //{
+            //    MessageBox.Show("Por favor, ingresa un nombre válido.");
+            //    return;
+            //}
 
-            try
-            {
-                entProveedor prov = logProveedor.Instancia.BuscarProveedorPorNombre(nombre);
-                if (prov != null)
-                {
-                    txtRazonSocial.Text = prov.RazonSocial;
-                    txtRUC.Text = prov.RUC;
-                    txtNombre.Text = prov.NomPro;
-                    txtDireccion.Text = prov.Direccion;
-                    txtEmail.Text = prov.Email;
-                    txtTelefono.Text = prov.Telefono.ToString();
-                    cbEstado.Checked = prov.Estado;
-                    comboBoxRubro.SelectedItem = prov.Rubro;
+            //try
+            //{
+            //    entProveedor prov = logProveedor.Instancia.BuscarProveedorPorNombre(nombre);
+            //    if (prov != null)
+            //    {
+            //        txtRazonSocial.Text = prov.RazonSocial;
+            //        txtRUC.Text = prov.RUC;
+            //        txtDireccion.Text = prov.Direccion;
+            //        txtEmail.Text = prov.Email;
+            //        txtTelefono.Text = prov.Telefono.ToString();
+            //        cbEstado.Checked = prov.Estado;
+            //        comboBoxRubro.SelectedItem = prov.Rubro;
 
-                    grupBoxDatos.Enabled = true;
-                    grupBoxDatos2.Enabled = true;
-                    btnAgregar.Enabled = false;
-                    btnModificar.Enabled = true;
-                }
-                else
-                {
-                    MessageBox.Show("Proveedor no encontrado.");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ocurrió un error: {ex.Message}");
-            }
+            //        grupBoxDatos.Enabled = true;
+            //        grupBoxDatos2.Enabled = true;
+            //        btnAgregar.Enabled = false;
+            //        btnModificar.Enabled = true;
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Proveedor no encontrado.");
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show($"Ocurrió un error: {ex.Message}");
+            //}
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -222,7 +221,6 @@ namespace Proyecto_Minerva
                 {
                     RazonSocial = razonSocial,
                     RUC = ruc,
-                    NomPro = nomPro,
                     Direccion = direccion,
                     Email = email,
                     Telefono = telefono,
@@ -230,7 +228,7 @@ namespace Proyecto_Minerva
                     Estado = estado
                 };
 
-                logProveedor.Instancia.ModificarProveedor(proveedorActualizado);
+                //logProveedor.Instancia.ModificarProveedor(proveedorActualizado);
                 MessageBox.Show("Proveedor modificado con éxito");
                 LimpiarCampos();
                 listarProveedor();
@@ -306,7 +304,7 @@ namespace Proyecto_Minerva
             {
                 try
                 {
-                    logProveedor.Instancia.InhabilitarProveedor(txtRUC.Text);
+                    //logProveedor.Instancia.InhabilitarProveedor(txtRUC.Text);
                     MessageBox.Show("Proveedor inhabilitado con éxito.");
                     txtRUC.Clear();
                     listarProveedor();

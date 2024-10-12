@@ -365,6 +365,8 @@
             // chkEstado
             // 
             chkEstado.AutoSize = true;
+            chkEstado.Checked = true;
+            chkEstado.CheckState = CheckState.Checked;
             chkEstado.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
             chkEstado.Location = new Point(741, 186);
             chkEstado.Name = "chkEstado";

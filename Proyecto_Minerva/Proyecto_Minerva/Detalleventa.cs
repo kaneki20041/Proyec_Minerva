@@ -17,34 +17,19 @@ namespace Proyecto_Minerva
         public Detalleventa()
         {
             InitializeComponent();
+            ListarVentas();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void ListarVentas()
         {
-            int oventaID;
-            if (!int.TryParse(textBox1.Text, out oventaID))
-            {
-                MessageBox.Show("Por favor, ingresa un número válido en el campo ID de la Venta.");
-                return;
-            }
-
             try
             {
-                List<entDetalleVenta> detalles = logDetalleVenta.Instancia.ListarDetalleVenta(oventaID);
-                if (detalles.Count > 0)
-                {
-                    dgvDetalleventa.DataSource = detalles;
-                }
-                else
-                {
-                    MessageBox.Show("No se encontraron detalles para la venta ingresada.");
-                }
+                List<entOVenta> lista = logOVenta.Instancia.ListarVentas();
+                dgvDetalleventa.DataSource = lista;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ocurrió un error al listar los detalles de la venta: {ex.Message}");
+                MessageBox.Show($"Ocurrió un error al listar las ventas: {ex.Message}");
             }
-            this.dgvDetalleventa.Columns["DetalleVentaID"].Visible = false;
         }
     }
 }

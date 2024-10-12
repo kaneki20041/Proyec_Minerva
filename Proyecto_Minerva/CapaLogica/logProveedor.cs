@@ -36,10 +36,6 @@ namespace CapaLogica
         /// <param name="prov"></param>
         /// 
 
-        public List<string> ObtenerCiudad()
-        {
-            return datProveedor.Instancia.ObtenerCiudad();
-        }
 
         public List<string> ObtenerRubro()
         {
@@ -55,23 +51,23 @@ namespace CapaLogica
         {
             return datProveedor.Instancia.BuscarProveedorPorRUC(ruc);
         }
-        public entProveedor BuscarProveedorPorNombre(string nombre)
-        {
-            return datProveedor.Instancia.BuscarProveedorPorNombre(nombre);
-        }
+        //public entProveedor BuscarProveedorPorNombre(string nombre)
+        //{
+        //    return datProveedor.Instancia.BuscarProveedorPorNombre(nombre);
+        //}
         public entUbigeo BuscarUbigeo(string codigoUbigeo)
         {
             return datProveedor.Instancia.BuscarUbigeo(codigoUbigeo);
         }
 
-        public void ModificarProveedor(entProveedor prov)
-        {
-            datProveedor.Instancia.ModificarProveedor(prov);
-        }
-        public void InhabilitarProveedor(string ruc)
-        {
-            datProveedor.Instancia.InhabilitarProveedor(ruc);
-        }
+        //public void ModificarProveedor(entProveedor prov)
+        //{
+        //    datProveedor.Instancia.ModificarProveedor(prov);
+        //}
+        //public void InhabilitarProveedor(string ruc)
+        //{
+        //    datProveedor.Instancia.InhabilitarProveedor(ruc);
+        //}
 
         #endregion metodos
     }
