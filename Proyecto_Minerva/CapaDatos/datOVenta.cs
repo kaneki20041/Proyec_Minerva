@@ -45,7 +45,6 @@ namespace CapaDatos
                                     Vendedor = dr["Vendedor"].ToString(),
                                     MontoPago = dr["MontoPago"] == DBNull.Value ? (decimal?)null : Convert.ToDecimal(dr["MontoPago"]),
                                     MontoCambio = dr["MontoCambio"] == DBNull.Value ? (decimal?)null : Convert.ToDecimal(dr["MontoCambio"]), // Agregado
-                                    Precioventa = Convert.ToDecimal(dr["PrecioVenta"]),
                                     FRegistroV = Convert.ToDateTime(dr["Fecha"]) // Ajusta este nombre si es diferente
                                 };
 
@@ -74,15 +73,11 @@ namespace CapaDatos
                 cmd = new SqlCommand("spInsertaVenta", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                // Validar que los objetos necesarios no sean nulos
-                if (venta.ClienteID?.ID == null)
-                    throw new ArgumentException("El ID del cliente es requerido");
-                if (venta.UsuarioID?.UsuarioID == null)
-                    throw new ArgumentException("El ID del usuario es requerido");
+         
 
                 // Agregar los parámetros del procedimiento almacenado
-                cmd.Parameters.AddWithValue("@ClienteID", venta.ClienteID.ID);
-                cmd.Parameters.AddWithValue("@UsuarioID", venta.UsuarioID.UsuarioID);
+                cmd.Parameters.AddWithValue("@Documento", venta.Documento);
+                cmd.Parameters.AddWithValue("@NombreCompleto", venta.NombreCompleto); // Cambiar a NombreCompleto
                 cmd.Parameters.AddWithValue("@FechaRegistroV", venta.FRegistroV);
                 cmd.Parameters.AddWithValue("@Monto", venta.MontoTotal);
                 cmd.Parameters.AddWithValue("@MontoPago", (object)venta.MontoPago ?? DBNull.Value);
@@ -133,6 +128,7 @@ namespace CapaDatos
                 cmd?.Dispose();
             }
         }
+
 
 
         public int InsertarDetalleVenta(entDetalleVenta detalleVenta)

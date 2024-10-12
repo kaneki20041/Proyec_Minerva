@@ -13,7 +13,7 @@ using System.Windows.Documents;
 using System.Windows.Forms;
 
 namespace CapaPresentacion
-{
+{ 
     public partial class ReportePrendas : Form
     {
         public string idprenda { get; private set; }
@@ -22,6 +22,7 @@ namespace CapaPresentacion
         public string talla { get; private set; }
         public string colegio { get; private set; }
         public string precioCompra { get; private set; }
+        public string precioVenta { get;private set; }
         public string stock { get; private set; }
         public ReportePrendas()
         {
@@ -57,6 +58,7 @@ namespace CapaPresentacion
             talla = filaActual.Cells[3].Value.ToString();
             colegio = filaActual.Cells[4].Value.ToString();
             precioCompra = filaActual.Cells[5].Value.ToString();
+            precioVenta = filaActual.Cells[6].Value.ToString();
             stock = filaActual.Cells[7].Value.ToString();
 
             DialogResult = DialogResult.OK;

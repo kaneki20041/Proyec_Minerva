@@ -2,6 +2,7 @@
 using CapaDatos;
 using CapaEntidad;
 using CapaLogica;
+using CapaPresentacion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -163,77 +164,99 @@ namespace Proyecto_Minerva
 
         private void iconButton2_Click(object sender, EventArgs e)
         {
-            string descripcion = textBox10.Text.Trim(); // Obtener la descripción desde el TextBox
-
-            // Verifica que la descripción no esté vacía
-            if (string.IsNullOrEmpty(descripcion))
+            using (ReportePrendas formRepPrenda = new ReportePrendas())
             {
-                MessageBox.Show("Por favor, ingresa una descripción válida.");
-                return;
-            }
-            entPrendas prendaEncontrada = logPrendas.Instancia.BuscarPrendaPorDescripcion(descripcion);
-
-            if (prendaEncontrada != null)
-            {
-                // Muestra los datos de la prenda encontrada en los campos correspondientes
-                textBox3.Text = prendaEncontrada.PrecioVenta.ToString("F2");
-                textBox5.Text = prendaEncontrada.Stock.ToString();
-
-                textBox12.Text = prendaEncontrada.Categoria;
-                textBox11.Text = prendaEncontrada.Colegio;
-                textBox2.Text = prendaEncontrada.Talla;
-            }
-            else
-            {
-                MessageBox.Show("Prenda no encontrada.");
+                if (formRepPrenda.ShowDialog() == DialogResult.OK)
+                {
+                    textBox10.Text = formRepPrenda.descripcion;
+                    textBox2.Text = formRepPrenda.talla;
+                    textBox11.Text = formRepPrenda.colegio;
+                    textBox12.Text = formRepPrenda.categoria;
+                    textBox3.Text = formRepPrenda.precioVenta;
+                    textBox5.Text = formRepPrenda.stock;
+                }
             }
         }
         private void button1_Click(object sender, EventArgs e)
+{
+    try
+    {
+        // Validar campos requeridos
+        if (!ValidarCamposRequeridos())
+            return;
+
+        // Crear objeto de venta
+        entOVenta venta = new entOVenta
         {
-            try
+            FRegistroV = dateTimePicker2.Value,
+            MontoTotal = Convert.ToDecimal(textBox14.Text),
+            MontoPago = !string.IsNullOrEmpty(textBox13.Text) ? Convert.ToDecimal(textBox13.Text) : null,
+            MontoCambio = !string.IsNullOrEmpty(textBox6.Text) ? Convert.ToDecimal(textBox6.Text) : null,
+            Documento =textBox7.Text,
+            NombreCompleto =textBox4.Text,
+            NombreCliente = textBox1.Text
+        };
+
+        // Registrar la venta usando TransactionScope
+        using (TransactionScope scope = new TransactionScope())
+        {
+            int idVenta = logOVenta.Instancia.RegistrarVenta(venta);
+
+            if (idVenta <= 0)
             {
-                // Validar campos requeridos
-                if (!ValidarCamposRequeridos())
-                    return;
+                MessageBox.Show("Error al registrar la venta", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-                // Crear objeto de venta
-                entOVenta venta = new entOVenta
+            if (GrabarDetalleVenta(idVenta))
+            {
+                scope.Complete();
+                MessageBox.Show("Venta registrada correctamente", "Éxito",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Preguntar al usuario si desea continuar al pago
+                DialogResult result = MessageBox.Show("¿Deseas continuar al pago?", "Confirmación",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
                 {
-                    FRegistroV = dateTimePicker2.Value,
-                    MontoTotal = Convert.ToDecimal(textBox14.Text),
-                    MontoPago = !string.IsNullOrEmpty(textBox13.Text) ? Convert.ToDecimal(textBox13.Text) : null,
-                    MontoCambio = !string.IsNullOrEmpty(textBox6.Text) ? Convert.ToDecimal(textBox6.Text) : null,
-                    ClienteID = new entCliente { ID = Convert.ToInt32(textBox7.Text) },
-                    UsuarioID = new entUsuario { UsuarioID = Convert.ToInt32(textBox4.Text) },
-                    NombreCliente = textBox1.Text
-                };
+                    // Obtener referencia al formulario principal
+                    Form Principal = this.ParentForm;
 
-                // Registrar la venta usando TransactionScope
-                using (TransactionScope scope = new TransactionScope())
+                    // Obtener referencia al panel contenedor
+                    Panel panelContainer = (Panel)Principal.Controls["panelconteiner"];
+
+                    // Limpiar el panel contenedor
+                    panelContainer.Controls.Clear();
+
+                    // Crear nueva instancia del formulario de registro
+                    Registrocliente formRegistro = new Registrocliente();
+                    formRegistro.TopLevel = false;
+                    formRegistro.FormBorderStyle = FormBorderStyle.None;
+                    formRegistro.Dock = DockStyle.Fill;
+
+                    // Agregar el formulario al panel
+                    panelContainer.Controls.Add(formRegistro);
+                    formRegistro.Show();
+                }
+                else
                 {
-                    int idVenta = logOVenta.Instancia.RegistrarVenta(venta);
-
-                    if (idVenta <= 0)
-                    {
-                        MessageBox.Show("Error al registrar la venta", "Error",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-
-                    if (GrabarDetalleVenta(idVenta))
-                    {
-                        scope.Complete();
-                        MessageBox.Show("Venta registrada correctamente", "Éxito",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                    // Aquí puedes agregar lógica adicional si el usuario elige no continuar
+                    MessageBox.Show("Operación cancelada. No se procederá al pago.", "Cancelado",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al procesar la venta: {ex.Message}",
-                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
+    }
+    catch (Exception ex)
+    {
+        MessageBox.Show($"Error al procesar la venta: {ex.Message}",
+            "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+    }
+}
+
+
 
         private bool GrabarDetalleVenta(int idVenta)
         {
