@@ -41,11 +41,13 @@ namespace CapaDatos
                                 entOVenta venta = new entOVenta
                                 {
                                     OventaID = Convert.ToInt32(dr["O.ventaID"]),
-                                    NombreCliente = dr["NombreCliente"].ToString(),
-                                    Vendedor = dr["Vendedor"].ToString(),
                                     MontoPago = dr["MontoPago"] == DBNull.Value ? (decimal?)null : Convert.ToDecimal(dr["MontoPago"]),
-                                    MontoCambio = dr["MontoCambio"] == DBNull.Value ? (decimal?)null : Convert.ToDecimal(dr["MontoCambio"]), // Agregado
-                                    FRegistroV = Convert.ToDateTime(dr["Fecha"]) // Ajusta este nombre si es diferente
+                                    FRegistroV = Convert.ToDateTime(dr["Fecha"]), // Ajusta este nombre si es diferente
+                                    PrendaID = dr["PrendaID"] == DBNull.Value ? (int?)null : Convert.ToInt32(dr["PrendaID"]), // Agregado
+                                    Descripcion = dr["Prenda"].ToString(), // Agregado
+                                    Cantidad = Convert.ToInt32(dr["Cantidad"]), // Agregado
+                                    PrecioVenta = Convert.ToDecimal(dr["PrecioVenta"]), // Agregado
+                                    MontoTotal = Convert.ToDecimal(dr["MontoTotal"]) // Agregado
                                 };
 
                                 lista.Add(venta);
@@ -60,6 +62,7 @@ namespace CapaDatos
             }
             return lista;
         }
+
 
 
         public int RegistrarVenta(entOVenta venta)

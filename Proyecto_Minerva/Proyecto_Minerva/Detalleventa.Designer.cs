@@ -29,19 +29,16 @@
         private void InitializeComponent()
         {
             dgvDetalleventa = new DataGridView();
-            textBox1 = new TextBox();
             gbIDVenta = new GroupBox();
-            label11 = new Label();
-            textBox10 = new TextBox();
-            textBox5 = new TextBox();
-            label6 = new Label();
-            label5 = new Label();
+            comboBox2 = new ComboBox();
+            comboBox1 = new ComboBox();
             label4 = new Label();
             label2 = new Label();
+            textBox5 = new TextBox();
+            label6 = new Label();
             button3 = new Button();
             label1 = new Label();
             label3 = new Label();
-            dateTimePicker1 = new DateTimePicker();
             dateTimePicker2 = new DateTimePicker();
             textBox2 = new TextBox();
             label7 = new Label();
@@ -52,10 +49,17 @@
             textBox8 = new TextBox();
             textBox9 = new TextBox();
             label10 = new Label();
-            comboBox1 = new ComboBox();
-            comboBox2 = new ComboBox();
+            label5 = new Label();
+            groupBox1 = new GroupBox();
+            iconButton2 = new FontAwesome.Sharp.IconButton();
+            textBox3 = new TextBox();
+            textBox1 = new TextBox();
+            label11 = new Label();
+            textBox4 = new TextBox();
+            label12 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvDetalleventa).BeginInit();
             gbIDVenta.SuspendLayout();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // dgvDetalleventa
@@ -70,96 +74,71 @@
             dgvDetalleventa.Size = new Size(660, 286);
             dgvDetalleventa.TabIndex = 17;
             // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(148, 39);
-            textBox1.Margin = new Padding(3, 2, 3, 2);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(105, 22);
-            textBox1.TabIndex = 19;
-            // 
             // gbIDVenta
             // 
             gbIDVenta.Controls.Add(comboBox2);
             gbIDVenta.Controls.Add(comboBox1);
-            gbIDVenta.Controls.Add(label11);
-            gbIDVenta.Controls.Add(textBox10);
-            gbIDVenta.Controls.Add(textBox5);
-            gbIDVenta.Controls.Add(label6);
-            gbIDVenta.Controls.Add(label5);
             gbIDVenta.Controls.Add(label4);
-            gbIDVenta.Controls.Add(textBox1);
             gbIDVenta.Controls.Add(label2);
             gbIDVenta.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
             gbIDVenta.Location = new Point(10, 71);
             gbIDVenta.Name = "gbIDVenta";
-            gbIDVenta.Size = new Size(809, 170);
+            gbIDVenta.Size = new Size(322, 126);
             gbIDVenta.TabIndex = 21;
             gbIDVenta.TabStop = false;
             gbIDVenta.Text = "INFORMACION PAGO";
             // 
-            // label11
+            // comboBox2
             // 
-            label11.AutoSize = true;
-            label11.Location = new Point(546, 18);
-            label11.Name = "label11";
-            label11.Size = new Size(38, 17);
-            label11.TabIndex = 39;
-            label11.Text = "Nota";
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(134, 73);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(131, 25);
+            comboBox2.TabIndex = 41;
             // 
-            // textBox10
+            // comboBox1
             // 
-            textBox10.Location = new Point(546, 44);
-            textBox10.Multiline = true;
-            textBox10.Name = "textBox10";
-            textBox10.Size = new Size(241, 95);
-            textBox10.TabIndex = 34;
-            // 
-            // textBox5
-            // 
-            textBox5.Location = new Point(390, 44);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(131, 22);
-            textBox5.TabIndex = 33;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(277, 44);
-            label6.Name = "label6";
-            label6.Size = new Size(85, 17);
-            label6.TabIndex = 32;
-            label6.Text = "Tipo moneda";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(27, 43);
-            label5.Name = "label5";
-            label5.Size = new Size(73, 20);
-            label5.TabIndex = 31;
-            label5.Text = "VENTA ID";
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(135, 34);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(121, 25);
+            comboBox1.TabIndex = 40;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(274, 89);
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(49, 77);
             label4.Name = "label4";
-            label4.Size = new Size(93, 19);
+            label4.Size = new Size(79, 15);
             label4.TabIndex = 30;
             label4.Text = "Metodo Pago";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(13, 88);
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(22, 38);
             label2.Name = "label2";
-            label2.Size = new Size(124, 19);
+            label2.Size = new Size(107, 15);
             label2.TabIndex = 23;
             label2.Text = "Tipo Comprobante";
+            // 
+            // textBox5
+            // 
+            textBox5.Location = new Point(98, 31);
+            textBox5.Name = "textBox5";
+            textBox5.Size = new Size(131, 23);
+            textBox5.TabIndex = 33;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(22, 112);
+            label6.Name = "label6";
+            label6.Size = new Size(57, 15);
+            label6.TabIndex = 32;
+            label6.Text = "Direccion";
             // 
             // button3
             // 
@@ -189,25 +168,17 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(504, 35);
+            label3.Location = new Point(548, 15);
             label3.Name = "label3";
             label3.Size = new Size(118, 15);
             label3.TabIndex = 24;
             label3.Text = "Fecha - hora emision";
             // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Format = DateTimePickerFormat.Time;
-            dateTimePicker1.Location = new Point(757, 32);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(82, 23);
-            dateTimePicker1.TabIndex = 25;
-            // 
             // dateTimePicker2
             // 
             dateTimePicker2.CustomFormat = "yy-MM-dd";
             dateTimePicker2.Format = DateTimePickerFormat.Custom;
-            dateTimePicker2.Location = new Point(640, 32);
+            dateTimePicker2.Location = new Point(684, 12);
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.Size = new Size(99, 23);
             dateTimePicker2.TabIndex = 26;
@@ -286,21 +257,87 @@
             label10.TabIndex = 38;
             label10.Text = "SERIE";
             // 
-            // comboBox1
+            // label5
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(147, 85);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 25);
-            comboBox1.TabIndex = 40;
+            label5.AutoSize = true;
+            label5.Location = new Point(22, 70);
+            label5.Name = "label5";
+            label5.Size = new Size(51, 15);
+            label5.TabIndex = 42;
+            label5.Text = "Nombre";
             // 
-            // comboBox2
+            // groupBox1
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(390, 85);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(121, 25);
-            comboBox2.TabIndex = 41;
+            groupBox1.Controls.Add(label12);
+            groupBox1.Controls.Add(textBox4);
+            groupBox1.Controls.Add(iconButton2);
+            groupBox1.Controls.Add(textBox3);
+            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(label5);
+            groupBox1.Controls.Add(label11);
+            groupBox1.Controls.Add(label6);
+            groupBox1.Controls.Add(textBox5);
+            groupBox1.Location = new Point(396, 42);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(401, 155);
+            groupBox1.TabIndex = 39;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "INFO CLIENTE";
+            // 
+            // iconButton2
+            // 
+            iconButton2.BackColor = Color.PowderBlue;
+            iconButton2.Cursor = Cursors.Hand;
+            iconButton2.FlatStyle = FlatStyle.Popup;
+            iconButton2.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            iconButton2.IconColor = Color.Black;
+            iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton2.IconSize = 15;
+            iconButton2.Location = new Point(240, 31);
+            iconButton2.Name = "iconButton2";
+            iconButton2.Size = new Size(34, 23);
+            iconButton2.TabIndex = 57;
+            iconButton2.UseVisualStyleBackColor = false;
+            iconButton2.Click += iconButton2_Click;
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(85, 104);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(131, 23);
+            textBox3.TabIndex = 44;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(85, 67);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(131, 23);
+            textBox1.TabIndex = 43;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(22, 34);
+            label11.Name = "label11";
+            label11.Size = new Size(70, 15);
+            label11.TabIndex = 0;
+            label11.Text = "Documento";
+            // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(287, 67);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(100, 23);
+            textBox4.TabIndex = 58;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(230, 70);
+            label12.Name = "label12";
+            label12.Size = new Size(54, 15);
+            label12.TabIndex = 59;
+            label12.Text = "Tipo Doc";
             // 
             // Detalleventa
             // 
@@ -308,6 +345,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MintCream;
             ClientSize = new Size(851, 573);
+            Controls.Add(groupBox1);
             Controls.Add(label10);
             Controls.Add(textBox9);
             Controls.Add(textBox8);
@@ -318,7 +356,6 @@
             Controls.Add(label7);
             Controls.Add(textBox2);
             Controls.Add(dateTimePicker2);
-            Controls.Add(dateTimePicker1);
             Controls.Add(label3);
             Controls.Add(label1);
             Controls.Add(button3);
@@ -331,23 +368,22 @@
             ((System.ComponentModel.ISupportInitialize)dgvDetalleventa).EndInit();
             gbIDVenta.ResumeLayout(false);
             gbIDVenta.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
         private DataGridView dgvDetalleventa;
-        private TextBox textBox1;
         private GroupBox gbIDVenta;
         private TextBox textBox5;
         private Label label6;
-        private Label label5;
         private Label label4;
         private Label label2;
         private Button button3;
         private Label label1;
         private Label label3;
-        private DateTimePicker dateTimePicker1;
         private DateTimePicker dateTimePicker2;
         private TextBox textBox2;
         private Label label7;
@@ -358,9 +394,15 @@
         private TextBox textBox8;
         private TextBox textBox9;
         private Label label10;
-        private Label label11;
-        private TextBox textBox10;
         private ComboBox comboBox2;
         private ComboBox comboBox1;
+        private Label label5;
+        private GroupBox groupBox1;
+        private TextBox textBox3;
+        private TextBox textBox1;
+        private Label label11;
+        private FontAwesome.Sharp.IconButton iconButton2;
+        private Label label12;
+        private TextBox textBox4;
     }
 }

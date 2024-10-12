@@ -20,6 +20,13 @@ namespace CapaPresentacion
 {
     public class FacturacionApi
     {
+        private readonly string token;
+
+        public FacturacionApi(string token)
+        {
+            this.token = token;
+        }
+
         public dynamic Post(string url, object body)
         {
             string responseContent = string.Empty;
@@ -29,7 +36,7 @@ namespace CapaPresentacion
                 HttpWebRequest myWebRequest = (HttpWebRequest)WebRequest.Create(url);
                 myWebRequest.Method = "POST";
                 myWebRequest.ContentType = "application/json";
-                myWebRequest.UserAgent = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9";
+                myWebRequest.Headers["Authorization"] = $"Bearer {token}";
                 myWebRequest.Credentials = CredentialCache.DefaultCredentials;
                 myWebRequest.Proxy = null;
 
@@ -41,20 +48,30 @@ namespace CapaPresentacion
 
                 using (HttpWebResponse myHttpWebResponse = (HttpWebResponse)myWebRequest.GetResponse())
                 using (Stream myStream = myHttpWebResponse.GetResponseStream())
-                using (StreamReader myStreamReader = new StreamReader(myStream))
                 {
-                    responseContent = myStreamReader.ReadToEnd();
+                    if (myHttpWebResponse.ContentType == "application/pdf")
+                    {
+                        // Guardar el PDF en la carpeta de Documentos del usuario
+                        string pdfPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Factura.pdf");
+                        using (var fileStream = new FileStream(pdfPath, FileMode.Create, FileAccess.Write))
+                        {
+                            myStream.CopyTo(fileStream);
+                        }
+                        return new { pdf_url = pdfPath };
+                    }
+                    else
+                    {
+                        using (StreamReader myStreamReader = new StreamReader(myStream))
+                        {
+                            responseContent = myStreamReader.ReadToEnd();
+                        }
+                        if (string.IsNullOrWhiteSpace(responseContent))
+                        {
+                            throw new Exception("La respuesta del servidor está vacía.");
+                        }
+                        return JsonConvert.DeserializeObject<dynamic>(responseContent);
+                    }
                 }
-
-                if (string.IsNullOrWhiteSpace(responseContent))
-                {
-                    throw new Exception("La respuesta del servidor está vacía.");
-                }
-
-                // Intentar decodificar la respuesta
-                string decodedResponse = DecodeResponse(responseContent);
-
-                return JsonConvert.DeserializeObject<dynamic>(decodedResponse);
             }
             catch (WebException ex)
             {
@@ -65,46 +82,9 @@ namespace CapaPresentacion
                 }
                 throw new Exception($"Error de red: {ex.Message}. Respuesta del servidor: {responseContent}");
             }
-            catch (JsonException ex)
-            {
-                throw new Exception($"Error al deserializar la respuesta JSON: {ex.Message}. Contenido de la respuesta: {responseContent}");
-            }
             catch (Exception ex)
             {
                 throw new Exception($"Error inesperado: {ex.Message}. Contenido de la respuesta: {responseContent}");
-            }
-        }
-
-        private string DecodeResponse(string response)
-        {
-            try
-            {
-                // Primero, intentamos decodificar como JSON
-                return JsonConvert.DeserializeObject<dynamic>(response).ToString();
-            }
-            catch
-            {
-                try
-                {
-                    // Si falla, intentamos decodificar como XML
-                    XmlDocument doc = new XmlDocument();
-                    doc.LoadXml(response);
-                    return JsonConvert.SerializeXmlNode(doc);
-                }
-                catch
-                {
-                    try
-                    {
-                        // Si ambos fallan, intentamos decodificar de base64
-                        byte[] data = Convert.FromBase64String(response);
-                        return Encoding.UTF8.GetString(data);
-                    }
-                    catch
-                    {
-                        // Si todo falla, devolvemos la respuesta original
-                        return response;
-                    }
-                }
             }
         }
     }

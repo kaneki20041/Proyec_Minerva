@@ -38,10 +38,10 @@ namespace CapaLogica
         {
             return datCliente.Instancia.BuscarDocCliente(documento);
         }
-        //public entCliente BuscarClientePorID(int id)
-        //{
-        //    //return datCliente.Instancia.BuscarClientePorID(id);
-        //}
+        public entCliente BuscarClientePorID(string documento)
+        {
+            return datCliente.Instancia.BuscarClientePorID(documento);
+        }
 
         public List<string> ObtenerTiposClientes()
         {

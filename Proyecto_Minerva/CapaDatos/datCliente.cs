@@ -109,48 +109,48 @@ namespace CapaDatos
         }
 
 
-        //public entCliente BuscarClientePorID(int id)
-        //{
-        //    SqlCommand cmd = null;
-        //    entCliente cli = null;
-        //    try
-        //    {
-        //        SqlConnection cn = Conexion.Instancia.Conectar();
-        //        cmd = new SqlCommand("spBuscarClientePorID", cn);
-        //        cmd.CommandType = CommandType.StoredProcedure;
-        //        cmd.Parameters.AddWithValue("@ID", id);
-        //        cn.Open();
-        //        SqlDataReader dr = cmd.ExecuteReader();
-        //        if (dr.Read())
-        //        {
-        //            cli = new entCliente
-        //            {
-        //                ID = Convert.ToInt32(dr["ID"]),
-        //                Nombre = dr["Nombre"].ToString(),
-        //                Apellidos = dr["Apellidos"].ToString(),
-        //                Tipocliente = dr["Tipocliente"].ToString(),
-        //                TipoDoc = dr["TipoDoc"].ToString(),
-        //                Documento = Convert.ToInt32(dr["Documento"]),
-        //                Direccion = dr["Direccion"].ToString(),
-        //                Email = dr["Email"].ToString(),
-        //                Celular = dr["Celular"].ToString(),
-        //                Estado = Convert.ToBoolean(dr["Estado"])
-        //            };
-        //        }
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        throw e;
-        //    }
-        //    finally
-        //    {
-        //        if (cmd.Connection != null)
-        //        {
-        //            cmd.Connection.Close();
-        //        }
-        //    }
-        //    return cli;
-        //}
+        public entCliente BuscarClientePorID(string documento)
+        {
+            SqlCommand cmd = null;
+            entCliente cli = null;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spBuscarClientePorID", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Documento", documento); // Cambia el parámetro a documento
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    cli = new entCliente
+                    {
+                        ID = Convert.ToInt32(dr["ID"]),
+                        Nombre = dr["Nombre"].ToString(),
+                        Apellidos = dr["Apellidos"].ToString(),
+                        TipoDoc = dr["TipoDoc"].ToString(), // Obtener el TipoDoc
+                        Documento = Convert.ToInt32(dr["Documento"]), // Cambiado a string para manejar documentos que no sean solo números
+                        Direccion = dr["Direccion"].ToString(),
+                        Email = dr["Email"].ToString(),
+                        Celular = dr["Celular"].ToString(),
+                        Estado = Convert.ToBoolean(dr["Estado"])
+                    };
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                if (cmd.Connection != null)
+                {
+                    cmd.Connection.Close();
+                }
+            }
+            return cli;
+        }
+
 
         public string BuscarDocCliente(int documento)
         {
