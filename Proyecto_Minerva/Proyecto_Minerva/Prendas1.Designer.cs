@@ -125,6 +125,8 @@
             // cbxEstado
             // 
             cbxEstado.AutoSize = true;
+            cbxEstado.Checked = true;
+            cbxEstado.CheckState = CheckState.Checked;
             cbxEstado.Location = new Point(448, 156);
             cbxEstado.Margin = new Padding(3, 2, 3, 2);
             cbxEstado.Name = "cbxEstado";

@@ -22,31 +22,30 @@ namespace CapaLogica
         {
             return datOVenta.Instancia.ListarVentas();
         }
-        public void RegistrarVenta(entOVenta venta)
+
+        public int RegistrarVenta(entOVenta venta)
         {
-            datOVenta.Instancia.RegistrarVenta(venta);
+            if (venta == null)
+            {
+                throw new ArgumentNullException(nameof(venta), "La venta no puede ser nula.");
+            }
+
+            // Llamar al método de la capa de datos para registrar la venta
+            int idVenta = datOVenta.Instancia.RegistrarVenta(venta);
+            return idVenta;
         }
 
-        public void RegistrarDetalleVenta(entOVenta detalleVenta)
+        public int InsertarDetalleVenta(entDetalleVenta detalleVenta)
         {
-            datOVenta.Instancia.RegistrarDetalleVenta(detalleVenta);
-        }
+            // Validar el detalle de venta aquí si es necesario
+            if (detalleVenta == null)
+            {
+                throw new ArgumentNullException(nameof(detalleVenta), "El detalle de venta no puede ser nulo.");
+            }
 
-        public void ActualizarStock(string prenda, int cantidadVendida)
-        {
-            datPrendas.Instancia.ActualizarStock(prenda, cantidadVendida);
+            // Llamar al método de la capa de datos para insertar el detalle de venta
+            int idDetalleVenta = datOVenta.Instancia.InsertarDetalleVenta(detalleVenta);
+            return idDetalleVenta;
         }
-
-        public void EliminarVenta(int oventaID)
-        {
-            datOVenta.Instancia.EliminarVenta(oventaID);
-        }
-
-        public int GenerarDetalleVentaID()
-        {
-            // Implementa la lógica para generar un ID único
-            return datOVenta.Instancia.ObtenerNuevoDetalleVentaID();
-        }
-
     }
 }

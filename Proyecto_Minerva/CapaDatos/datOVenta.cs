@@ -43,7 +43,6 @@ namespace CapaDatos
                                     OventaID = Convert.ToInt32(dr["O.ventaID"]),
                                     NombreCliente = dr["NombreCliente"].ToString(),
                                     Vendedor = dr["Vendedor"].ToString(),
-                                    MetodoPago = dr["MetodoPago"].ToString(),
                                     MontoPago = dr["MontoPago"] == DBNull.Value ? (decimal?)null : Convert.ToDecimal(dr["MontoPago"]),
                                     MontoCambio = dr["MontoCambio"] == DBNull.Value ? (decimal?)null : Convert.ToDecimal(dr["MontoCambio"]), // Agregado
                                     Precioventa = Convert.ToDecimal(dr["PrecioVenta"]),
@@ -64,164 +63,117 @@ namespace CapaDatos
         }
 
 
-
-
-        public void RegistrarVenta(entOVenta venta)
+        public int RegistrarVenta(entOVenta venta)
         {
-            SqlConnection cn = Conexion.Instancia.Conectar();
-            SqlCommand cmd = new SqlCommand("spRegistrarVenta", cn)
-            {
-                CommandType = CommandType.StoredProcedure
-            };
-            //cmd.Parameters.AddWithValue("@Nombre", venta.Nombre);
-            //cmd.Parameters.AddWithValue("@Monto", venta.Monto);
-            //cmd.Parameters.AddWithValue("@Prenda", venta.Prenda);
-            //cmd.Parameters.AddWithValue("@Precioventa", venta.Precioventa);
-            //cmd.Parameters.AddWithValue("@MetodoPago", venta.MetodoPago);
-            //cmd.Parameters.AddWithValue("@Cantidad", venta.Cantidad);
-            //cmd.Parameters.AddWithValue("@FRegistroV", venta.FRegistroV);
-            //cmd.Parameters.AddWithValue("@Talla", venta.Talla);
-            //cmd.Parameters.AddWithValue("@Colegio", venta.Colegio);
-            //cmd.Parameters.AddWithValue("@Categoria", venta.Categoria);
+            SqlCommand cmd = null;
+            int idVenta = 0;
 
             try
             {
-                cn.Open();
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                cn.Close();
-            }
-        }
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spInsertaVenta", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-        public List<entOVenta> ListarDetalleVenta(int oventaID)
-        {
-            List<entOVenta> lista = new List<entOVenta>();
-            SqlConnection cn = Conexion.Instancia.Conectar();
-            SqlCommand cmd = new SqlCommand("spListarDetalleVenta", cn)
-            {
-                CommandType = CommandType.StoredProcedure
-            };
-            cmd.Parameters.AddWithValue("@OventaID", oventaID);
-            try
-            {
-                cn.Open();
-                SqlDataReader dr = cmd.ExecuteReader();
-                while (dr.Read())
+                // Validar que los objetos necesarios no sean nulos
+                if (venta.ClienteID?.ID == null)
+                    throw new ArgumentException("El ID del cliente es requerido");
+                if (venta.UsuarioID?.UsuarioID == null)
+                    throw new ArgumentException("El ID del usuario es requerido");
+
+                // Agregar los parámetros del procedimiento almacenado
+                cmd.Parameters.AddWithValue("@ClienteID", venta.ClienteID.ID);
+                cmd.Parameters.AddWithValue("@UsuarioID", venta.UsuarioID.UsuarioID);
+                cmd.Parameters.AddWithValue("@FechaRegistroV", venta.FRegistroV);
+                cmd.Parameters.AddWithValue("@Monto", venta.MontoTotal);
+                cmd.Parameters.AddWithValue("@MontoPago", (object)venta.MontoPago ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@MontoCambio", (object)venta.MontoCambio ?? DBNull.Value);
+
+                // Parámetro de salida
+                SqlParameter retornoParam = new SqlParameter
                 {
-                    entOVenta venta = new entOVenta
-                    {
-                        //Monto = Convert.ToDecimal(dr["Monto"]),
-                        //Prenda = dr["Prenda"].ToString(),
-                        //Precioventa = Convert.ToDecimal(dr["Precioventa"]),
-                        //MetodoPago = dr["MetodoPago"].ToString(),
-                        //Cantidad = Convert.ToInt32(dr["Cantidad"]),
-                        //Talla = dr["Talla"].ToString(),
-                        //Colegio = dr["Colegio"].ToString(),
-                        //Categoria = dr["Categoria"].ToString()
-                    };
-                    lista.Add(venta);
+                    ParameterName = "@retorno",
+                    SqlDbType = SqlDbType.Int,
+                    Direction = ParameterDirection.Output
+                };
+                cmd.Parameters.Add(retornoParam);
+
+                // Abrir conexión y ejecutar el comando
+                cn.Open();
+                cmd.ExecuteNonQuery();
+
+                // Obtener el ID de la venta insertada
+                if (retornoParam.Value != DBNull.Value)
+                {
+                    idVenta = Convert.ToInt32(retornoParam.Value);
+                    if (idVenta <= 0)
+                        throw new Exception("No se pudo obtener un ID de venta válido");
                 }
+                else
+                {
+                    throw new Exception("No se pudo obtener el ID de la venta");
+                }
+
+                return idVenta;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("Error en la base de datos al registrar la venta: " + ex.Message);
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocurrió un error al listar el detalle de ventas: " + ex.Message);
+                throw new Exception("Error al registrar la venta: " + ex.Message);
             }
             finally
             {
-                cn.Close();
+                // Cerrar la conexión si está abierta
+                if (cmd?.Connection?.State == ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                }
+                cmd?.Dispose();
             }
-            return lista;
         }
-        public void RegistrarDetalleVenta(entOVenta detalleVenta)
-        {
-            SqlConnection cn = Conexion.Instancia.Conectar();
-            SqlCommand cmd = new SqlCommand("spRegistrarDetalleVenta", cn)
-            {
-                CommandType = CommandType.StoredProcedure
-            };
-            //cmd.Parameters.AddWithValue("@OventaID", detalleVenta.OventaID);
-            //cmd.Parameters.AddWithValue("@Nombre", detalleVenta.Nombre);
-            //cmd.Parameters.AddWithValue("@Monto", detalleVenta.Monto);
-            //cmd.Parameters.AddWithValue("@Prenda", detalleVenta.Prenda);
-            //cmd.Parameters.AddWithValue("@Precioventa", detalleVenta.Precioventa);
-            //cmd.Parameters.AddWithValue("@MetodoPago", detalleVenta.MetodoPago);
-            //cmd.Parameters.AddWithValue("@Cantidad", detalleVenta.Cantidad);
-            //cmd.Parameters.AddWithValue("@FRegistroV", detalleVenta.FRegistroV);
-            //cmd.Parameters.AddWithValue("@Talla", detalleVenta.Talla);
-            //cmd.Parameters.AddWithValue("@Colegio", detalleVenta.Colegio);
-            //cmd.Parameters.AddWithValue("@Categoria", detalleVenta.Categoria);
 
+
+        public int InsertarDetalleVenta(entDetalleVenta detalleVenta)
+        {
+            SqlCommand cmd = null;
+            int idDetalleVenta = 0; // Variable para almacenar el ID del detalle de venta
             try
             {
+                // Conectar a la base de datos
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spInsertarDetVen", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                // Agregar los parámetros del procedimiento almacenado
+                cmd.Parameters.AddWithValue("@Descripcion", detalleVenta.Descripcion.Descripcion);
+                cmd.Parameters.AddWithValue("@OventaID", detalleVenta.OventaID); // ID de la venta
+                cmd.Parameters.AddWithValue("@Cantidad", detalleVenta.Cantidad); // Cantidad vendida
+                cmd.Parameters.AddWithValue("@PrecioVenta", detalleVenta.PrecioVenta); // Precio de venta
+
+                // Parámetro de retorno
+                SqlParameter retornoParam = new SqlParameter("@retorno", DbType.Int32);
+                retornoParam.Direction = ParameterDirection.ReturnValue;
+                cmd.Parameters.Add(retornoParam);
+
+                // Abrir conexión y ejecutar el comando
                 cn.Open();
                 cmd.ExecuteNonQuery();
+
+                // Obtener el valor retornado por el procedimiento
+                idDetalleVenta = Convert.ToInt32(cmd.Parameters["@retorno"].Value);
+                return idDetalleVenta;
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                throw new Exception("Ocurrió un error al registrar el detalle de la venta: " + ex.Message);
+                throw e; // Lanza la excepción hacia arriba para su manejo
             }
             finally
             {
-                cn.Close();
+                // Cierra la conexión en el bloque finally
+                if (cmd.Connection != null) cmd.Connection.Close();
             }
         }
-
-        public void EliminarVenta(int oventaID)
-        {
-            SqlConnection cn = Conexion.Instancia.Conectar();
-            SqlCommand cmd = new SqlCommand("spEliminarVenta", cn)
-            {
-                CommandType = CommandType.StoredProcedure
-            };
-            cmd.Parameters.AddWithValue("@OventaID", oventaID);
-
-            try
-            {
-                cn.Open();
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Ocurrió un error al eliminar la venta: " + ex.Message);
-            }
-            finally
-            {
-                cn.Close();
-            }
-        }
-
-        public int ObtenerNuevoDetalleVentaID()
-        {
-            int nuevoID = 0;
-            SqlConnection cn = Conexion.Instancia.Conectar();
-            SqlCommand cmd = new SqlCommand("spObtenerNuevoDetalleVentaID", cn)
-            {
-                CommandType = CommandType.StoredProcedure
-            };
-
-            try
-            {
-                cn.Open();
-                nuevoID = Convert.ToInt32(cmd.ExecuteScalar());
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Ocurrió un error al obtener el nuevo ID de detalle de venta: " + ex.Message);
-            }
-            finally
-            {
-                cn.Close();
-            }
-
-            return nuevoID;
-        }
-
-
     }
 }

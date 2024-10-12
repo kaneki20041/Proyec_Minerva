@@ -9,9 +9,9 @@ namespace CapaEntidad
     public class entProveedor
     {
         public int ID { get; set; }
-        public string NomPro { get; set; }
         public string RUC { get; set; }
-        public string Ciudad { get; set; }
+        public string NombreComercial { get; set; }
+        public string Distrito { get; set; }
         public string Rubro { get; set; }
         public string RazonSocial { get; set; }
         public string Direccion { get; set; }

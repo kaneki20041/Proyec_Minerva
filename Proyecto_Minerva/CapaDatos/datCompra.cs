@@ -84,22 +84,23 @@ namespace CapaDatos
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 // Agregar los parámetros del procedimiento almacenado
-                cmd.Parameters.AddWithValue("@ProveedorID", Com.ID.ID);
-                cmd.Parameters.AddWithValue("@RazonSocial", Com.RazonSocial.RazonSocial);
-                cmd.Parameters.AddWithValue("@MetodoPagoID", Com.Metpagoid.MetPagoid);
-                cmd.Parameters.AddWithValue("@UsuarioID", Com.UsuarioID.UsuarioID); // Asignar el ID del usuario
-                cmd.Parameters.AddWithValue("@FechaRegistroC", Com.fechCompra);
-                cmd.Parameters.AddWithValue("@Monto", Com.Monto);
+                cmd.Parameters.AddWithValue("@RUC", Com.ID.RUC); // El RUC del proveedor
+                cmd.Parameters.AddWithValue("@RazonSocial", Com.RazonSocial.RazonSocial); // La razón social del proveedor
+                cmd.Parameters.AddWithValue("@MetodoPagoID", Com.Metpagoid.MetPagoid); // El método de pago
+                cmd.Parameters.AddWithValue("@UsuarioID", Com.UsuarioID.UsuarioID); // El ID del usuario
+                cmd.Parameters.AddWithValue("@FechaRegistroC", Com.fechCompra); // La fecha de registro de la compra
+                cmd.Parameters.AddWithValue("@Monto", Com.Monto); // El monto de la compra
 
                 // Parámetro de retorno
                 SqlParameter m = new SqlParameter("@retorno", DbType.Int32);
                 m.Direction = ParameterDirection.ReturnValue;
                 cmd.Parameters.Add(m);
 
+                // Abrir conexión y ejecutar
                 cn.Open();
                 cmd.ExecuteNonQuery();
 
-                // Obtener el valor retornado por el procedimiento
+                // Obtener el valor retornado por el procedimiento almacenado
                 idCom = Convert.ToInt32(cmd.Parameters["@retorno"].Value);
                 return idCom;
             }
@@ -112,6 +113,7 @@ namespace CapaDatos
                 if (cmd.Connection != null) cmd.Connection.Close();
             }
         }
+
 
         public Boolean InsertarDetCompra(entDetCompra dCom)
         {

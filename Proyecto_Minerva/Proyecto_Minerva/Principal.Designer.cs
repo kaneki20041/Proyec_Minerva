@@ -330,7 +330,7 @@
             btnSalidaMaterial.Name = "btnSalidaMaterial";
             btnSalidaMaterial.Size = new Size(176, 37);
             btnSalidaMaterial.TabIndex = 16;
-            btnSalidaMaterial.Text = "Detalle Ventas";
+            btnSalidaMaterial.Text = "Pago Ventas";
             btnSalidaMaterial.TextAlign = ContentAlignment.MiddleRight;
             btnSalidaMaterial.UseVisualStyleBackColor = true;
             btnSalidaMaterial.Click += btnSalidaMaterial_Click;

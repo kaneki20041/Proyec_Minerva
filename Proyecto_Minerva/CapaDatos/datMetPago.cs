@@ -166,7 +166,35 @@ namespace CapaDatos
             return metodoPago;
         }
 
-
+        public List<string> ObtenerMetodosPago()
+        {
+            List<string> metodosPago = new List<string>();
+            SqlCommand cmd = null;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spObtenerMetodosPago", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    metodosPago.Add(dr["MetodoPago"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (cmd != null && cmd.Connection != null && cmd.Connection.State == ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                }
+            }
+            return metodosPago;
+        }
     }
     #endregion metodos
 }

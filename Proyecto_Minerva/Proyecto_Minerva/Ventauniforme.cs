@@ -1,4 +1,5 @@
 ﻿
+using CapaDatos;
 using CapaEntidad;
 using CapaLogica;
 using System;
@@ -10,7 +11,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using System.Windows.Forms;
+using System.Windows.Media.TextFormatting;
 
 namespace Proyecto_Minerva
 {
@@ -19,20 +22,34 @@ namespace Proyecto_Minerva
         public Ventauniforme()
         {
             InitializeComponent();
-            //ListarVentas();
-
+            IniciaComboBox();
+            textBox13.TextChanged += TextBox13_TextChanged;
         }
-
-        private void Ventauniforme_Load(object sender, EventArgs e)
+        private void TextBox13_TextChanged(object sender, EventArgs e)
         {
-            DataGridViewButtonColumn btnEliminar = new DataGridViewButtonColumn();
-            btnEliminar.HeaderText = "Eliminar";
-            btnEliminar.Text = "Eliminar";
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.UseColumnTextForButtonValue = true;
-            dataGridView1.Columns.Add(btnEliminar);
+            decimal pago;
+            decimal subtotal;
 
-            ListarVentas();
+            // Intenta convertir el texto ingresado a decimal
+            if (decimal.TryParse(textBox13.Text, out pago) && decimal.TryParse(textBox14.Text, out subtotal))
+            {
+                // Calcula el cambio
+                decimal cambio = pago - subtotal;
+
+                // Muestra el cambio en textBox6
+                textBox6.Text = cambio >= 0 ? cambio.ToString("F2") : "Monto insuficiente";
+            }
+            else
+            {
+                // Limpiar el campo de cambio si hay un error
+                textBox6.Text = string.Empty;
+            }
+        }
+        private void IniciaComboBox()
+        {
+            List<string> metodosPago = logMetPago.Instancia.ObtenerMetodosPago();
+
+
         }
 
         private void ListarVentas()
@@ -40,7 +57,7 @@ namespace Proyecto_Minerva
             try
             {
                 List<entOVenta> lista = logOVenta.Instancia.ListarVentas();
-                dataGridView1.DataSource = lista;
+                tablaVentas.DataSource = lista;
             }
             catch (Exception ex)
             {
@@ -48,195 +65,57 @@ namespace Proyecto_Minerva
             }
         }
 
-        private void btn_buscarPrenVen_Click(object sender, EventArgs e)
-        {
-            string descripcion = textBox10.Text.Trim();
-            if (string.IsNullOrWhiteSpace(descripcion))
-            {
-                MessageBox.Show("Por favor, ingresa un número válido en el campo ID de la Prenda.");
-                return;
-            }
-
-            try
-            {
-                entPrendas prenda = logPrendas.Instancia.BuscarPrendaPorDescripcion(descripcion);
-                if (prenda != null)
-                {
-                    textBox3.Text = prenda.PrecioVenta.ToString("F2");
-                    textBox5.Text = prenda.Stock.ToString();
-                    textBox2.Text = prenda.Talla;
-                    textBox11.Text = prenda.Colegio; // Asigna Colegio
-                    textBox12.Text = prenda.Categoria; // Asigna Categoria
-                }
-                else
-                {
-                    MessageBox.Show("Prenda no encontrada.");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ocurrió un error: {ex.Message}");
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // Crear nueva venta
-                entOVenta nuevaVenta = new entOVenta
-                {
-                    //Nombre = textBox1.Text,
-                    //Prenda = textBox10.Text,
-                    //Talla = textBox2.Text,
-                    //Precioventa = decimal.Parse(textBox3.Text),
-                    //Cantidad = int.Parse(domainUpDown1.Text),
-                    //MetodoPago = textBox9.Text,
-                    //Monto = decimal.Parse(textBox6.Text),
-                    //FRegistroV = DateTime.Now,
-                    //TipoComprobante = textBox8.Text,
-                    //Colegio = textBox11.Text,
-                    //Categoria = textBox12.Text,
-                };
-
-                // Registrar la venta
-                logOVenta.Instancia.RegistrarVenta(nuevaVenta);
-
-                // Mostrar mensaje de éxito
-                MessageBox.Show("Venta registrada exitosamente.");
-
-                // Actualizar lista de ventas
-                ListarVentas();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ocurrió un error al registrar la venta: {ex.Message}");
-            }
-        }
-
-        private void domainUpDown1_SelectedItemChanged_1(object sender, EventArgs e)
-        {
-            try
-            {
-                int cantidad = int.Parse(domainUpDown1.Text);
-                decimal precio = decimal.Parse(textBox3.Text);
-                decimal monto = cantidad * precio;
-                textBox6.Text = monto.ToString("F2");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ocurrió un error al calcular el monto: {ex.Message}");
-            }
-        }
-
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                // Obtener el índice de la fila seleccionada
-                int rowIndex = dataGridView1.SelectedRows[0].Index;
-
-                // Obtener el ID de la venta a eliminar
-                int oventaID = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["OventaID"].Value);
-
-                try
-                {
-                    // Llamar al método para eliminar la venta
-                    logOVenta.Instancia.EliminarVenta(oventaID);
-
-                    // Actualizar la lista de ventas
-                    ListarVentas();
-
-                    MessageBox.Show("Venta eliminada exitosamente.");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Ocurrió un error al eliminar la venta: {ex.Message}");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Por favor, selecciona una fila para eliminar.");
-            }
-        }
-
+        public int confilas = 0;
+        public decimal Total = 0;
         private void button3_Click(object sender, EventArgs e)
         {
-            try
-            {
-                // Suponiendo que tienes una lista de ventas que quieres registrar como detalles
-                List<entOVenta> ventas = logOVenta.Instancia.ListarVentas();
+            entCompra dCom = new entCompra();
+            entPrendas Pren = new entPrendas();
 
-                foreach (var venta in ventas)
+            if ((this.textBox5.Text.Trim() != "") && (txtCantidad.Text.Trim() != ""))
+            {
+                if ((Convert.ToInt32(txtCantidad.Text) > 0) && (Convert.ToInt32(txtCantidad.Text) <= Convert.ToInt32(textBox5.Text)))
                 {
-                    // Crear un nuevo detalle de venta con el mismo OventaID
-                    entOVenta detalleVenta = new entOVenta
+                    if (confilas == 0)
                     {
-                        //OventaID = venta.OventaID,
-                        //Nombre = venta.Nombre,
-                        //Monto = venta.Monto ?? 0,
-                        //Prenda = venta.Prenda,
-                        //Precioventa = venta.Precioventa,
-                        //MetodoPago = venta.MetodoPago,
-                        //Cantidad = venta.Cantidad ?? 0,
-                        //FRegistroV = venta.FRegistroV,
-                        //Talla = venta.Talla,
-                        //Colegio = venta.Colegio,
-                        //Categoria = venta.Categoria
-                    };
 
-                    logOVenta.Instancia.RegistrarDetalleVenta(detalleVenta);
-
-                    // Descontar la cantidad del stock de la prenda
-                    //logPrendas.Instancia.ActualizarStock(venta.Prenda, venta.Cantidad ?? 0);
-                }
-
-                // Limpiar el DataGridView después de registrar los detalles de venta
-                dataGridView1.DataSource = null;
-                dataGridView1.Rows.Clear();
-                dataGridView1.Refresh();
-
-                MessageBox.Show("Detalles de venta registrados exitosamente.");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ocurrió un error al registrar los detalles de la venta: {ex.Message}");
-            }
-        }
-
-        private void iconButton1_Click(object sender, EventArgs e)
-        {
-            int metpago;
-            if (int.TryParse(textBox9.Text, out metpago))
-            {
-                logMetPago logicalMetpago = new logMetPago();
-                try
-                {
-                    // Llama a la función que devuelve el objeto EntMetPago
-                    EntMetPago metpag = logicalMetpago.BuscarMetodoPagoPorID(metpago);
-
-                    if (metpag != null)
-                    {
-                        textBox8.Text = metpag.metodopago;
+                        tablaVentas.Rows.Add(textBox10.Text, textBox11.Text, textBox12.Text, textBox2.Text, txtCantidad.Text, textBox3.Text);
+                        decimal subTotal = Convert.ToDecimal(tablaVentas.Rows[confilas].Cells[4].Value) * Convert.ToDecimal(tablaVentas.Rows[confilas].Cells[5].Value);
+                        tablaVentas.Rows[confilas].Cells[6].Value = subTotal;
+                        confilas++;
                     }
                     else
                     {
-                        // Si no se encuentra el método de pago
-                        MessageBox.Show("Método de pago no encontrado.");
+                        tablaVentas.Rows.Add(textBox10.Text, textBox11.Text, textBox12.Text, textBox2.Text, txtCantidad.Text, textBox3.Text);
+                        decimal subTotal = Convert.ToDecimal(tablaVentas.Rows[confilas].Cells[4].Value) * Convert.ToDecimal(tablaVentas.Rows[confilas].Cells[5].Value);
+                        tablaVentas.Rows[confilas].Cells[6].Value = subTotal;
+                        confilas++;
                     }
                 }
-                catch (Exception ex)
+                Total = 0;
+                foreach (DataGridViewRow Fila in tablaVentas.Rows)
                 {
-                    MessageBox.Show("Método de pago no encontrado.");
-                    textBox8.Clear(); // Limpia textBox8 si no se encuentra
+
+                    Total += Convert.ToInt32(Fila.Cells[6].Value);
                 }
+                textBox14.Text = Total.ToString();
+
             }
-            else
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (confilas > 0)
             {
-                // Mensaje si la conversión de texto a entero falla
-                MessageBox.Show("Por favor, ingrese un ID de método de pago válido.");
+                Total -= Convert.ToDecimal(tablaVentas.Rows[tablaVentas.CurrentRow.Index].Cells[6].Value);
+                //txtTotal.Text = "S/." + Total.ToString();
+                textBox2.Text = Total.ToString();
+                tablaVentas.Rows.RemoveAt(tablaVentas.CurrentRow.Index);
+                confilas--;
             }
+        }
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
         }
 
         private void btnBuscarDni_Click(object sender, EventArgs e)
@@ -297,7 +176,7 @@ namespace Proyecto_Minerva
             if (prendaEncontrada != null)
             {
                 // Muestra los datos de la prenda encontrada en los campos correspondientes
-                textBox3.Text = prendaEncontrada.PrecioVenta.ToString();
+                textBox3.Text = prendaEncontrada.PrecioVenta.ToString("F2");
                 textBox5.Text = prendaEncontrada.Stock.ToString();
 
                 textBox12.Text = prendaEncontrada.Categoria;
@@ -308,6 +187,170 @@ namespace Proyecto_Minerva
             {
                 MessageBox.Show("Prenda no encontrada.");
             }
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Validar campos requeridos
+                if (!ValidarCamposRequeridos())
+                    return;
+
+                // Crear objeto de venta
+                entOVenta venta = new entOVenta
+                {
+                    FRegistroV = dateTimePicker2.Value,
+                    MontoTotal = Convert.ToDecimal(textBox14.Text),
+                    MontoPago = !string.IsNullOrEmpty(textBox13.Text) ? Convert.ToDecimal(textBox13.Text) : null,
+                    MontoCambio = !string.IsNullOrEmpty(textBox6.Text) ? Convert.ToDecimal(textBox6.Text) : null,
+                    ClienteID = new entCliente { ID = Convert.ToInt32(textBox7.Text) },
+                    UsuarioID = new entUsuario { UsuarioID = Convert.ToInt32(textBox4.Text) },
+                    NombreCliente = textBox1.Text
+                };
+
+                // Registrar la venta usando TransactionScope
+                using (TransactionScope scope = new TransactionScope())
+                {
+                    int idVenta = logOVenta.Instancia.RegistrarVenta(venta);
+
+                    if (idVenta <= 0)
+                    {
+                        MessageBox.Show("Error al registrar la venta", "Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    if (GrabarDetalleVenta(idVenta))
+                    {
+                        scope.Complete();
+                        MessageBox.Show("Venta registrada correctamente", "Éxito",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al procesar la venta: {ex.Message}",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private bool GrabarDetalleVenta(int idVenta)
+        {
+            bool todoCorrecto = true;
+            List<string> errores = new List<string>();
+
+            try
+            {
+                foreach (DataGridViewRow fila in tablaVentas.Rows) // Cambiar a tablaVentas
+                {
+                    if (fila.IsNewRow || fila.Cells[0].Value == null)
+                        continue;
+
+                    try
+                    {
+                        // Crear nuevo objeto para cada detalle de venta
+                        entDetalleVenta detalleVenta = new entDetalleVenta();
+                        detalleVenta.OventaID = idVenta; // ID de la venta a la que pertenece el detalle
+
+                        // Validar y obtener la descripción
+                        if (string.IsNullOrWhiteSpace(fila.Cells[0].Value?.ToString()))
+                        {
+                            errores.Add($"Fila {fila.Index + 1}: La descripción está vacía");
+                            todoCorrecto = false;
+                            continue;
+                        }
+
+                        entPrendas prenda = new entPrendas();
+                        prenda.Descripcion = fila.Cells[0].Value.ToString().Trim();
+                        detalleVenta.Descripcion = prenda; // Asignar la descripción a detalleVenta
+
+                        // Validar y obtener la cantidad y precio
+                        if (!int.TryParse(fila.Cells[4].Value?.ToString(), out int cantidad))
+                        {
+                            errores.Add($"Fila {fila.Index + 1}: Cantidad inválida");
+                            todoCorrecto = false;
+                            continue;
+                        }
+
+                        if (!decimal.TryParse(fila.Cells[5].Value?.ToString(), out decimal precio))
+                        {
+                            errores.Add($"Fila {fila.Index + 1}: Precio inválido");
+                            todoCorrecto = false;
+                            continue;
+                        }
+
+                        if (cantidad <= 0 || precio <= 0)
+                        {
+                            errores.Add($"Fila {fila.Index + 1}: Cantidad y precio deben ser mayores a 0");
+                            todoCorrecto = false;
+                            continue;
+                        }
+
+                        detalleVenta.Cantidad = cantidad; // Asignar cantidad
+                        detalleVenta.PrecioVenta = precio; // Asignar precio
+
+                        // Intentar insertar el detalle
+                        try
+                        {
+                            logOVenta.Instancia.InsertarDetalleVenta(detalleVenta); // Llamar al método de la capa lógica
+                        }
+                        catch (Exception ex)
+                        {
+                            errores.Add($"Fila {fila.Index + 1}: Error al grabar el detalle - {ex.Message}");
+                            todoCorrecto = false;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        errores.Add($"Fila {fila.Index + 1}: {ex.Message}");
+                        todoCorrecto = false;
+                    }
+                }
+
+                if (errores.Count > 0)
+                {
+                    string mensajeError = "Se encontraron los siguientes errores:\n\n" +
+                                          string.Join("\n", errores);
+                    MessageBox.Show(mensajeError, "Errores en detalles", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+                return todoCorrecto;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error general al grabar detalles: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+        private bool ValidarCamposRequeridos()
+        {
+            if (string.IsNullOrEmpty(textBox14.Text) ||
+                string.IsNullOrEmpty(textBox7.Text) ||
+                string.IsNullOrEmpty(textBox4.Text))
+            {
+                MessageBox.Show("Todos los campos requeridos deben estar llenos",
+                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (tablaVentas.Rows.Count <= 1)
+            {
+                MessageBox.Show("Debe agregar al menos un detalle de venta",
+                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
+        }
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void Ventauniforme_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

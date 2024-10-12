@@ -36,15 +36,15 @@ namespace Proyecto_Minerva
                     proveedor = logProveedor.Instancia.BuscarProveedorPorRUC(ruc);
                 }
                 // Busca por nombre si se ingresó
-                else if (!string.IsNullOrWhiteSpace(nombre))
-                {
-                    proveedor = logProveedor.Instancia.BuscarProveedorPorNombre(nombre);
-                }
+                //else if (!string.IsNullOrWhiteSpace(nombre))
+                //{
+                //    proveedor = logProveedor.Instancia.BuscarProveedorPorNombre(nombre);
+                //}
 
                 // Verifica si se encontró al proveedor
                 if (proveedor != null)
                 {
-                    txtNombreRUC.Text = proveedor.NomPro.ToString();
+                    //txtNombreRUC.Text = proveedor.NomPro.ToString();
                     txtRUC.Text = proveedor.RUC.ToString();
                     txtRazonRUC.Text = proveedor.RazonSocial;
                 }
