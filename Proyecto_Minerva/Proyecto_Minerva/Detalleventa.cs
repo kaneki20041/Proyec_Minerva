@@ -43,7 +43,7 @@ namespace Proyecto_Minerva
                 dgvDetalleventa.Columns["NombreCompleto"].Visible = false;
                 dgvDetalleventa.Columns["MontoPago"].Visible = false;
                 dgvDetalleventa.Columns["NombreCliente"].Visible = false;
-
+                dgvDetalleventa.Columns["OventaID"].Width = 60;
                 dgvDetalleventa.Columns["PrendaID"].Width = 60;
                 dgvDetalleventa.Columns["Descripcion"].Width = 210;
                 dgvDetalleventa.Columns["Cantidad"].Width = 60;
