@@ -132,6 +132,7 @@
             txtRUC.Name = "txtRUC";
             txtRUC.Size = new Size(166, 22);
             txtRUC.TabIndex = 17;
+            txtRUC.KeyPress += txtRUC_KeyPress;
             // 
             // txtRazonRUC
             // 
@@ -181,6 +182,7 @@
             txtCantidad.Name = "txtCantidad";
             txtCantidad.Size = new Size(128, 22);
             txtCantidad.TabIndex = 50;
+            txtCantidad.KeyPress += txtCantidad_KeyPress;
             // 
             // label9
             // 

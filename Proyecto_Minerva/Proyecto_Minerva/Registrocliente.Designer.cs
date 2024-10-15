@@ -202,6 +202,7 @@
             txtCel.Name = "txtCel";
             txtCel.Size = new Size(163, 22);
             txtCel.TabIndex = 21;
+            txtCel.KeyPress += txtCel_KeyPress;
             // 
             // gbContacto
             // 
@@ -248,6 +249,7 @@
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(174, 22);
             txtNombre.TabIndex = 25;
+            txtNombre.KeyPress += txtNombre_KeyPress;
             // 
             // gboInformacion
             // 
@@ -336,6 +338,7 @@
             txtDocumento.Name = "txtDocumento";
             txtDocumento.Size = new Size(134, 22);
             txtDocumento.TabIndex = 30;
+            txtDocumento.KeyPress += txtDocumento_KeyPress;
             // 
             // label10
             // 
@@ -352,6 +355,7 @@
             txtApellido.Name = "txtApellido";
             txtApellido.Size = new Size(175, 22);
             txtApellido.TabIndex = 27;
+            txtApellido.KeyPress += txtApellido_KeyPress;
             // 
             // label9
             // 

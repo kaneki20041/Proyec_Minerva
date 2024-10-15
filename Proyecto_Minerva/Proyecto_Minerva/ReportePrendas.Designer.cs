@@ -90,6 +90,7 @@
             txtBusqueda.Name = "txtBusqueda";
             txtBusqueda.Size = new Size(159, 22);
             txtBusqueda.TabIndex = 14;
+            txtBusqueda.TextChanged += txtBusqueda_TextChanged;
             // 
             // btnLimpiar
             // 
@@ -118,14 +119,17 @@
             btnBuscarUsuario.Size = new Size(34, 23);
             btnBuscarUsuario.TabIndex = 14;
             btnBuscarUsuario.UseVisualStyleBackColor = false;
+            btnBuscarUsuario.Click += btnBuscarUsuario_Click;
             // 
             // cbBusqueda
             // 
             cbBusqueda.FormattingEnabled = true;
+            cbBusqueda.Items.AddRange(new object[] { "Talla", "Categoria", "Descripcion" });
             cbBusqueda.Location = new Point(98, 30);
             cbBusqueda.Name = "cbBusqueda";
             cbBusqueda.Size = new Size(137, 25);
             cbBusqueda.TabIndex = 14;
+            cbBusqueda.SelectedIndexChanged += cbBusqueda_SelectedIndexChanged;
             // 
             // label8
             // 

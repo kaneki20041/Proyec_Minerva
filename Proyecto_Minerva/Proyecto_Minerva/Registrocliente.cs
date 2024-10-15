@@ -319,6 +319,58 @@ namespace Proyecto_Minerva
             consultar();
         }
 
+        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si la tecla presionada es una letra o una tecla de control como "Backspace"
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            {
+                // Si la tecla no es una letra, cancelar el evento para no permitir la entrada
+                e.Handled = true;
+            }
+        }
 
+        private void txtDocumento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si la tecla presionada es un número (permitir sólo números del 0-9)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                // Si la tecla no es un número, cancelar el evento para no permitir la entrada
+                e.Handled = true;
+            }
+
+            // Verificar si ya se ha alcanzado la longitud máxima de 9 caracteres
+            if (txtDocumento.Text.Length >= 8 && !char.IsControl(e.KeyChar))
+            {
+                // Cancelar el evento si se intenta agregar más de 9 caracteres
+                e.Handled = true;
+            }
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si la tecla presionada es una letra o una tecla de control como "Backspace"
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            {
+                // Si la tecla no es una letra, cancelar el evento para no permitir la entrada
+                e.Handled = true;
+            }
+        }
+
+        private void txtCel_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si la tecla presionada es un número (permitir sólo números del 0-9)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                // Si la tecla no es un número, cancelar el evento para no permitir la entrada
+                e.Handled = true;
+            }
+
+            // Verificar si ya se ha alcanzado la longitud máxima de 9 caracteres
+            if (txtDocumento.Text.Length >= 9 && !char.IsControl(e.KeyChar))
+            {
+                // Cancelar el evento si se intenta agregar más de 9 caracteres
+                e.Handled = true;
+            }
+        }
     }
 }

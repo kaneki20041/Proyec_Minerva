@@ -15,11 +15,13 @@ namespace CapaEntidad
 
         public decimal? MontoPago { get; set; }
         public decimal? MontoCambio { get; set; }
-        public decimal MontoTotal { get; set; }
+
         public DateTime FRegistroV { get; set; }
         public int? PrendaID { get; set; } // Agregado
         public string Descripcion { get; set; } // Agregado
         public int Cantidad { get; set; } // Agregado
         public decimal PrecioVenta { get; set; } // Agregado
+
+        public decimal MontoTotal { get; set; }
     }
 }

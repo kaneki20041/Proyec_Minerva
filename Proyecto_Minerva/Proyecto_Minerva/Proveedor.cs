@@ -78,7 +78,7 @@ namespace Proyecto_Minerva
                 }
 
                 string razonSocial = txtRazonSocial.Text.Trim();
-                string distrito=txtDistrito.Text.Trim();
+                string distrito = txtDistrito.Text.Trim();
                 string nomPro = txtNombre.Text.Trim();
                 string direccion = txtDireccion.Text.Trim();
                 string email = txtEmail.Text.Trim();
@@ -89,7 +89,7 @@ namespace Proyecto_Minerva
                 {
                     RazonSocial = razonSocial,
                     RUC = ruc,
-                    Distrito=distrito,
+                    Distrito = distrito,
                     NombreComercial = nomPro,
                     Direccion = direccion,
                     Email = email,
@@ -373,5 +373,38 @@ namespace Proyecto_Minerva
             }
         }
 
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si la tecla presionada es un número (permitir sólo números del 0-9)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                // Si la tecla no es un número, cancelar el evento para no permitir la entrada
+                e.Handled = true;
+            }
+
+            // Verificar si ya se ha alcanzado la longitud máxima de 9 caracteres
+            if (txtTelefono.Text.Length >= 9 && !char.IsControl(e.KeyChar))
+            {
+                // Cancelar el evento si se intenta agregar más de 9 caracteres
+                e.Handled = true;
+            }
+        }
+
+        private void txtRUC_KeyPress(object sender, KeyPressEventArgs e)
+        {            // Verificar si la tecla presionada es un número (permitir sólo números del 0-9)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                // Si la tecla no es un número, cancelar el evento para no permitir la entrada
+                e.Handled = true;
+            }
+
+            // Verificar si ya se ha alcanzado la longitud máxima de 9 caracteres
+            if (txtTelefono.Text.Length >= 20 && !char.IsControl(e.KeyChar))
+            {
+                // Cancelar el evento si se intenta agregar más de 9 caracteres
+                e.Handled = true;
+            }
+
+        }
     }
 }

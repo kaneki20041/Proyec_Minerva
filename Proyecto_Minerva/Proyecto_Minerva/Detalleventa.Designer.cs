@@ -37,10 +37,8 @@
             textBox5 = new TextBox();
             label6 = new Label();
             button3 = new Button();
-            label1 = new Label();
             label3 = new Label();
             dateTimePicker2 = new DateTimePicker();
-            textBox2 = new TextBox();
             label7 = new Label();
             label8 = new Label();
             label9 = new Label();
@@ -51,12 +49,12 @@
             label10 = new Label();
             label5 = new Label();
             groupBox1 = new GroupBox();
+            label12 = new Label();
+            textBox4 = new TextBox();
             iconButton2 = new FontAwesome.Sharp.IconButton();
             textBox3 = new TextBox();
             textBox1 = new TextBox();
             label11 = new Label();
-            textBox4 = new TextBox();
-            label12 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvDetalleventa).BeginInit();
             gbIDVenta.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -155,16 +153,6 @@
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(22, 29);
-            label1.Name = "label1";
-            label1.Size = new Size(77, 21);
-            label1.TabIndex = 22;
-            label1.Text = "NUMERO";
-            // 
             // label3
             // 
             label3.AutoSize = true;
@@ -182,14 +170,6 @@
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.Size = new Size(99, 23);
             dateTimePicker2.TabIndex = 26;
-            // 
-            // textBox2
-            // 
-            textBox2.BackColor = Color.MintCream;
-            textBox2.Location = new Point(105, 27);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(104, 23);
-            textBox2.TabIndex = 27;
             // 
             // label7
             // 
@@ -241,17 +221,19 @@
             // 
             // textBox9
             // 
-            textBox9.Location = new Point(281, 27);
+            textBox9.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox9.Location = new Point(88, 24);
             textBox9.Name = "textBox9";
             textBox9.ReadOnly = true;
-            textBox9.Size = new Size(100, 23);
+            textBox9.Size = new Size(100, 25);
             textBox9.TabIndex = 37;
+            textBox9.Text = "B001-1";
             // 
             // label10
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.Location = new Point(226, 29);
+            label10.Location = new Point(33, 26);
             label10.Name = "label10";
             label10.Size = new Size(49, 21);
             label10.TabIndex = 38;
@@ -283,6 +265,22 @@
             groupBox1.TabIndex = 39;
             groupBox1.TabStop = false;
             groupBox1.Text = "INFO CLIENTE";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(230, 70);
+            label12.Name = "label12";
+            label12.Size = new Size(54, 15);
+            label12.TabIndex = 59;
+            label12.Text = "Tipo Doc";
+            // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(287, 67);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(100, 23);
+            textBox4.TabIndex = 58;
             // 
             // iconButton2
             // 
@@ -323,22 +321,6 @@
             label11.TabIndex = 0;
             label11.Text = "Documento";
             // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(287, 67);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(100, 23);
-            textBox4.TabIndex = 58;
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Location = new Point(230, 70);
-            label12.Name = "label12";
-            label12.Size = new Size(54, 15);
-            label12.TabIndex = 59;
-            label12.Text = "Tipo Doc";
-            // 
             // Detalleventa
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -354,10 +336,8 @@
             Controls.Add(label9);
             Controls.Add(label8);
             Controls.Add(label7);
-            Controls.Add(textBox2);
             Controls.Add(dateTimePicker2);
             Controls.Add(label3);
-            Controls.Add(label1);
             Controls.Add(button3);
             Controls.Add(gbIDVenta);
             Controls.Add(dgvDetalleventa);
@@ -382,10 +362,8 @@
         private Label label4;
         private Label label2;
         private Button button3;
-        private Label label1;
         private Label label3;
         private DateTimePicker dateTimePicker2;
-        private TextBox textBox2;
         private Label label7;
         private Label label8;
         private Label label9;

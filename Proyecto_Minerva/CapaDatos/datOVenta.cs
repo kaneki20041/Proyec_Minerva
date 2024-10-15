@@ -42,12 +42,12 @@ namespace CapaDatos
                                 {
                                     OventaID = Convert.ToInt32(dr["O.ventaID"]),
                                     MontoPago = dr["MontoPago"] == DBNull.Value ? (decimal?)null : Convert.ToDecimal(dr["MontoPago"]),
-                                    FRegistroV = Convert.ToDateTime(dr["Fecha"]), // Ajusta este nombre si es diferente
-                                    PrendaID = dr["PrendaID"] == DBNull.Value ? (int?)null : Convert.ToInt32(dr["PrendaID"]), // Agregado
-                                    Descripcion = dr["Prenda"].ToString(), // Agregado
-                                    Cantidad = Convert.ToInt32(dr["Cantidad"]), // Agregado
-                                    PrecioVenta = Convert.ToDecimal(dr["PrecioVenta"]), // Agregado
-                                    MontoTotal = Convert.ToDecimal(dr["MontoTotal"]) // Agregado
+                                    FRegistroV = Convert.ToDateTime(dr["Fecha"]), // Asegúrate de que este nombre sea correcto
+                                    PrendaID = dr["PrendaID"] == DBNull.Value ? (int?)null : Convert.ToInt32(dr["PrendaID"]),
+                                    Descripcion = dr["DescripcionTalla"].ToString(), // Cambiado para usar el campo concatenado
+                                    Cantidad = Convert.ToInt32(dr["Cantidad"]),
+                                    PrecioVenta = Convert.ToDecimal(dr["PrecioVenta"]),
+                                    MontoTotal = Convert.ToDecimal(dr["MontoTotal"])
                                 };
 
                                 lista.Add(venta);
@@ -62,6 +62,7 @@ namespace CapaDatos
             }
             return lista;
         }
+
 
 
 
@@ -137,42 +138,49 @@ namespace CapaDatos
         public int InsertarDetalleVenta(entDetalleVenta detalleVenta)
         {
             SqlCommand cmd = null;
-            int idDetalleVenta = 0; // Variable para almacenar el ID del detalle de venta
+            int idDetalleVenta = 0;
+
             try
             {
-                // Conectar a la base de datos
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("spInsertarDetVen", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                // Agregar los parámetros del procedimiento almacenado
+                // Agregar parámetros
                 cmd.Parameters.AddWithValue("@Descripcion", detalleVenta.Descripcion.Descripcion);
-                cmd.Parameters.AddWithValue("@OventaID", detalleVenta.OventaID); // ID de la venta
-                cmd.Parameters.AddWithValue("@Cantidad", detalleVenta.Cantidad); // Cantidad vendida
-                cmd.Parameters.AddWithValue("@PrecioVenta", detalleVenta.PrecioVenta); // Precio de venta
+                cmd.Parameters.AddWithValue("@Talla", detalleVenta.Talla.Talla);
+                cmd.Parameters.AddWithValue("@OventaID", detalleVenta.OventaID);
+                cmd.Parameters.AddWithValue("@Cantidad", detalleVenta.Cantidad);
+                cmd.Parameters.AddWithValue("@PrecioVenta", detalleVenta.PrecioVenta);
 
-                // Parámetro de retorno
-                SqlParameter retornoParam = new SqlParameter("@retorno", DbType.Int32);
+                // Agregar parámetro de retorno (si es necesario)
+                SqlParameter retornoParam = new SqlParameter("@retorno", SqlDbType.Int);
                 retornoParam.Direction = ParameterDirection.ReturnValue;
                 cmd.Parameters.Add(retornoParam);
 
-                // Abrir conexión y ejecutar el comando
                 cn.Open();
                 cmd.ExecuteNonQuery();
 
-                // Obtener el valor retornado por el procedimiento
-                idDetalleVenta = Convert.ToInt32(cmd.Parameters["@retorno"].Value);
+                // Obtener el valor de retorno
+                idDetalleVenta = (int)retornoParam.Value;
+
                 return idDetalleVenta;
             }
-            catch (Exception e)
+            catch (SqlException sqlEx)
             {
-                throw e; // Lanza la excepción hacia arriba para su manejo
+                // Manejo de excepciones específicas de SQL
+                throw new Exception("Error al insertar el detalle de la venta: " + sqlEx.Message);
+            }
+            catch (Exception ex)
+            {
+                // Manejo de otras excepciones
+                throw new Exception("Error inesperado: " + ex.Message);
             }
             finally
             {
-                // Cierra la conexión en el bloque finally
-                if (cmd.Connection != null) cmd.Connection.Close();
+                cmd?.Connection?.Close();
             }
         }
+
     }
 }

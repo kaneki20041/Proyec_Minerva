@@ -33,9 +33,9 @@
             comboBox1 = new ComboBox();
             groupBox1 = new GroupBox();
             groupBox2 = new GroupBox();
-            textBox1 = new TextBox();
-            button5 = new Button();
             button1 = new Button();
+            button5 = new Button();
+            textBox1 = new TextBox();
             button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
@@ -97,12 +97,18 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Ingrese dato";
             // 
-            // textBox1
+            // button1
             // 
-            textBox1.Location = new Point(8, 43);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(120, 23);
-            textBox1.TabIndex = 0;
+            button1.BackColor = Color.LightBlue;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.Location = new Point(8, 134);
+            button1.Name = "button1";
+            button1.Size = new Size(120, 32);
+            button1.TabIndex = 51;
+            button1.Text = "Eliminar filtro";
+            button1.UseVisualStyleBackColor = false;
             // 
             // button5
             // 
@@ -117,18 +123,12 @@
             button5.Text = "Filtrar";
             button5.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // textBox1
             // 
-            button1.BackColor = Color.LightBlue;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(8, 134);
-            button1.Name = "button1";
-            button1.Size = new Size(120, 32);
-            button1.TabIndex = 51;
-            button1.Text = "Eliminar filtro";
-            button1.UseVisualStyleBackColor = false;
+            textBox1.Location = new Point(8, 43);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(120, 23);
+            textBox1.TabIndex = 0;
             // 
             // button2
             // 

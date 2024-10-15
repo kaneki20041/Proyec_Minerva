@@ -178,83 +178,83 @@ namespace Proyecto_Minerva
             }
         }
         private void button1_Click(object sender, EventArgs e)
-{
-    try
-    {
-        // Validar campos requeridos
-        if (!ValidarCamposRequeridos())
-            return;
-
-        // Crear objeto de venta
-        entOVenta venta = new entOVenta
         {
-            FRegistroV = dateTimePicker2.Value,
-            MontoTotal = Convert.ToDecimal(textBox14.Text),
-            MontoPago = !string.IsNullOrEmpty(textBox13.Text) ? Convert.ToDecimal(textBox13.Text) : null,
-            MontoCambio = !string.IsNullOrEmpty(textBox6.Text) ? Convert.ToDecimal(textBox6.Text) : null,
-            Documento =textBox7.Text,
-            NombreCompleto =textBox4.Text,
-            NombreCliente = textBox1.Text
-        };
-
-        // Registrar la venta usando TransactionScope
-        using (TransactionScope scope = new TransactionScope())
-        {
-            int idVenta = logOVenta.Instancia.RegistrarVenta(venta);
-
-            if (idVenta <= 0)
+            try
             {
-                MessageBox.Show("Error al registrar la venta", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                // Validar campos requeridos
+                if (!ValidarCamposRequeridos())
+                    return;
+
+                // Crear objeto de venta
+                entOVenta venta = new entOVenta
+                {
+                    FRegistroV = dateTimePicker2.Value,
+                    MontoTotal = Convert.ToDecimal(textBox14.Text),
+                    MontoPago = !string.IsNullOrEmpty(textBox13.Text) ? Convert.ToDecimal(textBox13.Text) : null,
+                    MontoCambio = !string.IsNullOrEmpty(textBox6.Text) ? Convert.ToDecimal(textBox6.Text) : null,
+                    Documento = textBox7.Text,
+                    NombreCompleto = textBox4.Text,
+                    NombreCliente = textBox1.Text
+                };
+
+                // Registrar la venta usando TransactionScope
+                using (TransactionScope scope = new TransactionScope())
+                {
+                    int idVenta = logOVenta.Instancia.RegistrarVenta(venta);
+
+                    if (idVenta <= 0)
+                    {
+                        MessageBox.Show("Error al registrar la venta", "Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    if (GrabarDetalleVenta(idVenta))
+                    {
+                        scope.Complete();
+                        MessageBox.Show("Venta registrada correctamente", "Éxito",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        //// Preguntar al usuario si desea continuar al pago
+                        //DialogResult result = MessageBox.Show("¿Deseas continuar al pago?", "Confirmación",
+                        //    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        //if (result == DialogResult.Yes)
+                        //{
+                        //    // Obtener referencia al formulario principal
+                        //    Form Principal = this.ParentForm;
+
+                        //    // Obtener referencia al panel contenedor
+                        //    Panel panelContainer = (Panel)Principal.Controls["panelconteiner"];
+
+                        //    // Limpiar el panel contenedor
+                        //    panelContainer.Controls.Clear();
+
+                        //    // Crear nueva instancia del formulario de registro
+                        //    Registrocliente formRegistro = new Registrocliente();
+                        //    formRegistro.TopLevel = false;
+                        //    formRegistro.FormBorderStyle = FormBorderStyle.None;
+                        //    formRegistro.Dock = DockStyle.Fill;
+
+                        //    // Agregar el formulario al panel
+                        //    panelContainer.Controls.Add(formRegistro);
+                        //    formRegistro.Show();
+                        //}
+                        //else
+                        //{
+                        //    // Aquí puedes agregar lógica adicional si el usuario elige no continuar
+                        //    MessageBox.Show("Operación cancelada. No se procederá al pago.", "Cancelado",
+                        //        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //}
+                    }
+                }
             }
-
-            if (GrabarDetalleVenta(idVenta))
+            catch (Exception ex)
             {
-                scope.Complete();
-                MessageBox.Show("Venta registrada correctamente", "Éxito",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Preguntar al usuario si desea continuar al pago
-                DialogResult result = MessageBox.Show("¿Deseas continuar al pago?", "Confirmación",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (result == DialogResult.Yes)
-                {
-                    // Obtener referencia al formulario principal
-                    Form Principal = this.ParentForm;
-
-                    // Obtener referencia al panel contenedor
-                    Panel panelContainer = (Panel)Principal.Controls["panelconteiner"];
-
-                    // Limpiar el panel contenedor
-                    panelContainer.Controls.Clear();
-
-                    // Crear nueva instancia del formulario de registro
-                    Registrocliente formRegistro = new Registrocliente();
-                    formRegistro.TopLevel = false;
-                    formRegistro.FormBorderStyle = FormBorderStyle.None;
-                    formRegistro.Dock = DockStyle.Fill;
-
-                    // Agregar el formulario al panel
-                    panelContainer.Controls.Add(formRegistro);
-                    formRegistro.Show();
-                }
-                else
-                {
-                    // Aquí puedes agregar lógica adicional si el usuario elige no continuar
-                    MessageBox.Show("Operación cancelada. No se procederá al pago.", "Cancelado",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                MessageBox.Show($"Error al procesar la venta: {ex.Message}",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-    }
-    catch (Exception ex)
-    {
-        MessageBox.Show($"Error al procesar la venta: {ex.Message}",
-            "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-    }
-}
 
 
 
@@ -265,30 +265,37 @@ namespace Proyecto_Minerva
 
             try
             {
-                foreach (DataGridViewRow fila in tablaVentas.Rows) // Cambiar a tablaVentas
+                foreach (DataGridViewRow fila in tablaVentas.Rows)
                 {
                     if (fila.IsNewRow || fila.Cells[0].Value == null)
                         continue;
 
                     try
                     {
-                        // Crear nuevo objeto para cada detalle de venta
-                        entDetalleVenta detalleVenta = new entDetalleVenta();
-                        detalleVenta.OventaID = idVenta; // ID de la venta a la que pertenece el detalle
+                        entDetalleVenta detalleVenta = new entDetalleVenta
+                        {
+                            OventaID = idVenta // ID de la venta a la que pertenece el detalle
+                        };
 
                         // Validar y obtener la descripción
-                        if (string.IsNullOrWhiteSpace(fila.Cells[0].Value?.ToString()))
+                        string descripcion = fila.Cells[0].Value?.ToString().Trim();
+                        if (string.IsNullOrWhiteSpace(descripcion))
                         {
                             errores.Add($"Fila {fila.Index + 1}: La descripción está vacía");
                             todoCorrecto = false;
                             continue;
                         }
 
-                        entPrendas prenda = new entPrendas();
-                        prenda.Descripcion = fila.Cells[0].Value.ToString().Trim();
-                        detalleVenta.Descripcion = prenda; // Asignar la descripción a detalleVenta
+                        // Validar y obtener la talla
+                        string talla = fila.Cells[3].Value?.ToString().Trim();
+                        if (string.IsNullOrWhiteSpace(talla))
+                        {
+                            errores.Add($"Fila {fila.Index + 1}: La talla está vacía");
+                            todoCorrecto = false;
+                            continue;
+                        }
 
-                        // Validar y obtener la cantidad y precio
+                        // Validar y obtener la cantidad
                         if (!int.TryParse(fila.Cells[4].Value?.ToString(), out int cantidad))
                         {
                             errores.Add($"Fila {fila.Index + 1}: Cantidad inválida");
@@ -296,6 +303,7 @@ namespace Proyecto_Minerva
                             continue;
                         }
 
+                        // Validar y obtener el precio
                         if (!decimal.TryParse(fila.Cells[5].Value?.ToString(), out decimal precio))
                         {
                             errores.Add($"Fila {fila.Index + 1}: Precio inválido");
@@ -310,13 +318,16 @@ namespace Proyecto_Minerva
                             continue;
                         }
 
-                        detalleVenta.Cantidad = cantidad; // Asignar cantidad
-                        detalleVenta.PrecioVenta = precio; // Asignar precio
+                        // Asignar propiedades al detalleVenta
+                        detalleVenta.Descripcion = new entPrendas { Descripcion = descripcion }; // Ajusta según tu modelo
+                        detalleVenta.Talla = new entPrendas { Talla = talla }; // Ajusta según tu modelo
+                        detalleVenta.Cantidad = cantidad;
+                        detalleVenta.PrecioVenta = precio;
 
                         // Intentar insertar el detalle
                         try
                         {
-                            logOVenta.Instancia.InsertarDetalleVenta(detalleVenta); // Llamar al método de la capa lógica
+                            logOVenta.Instancia.InsertarDetalleVenta(detalleVenta);
                         }
                         catch (Exception ex)
                         {
@@ -331,6 +342,7 @@ namespace Proyecto_Minerva
                     }
                 }
 
+                // Mostrar errores si hay
                 if (errores.Count > 0)
                 {
                     string mensajeError = "Se encontraron los siguientes errores:\n\n" +
@@ -346,6 +358,7 @@ namespace Proyecto_Minerva
                 return false;
             }
         }
+
         private bool ValidarCamposRequeridos()
         {
             if (string.IsNullOrEmpty(textBox14.Text) ||
@@ -374,6 +387,45 @@ namespace Proyecto_Minerva
         private void Ventauniforme_Load_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox7_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si la tecla presionada es un número (permitir sólo números del 0-9)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                // Si la tecla no es un número, cancelar el evento para no permitir la entrada
+                e.Handled = true;
+            }
+
+            // Verificar si ya se ha alcanzado la longitud máxima de 9 caracteres
+            if (textBox7.Text.Length >= 8 && !char.IsControl(e.KeyChar))
+            {
+                // Cancelar el evento si se intenta agregar más de 9 caracteres
+                e.Handled = true;
+            }
+        }
+
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si la tecla presionada es un número (permitir sólo números del 0-9)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                // Si la tecla no es un número, cancelar el evento para no permitir la entrada
+                e.Handled = true;
+            }
+
+            // Verificar si ya se ha alcanzado la longitud máxima de 9 caracteres
+            if (txtCantidad.Text.Length >= 5 && !char.IsControl(e.KeyChar))
+            {
+                // Cancelar el evento si se intenta agregar más de 9 caracteres
+                e.Handled = true;
+            }
         }
     }
 }

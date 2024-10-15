@@ -144,6 +144,8 @@
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(101, 22);
             textBox7.TabIndex = 20;
+            textBox7.TextChanged += textBox7_TextChanged;
+            textBox7.KeyPress += textBox7_KeyPress;
             // 
             // textBox10
             // 
@@ -314,6 +316,7 @@
             txtCantidad.Name = "txtCantidad";
             txtCantidad.Size = new Size(148, 22);
             txtCantidad.TabIndex = 57;
+            txtCantidad.KeyPress += txtCantidad_KeyPress;
             // 
             // iconButton2
             // 

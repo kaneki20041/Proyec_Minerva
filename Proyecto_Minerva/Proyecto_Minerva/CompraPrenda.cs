@@ -282,6 +282,40 @@ namespace Proyecto_Minerva
         {
             Limpiar();
         }
+
+        private void txtRUC_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si la tecla presionada es un número (permitir sólo números del 0-9)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                // Si la tecla no es un número, cancelar el evento para no permitir la entrada
+                e.Handled = true;
+            }
+
+            // Verificar si ya se ha alcanzado la longitud máxima de 9 caracteres
+            if (txtRUC.Text.Length >= 20 && !char.IsControl(e.KeyChar))
+            {
+                // Cancelar el evento si se intenta agregar más de 9 caracteres
+                e.Handled = true;
+            }
+        }
+
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si la tecla presionada es un número (permitir sólo números del 0-9)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                // Si la tecla no es un número, cancelar el evento para no permitir la entrada
+                e.Handled = true;
+            }
+
+            // Verificar si ya se ha alcanzado la longitud máxima de 9 caracteres
+            if (txtCantidad.Text.Length >= 6 && !char.IsControl(e.KeyChar))
+            {
+                // Cancelar el evento si se intenta agregar más de 9 caracteres
+                e.Handled = true;
+            }
+        }
     }
 }
 

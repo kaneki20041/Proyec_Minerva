@@ -136,6 +136,7 @@
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Size = new Size(174, 22);
             txtTelefono.TabIndex = 10;
+            txtTelefono.KeyPress += txtTelefono_KeyPress;
             // 
             // label7
             // 
@@ -250,6 +251,8 @@
             // cbEstado
             // 
             cbEstado.AutoSize = true;
+            cbEstado.Checked = true;
+            cbEstado.CheckState = CheckState.Checked;
             cbEstado.Location = new Point(105, 186);
             cbEstado.Name = "cbEstado";
             cbEstado.Size = new Size(67, 21);
@@ -270,6 +273,7 @@
             txtRUC.Name = "txtRUC";
             txtRUC.Size = new Size(218, 22);
             txtRUC.TabIndex = 13;
+            txtRUC.KeyPress += txtRUC_KeyPress;
             // 
             // label11
             // 
