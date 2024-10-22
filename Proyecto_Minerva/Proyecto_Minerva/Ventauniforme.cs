@@ -53,19 +53,6 @@ namespace Proyecto_Minerva
 
         }
 
-        private void ListarVentas()
-        {
-            try
-            {
-                List<entOVenta> lista = logOVenta.Instancia.ListarVentas();
-                tablaVentas.DataSource = lista;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ocurrió un error al listar las ventas: {ex.Message}");
-            }
-        }
-
         public int confilas = 0;
         public decimal Total = 0;
         private void button3_Click(object sender, EventArgs e)
@@ -73,21 +60,21 @@ namespace Proyecto_Minerva
             entCompra dCom = new entCompra();
             entPrendas Pren = new entPrendas();
 
-            if ((this.textBox5.Text.Trim() != "") && (txtCantidad.Text.Trim() != ""))
+            if ((this.txtStock.Text.Trim() != "") && (txtCantidad.Text.Trim() != ""))
             {
-                if ((Convert.ToInt32(txtCantidad.Text) > 0) && (Convert.ToInt32(txtCantidad.Text) <= Convert.ToInt32(textBox5.Text)))
+                if ((Convert.ToInt32(txtCantidad.Text) > 0) && (Convert.ToInt32(txtCantidad.Text) <= Convert.ToInt32(txtStock.Text)))
                 {
                     if (confilas == 0)
                     {
 
-                        tablaVentas.Rows.Add(textBox10.Text, textBox11.Text, textBox12.Text, textBox2.Text, txtCantidad.Text, textBox3.Text);
+                        tablaVentas.Rows.Add(txtDescripcion.Text, txtColegio.Text, txtCategoria.Text, txtTalla.Text, txtCantidad.Text, txtPrecio.Text);
                         decimal subTotal = Convert.ToDecimal(tablaVentas.Rows[confilas].Cells[4].Value) * Convert.ToDecimal(tablaVentas.Rows[confilas].Cells[5].Value);
                         tablaVentas.Rows[confilas].Cells[6].Value = subTotal;
                         confilas++;
                     }
                     else
                     {
-                        tablaVentas.Rows.Add(textBox10.Text, textBox11.Text, textBox12.Text, textBox2.Text, txtCantidad.Text, textBox3.Text);
+                        tablaVentas.Rows.Add(txtDescripcion.Text, txtColegio.Text, txtCategoria.Text, txtTalla.Text, txtCantidad.Text, txtPrecio.Text);
                         decimal subTotal = Convert.ToDecimal(tablaVentas.Rows[confilas].Cells[4].Value) * Convert.ToDecimal(tablaVentas.Rows[confilas].Cells[5].Value);
                         tablaVentas.Rows[confilas].Cells[6].Value = subTotal;
                         confilas++;
@@ -110,26 +97,39 @@ namespace Proyecto_Minerva
             {
                 Total -= Convert.ToDecimal(tablaVentas.Rows[tablaVentas.CurrentRow.Index].Cells[6].Value);
                 //txtTotal.Text = "S/." + Total.ToString();
-                textBox2.Text = Total.ToString();
+                txtTalla.Text = Total.ToString();
                 tablaVentas.Rows.RemoveAt(tablaVentas.CurrentRow.Index);
                 confilas--;
             }
         }
-        private void iconButton1_Click(object sender, EventArgs e)
+        private void txtDocumento_KeyPress(object sender, KeyPressEventArgs e)
         {
+            // Verificar si la tecla presionada es un número (permitir sólo números del 0-9)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                // Si la tecla no es un número, cancelar el evento para no permitir la entrada
+                e.Handled = true;
+            }
+
+            // Verificar si ya se ha alcanzado la longitud máxima de 9 caracteres
+            if (txtDocumento.Text.Length >= 8 && !char.IsControl(e.KeyChar))
+            {
+                // Cancelar el evento si se intenta agregar más de 9 caracteres
+                e.Handled = true;
+            }
         }
 
         private void btnBuscarDni_Click(object sender, EventArgs e)
         {
             int documento;
-            if (int.TryParse(textBox7.Text, out documento))
+            if (int.TryParse(txtDocumento.Text, out documento))
             {
                 logCliente logicaCliente = new logCliente();
                 string nombreCompleto = logicaCliente.BuscarNombreCompletoPorDocumento(documento);
 
                 if (!string.IsNullOrEmpty(nombreCompleto))
                 {
-                    textBox1.Text = $"{nombreCompleto}";
+                    txtNombre.Text = $"{nombreCompleto}";
                 }
                 else
                 {
@@ -168,12 +168,12 @@ namespace Proyecto_Minerva
             {
                 if (formRepPrenda.ShowDialog() == DialogResult.OK)
                 {
-                    textBox10.Text = formRepPrenda.descripcion;
-                    textBox2.Text = formRepPrenda.talla;
-                    textBox11.Text = formRepPrenda.colegio;
-                    textBox12.Text = formRepPrenda.categoria;
-                    textBox3.Text = formRepPrenda.precioVenta;
-                    textBox5.Text = formRepPrenda.stock;
+                    txtDescripcion.Text = formRepPrenda.descripcion;
+                    txtTalla.Text = formRepPrenda.talla;
+                    txtColegio.Text = formRepPrenda.colegio;
+                    txtCategoria.Text = formRepPrenda.categoria;
+                    txtPrecio.Text = formRepPrenda.precioVenta;
+                    txtStock.Text = formRepPrenda.stock;
                 }
             }
         }
@@ -192,9 +192,9 @@ namespace Proyecto_Minerva
                     MontoTotal = Convert.ToDecimal(textBox14.Text),
                     MontoPago = !string.IsNullOrEmpty(textBox13.Text) ? Convert.ToDecimal(textBox13.Text) : null,
                     MontoCambio = !string.IsNullOrEmpty(textBox6.Text) ? Convert.ToDecimal(textBox6.Text) : null,
-                    Documento = textBox7.Text,
-                    NombreCompleto = textBox4.Text,
-                    NombreCliente = textBox1.Text
+                    Documento = txtDocumento.Text,
+                    NombreCompleto = txtVendedor.Text,
+                    NombreCliente = txtNombre.Text
                 };
 
                 // Registrar la venta usando TransactionScope
@@ -256,8 +256,6 @@ namespace Proyecto_Minerva
             }
         }
 
-
-
         private bool GrabarDetalleVenta(int idVenta)
         {
             bool todoCorrecto = true;
@@ -272,7 +270,7 @@ namespace Proyecto_Minerva
 
                     try
                     {
-                        entDetalleVenta detalleVenta = new entDetalleVenta
+                        entCarrito detalleVenta = new entCarrito
                         {
                             OventaID = idVenta // ID de la venta a la que pertenece el detalle
                         };
@@ -362,8 +360,8 @@ namespace Proyecto_Minerva
         private bool ValidarCamposRequeridos()
         {
             if (string.IsNullOrEmpty(textBox14.Text) ||
-                string.IsNullOrEmpty(textBox7.Text) ||
-                string.IsNullOrEmpty(textBox4.Text))
+                string.IsNullOrEmpty(txtDocumento.Text) ||
+                string.IsNullOrEmpty(txtVendedor.Text))
             {
                 MessageBox.Show("Todos los campos requeridos deben estar llenos",
                     "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -378,37 +376,6 @@ namespace Proyecto_Minerva
             }
 
             return true;
-        }
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void Ventauniforme_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox7_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox7_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // Verificar si la tecla presionada es un número (permitir sólo números del 0-9)
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                // Si la tecla no es un número, cancelar el evento para no permitir la entrada
-                e.Handled = true;
-            }
-
-            // Verificar si ya se ha alcanzado la longitud máxima de 9 caracteres
-            if (textBox7.Text.Length >= 8 && !char.IsControl(e.KeyChar))
-            {
-                // Cancelar el evento si se intenta agregar más de 9 caracteres
-                e.Handled = true;
-            }
         }
 
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)

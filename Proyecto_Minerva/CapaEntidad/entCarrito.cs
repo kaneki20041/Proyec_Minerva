@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaEntidad
 {
-        public class entDetalleVenta
+        public class entCarrito
         {
             public int OventaID { get; set; }
             public int? Cantidad { get; set; }

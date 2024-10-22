@@ -30,32 +30,32 @@
         {
             label2 = new Label();
             label5 = new Label();
-            textBox1 = new TextBox();
+            txtNombre = new TextBox();
             button1 = new Button();
             label6 = new Label();
             label7 = new Label();
-            textBox7 = new TextBox();
-            textBox10 = new TextBox();
+            txtDocumento = new TextBox();
+            txtDescripcion = new TextBox();
             groupBox1 = new GroupBox();
-            textBox4 = new TextBox();
+            txtVendedor = new TextBox();
             label4 = new Label();
             dateTimePicker2 = new DateTimePicker();
             btnBuscarDni = new FontAwesome.Sharp.IconButton();
             groupBox2 = new GroupBox();
             label12 = new Label();
-            textBox2 = new TextBox();
+            txtTalla = new TextBox();
             label3 = new Label();
-            textBox3 = new TextBox();
-            textBox5 = new TextBox();
+            txtPrecio = new TextBox();
+            txtStock = new TextBox();
             label9 = new Label();
             label10 = new Label();
             groupBox3 = new GroupBox();
             txtCantidad = new TextBox();
             iconButton2 = new FontAwesome.Sharp.IconButton();
             label15 = new Label();
-            textBox12 = new TextBox();
+            txtCategoria = new TextBox();
             label14 = new Label();
-            textBox11 = new TextBox();
+            txtColegio = new TextBox();
             textBox6 = new TextBox();
             label11 = new Label();
             button2 = new Button();
@@ -81,7 +81,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(40, 26);
+            label2.Location = new Point(18, 25);
             label2.Name = "label2";
             label2.Size = new Size(79, 17);
             label2.TabIndex = 2;
@@ -90,19 +90,19 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(62, 120);
+            label5.Location = new Point(62, 118);
             label5.Name = "label5";
             label5.Size = new Size(35, 17);
             label5.TabIndex = 5;
             label5.Text = "Talla";
             // 
-            // textBox1
+            // txtNombre
             // 
-            textBox1.Location = new Point(115, 61);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(169, 22);
-            textBox1.TabIndex = 6;
+            txtNombre.Location = new Point(109, 63);
+            txtNombre.Multiline = true;
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(207, 22);
+            txtNombre.TabIndex = 6;
             // 
             // button1
             // 
@@ -122,7 +122,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(31, 37);
+            label6.Location = new Point(25, 36);
             label6.Name = "label6";
             label6.Size = new Size(79, 17);
             label6.TabIndex = 15;
@@ -131,32 +131,31 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(89, 30);
+            label7.Location = new Point(52, 35);
             label7.Name = "label7";
             label7.Size = new Size(45, 17);
             label7.TabIndex = 16;
             label7.Text = "Fecha";
             // 
-            // textBox7
+            // txtDocumento
             // 
-            textBox7.Location = new Point(115, 34);
-            textBox7.Multiline = true;
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(101, 22);
-            textBox7.TabIndex = 20;
-            textBox7.TextChanged += textBox7_TextChanged;
-            textBox7.KeyPress += textBox7_KeyPress;
+            txtDocumento.Location = new Point(109, 33);
+            txtDocumento.Multiline = true;
+            txtDocumento.Name = "txtDocumento";
+            txtDocumento.Size = new Size(116, 22);
+            txtDocumento.TabIndex = 20;
+            txtDocumento.KeyPress += txtDocumento_KeyPress;
             // 
-            // textBox10
+            // txtDescripcion
             // 
-            textBox10.Location = new Point(125, 23);
-            textBox10.Name = "textBox10";
-            textBox10.Size = new Size(173, 22);
-            textBox10.TabIndex = 32;
+            txtDescripcion.Location = new Point(103, 23);
+            txtDescripcion.Name = "txtDescripcion";
+            txtDescripcion.Size = new Size(198, 22);
+            txtDescripcion.TabIndex = 32;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(textBox4);
+            groupBox1.Controls.Add(txtVendedor);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(dateTimePicker2);
             groupBox1.Controls.Add(label7);
@@ -168,17 +167,17 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Informacion de Venta";
             // 
-            // textBox4
+            // txtVendedor
             // 
-            textBox4.Location = new Point(155, 59);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(131, 22);
-            textBox4.TabIndex = 58;
+            txtVendedor.Location = new Point(103, 61);
+            txtVendedor.Name = "txtVendedor";
+            txtVendedor.Size = new Size(198, 22);
+            txtVendedor.TabIndex = 58;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(81, 62);
+            label4.Location = new Point(29, 61);
             label4.Name = "label4";
             label4.Size = new Size(68, 17);
             label4.TabIndex = 54;
@@ -188,9 +187,9 @@
             // 
             dateTimePicker2.CustomFormat = "dd-MM-yyyy";
             dateTimePicker2.Format = DateTimePickerFormat.Custom;
-            dateTimePicker2.Location = new Point(155, 30);
+            dateTimePicker2.Location = new Point(103, 32);
             dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(131, 22);
+            dateTimePicker2.Size = new Size(98, 22);
             dateTimePicker2.TabIndex = 36;
             dateTimePicker2.UseWaitCursor = true;
             // 
@@ -203,7 +202,7 @@
             btnBuscarDni.IconColor = Color.Black;
             btnBuscarDni.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnBuscarDni.IconSize = 15;
-            btnBuscarDni.Location = new Point(222, 32);
+            btnBuscarDni.Location = new Point(244, 32);
             btnBuscarDni.Name = "btnBuscarDni";
             btnBuscarDni.Size = new Size(34, 23);
             btnBuscarDni.TabIndex = 55;
@@ -215,12 +214,12 @@
             groupBox2.Controls.Add(btnBuscarDni);
             groupBox2.Controls.Add(label12);
             groupBox2.Controls.Add(label6);
-            groupBox2.Controls.Add(textBox7);
-            groupBox2.Controls.Add(textBox1);
+            groupBox2.Controls.Add(txtDocumento);
+            groupBox2.Controls.Add(txtNombre);
             groupBox2.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox2.Location = new Point(420, 21);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(352, 104);
+            groupBox2.Size = new Size(363, 104);
             groupBox2.TabIndex = 35;
             groupBox2.TabStop = false;
             groupBox2.Text = "Informacion de Cliente";
@@ -228,49 +227,49 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(46, 64);
+            label12.Location = new Point(40, 66);
             label12.Name = "label12";
             label12.Size = new Size(56, 17);
             label12.TabIndex = 35;
             label12.Text = "Nombre";
             // 
-            // textBox2
+            // txtTalla
             // 
-            textBox2.Location = new Point(154, 115);
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new Size(85, 22);
-            textBox2.TabIndex = 37;
+            txtTalla.Location = new Point(103, 115);
+            txtTalla.Name = "txtTalla";
+            txtTalla.ReadOnly = true;
+            txtTalla.Size = new Size(98, 22);
+            txtTalla.TabIndex = 37;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(374, 74);
+            label3.Location = new Point(373, 76);
             label3.Name = "label3";
             label3.Size = new Size(46, 17);
             label3.TabIndex = 38;
             label3.Text = "Precio";
             // 
-            // textBox3
+            // txtPrecio
             // 
-            textBox3.Location = new Point(426, 71);
-            textBox3.Name = "textBox3";
-            textBox3.ReadOnly = true;
-            textBox3.Size = new Size(148, 22);
-            textBox3.TabIndex = 39;
+            txtPrecio.Location = new Point(425, 73);
+            txtPrecio.Name = "txtPrecio";
+            txtPrecio.ReadOnly = true;
+            txtPrecio.Size = new Size(148, 22);
+            txtPrecio.TabIndex = 39;
             // 
-            // textBox5
+            // txtStock
             // 
-            textBox5.Location = new Point(426, 103);
-            textBox5.Name = "textBox5";
-            textBox5.ReadOnly = true;
-            textBox5.Size = new Size(148, 22);
-            textBox5.TabIndex = 40;
+            txtStock.Location = new Point(425, 105);
+            txtStock.Name = "txtStock";
+            txtStock.ReadOnly = true;
+            txtStock.Size = new Size(148, 22);
+            txtStock.TabIndex = 40;
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(378, 106);
+            label9.Location = new Point(377, 108);
             label9.Name = "label9";
             label9.Size = new Size(42, 17);
             label9.TabIndex = 41;
@@ -279,7 +278,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(357, 43);
+            label10.Location = new Point(356, 45);
             label10.Name = "label10";
             label10.Size = new Size(64, 17);
             label10.TabIndex = 43;
@@ -290,29 +289,29 @@
             groupBox3.Controls.Add(txtCantidad);
             groupBox3.Controls.Add(iconButton2);
             groupBox3.Controls.Add(label15);
-            groupBox3.Controls.Add(textBox12);
+            groupBox3.Controls.Add(txtCategoria);
             groupBox3.Controls.Add(label14);
-            groupBox3.Controls.Add(textBox11);
+            groupBox3.Controls.Add(txtColegio);
             groupBox3.Controls.Add(label10);
             groupBox3.Controls.Add(label9);
-            groupBox3.Controls.Add(textBox5);
-            groupBox3.Controls.Add(textBox3);
+            groupBox3.Controls.Add(txtStock);
+            groupBox3.Controls.Add(txtPrecio);
             groupBox3.Controls.Add(label3);
-            groupBox3.Controls.Add(textBox2);
-            groupBox3.Controls.Add(textBox10);
+            groupBox3.Controls.Add(txtTalla);
+            groupBox3.Controls.Add(txtDescripcion);
             groupBox3.Controls.Add(label2);
             groupBox3.Controls.Add(label5);
             groupBox3.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox3.Location = new Point(77, 131);
+            groupBox3.Location = new Point(64, 131);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(589, 152);
+            groupBox3.Size = new Size(602, 152);
             groupBox3.TabIndex = 44;
             groupBox3.TabStop = false;
             groupBox3.Text = "Informacion de Prenda";
             // 
             // txtCantidad
             // 
-            txtCantidad.Location = new Point(426, 40);
+            txtCantidad.Location = new Point(425, 42);
             txtCantidad.Name = "txtCantidad";
             txtCantidad.Size = new Size(148, 22);
             txtCantidad.TabIndex = 57;
@@ -327,7 +326,7 @@
             iconButton2.IconColor = Color.Black;
             iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton2.IconSize = 15;
-            iconButton2.Location = new Point(304, 22);
+            iconButton2.Location = new Point(307, 22);
             iconButton2.Name = "iconButton2";
             iconButton2.Size = new Size(34, 23);
             iconButton2.TabIndex = 56;
@@ -337,53 +336,55 @@
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(38, 88);
+            label15.Location = new Point(28, 88);
             label15.Name = "label15";
             label15.Size = new Size(69, 17);
             label15.TabIndex = 51;
             label15.Text = "Categoria";
             // 
-            // textBox12
+            // txtCategoria
             // 
-            textBox12.Location = new Point(125, 85);
-            textBox12.Multiline = true;
-            textBox12.Name = "textBox12";
-            textBox12.ReadOnly = true;
-            textBox12.Size = new Size(148, 22);
-            textBox12.TabIndex = 52;
+            txtCategoria.Location = new Point(103, 85);
+            txtCategoria.Multiline = true;
+            txtCategoria.Name = "txtCategoria";
+            txtCategoria.ReadOnly = true;
+            txtCategoria.Size = new Size(198, 22);
+            txtCategoria.TabIndex = 52;
             // 
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(52, 55);
+            label14.Location = new Point(42, 55);
             label14.Name = "label14";
             label14.Size = new Size(55, 17);
             label14.TabIndex = 38;
             label14.Text = "Colegio";
             // 
-            // textBox11
+            // txtColegio
             // 
-            textBox11.Location = new Point(125, 55);
-            textBox11.Multiline = true;
-            textBox11.Name = "textBox11";
-            textBox11.ReadOnly = true;
-            textBox11.Size = new Size(148, 22);
-            textBox11.TabIndex = 38;
+            txtColegio.Location = new Point(103, 55);
+            txtColegio.Multiline = true;
+            txtColegio.Name = "txtColegio";
+            txtColegio.ReadOnly = true;
+            txtColegio.Size = new Size(198, 22);
+            txtColegio.TabIndex = 38;
             // 
             // textBox6
             // 
-            textBox6.Location = new Point(731, 376);
+            textBox6.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox6.Location = new Point(731, 373);
             textBox6.Name = "textBox6";
             textBox6.ReadOnly = true;
-            textBox6.Size = new Size(100, 23);
+            textBox6.Size = new Size(100, 22);
             textBox6.TabIndex = 48;
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(728, 412);
+            label11.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label11.Location = new Point(731, 410);
             label11.Name = "label11";
-            label11.Size = new Size(55, 15);
+            label11.Size = new Size(62, 17);
             label11.TabIndex = 44;
             label11.Text = "Sub Total";
             // 
@@ -408,13 +409,12 @@
             tablaVentas.BorderStyle = BorderStyle.None;
             tablaVentas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             tablaVentas.Columns.AddRange(new DataGridViewColumn[] { Descripcion, Colegio, Categoria, Talla, Cantidad, Precio, SubTotal });
-            tablaVentas.Location = new Point(13, 315);
+            tablaVentas.Location = new Point(13, 297);
             tablaVentas.Name = "tablaVentas";
             tablaVentas.RowHeadersWidth = 51;
             tablaVentas.RowTemplate.Height = 25;
-            tablaVentas.Size = new Size(703, 246);
+            tablaVentas.Size = new Size(703, 264);
             tablaVentas.TabIndex = 47;
-            tablaVentas.CellContentClick += dataGridView1_CellContentClick;
             // 
             // Descripcion
             // 
@@ -474,34 +474,38 @@
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(728, 350);
+            label13.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label13.Location = new Point(731, 353);
             label13.Name = "label13";
-            label13.Size = new Size(88, 15);
+            label13.Size = new Size(97, 17);
             label13.TabIndex = 49;
             label13.Text = "Monto Cambio";
             // 
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(730, 289);
+            label16.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label16.Location = new Point(731, 295);
             label16.Name = "label16";
-            label16.Size = new Size(73, 15);
+            label16.Size = new Size(81, 17);
             label16.TabIndex = 50;
             label16.Text = "Monto Pago";
             // 
             // textBox13
             // 
+            textBox13.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
             textBox13.Location = new Point(731, 315);
             textBox13.Name = "textBox13";
-            textBox13.Size = new Size(100, 23);
+            textBox13.Size = new Size(100, 22);
             textBox13.TabIndex = 51;
             // 
             // textBox14
             // 
+            textBox14.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
             textBox14.Location = new Point(731, 430);
             textBox14.Name = "textBox14";
             textBox14.ReadOnly = true;
-            textBox14.Size = new Size(100, 23);
+            textBox14.Size = new Size(100, 22);
             textBox14.TabIndex = 52;
             // 
             // Ventauniforme
@@ -525,7 +529,6 @@
             Controls.Add(textBox6);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Ventauniforme";
-            Load += Ventauniforme_Load_1;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
@@ -540,29 +543,29 @@
         #endregion
         private Label label2;
         private Label label5;
-        private TextBox textBox1;
+        private TextBox txtNombre;
         private Button button1;
         private Label label6;
         private Label label7;
-        private TextBox textBox7;
-        private TextBox textBox10;
+        private TextBox txtDocumento;
+        private TextBox txtDescripcion;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
         private DateTimePicker dateTimePicker2;
         private Label label12;
-        private TextBox textBox2;
+        private TextBox txtTalla;
         private Label label3;
-        private TextBox textBox3;
-        private TextBox textBox5;
+        private TextBox txtPrecio;
+        private TextBox txtStock;
         private Label label9;
         private Label label10;
         private GroupBox groupBox3;
         private Label label11;
         private TextBox textBox6;
         private Button button2;
-        private TextBox textBox11;
+        private TextBox txtColegio;
         private Label label15;
-        private TextBox textBox12;
+        private TextBox txtCategoria;
         private Label label14;
         private DataGridView tablaVentas;
         private Button button3;
@@ -581,6 +584,6 @@
         private DataGridViewTextBoxColumn Precio;
         private DataGridViewTextBoxColumn SubTotal;
         private TextBox txtCantidad;
-        private TextBox textBox4;
+        private TextBox txtVendedor;
     }
 }

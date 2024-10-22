@@ -135,7 +135,7 @@ namespace CapaDatos
 
 
 
-        public int InsertarDetalleVenta(entDetalleVenta detalleVenta)
+        public int InsertarDetalleVenta(entCarrito detalleVenta)
         {
             SqlCommand cmd = null;
             int idDetalleVenta = 0;

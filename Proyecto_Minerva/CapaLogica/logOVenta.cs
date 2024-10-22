@@ -35,7 +35,7 @@ namespace CapaLogica
             return idVenta;
         }
 
-        public int InsertarDetalleVenta(entDetalleVenta detalleVenta)
+        public int InsertarDetalleVenta(entCarrito detalleVenta)
         {
             // Validar el detalle de venta aquí si es necesario
             if (detalleVenta == null)

@@ -18,15 +18,15 @@ using System.Text.RegularExpressions;
 
 namespace Proyecto_Minerva
 {
-    public partial class Detalleventa : Form
+    public partial class Carrito : Form
     {
         private FacturacionApi api;
-        public Detalleventa()
+        public Carrito()
         {
             InitializeComponent();
             ListarVentas();
             InicializarComboBoxes();
-            string token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1c2VybmFtZSI6ImthbmVraTIwMDQxIiwiaWF0IjoxNzI4NzQwNzA1LCJleHAiOjE3Mjg4MjcxMDV9.QbnpEJBd0W2EIlBA_q94apmsDViYvkJpRV4uCRCronmsSVdGpKekVy3Xdsj7k_e82oawUDplWOhk_h2q7nTAsrb7vzwIO96ScM1Hn2SfROrpOYfqaxvMP6DkCuAd9WxGAgwILtyIxDRwDySVGPvXz9WSJP0DPC3F88cbcKI2MWvMff3nFk5T6McCB94j-tSnQcZSbeFQ16r7o0k97YYcn2WN6UOnotVXLih8uR1SAyseYXMUG_UvnFtCeOAB7ChuO1s5TUeQ9YDGIvK9E5zS8dVxUU1D_WO1K84qEnkDZHFugXrGlcVwtmqTgrdIgus3fGDUBV6mCq-QSnRYDAInzFXTIrHRgfXRJZIhApCobHijdfDPLUkE_JqEtBVMwXm42opFlddkiFvlWkqFRhYkYgdosY_Rk7ImQ-555y_AVwZhbTZzBSBKu0aXsqVhozgVECgbrrXqB7UrRIQHdnO4uv2NmI1SdUUlePFaVr2VGUWeJzM0fKXGSVoD5th1N_xlQiM481E1QvPWvGD7vubt-CA2_ZkAGRBh0ejbrdknsbG8q94gPyMQ7pOpLd4xRV2ZW7SPfXgtQ32fIMSP1hzfgPnnOosSn9YXg5w6ovecPtsMEs0XV2vvh-r3HMbNYKs62muCvTnmjyp_3M1RgY-OOqsdW8QT6RfIcPa0ZvKdeec";
+            string token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1c2VybmFtZSI6ImthbmVraTIwMDQxIiwiaWF0IjoxNzI5MTQyMjE5LCJleHAiOjE3MjkyMjg2MTl9.eONR2W9e8jhBOeT2pUYaPB1yYTSRciK4F6uQikPriVl2IfWOTyK8C7YGy524d3-CrNlWfuVwOqI8w-NOx4_7VWuWck_ta9BSKdUoinJyIn_N4FJRoN_n2JaXaKXjvX-nG5GQNT4n5wbQJIVI5tXBU9gu628zAFgHgzV7bwJrsa-6vt2KJHFNdOJaZ47nBfgI_AfKjMbvG2DyeLjwlVnij3MFfr3UyhGI1CQznZCWKbNN5uR9OBkAxax68KcMdBDj4L0KXE0HgSG8SBkLbWv773495pGhnLXeWdGpy9nBcqu11FuIeHW-VqY44mggzy91Th0cS1CzssU6IN29ogOlfpZS115jzAbfcQok5WiOY9TDzq60Uhi4aM63pOLvc6UY0aYgGloCRofoN0nQhnBRJdbEjllbBBrYjrEgcOP_wLD_jmNyLj03Tg8zy_7QRYTMYxf0WipE0eGRCvYmwSFT-KVKOD8IUOHWWTn0UnMsiei0sv1_fyXhtpfDaMAls3XERwxPDpqGE4YR6cr7rOV2JJzY7epA_v_GSnSC7DyylK8dchnUzodzN2yAUS03T_hyJ8fGkvN6KhWxnS4jNg48sl7aW8Gc4yG0KMPTPdJPkMwR65tdFOI1lNHBUi_u8fBVxTwNvGse13-hU4gctsNkAXKrK0Pzqs716zyfe36ZNPQ";
             api = new FacturacionApi(token);
         }
         private void ListarVentas()
@@ -57,23 +57,31 @@ namespace Proyecto_Minerva
         private void InicializarComboBoxes()
         {
             // Llenado de ComboBox comboBox2 (Categorias)
-            comboBox1.Items.Clear();
+            comboTipoComprobante.Items.Clear();
             List<string> Comprobante = logComprobante.Instancia.ObtenerComprobante();
             foreach (string compr in Comprobante)
             {
-                comboBox1.Items.Add(compr);
+                comboTipoComprobante.Items.Add(compr);
             }
 
-            comboBox2.Items.Clear();
+            comboMetodoPago.Items.Clear();
             List<string> metodo = logMetPago.Instancia.ObtenerMetodosPago();
             foreach (string met in metodo)
             {
-                comboBox2.Items.Add(met);
+                comboMetodoPago.Items.Add(met);
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnEmitirComprobante_Click(object sender, EventArgs e)
         {
+            if(string.IsNullOrEmpty(txtDocumento.Text.Trim()) || string.IsNullOrEmpty(txtNombre.Text.Trim()) ||
+                string.IsNullOrEmpty(txtDireccion.Text.Trim()) || string.IsNullOrEmpty(txtTipoDoc.Text.Trim()) ||
+                comboTipoComprobante.SelectedIndex == -1 || comboMetodoPago.SelectedIndex == -1)
+            {
+                MessageBox.Show("Por favor, rellene todos los campos del Cliente y Pago.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
                 // Crear una lista para almacenar los detalles de los productos
@@ -122,17 +130,17 @@ namespace Proyecto_Minerva
                     formaPago = new
                     {
                         moneda = "PEN",
-                        tipo = comboBox2.Text.Trim(),
+                        tipo = comboMetodoPago.Text.Trim(),
                     },
                     tipoMoneda = "PEN",
                     client = new
                     {
-                        tipoDoc = textBox4.Text.Trim(),
-                        numDoc = textBox5.Text.Trim(),
-                        rznSocial = textBox1.Text.Trim(),
+                        tipoDoc = txtTipoDoc.Text.Trim(),
+                        numDoc = txtDocumento.Text.Trim(),
+                        rznSocial = txtNombre.Text.Trim(),
                         address = new
                         {
-                            direccion = textBox3.Text.Trim(),
+                            direccion = txtDireccion.Text.Trim(),
                             provincia = "LIMA",
                             departamento = "LIMA",
                             distrito = "LIMA",
@@ -242,16 +250,10 @@ namespace Proyecto_Minerva
             }
             return items;
         }
-
-        private void Detalleventa_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void iconButton2_Click(object sender, EventArgs e)
+        private void btnBuscarDoc_Click(object sender, EventArgs e)
         {
             // Obtener el documento del TextBox (suponiendo que se llama txtDocumento)
-            string documento = textBox5.Text.Trim();
+            string documento = txtDocumento.Text.Trim();
 
             // Validar que el documento no esté vacío
             if (string.IsNullOrEmpty(documento))
@@ -270,17 +272,14 @@ namespace Proyecto_Minerva
             if (cliente != null)
             {
                 // Mostrar los datos en los TextBox correspondientes
-                textBox4.Text = cliente.TipoDoc; // Asumiendo que txtTipoDoc es un TextBox
-                textBox1.Text = $"{cliente.Nombre} {cliente.Apellidos}"; // Asumiendo que tienes un TextBox para el nombre
-                textBox3.Text = cliente.Direccion; // Asumiendo que txtDireccion es un TextBox
+                txtTipoDoc.Text = cliente.TipoDoc; // Asumiendo que txtTipoDoc es un TextBox
+                txtNombre.Text = $"{cliente.Nombre} {cliente.Apellidos}"; // Asumiendo que tienes un TextBox para el nombre
+                txtDireccion.Text = cliente.Direccion; // Asumiendo que txtDireccion es un TextBox
             }
             else
             {
                 MessageBox.Show("Cliente no encontrado.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
-
     }
-
 }

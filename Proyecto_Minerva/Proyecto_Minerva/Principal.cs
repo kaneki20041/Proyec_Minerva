@@ -137,7 +137,7 @@ namespace Proyecto_Minerva
 
         private void btnSalidaMaterial_Click(object sender, EventArgs e)
         {
-            AbrirForm(new Detalleventa());
+            AbrirForm(new Carrito());
         }
 
         private void btnMetodoPago_Click(object sender, EventArgs e)

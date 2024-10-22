@@ -43,7 +43,7 @@
             btnPrendas = new FontAwesome.Sharp.IconButton();
             btnProveedores = new FontAwesome.Sharp.IconButton();
             btnMetodoPago = new FontAwesome.Sharp.IconButton();
-            btnSalidaMaterial = new FontAwesome.Sharp.IconButton();
+            btnCarrito = new FontAwesome.Sharp.IconButton();
             btn_IngMaterial = new FontAwesome.Sharp.IconButton();
             btnCategoria = new FontAwesome.Sharp.IconButton();
             panel8 = new Panel();
@@ -148,7 +148,7 @@
             panel2.Controls.Add(btnPrendas);
             panel2.Controls.Add(btnProveedores);
             panel2.Controls.Add(btnMetodoPago);
-            panel2.Controls.Add(btnSalidaMaterial);
+            panel2.Controls.Add(btnCarrito);
             panel2.Controls.Add(btn_IngMaterial);
             panel2.Controls.Add(btnCategoria);
             panel2.Controls.Add(panel8);
@@ -216,7 +216,7 @@
             btnComprarPrendas.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
             btnComprarPrendas.FlatStyle = FlatStyle.Flat;
             btnComprarPrendas.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            btnComprarPrendas.IconChar = FontAwesome.Sharp.IconChar.CashRegister;
+            btnComprarPrendas.IconChar = FontAwesome.Sharp.IconChar.Chain;
             btnComprarPrendas.IconColor = Color.Black;
             btnComprarPrendas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnComprarPrendas.IconSize = 28;
@@ -314,26 +314,26 @@
             btnMetodoPago.UseVisualStyleBackColor = true;
             btnMetodoPago.Click += btnMetodoPago_Click;
             // 
-            // btnSalidaMaterial
+            // btnCarrito
             // 
-            btnSalidaMaterial.Cursor = Cursors.Hand;
-            btnSalidaMaterial.FlatAppearance.BorderSize = 0;
-            btnSalidaMaterial.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
-            btnSalidaMaterial.FlatStyle = FlatStyle.Flat;
-            btnSalidaMaterial.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            btnSalidaMaterial.IconChar = FontAwesome.Sharp.IconChar.Info;
-            btnSalidaMaterial.IconColor = Color.Black;
-            btnSalidaMaterial.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnSalidaMaterial.IconSize = 25;
-            btnSalidaMaterial.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSalidaMaterial.Location = new Point(12, 309);
-            btnSalidaMaterial.Name = "btnSalidaMaterial";
-            btnSalidaMaterial.Size = new Size(176, 37);
-            btnSalidaMaterial.TabIndex = 16;
-            btnSalidaMaterial.Text = "Pago Ventas";
-            btnSalidaMaterial.TextAlign = ContentAlignment.MiddleRight;
-            btnSalidaMaterial.UseVisualStyleBackColor = true;
-            btnSalidaMaterial.Click += btnSalidaMaterial_Click;
+            btnCarrito.Cursor = Cursors.Hand;
+            btnCarrito.FlatAppearance.BorderSize = 0;
+            btnCarrito.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
+            btnCarrito.FlatStyle = FlatStyle.Flat;
+            btnCarrito.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCarrito.IconChar = FontAwesome.Sharp.IconChar.CashRegister;
+            btnCarrito.IconColor = Color.Black;
+            btnCarrito.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnCarrito.IconSize = 25;
+            btnCarrito.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCarrito.Location = new Point(12, 309);
+            btnCarrito.Name = "btnCarrito";
+            btnCarrito.Size = new Size(176, 37);
+            btnCarrito.TabIndex = 16;
+            btnCarrito.Text = "Carrito";
+            btnCarrito.TextAlign = ContentAlignment.MiddleRight;
+            btnCarrito.UseVisualStyleBackColor = true;
+            btnCarrito.Click += btnSalidaMaterial_Click;
             // 
             // btn_IngMaterial
             // 
@@ -511,7 +511,7 @@
         private Panel panelconteiner;
         private FontAwesome.Sharp.IconButton btnCategoria;
         private FontAwesome.Sharp.IconButton btn_IngMaterial;
-        private FontAwesome.Sharp.IconButton btnSalidaMaterial;
+        private FontAwesome.Sharp.IconButton btnCarrito;
         private FontAwesome.Sharp.IconButton btnMetodoPago;
         private FontAwesome.Sharp.IconButton btnProveedores;
         private FontAwesome.Sharp.IconButton btnPrendas;
