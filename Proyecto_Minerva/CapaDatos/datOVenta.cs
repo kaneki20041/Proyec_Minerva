@@ -22,7 +22,7 @@ namespace CapaDatos
         #endregion Singleton
 
         // Método para obtener todas las ventas
-        public List<entOVenta> ListarVentas()
+        public List<entOVenta> ListarItemsPorVenta(int ventaID)
         {
             List<entOVenta> lista = new List<entOVenta>();
             using (SqlConnection cn = Conexion.Instancia.Conectar())
@@ -30,6 +30,7 @@ namespace CapaDatos
                 using (SqlCommand cmd = new SqlCommand("spListarVentas", cn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@VentaID", ventaID); // Añadimos el parámetro
 
                     try
                     {
@@ -48,7 +49,7 @@ namespace CapaDatos
                                     Cantidad = Convert.ToInt32(dr["Cantidad"]),
                                     PrecioVenta = Convert.ToDecimal(dr["PrecioVenta"]),
                                     MontoTotal = Convert.ToDecimal(dr["MontoTotal"])
-                                };
+                        };
 
                                 lista.Add(venta);
                             }
@@ -63,7 +64,100 @@ namespace CapaDatos
             return lista;
         }
 
+        public decimal ObtenerMontoTotalPorVenta(int ventaID)
+        {
+            decimal montoTotal = 0;
+            using (SqlConnection cn = Conexion.Instancia.Conectar())
+            {
+                using (SqlCommand cmd = new SqlCommand("spObtenerMontoTotal", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@VentaID", ventaID);
 
+                    try
+                    {
+                        cn.Open();
+                        var result = cmd.ExecuteScalar();
+                        if (result != null)
+                        {
+                            montoTotal = Convert.ToDecimal(result);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("Ocurrió un error al obtener el monto total: " + ex.Message);
+                    }
+                }
+            }
+            return montoTotal;
+        }
+
+        public string ContarVentas()
+        {
+            string totalVentas = string.Empty; // Inicializa la variable
+            using (SqlConnection cn = Conexion.Instancia.Conectar())
+            {
+                using (SqlCommand cmd = new SqlCommand("spCountVenta", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    try
+                    {
+                        cn.Open();
+                        // Ejecuta el lector para obtener el resultado
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            // Almacena todos los IDs de ventas en una lista
+                            List<int> idsVentas = new List<int>();
+                            while (dr.Read())
+                            {
+                                idsVentas.Add(Convert.ToInt32(dr["TotalVentas"])); // Lee el ID de venta
+                            }
+
+                            // Convierte la lista de IDs en una cadena separada por comas
+                            totalVentas = string.Join(", ", idsVentas);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("Ocurrió un error al contar las ventas: " + ex.Message);
+                    }
+                }
+            }
+            return totalVentas; // Retorna los IDs de ventas
+        }
+
+
+        public List<string> ListarUsuariosConectados()
+        {
+            List<string> lista = new List<string>(); // Cambia el tipo de la lista si necesitas un objeto más complejo
+            using (SqlConnection cn = Conexion.Instancia.Conectar())
+            {
+                using (SqlCommand cmd = new SqlCommand("spListarUsuariosConectados", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    try
+                    {
+                        cn.Open();
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            while (dr.Read())
+                            {
+                                // Supongamos que solo deseas el NombreCompleto
+                                string nombreCompleto = dr["NombreCompleto"].ToString();
+                                lista.Add(nombreCompleto);
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("Ocurrió un error al listar los usuarios conectados: " + ex.Message);
+                    }
+                }
+            }
+            return lista;
+        }
 
 
         public int RegistrarVenta(entOVenta venta)
@@ -77,11 +171,9 @@ namespace CapaDatos
                 cmd = new SqlCommand("spInsertaVenta", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-         
-
                 // Agregar los parámetros del procedimiento almacenado
                 cmd.Parameters.AddWithValue("@Documento", venta.Documento);
-                cmd.Parameters.AddWithValue("@NombreCompleto", venta.NombreCompleto); // Cambiar a NombreCompleto
+                cmd.Parameters.AddWithValue("@NombreCompleto", venta.NombreCompleto);
                 cmd.Parameters.AddWithValue("@FechaRegistroV", venta.FRegistroV);
                 cmd.Parameters.AddWithValue("@Monto", venta.MontoTotal);
                 cmd.Parameters.AddWithValue("@MontoPago", (object)venta.MontoPago ?? DBNull.Value);
@@ -132,8 +224,6 @@ namespace CapaDatos
                 cmd?.Dispose();
             }
         }
-
-
 
         public int InsertarDetalleVenta(entCarrito detalleVenta)
         {

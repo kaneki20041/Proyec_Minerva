@@ -56,6 +56,7 @@
             txtNombre = new TextBox();
             label11 = new Label();
             label1 = new Label();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvDetalleventa).BeginInit();
             gbIDVenta.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -102,6 +103,7 @@
             comboTipoComprobante.Name = "comboTipoComprobante";
             comboTipoComprobante.Size = new Size(130, 25);
             comboTipoComprobante.TabIndex = 40;
+            comboTipoComprobante.SelectedIndexChanged += comboTipoComprobante_SelectedIndexChanged;
             // 
             // label4
             // 
@@ -235,7 +237,6 @@
             txtSerie.ReadOnly = true;
             txtSerie.Size = new Size(100, 24);
             txtSerie.TabIndex = 37;
-            txtSerie.Text = "B001-1";
             // 
             // label10
             // 
@@ -340,12 +341,27 @@
             label1.TabIndex = 40;
             label1.Text = "IGV";
             // 
+            // button1
+            // 
+            button1.BackColor = Color.PowderBlue;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.Location = new Point(707, 267);
+            button1.Margin = new Padding(3, 2, 3, 2);
+            button1.Name = "button1";
+            button1.Size = new Size(103, 41);
+            button1.TabIndex = 41;
+            button1.Text = "PAGAR VENTA";
+            button1.UseVisualStyleBackColor = false;
+            // 
             // Carrito
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MintCream;
             ClientSize = new Size(851, 573);
+            Controls.Add(button1);
             Controls.Add(label1);
             Controls.Add(groupBox1);
             Controls.Add(label10);
@@ -363,6 +379,7 @@
             Controls.Add(dgvDetalleventa);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Carrito";
+            Load += Carrito_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDetalleventa).EndInit();
             gbIDVenta.ResumeLayout(false);
             gbIDVenta.PerformLayout();
@@ -401,5 +418,6 @@
         private Label label12;
         private TextBox txtTipoDoc;
         private Label label1;
+        private Button button1;
     }
 }

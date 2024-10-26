@@ -323,8 +323,30 @@ namespace Proyecto_Minerva
 
         private void btnSalidaMaterial_Click(object sender, EventArgs e)
         {
-            AbrirForm(new Carrito());
+            var ventaUniforme = Application.OpenForms.OfType<Ventauniforme>().FirstOrDefault();
+
+            if (ventaUniforme != null)
+            {
+                // Obtener el ID de venta desde la propiedad NumVenta
+                string idVentaString = ventaUniforme.NumVenta;
+
+                // Validar y convertir a int
+                if (int.TryParse(idVentaString, out int idVenta))
+                {
+                    // Abre el formulario Carrito, pasando el ID de venta como un int
+                    AbrirForm(new Carrito(idVenta));
+                }
+                else
+                {
+                    MessageBox.Show("El ID de venta no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se encontró el formulario de venta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
+
 
         private void btnMetodoPago_Click(object sender, EventArgs e)
         {

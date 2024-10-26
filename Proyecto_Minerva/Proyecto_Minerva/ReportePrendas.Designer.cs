@@ -105,6 +105,8 @@
             btnLimpiar.UseVisualStyleBackColor = false;
             btnLimpiar.Click += btnLimpiar_Click;
             // 
+            // btnBuscarUsuario
+            // 
             // cbBusqueda
             // 
             cbBusqueda.FormattingEnabled = true;

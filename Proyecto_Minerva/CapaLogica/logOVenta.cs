@@ -18,9 +18,24 @@ namespace CapaLogica
         }
 
         // Método para obtener todas las ventas
-        public List<entOVenta> ListarVentas()
+        public List<entOVenta> ListarVentasPorId(int ventaID)
         {
-            return datOVenta.Instancia.ListarVentas();
+            return datOVenta.Instancia.ListarItemsPorVenta(ventaID);
+        }
+
+        public decimal ObtenerMontoTotalPorId(int ventaID)
+        {
+            return datOVenta.Instancia.ObtenerMontoTotalPorVenta(ventaID);
+        }
+
+        public List<string> ListarUsuariosConectados()
+        {
+            return datOVenta.Instancia.ListarUsuariosConectados(); // Asegúrate de que datUsuario tenga el método correcto
+        }
+
+        public string ContarVentas()
+        {
+            return datOVenta.Instancia.ContarVentas();
         }
 
         public int RegistrarVenta(entOVenta venta)

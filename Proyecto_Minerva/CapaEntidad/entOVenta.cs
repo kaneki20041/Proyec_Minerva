@@ -21,7 +21,6 @@ namespace CapaEntidad
         public string Descripcion { get; set; } // Agregado
         public int Cantidad { get; set; } // Agregado
         public decimal PrecioVenta { get; set; } // Agregado
-
         public decimal MontoTotal { get; set; }
     }
 }

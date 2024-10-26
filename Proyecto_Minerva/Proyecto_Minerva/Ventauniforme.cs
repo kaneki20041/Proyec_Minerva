@@ -1,5 +1,4 @@
-﻿
-using CapaDatos;
+﻿using CapaDatos;
 using CapaEntidad;
 using CapaLogica;
 using CapaPresentacion;
@@ -25,7 +24,14 @@ namespace Proyecto_Minerva
             InitializeComponent();
             IniciaComboBox();
             textBox13.TextChanged += TextBox13_TextChanged;
+
         }
+        public string NumVenta
+        {
+            get { return txtNumVenta.Text; }
+        }
+
+
         private void TextBox13_TextChanged(object sender, EventArgs e)
         {
             decimal pago;
@@ -51,6 +57,36 @@ namespace Proyecto_Minerva
             List<string> metodosPago = logMetPago.Instancia.ObtenerMetodosPago();
 
 
+        }
+        private void CargarNombreCompleto()
+        {
+            logOVenta logicVenta = new logOVenta();
+
+            // Aquí puedes ajustar según tu lógica para obtener el usuario
+            var usuariosConectados = logicVenta.ListarUsuariosConectados();
+
+            // Supongamos que solo necesitas el primer usuario conectado
+            if (usuariosConectados.Count > 0)
+            {
+                txtVendedor.Text = usuariosConectados[0]; // Cargar el NombreCompleto en el TextBox
+            }
+            else
+            {
+                txtVendedor.Text = "No hay usuarios conectados"; // Mensaje alternativo
+            }
+        }
+        private void CargarTotalVentas()
+        {
+            logOVenta logicaVenta = new logOVenta();
+            string totalVentas = logicaVenta.ContarVentas();
+
+            txtNumVenta.Text = totalVentas; // Asumiendo que tienes un TextBox para mostrar el total
+        }
+
+        private void Ventauniforme_Load(object sender, EventArgs e)
+        {
+            CargarNombreCompleto();
+            CargarTotalVentas();
         }
 
         public int confilas = 0;
@@ -185,76 +221,75 @@ namespace Proyecto_Minerva
                 if (!ValidarCamposRequeridos())
                     return;
 
+                // Preguntar al usuario si ha terminado de registrar la venta
+                DialogResult result = MessageBox.Show("¿Has terminado de registrar la venta?", "Confirmación",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.No)
+                {
+                    MessageBox.Show("Puedes continuar eligiendo artículos para vender.", "Información",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return; // No registrar la venta
+                }
+
                 // Crear objeto de venta
                 entOVenta venta = new entOVenta
                 {
                     FRegistroV = dateTimePicker2.Value,
                     MontoTotal = Convert.ToDecimal(textBox14.Text),
-                    MontoPago = !string.IsNullOrEmpty(textBox13.Text) ? Convert.ToDecimal(textBox13.Text) : null,
-                    MontoCambio = !string.IsNullOrEmpty(textBox6.Text) ? Convert.ToDecimal(textBox6.Text) : null,
+                    MontoPago = !string.IsNullOrEmpty(textBox13.Text) ? Convert.ToDecimal(textBox13.Text) : (decimal?)null,
+                    MontoCambio = !string.IsNullOrEmpty(textBox6.Text) ? Convert.ToDecimal(textBox6.Text) : (decimal?)null,
                     Documento = txtDocumento.Text,
                     NombreCompleto = txtVendedor.Text,
                     NombreCliente = txtNombre.Text
                 };
 
+                int idVenta = 0; // Declarar idVenta aquí
+
                 // Registrar la venta usando TransactionScope
                 using (TransactionScope scope = new TransactionScope())
                 {
-                    int idVenta = logOVenta.Instancia.RegistrarVenta(venta);
+                    idVenta = logOVenta.Instancia.RegistrarVenta(venta);
 
                     if (idVenta <= 0)
                     {
-                        MessageBox.Show("Error al registrar la venta", "Error",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Error al registrar la venta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 
                     if (GrabarDetalleVenta(idVenta))
                     {
-                        scope.Complete();
-                        MessageBox.Show("Venta registrada correctamente", "Éxito",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        //// Preguntar al usuario si desea continuar al pago
-                        //DialogResult result = MessageBox.Show("¿Deseas continuar al pago?", "Confirmación",
-                        //    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        //if (result == DialogResult.Yes)
-                        //{
-                        //    // Obtener referencia al formulario principal
-                        //    Form Principal = this.ParentForm;
-
-                        //    // Obtener referencia al panel contenedor
-                        //    Panel panelContainer = (Panel)Principal.Controls["panelconteiner"];
-
-                        //    // Limpiar el panel contenedor
-                        //    panelContainer.Controls.Clear();
-
-                        //    // Crear nueva instancia del formulario de registro
-                        //    Registrocliente formRegistro = new Registrocliente();
-                        //    formRegistro.TopLevel = false;
-                        //    formRegistro.FormBorderStyle = FormBorderStyle.None;
-                        //    formRegistro.Dock = DockStyle.Fill;
-
-                        //    // Agregar el formulario al panel
-                        //    panelContainer.Controls.Add(formRegistro);
-                        //    formRegistro.Show();
-                        //}
-                        //else
-                        //{
-                        //    // Aquí puedes agregar lógica adicional si el usuario elige no continuar
-                        //    MessageBox.Show("Operación cancelada. No se procederá al pago.", "Cancelado",
-                        //        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        //}
+                        scope.Complete(); // Completa la transacción solo si todas las operaciones se realizan correctamente
+                        MessageBox.Show("Venta registrada correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al grabar los detalles de la venta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
                 }
+
+                // Redirigir al formulario Carrito
+                Form Principal = this.ParentForm;
+                Panel panelContainer = (Panel)Principal.Controls["panelconteiner"];
+
+                panelContainer.Controls.Clear();
+
+                Carrito formCarrito = new Carrito(idVenta); // Usar idVenta aquí
+                formCarrito.TopLevel = false;
+                formCarrito.FormBorderStyle = FormBorderStyle.None;
+                formCarrito.Dock = DockStyle.Fill;
+
+                panelContainer.Controls.Add(formCarrito);
+                formCarrito.Show();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al procesar la venta: {ex.Message}",
-                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al procesar la venta: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
 
         private bool GrabarDetalleVenta(int idVenta)
         {
@@ -394,5 +429,6 @@ namespace Proyecto_Minerva
                 e.Handled = true;
             }
         }
+
     }
 }

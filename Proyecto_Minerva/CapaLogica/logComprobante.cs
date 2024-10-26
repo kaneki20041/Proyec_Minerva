@@ -1,4 +1,5 @@
 ﻿using CapaDatos;
+using CapaEntidad;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,5 +25,18 @@ namespace CapaLogica
         {
             return datComprobante.Instancia.ObtenerTiposComprobante();
         }
+
+        public int RegistrarComprobantePago(entComprobanteventa comprobante)
+        {
+            return DatComprobanteventa.Instancia.RegistrarComprobantePago(comprobante); // Llama al método de la capa de datos
+        }
+
+        public string GenerarNumeroComprobante(string tipoComprobante)
+        {
+            // Llama al método de la capa de datos para generar el número de comprobante
+            return DatComprobanteventa.Instancia.GenerarNumeroComprobante(tipoComprobante);
+        }
+
+
     }
 }

@@ -37,6 +37,8 @@
             txtDocumento = new TextBox();
             txtDescripcion = new TextBox();
             groupBox1 = new GroupBox();
+            txtNumVenta = new TextBox();
+            label1 = new Label();
             txtVendedor = new TextBox();
             label4 = new Label();
             dateTimePicker2 = new DateTimePicker();
@@ -98,10 +100,10 @@
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(109, 63);
+            txtNombre.Location = new Point(100, 61);
             txtNombre.Multiline = true;
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(207, 22);
+            txtNombre.Size = new Size(162, 22);
             txtNombre.TabIndex = 6;
             // 
             // button1
@@ -122,7 +124,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(25, 36);
+            label6.Location = new Point(15, 30);
             label6.Name = "label6";
             label6.Size = new Size(79, 17);
             label6.TabIndex = 15;
@@ -131,7 +133,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(52, 35);
+            label7.Location = new Point(215, 31);
             label7.Name = "label7";
             label7.Size = new Size(45, 17);
             label7.TabIndex = 16;
@@ -139,10 +141,10 @@
             // 
             // txtDocumento
             // 
-            txtDocumento.Location = new Point(109, 33);
+            txtDocumento.Location = new Point(100, 28);
             txtDocumento.Multiline = true;
             txtDocumento.Name = "txtDocumento";
-            txtDocumento.Size = new Size(116, 22);
+            txtDocumento.Size = new Size(108, 22);
             txtDocumento.TabIndex = 20;
             txtDocumento.KeyPress += txtDocumento_KeyPress;
             // 
@@ -155,6 +157,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(txtNumVenta);
+            groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(txtVendedor);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(dateTimePicker2);
@@ -162,22 +166,43 @@
             groupBox1.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox1.Location = new Point(64, 21);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(331, 104);
+            groupBox1.Size = new Size(420, 104);
             groupBox1.TabIndex = 34;
             groupBox1.TabStop = false;
             groupBox1.Text = "Informacion de Venta";
             // 
+            // txtNumVenta
+            // 
+            txtNumVenta.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            txtNumVenta.Location = new Point(86, 25);
+            txtNumVenta.Name = "txtNumVenta";
+            txtNumVenta.ReadOnly = true;
+            txtNumVenta.Size = new Size(106, 25);
+            txtNumVenta.TabIndex = 60;
+            txtNumVenta.TextAlign = HorizontalAlignment.Center;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(18, 31);
+            label1.Name = "label1";
+            label1.Size = new Size(61, 17);
+            label1.TabIndex = 59;
+            label1.Text = "Nº Venta";
+            // 
             // txtVendedor
             // 
-            txtVendedor.Location = new Point(103, 61);
+            txtVendedor.Location = new Point(190, 62);
             txtVendedor.Name = "txtVendedor";
-            txtVendedor.Size = new Size(198, 22);
+            txtVendedor.ReadOnly = true;
+            txtVendedor.Size = new Size(151, 22);
             txtVendedor.TabIndex = 58;
+            txtVendedor.TextAlign = HorizontalAlignment.Center;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(29, 61);
+            label4.Location = new Point(115, 65);
             label4.Name = "label4";
             label4.Size = new Size(68, 17);
             label4.TabIndex = 54;
@@ -187,9 +212,9 @@
             // 
             dateTimePicker2.CustomFormat = "dd-MM-yyyy";
             dateTimePicker2.Format = DateTimePickerFormat.Custom;
-            dateTimePicker2.Location = new Point(103, 32);
+            dateTimePicker2.Location = new Point(275, 28);
             dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(98, 22);
+            dateTimePicker2.Size = new Size(91, 22);
             dateTimePicker2.TabIndex = 36;
             dateTimePicker2.UseWaitCursor = true;
             // 
@@ -202,7 +227,7 @@
             btnBuscarDni.IconColor = Color.Black;
             btnBuscarDni.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnBuscarDni.IconSize = 15;
-            btnBuscarDni.Location = new Point(244, 32);
+            btnBuscarDni.Location = new Point(214, 27);
             btnBuscarDni.Name = "btnBuscarDni";
             btnBuscarDni.Size = new Size(34, 23);
             btnBuscarDni.TabIndex = 55;
@@ -217,9 +242,9 @@
             groupBox2.Controls.Add(txtDocumento);
             groupBox2.Controls.Add(txtNombre);
             groupBox2.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox2.Location = new Point(420, 21);
+            groupBox2.Location = new Point(515, 21);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(363, 104);
+            groupBox2.Size = new Size(278, 104);
             groupBox2.TabIndex = 35;
             groupBox2.TabStop = false;
             groupBox2.Text = "Informacion de Cliente";
@@ -227,7 +252,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(40, 66);
+            label12.Location = new Point(26, 62);
             label12.Name = "label12";
             label12.Size = new Size(56, 17);
             label12.TabIndex = 35;
@@ -529,6 +554,7 @@
             Controls.Add(textBox6);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Ventauniforme";
+            Load += Ventauniforme_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
@@ -585,5 +611,7 @@
         private DataGridViewTextBoxColumn SubTotal;
         private TextBox txtCantidad;
         private TextBox txtVendedor;
+        private TextBox txtNumVenta;
+        private Label label1;
     }
 }

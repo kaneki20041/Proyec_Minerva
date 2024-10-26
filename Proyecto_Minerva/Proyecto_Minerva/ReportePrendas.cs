@@ -59,14 +59,11 @@ namespace CapaPresentacion
         // Método para aplicar el filtro a las prendas basado en el comboBox y el textBox
         private void AplicarFiltroPrendas()
         {
-            // Asegúrate de que haya un valor seleccionado en el ComboBox
             if (cbBusqueda.SelectedItem == null) return;
 
-            // Obtener el filtro seleccionado y el texto de búsqueda
             string filtro = cbBusqueda.SelectedItem.ToString();
             string busqueda = txtBusqueda.Text.ToLower();
 
-            // Filtrar la lista original de prendas, no la lista actual del DataGridView
             var prendasFiltradas = listaOriginalPrendas.Where(p =>
             {
                 switch (filtro)
@@ -98,14 +95,12 @@ namespace CapaPresentacion
                 }
             }).ToList();
 
-            // Actualizar el DataGridView con los resultados filtrados
             dgvPrendas.DataSource = prendasFiltradas;
         }
 
         // Evento para cuando se cambia el filtro en el ComboBox
         private void cbBusqueda_SelectedIndexChanged(object sender, EventArgs e)
         {
-            AplicarFiltroPrendas(); // Llamar al método de filtrado
         }
 
         // Evento cuando se escribe en el TextBox de búsqueda
@@ -135,5 +130,28 @@ namespace CapaPresentacion
             txtBusqueda.Text = "";
             cbBusqueda.Text = "";
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

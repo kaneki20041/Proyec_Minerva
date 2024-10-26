@@ -20,33 +20,48 @@ namespace Proyecto_Minerva
 {
     public partial class Carrito : Form
     {
+        private int _idVenta;
         private FacturacionApi api;
-        public Carrito()
+        private entComprobanteventa comprobante;
+
+        public Carrito(int idVenta)
         {
+            _idVenta = idVenta;
             InitializeComponent();
             ListarVentas();
             InicializarComboBoxes();
-            string token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1c2VybmFtZSI6ImthbmVraTIwMDQxIiwiaWF0IjoxNzI5MTQyMjE5LCJleHAiOjE3MjkyMjg2MTl9.eONR2W9e8jhBOeT2pUYaPB1yYTSRciK4F6uQikPriVl2IfWOTyK8C7YGy524d3-CrNlWfuVwOqI8w-NOx4_7VWuWck_ta9BSKdUoinJyIn_N4FJRoN_n2JaXaKXjvX-nG5GQNT4n5wbQJIVI5tXBU9gu628zAFgHgzV7bwJrsa-6vt2KJHFNdOJaZ47nBfgI_AfKjMbvG2DyeLjwlVnij3MFfr3UyhGI1CQznZCWKbNN5uR9OBkAxax68KcMdBDj4L0KXE0HgSG8SBkLbWv773495pGhnLXeWdGpy9nBcqu11FuIeHW-VqY44mggzy91Th0cS1CzssU6IN29ogOlfpZS115jzAbfcQok5WiOY9TDzq60Uhi4aM63pOLvc6UY0aYgGloCRofoN0nQhnBRJdbEjllbBBrYjrEgcOP_wLD_jmNyLj03Tg8zy_7QRYTMYxf0WipE0eGRCvYmwSFT-KVKOD8IUOHWWTn0UnMsiei0sv1_fyXhtpfDaMAls3XERwxPDpqGE4YR6cr7rOV2JJzY7epA_v_GSnSC7DyylK8dchnUzodzN2yAUS03T_hyJ8fGkvN6KhWxnS4jNg48sl7aW8Gc4yG0KMPTPdJPkMwR65tdFOI1lNHBUi_u8fBVxTwNvGse13-hU4gctsNkAXKrK0Pzqs716zyfe36ZNPQ";
+            string token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1c2VybmFtZSI6ImthbmVraTIwMDQxIiwiaWF0IjoxNzI5OTE2MzM3LCJleHAiOjE3MzAwMDI3Mzd9.TvGX3VYEfGt7V4Pw9Wx5UW_D6V61pZ3o04Oph34mDTHRoRJPBuCFv8HLcHxudTKc7YpFsNym3QST6HO5aFwSVXz3Wv5EaoIzKNFCSBxFIi9ybji-A4LA7TpGZQ8hUgb317l_uSLGmC1Ko-3O7OrCrExqL9p2PWOivQ0Iv7R6z8QAwEZgOEMOzT_0NvQobiUkUK6uJtcFEHA65YLwr9KL68sfGacgcBcfsy0lsejK7eCm8Nu4Yf8etlvTzgU-Nt0zD-3xjS-g54y4I9NxZ-yKCDC4OyAkfw8uH1b5i5_XoRDU1ege54OrXhRkqhX1uAs3G33seGRjkbTEEQ2R77qS1mFBpEM4WxNtlt3IKcGGgwbNPxHXB219redsngatMm3CTz09PHwSf0hmX6q6r1ZG-U7ceh98iLzJIXX-vOTS9BcdAk29jYkFQ1yo3ubezzFQfd4gC3T7nzmmS6UJODsxxbqBlrfVot5JHR9QnHM0EWs3mBApWO3s-PTUKyyw-kPMuEDKt6elxRr_LktlQnwReEMD2tGcgqi6Ntn3kf81nTb-TqDZ8uWFYV-Ae9uyae1RvlsV4Q-vGPkQ7u_PSXvAiQ5ZP4q1qwcsD6ukwAtlYXY9QfLR4rT7tLOm7GY-3OTwS18lbz75-L5yjfhYk6jh2Jt1pkdJkXzilAmWzAt5puo";
             api = new FacturacionApi(token);
+            decimal montoTotal = logOVenta.Instancia.ObtenerMontoTotalPorId(_idVenta);
+            txtTotalGravada.Text = montoTotal.ToString("C"); // Formatear como moneda
+            decimal montoTotalGravado = Convert.ToDecimal(txtTotalGravada.Text.Replace("S/", "").Trim());
+            // Calcular IGV (18% del monto total gravado)
+            decimal igv = montoTotalGravado * 0.18m;
+
+            // Calcular subtotal
+            decimal subtotal = montoTotalGravado + igv;
+
+            // Mostrar los resultados en los TextBoxes correspondientes (ajusta los nombres según tu formulario)
+            txtIGV.Text = igv.ToString("C"); // Formatea como moneda
+            txtSubTotal.Text = subtotal.ToString("C"); // Formatea como moneda
+
+            //this.FormClosing += Carrito_FormClosing;
         }
+
         private void ListarVentas()
         {
             try
             {
-                List<entOVenta> lista = logOVenta.Instancia.ListarVentas();
-                dgvDetalleventa.DataSource = lista;
-
-                // Ocultar columnas específicas
-                dgvDetalleventa.Columns["FRegistroV"].Visible = false;
-                dgvDetalleventa.Columns["MontoCambio"].Visible = false;
+                List<entOVenta> lista = logOVenta.Instancia.ListarVentasPorId(_idVenta);
+                dgvDetalleventa.DataSource = lista; // Asumiendo que dgvDetalleventa es tu DataGridView
                 dgvDetalleventa.Columns["Documento"].Visible = false;
                 dgvDetalleventa.Columns["NombreCompleto"].Visible = false;
-                dgvDetalleventa.Columns["MontoPago"].Visible = false;
                 dgvDetalleventa.Columns["NombreCliente"].Visible = false;
-                dgvDetalleventa.Columns["OventaID"].Width = 60;
-                dgvDetalleventa.Columns["PrendaID"].Width = 60;
-                dgvDetalleventa.Columns["Descripcion"].Width = 210;
-                dgvDetalleventa.Columns["Cantidad"].Width = 60;
+                dgvDetalleventa.Columns["MontoCambio"].Visible = false;
+                dgvDetalleventa.Columns["MontoPago"].Visible = false;
+                dgvDetalleventa.Columns["FRegistroV"].Visible = false;
+                dgvDetalleventa.Columns["MontoTotal"].Visible = false;
+                dgvDetalleventa.Columns["Descripcion"].Width = 150;
             }
             catch (Exception ex)
             {
@@ -72,9 +87,28 @@ namespace Proyecto_Minerva
             }
         }
 
+        private void Carrito_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void comboTipoComprobante_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Solo ejecuta si hay un tipo de comprobante seleccionado
+            if (comboTipoComprobante.SelectedItem != null)
+            {
+                string tipoComprobante = comboTipoComprobante.SelectedItem.ToString();
+
+                // Llama al método de la capa lógica para generar el número de comprobante
+                string nuevoNumero = logComprobante.Instancia.GenerarNumeroComprobante(tipoComprobante);
+
+                // Muestra el nuevo número en txtSerie
+                txtSerie.Text = nuevoNumero;
+            }
+        }
+
         private void btnEmitirComprobante_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrEmpty(txtDocumento.Text.Trim()) || string.IsNullOrEmpty(txtNombre.Text.Trim()) ||
+            if (string.IsNullOrEmpty(txtDocumento.Text.Trim()) || string.IsNullOrEmpty(txtNombre.Text.Trim()) ||
                 string.IsNullOrEmpty(txtDireccion.Text.Trim()) || string.IsNullOrEmpty(txtTipoDoc.Text.Trim()) ||
                 comboTipoComprobante.SelectedIndex == -1 || comboMetodoPago.SelectedIndex == -1)
             {
@@ -95,7 +129,6 @@ namespace Proyecto_Minerva
                     {
                         decimal precioVenta = Convert.ToDecimal(row.Cells["PrecioVenta"].Value);
                         int cantidad = Convert.ToInt32(row.Cells["Cantidad"].Value);
-                        decimal montoTotal = Convert.ToDecimal(row.Cells["MontoTotal"].Value);
 
                         detallesProductos.Add(new
                         {
@@ -103,28 +136,28 @@ namespace Proyecto_Minerva
                             descripcion = row.Cells["Descripcion"].Value?.ToString(),
                             cantidad = cantidad,
                             mtoValorUnitario = precioVenta,
-                            mtoValorVenta = montoTotal,
-                            mtoBaseIgv = montoTotal,
+                            mtoValorVenta = precioVenta * cantidad,
+                            mtoBaseIgv = precioVenta * cantidad,
                             porcentajeIgv = 18m,
-                            igv = montoTotal * 0.18m,
+                            igv = (precioVenta * cantidad) * 0.18m,
                             tipAfeIgv = 10,
-                            totalImpuestos = montoTotal * 0.18m,
+                            totalImpuestos = (precioVenta * cantidad) * 0.18m,
                             mtoPrecioUnitario = precioVenta * 1.18m
                         });
                     }
                 }
 
-                // Calcular los totales
-                decimal mtoOperGravadas = detallesProductos.Sum(d => (decimal)((dynamic)d).mtoValorVenta);
-                decimal mtoIGV = detallesProductos.Sum(d => (decimal)((dynamic)d).igv);
-                decimal subTotal = mtoOperGravadas + mtoIGV;
+                // Obtener los totales desde los TextBox
+                decimal mtoOperGravadas = Convert.ToDecimal(txtTotalGravada.Text.Replace("S/", "").Trim());
+                decimal mtoIGV = Convert.ToDecimal(txtIGV.Text.Replace("S/", "").Trim());
+                decimal subTotal = Convert.ToDecimal(txtSubTotal.Text.Replace("S/", "").Trim());
 
                 var facturacionData = new
                 {
                     ublVersion = "2.1",
                     tipoOperacion = "0101",
                     tipoDoc = "03",
-                    serie = "B001",
+                    serie = txtSerie.Text,
                     correlativo = "1",
                     fechaEmision = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz"),
                     formaPago = new
@@ -177,6 +210,19 @@ namespace Proyecto_Minerva
                 }
             }
                 };
+                entComprobanteventa comprobante = new entComprobanteventa
+                {
+                    id_venta = _idVenta,
+                    descripcion = comboTipoComprobante.SelectedItem.ToString(),
+                    numero_comprobante = txtSerie.Text,
+                    fecha_emision = dateTimePicker2.Value,
+                    subtotal = Convert.ToDecimal(txtSubTotal.Text.Replace("S/", "").Trim()),
+                    igv = Convert.ToDecimal(txtIGV.Text.Replace("S/", "").Trim()),
+                    total = Convert.ToDecimal(txtTotalGravada.Text.Replace("S/", "").Trim())
+                };
+                int idComprobante = logComprobante.Instancia.RegistrarComprobantePago(comprobante);
+
+                MessageBox.Show($"Comprobante registrado con ID: {idComprobante}", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 string url = "https://facturacion.apisperu.com/api/v1/invoice/pdf";
                 dynamic respuesta = api.Post(url, facturacionData);
@@ -219,6 +265,7 @@ namespace Proyecto_Minerva
                 MessageBox.Show($"Error al emitir factura: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         // Método para convertir número a letras (debes implementar esta función)
         private string ConvertirNumeroALetras(decimal numero)
@@ -281,5 +328,6 @@ namespace Proyecto_Minerva
                 MessageBox.Show("Cliente no encontrado.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
     }
 }
