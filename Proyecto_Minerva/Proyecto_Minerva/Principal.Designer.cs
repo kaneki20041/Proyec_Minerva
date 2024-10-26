@@ -152,8 +152,8 @@
             MenuLateral.Controls.Add(btnPrendas);
             MenuLateral.Controls.Add(btnProveedores);
             MenuLateral.Controls.Add(btnMetodoPago);
-            MenuLateral.Controls.Add(btnSalidaMaterial);
-            MenuLateral.Controls.Add(btnIngMaterial);
+            MenuLateral.Controls.Add(btnCarrito);
+            MenuLateral.Controls.Add(btn_IngMaterial);
             MenuLateral.Controls.Add(btnCategoria);
             MenuLateral.Controls.Add(panelUsuario);
             MenuLateral.Controls.Add(panelCategoria);
@@ -370,24 +370,24 @@
             // 
             // btnIngMaterial
             // 
-            btnIngMaterial.Cursor = Cursors.Hand;
-            btnIngMaterial.FlatAppearance.BorderSize = 0;
-            btnIngMaterial.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
-            btnIngMaterial.FlatStyle = FlatStyle.Flat;
-            btnIngMaterial.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            btnIngMaterial.IconChar = FontAwesome.Sharp.IconChar.Info;
-            btnIngMaterial.IconColor = Color.Black;
-            btnIngMaterial.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnIngMaterial.IconSize = 25;
-            btnIngMaterial.ImageAlign = ContentAlignment.MiddleLeft;
-            btnIngMaterial.Location = new Point(12, 352);
-            btnIngMaterial.Name = "btnIngMaterial";
-            btnIngMaterial.Size = new Size(176, 37);
-            btnIngMaterial.TabIndex = 15;
-            btnIngMaterial.Text = "Pago Compras";
-            btnIngMaterial.TextAlign = ContentAlignment.MiddleRight;
-            btnIngMaterial.UseVisualStyleBackColor = true;
-            btnIngMaterial.Click += btn_IngMaterial_Click;
+            btn_IngMaterial.Cursor = Cursors.Hand;
+            btn_IngMaterial.FlatAppearance.BorderSize = 0;
+            btn_IngMaterial.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
+            btn_IngMaterial.FlatStyle = FlatStyle.Flat;
+            btn_IngMaterial.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_IngMaterial.IconChar = FontAwesome.Sharp.IconChar.Info;
+            btn_IngMaterial.IconColor = Color.Black;
+            btn_IngMaterial.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btn_IngMaterial.IconSize = 25;
+            btn_IngMaterial.ImageAlign = ContentAlignment.MiddleLeft;
+            btn_IngMaterial.Location = new Point(12, 352);
+            btn_IngMaterial.Name = "btnIngMaterial";
+            btn_IngMaterial.Size = new Size(176, 37);
+            btn_IngMaterial.TabIndex = 15;
+            btn_IngMaterial.Text = "Pago Compras";
+            btn_IngMaterial.TextAlign = ContentAlignment.MiddleRight;
+            btn_IngMaterial.UseVisualStyleBackColor = true;
+            btn_IngMaterial.Click += btn_IngMaterial_Click;
             // 
             // btnCategoria
             // 
