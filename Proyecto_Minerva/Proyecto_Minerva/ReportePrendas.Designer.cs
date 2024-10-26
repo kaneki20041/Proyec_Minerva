@@ -33,7 +33,6 @@
             gboxBusqueda = new GroupBox();
             txtBusqueda = new TextBox();
             btnLimpiar = new FontAwesome.Sharp.IconButton();
-            btnBuscarUsuario = new FontAwesome.Sharp.IconButton();
             cbBusqueda = new ComboBox();
             label8 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvPrendas).BeginInit();
@@ -73,7 +72,6 @@
             gboxBusqueda.BackColor = Color.MintCream;
             gboxBusqueda.Controls.Add(txtBusqueda);
             gboxBusqueda.Controls.Add(btnLimpiar);
-            gboxBusqueda.Controls.Add(btnBuscarUsuario);
             gboxBusqueda.Controls.Add(cbBusqueda);
             gboxBusqueda.Controls.Add(label8);
             gboxBusqueda.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -86,7 +84,7 @@
             // 
             // txtBusqueda
             // 
-            txtBusqueda.Location = new Point(341, 31);
+            txtBusqueda.Location = new Point(264, 33);
             txtBusqueda.Name = "txtBusqueda";
             txtBusqueda.Size = new Size(159, 22);
             txtBusqueda.TabIndex = 14;
@@ -100,26 +98,12 @@
             btnLimpiar.IconColor = Color.Black;
             btnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnLimpiar.IconSize = 15;
-            btnLimpiar.Location = new Point(290, 30);
+            btnLimpiar.Location = new Point(457, 32);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(34, 23);
             btnLimpiar.TabIndex = 15;
             btnLimpiar.UseVisualStyleBackColor = false;
-            // 
-            // btnBuscarUsuario
-            // 
-            btnBuscarUsuario.BackColor = Color.PowderBlue;
-            btnBuscarUsuario.FlatStyle = FlatStyle.Popup;
-            btnBuscarUsuario.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            btnBuscarUsuario.IconColor = Color.Black;
-            btnBuscarUsuario.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnBuscarUsuario.IconSize = 15;
-            btnBuscarUsuario.Location = new Point(241, 30);
-            btnBuscarUsuario.Name = "btnBuscarUsuario";
-            btnBuscarUsuario.Size = new Size(34, 23);
-            btnBuscarUsuario.TabIndex = 14;
-            btnBuscarUsuario.UseVisualStyleBackColor = false;
-            btnBuscarUsuario.Click += btnBuscarUsuario_Click;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // cbBusqueda
             // 
@@ -165,7 +149,6 @@
         private GroupBox gboxBusqueda;
         private TextBox txtBusqueda;
         private FontAwesome.Sharp.IconButton btnLimpiar;
-        private FontAwesome.Sharp.IconButton btnBuscarUsuario;
         private ComboBox cbBusqueda;
         private Label label8;
     }

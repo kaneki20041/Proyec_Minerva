@@ -330,6 +330,36 @@ namespace CapaDatos
                 cn.Close();
             }
         }
+
+        public void ModificarPrecioUnidad(int prendaID, decimal nuevoPrecio)
+        {
+            SqlCommand cmd = null;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spModificarPrecioUnidad", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@PrendaID", prendaID);
+                cmd.Parameters.AddWithValue("@NuevoPrecio", nuevoPrecio);
+
+                cn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (cmd != null && cmd.Connection != null && cmd.Connection.State == ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                }
+            }
+        }
+
+
     }
 
 }

@@ -19,6 +19,8 @@ namespace CapaEntidad
 
         public bool EstaConectado { get; set; }
         public DateTime UltimaActividad { get; set; }
+
+        public string Usuario {  get; set; }
     }
 
     public class entdescUsuario
@@ -31,6 +33,7 @@ namespace CapaEntidad
         public string Clave { get; set; }
         public DateTime FechaRegistro { get; set; }
         public string Correo { get; set; }
+        public string Usuario { get; set; }
 
     }
 }

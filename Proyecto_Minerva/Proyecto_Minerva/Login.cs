@@ -32,7 +32,7 @@ namespace CapaPresentacion
             {
                 new logUsuario().ActualizarEstadoConexion(form.UsuarioActual.Documento, false);
             }
-            txtDocumento.Text = "";
+            txtUsuario.Text = "";
             txtPassword.Text = "";
             this.Show();
         }
@@ -63,13 +63,14 @@ namespace CapaPresentacion
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(txtDocumento.Text, out int documentoIngresado))
+            string usuarioIngresado = txtUsuario.Text.Trim();
+            if (!string.IsNullOrEmpty(usuarioIngresado))
             {
                 // Obtener la lista de usuarios
                 List<entUsuario> usuarios = logUsuario.Instancia.ListarValidarUsuario();
 
                 // Buscar el usuario por documento
-                entUsuario? entUsuario = usuarios.FirstOrDefault(u => u.Documento == documentoIngresado);
+                entUsuario? entUsuario = usuarios.FirstOrDefault(u => u.Usuario == usuarioIngresado);
                 entUsuario usuario = entUsuario;
 
                 if (usuario != null)
@@ -133,11 +134,11 @@ namespace CapaPresentacion
 
         private void txtDocumento_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-                MessageBox.Show("Ingrese su número de DNI.", "Entrada no válida", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            //if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            //{
+            //    e.Handled = true;
+            //    MessageBox.Show("In", "Entrada no válida", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
         }
 
         private void btnIngresar_KeyPress(object sender, KeyPressEventArgs e)
@@ -180,19 +181,19 @@ namespace CapaPresentacion
 
         private void txtDocumento_Enter(object sender, EventArgs e)
         {
-            if (txtDocumento.Text == "Documento de Identidad")
+            if (txtUsuario.Text == "Usuario")
             {
-                txtDocumento.Text = "";
-                txtDocumento.ForeColor = Color.Black;
+                txtUsuario.Text = "";
+                txtUsuario.ForeColor = Color.Black;
             }
         }
 
         private void txtDocumento_Leave(object sender, EventArgs e)
         {
-            if (txtDocumento.Text == "")
+            if (txtUsuario.Text == "")
             {
-                txtDocumento.Text = "Documento de Identidad";
-                txtDocumento.ForeColor = Color.Gray;
+                txtUsuario.Text = "Usuario";
+                txtUsuario.ForeColor = Color.Gray;
             }
         }
     }

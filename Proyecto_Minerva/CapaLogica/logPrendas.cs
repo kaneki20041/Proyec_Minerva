@@ -64,6 +64,18 @@ namespace CapaLogica
             datPrendas.Instancia.ActualizarStock(prenda, cantidadVendida);
         }
 
+        public void ModificarPrecioUnidad(int prendaID, decimal nuevoPrecio)
+        {
+            try
+            {
+                datPrendas datos = new datPrendas();
+                datos.ModificarPrecioUnidad(prendaID, nuevoPrecio);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
     }
 }

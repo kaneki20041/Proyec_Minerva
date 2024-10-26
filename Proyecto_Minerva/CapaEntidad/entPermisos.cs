@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 namespace CapaEntidad
 {
     public class entPermisos
-    {
-        public int PermisosID {  get; set; }
-        public entRol objRol { get; set; }
+    {   
+        public int idPermiso {  get; set; }
+        public int idRol { get; set; }
         public string NombreMenu { get; set; }
-
-        public string FechaRegistro {  get; set; }
+        public string FechaCreacion {  get; set; }
     }
 }

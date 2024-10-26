@@ -1,6 +1,10 @@
 using CapaEntidad;
 using CapaLogica;
 using CapaPresentacion;
+using FontAwesome.Sharp;
+using System.Windows.Controls;
+using System.Windows.Forms;
+
 
 namespace Proyecto_Minerva
 {
@@ -10,7 +14,10 @@ namespace Proyecto_Minerva
         public entUsuario UsuarioActual
         {
             get { return _usuarioActual; }
-            private set { _usuarioActual = value; }
+            set 
+            {
+                _usuarioActual = value;
+            }
         }
         public Principal(entUsuario usuario)
         {
@@ -26,21 +33,199 @@ namespace Proyecto_Minerva
 
             // Configurar permisos según el rol del usuario
             ConfigurarPermisosSegunRol();
+            
         }
 
         private void ConfigurarPermisosSegunRol()
         {
-            // Aquí puedes agregar lógica para mostrar u ocultar elementos
-            // según el rol del usuario actual
-            switch (UsuarioActual.idRol)
+            if (UsuarioActual == null)
             {
-                case 1: // Administrador
-                        // Mostrar todas las opciones
-                    break;
-                case 2: // Otro rol
-                        // Mostrar opciones limitadas
-                    break;
-                    // etc.
+                MessageBox.Show("Error: No hay usuario activo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                // Primero, ocultar todos los botones
+                OcultarTodosBotones();
+
+                // Luego, mostrar los botones según el rol
+                switch (UsuarioActual.idRol)
+                {
+                    case 1: // Administrador
+                        MostrarBotonesAdministrador();
+                        break;
+                    case 2: // Empleado
+                        MostrarBotonesEmpleado();
+                        break;
+                    default:
+                        MessageBox.Show("Rol no reconocido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al configurar permisos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void VerificarEstadoBotones()
+        {
+            IconButton[] todosBotones = {
+            btnUsuarios,
+            btnVenderPrendas,
+            btnComprarPrendas,
+            btnCliente,
+            btnPrendas,
+            btnProveedores,
+            btnMetodoPago,
+            btnCarrito,
+            btn_IngMaterial,
+            btnCategoria,
+            btnInventario
+        };  foreach (var boton in todosBotones)
+            {
+                if (boton != null)
+                {
+                    Console.WriteLine($"Botón {boton.Name}: {(boton.Visible ? "Visible" : "Oculto")}");
+                }
+            }
+        }
+
+        private void MostrarBotonesEmpleado()
+        {
+            IconButton[] botonesEmpleado = {
+                btnVenderPrendas,     // Ventas
+                btnComprarPrendas,    // Compras
+                btnCliente,          // Gestión de clientes
+                btnPrendas,           // Gestión de prendas
+                btn_IngMaterial     // Control de salida de materiales
+        }; System.Windows.Forms.Panel[] panelesEmpleado = {
+                panelVender,
+                panelComprar,
+                panelCliente,
+                panelPrenda,
+                panelPagoVent
+        };foreach (var boton in botonesEmpleado)
+            {
+                if (boton != null)
+                {
+                    boton.Visible = true;
+                }
+                else
+                {
+                    Console.WriteLine($"Advertencia: Botón no encontrado en la interfaz");
+                }
+            }
+
+            OcultarTodosPaneles();
+
+            foreach (var panel in panelesEmpleado)
+            {
+                if (panel != null)
+                {
+                    panel.Visible = true;
+                }
+            }
+        }
+
+        private void MostrarBotonesAdministrador()
+        {
+            IconButton[] botonesAdmin = {
+                btnUsuarios,          // Gestión de usuarios
+                btnVenderPrendas,     // Ventas
+                btnComprarPrendas,    // Compras
+                btnCliente,          // Gestión de clientes
+                btnPrendas,           // Gestión de prendas
+                btnProveedores,       // Gestión de proveedores
+                btnMetodoPago,        // Configuración de métodos de pago
+                btnCarrito,    // Control de salida de materiales
+                btn_IngMaterial,       // Control de ingreso de materiales
+                btnCategoria,         // Gestión de categorías
+                btnInventario         // Control de inventario
+        }; System.Windows.Forms.Panel[] panelesAdmin = {
+                panelUsuario,
+                panelVender,
+                panelComprar,
+                panelCliente,
+                panelPrenda,
+                panelProvee,
+                panelMet,
+                panelPagoVent,
+                panelPagoComp,
+                panelCategoria,
+                panelInventario 
+        };foreach (var boton in botonesAdmin)
+            {
+                if (boton != null)
+                {
+                    boton.Visible = true;
+                }
+                else
+                {
+                    Console.WriteLine($"Advertencia: Botón no encontrado en la interfaz");
+                }
+            }
+
+            OcultarTodosPaneles();
+
+            foreach (var panel in panelesAdmin)
+            {
+                if (panel != null)
+                {
+                    panel.Visible = true;
+                }
+            }
+        }
+
+        private void OcultarTodosBotones()
+        {
+            // Lista de todos los botones que necesitan ser controlados
+            IconButton[] todosBotones = {
+                btnUsuarios,
+                btnVenderPrendas,
+                btnComprarPrendas,
+                btnCliente,
+                btnPrendas,
+                btnProveedores,
+                btnMetodoPago,
+                btnCarrito,
+                btn_IngMaterial,
+                btnCategoria,
+                btnInventario
+
+        };
+           foreach (var boton in todosBotones)
+            {
+                if (boton != null)
+                {
+                    boton.Visible = false;
+                }
+            }
+        }
+
+        private void OcultarTodosPaneles()
+        {
+            System.Windows.Forms.Panel[] todosPaneles = {
+                panelUsuario,
+                panelVender,
+                panelComprar,
+                panelCliente,
+                panelPrenda,
+                panelProvee,
+                panelMet,
+                panelPagoVent,
+                panelPagoComp,
+                panelCategoria,
+                panelInventario
+            };
+
+            foreach (var panel in todosPaneles)
+            {
+                if (panel != null)
+                {
+                    panel.Visible = false;
+                }
             }
         }
 
@@ -90,6 +275,7 @@ namespace Proyecto_Minerva
         {
             this.Close();
         }
+
         private void AbrirForm(object form)
         {
             if (this.panelconteiner.Controls.Count > 0)
@@ -168,6 +354,11 @@ namespace Proyecto_Minerva
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
             AbrirForm(new RegistroUsuarios());
+        }
+
+        private void btnInventario_Click(object sender, EventArgs e)
+        {
+            AbrirForm(new Inventario());
         }
     }
 }

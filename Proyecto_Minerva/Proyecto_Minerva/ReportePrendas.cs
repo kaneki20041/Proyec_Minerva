@@ -32,6 +32,7 @@ namespace CapaPresentacion
         {
             InitializeComponent();
             listarReportePrendas();
+            cbBusqueda.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -75,7 +76,17 @@ namespace CapaPresentacion
                     case "Categoria":
                         return p.Categoria.ToLower().Contains(busqueda);
                     case "Talla":
-                        return p.Talla.ToString().Contains(busqueda);
+                        // Modificamos esta parte para manejar tallas numéricas y de letras
+                        if (int.TryParse(busqueda, out int tallaNumero))
+                        {
+                            // Si la búsqueda es un número, comparamos con igualdad
+                            return p.Talla.Trim() == busqueda;
+                        }
+                        else
+                        {
+                            // Si la búsqueda es texto, buscamos coincidencia parcial
+                            return p.Talla.Trim().ToLower().Contains(busqueda);
+                        }
                     case "Colegio":
                         return p.Colegio.ToLower().Contains(busqueda);
                     case "PrecioCompra":
@@ -118,23 +129,11 @@ namespace CapaPresentacion
             DialogResult = DialogResult.OK;
             Close();
         }
-        private void btnBuscarUsuario_Click(object sender, EventArgs e)
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
         {
-
+            txtBusqueda.Text = "";
+            cbBusqueda.Text = "";
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
