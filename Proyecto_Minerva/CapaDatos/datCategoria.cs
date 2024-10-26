@@ -79,10 +79,7 @@ namespace CapaDatos
 
                 }
             }
-
-            #endregion metodos
         }
 
-
-    }
-
+        #endregion metodos
+}

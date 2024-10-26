@@ -73,6 +73,37 @@ namespace CapaDatos
             return lista;
         }
 
+        public List<string> ListarUsuariosConectados()
+        {
+            List<string> lista = new List<string>(); // Cambia el tipo de la lista si necesitas un objeto más complejo
+            using (SqlConnection cn = Conexion.Instancia.Conectar())
+            {
+                using (SqlCommand cmd = new SqlCommand("spListarUsuariosConectados", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    try
+                    {
+                        cn.Open();
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            while (dr.Read())
+                            {
+                                // Supongamos que solo deseas el NombreCompleto
+                                string nombreCompleto = dr["NombreCompleto"].ToString();
+                                lista.Add(nombreCompleto);
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("Ocurrió un error al listar los usuarios conectados: " + ex.Message);
+                    }
+                }
+            }
+            return lista;
+        }
+
         public int InsertarCompra(entCompra Com)
         {
             SqlCommand cmd = null;
@@ -87,7 +118,7 @@ namespace CapaDatos
                 cmd.Parameters.AddWithValue("@RUC", Com.ID.RUC); // El RUC del proveedor
                 cmd.Parameters.AddWithValue("@RazonSocial", Com.RazonSocial.RazonSocial); // La razón social del proveedor
                 cmd.Parameters.AddWithValue("@MetodoPagoID", Com.Metpagoid.MetPagoid); // El método de pago
-                cmd.Parameters.AddWithValue("@UsuarioID", Com.UsuarioID.UsuarioID); // El ID del usuario
+                cmd.Parameters.AddWithValue("@NombreCompleto", Com.NombreCompleto.NombreCompleto); // El ID del usuario
                 cmd.Parameters.AddWithValue("@FechaRegistroC", Com.fechCompra); // La fecha de registro de la compra
                 cmd.Parameters.AddWithValue("@Monto", Com.Monto); // El monto de la compra
 

@@ -173,18 +173,17 @@
             // 
             // txtNumVenta
             // 
-            txtNumVenta.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txtNumVenta.Location = new Point(86, 25);
+            txtNumVenta.Location = new Point(92, 28);
             txtNumVenta.Name = "txtNumVenta";
             txtNumVenta.ReadOnly = true;
-            txtNumVenta.Size = new Size(106, 25);
+            txtNumVenta.Size = new Size(100, 22);
             txtNumVenta.TabIndex = 60;
             txtNumVenta.TextAlign = HorizontalAlignment.Center;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(18, 31);
+            label1.Location = new Point(25, 31);
             label1.Name = "label1";
             label1.Size = new Size(61, 17);
             label1.TabIndex = 59;
@@ -192,7 +191,7 @@
             // 
             // txtVendedor
             // 
-            txtVendedor.Location = new Point(190, 62);
+            txtVendedor.Location = new Point(169, 62);
             txtVendedor.Name = "txtVendedor";
             txtVendedor.ReadOnly = true;
             txtVendedor.Size = new Size(151, 22);
@@ -202,7 +201,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(115, 65);
+            label4.Location = new Point(94, 65);
             label4.Name = "label4";
             label4.Size = new Size(68, 17);
             label4.TabIndex = 54;
@@ -212,9 +211,9 @@
             // 
             dateTimePicker2.CustomFormat = "dd-MM-yyyy";
             dateTimePicker2.Format = DateTimePickerFormat.Custom;
-            dateTimePicker2.Location = new Point(275, 28);
+            dateTimePicker2.Location = new Point(266, 28);
             dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(91, 22);
+            dateTimePicker2.Size = new Size(100, 22);
             dateTimePicker2.TabIndex = 36;
             dateTimePicker2.UseWaitCursor = true;
             // 
@@ -611,7 +610,7 @@
         private DataGridViewTextBoxColumn SubTotal;
         private TextBox txtCantidad;
         private TextBox txtVendedor;
-        private TextBox txtNumVenta;
         private Label label1;
+        private TextBox txtNumVenta;
     }
 }

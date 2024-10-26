@@ -46,7 +46,7 @@
             btnProveedores = new FontAwesome.Sharp.IconButton();
             btnMetodoPago = new FontAwesome.Sharp.IconButton();
             btnCarrito = new FontAwesome.Sharp.IconButton();
-            btn_IngMaterial = new FontAwesome.Sharp.IconButton();
+            btn_Facturacion = new FontAwesome.Sharp.IconButton();
             btnCategoria = new FontAwesome.Sharp.IconButton();
             panelUsuario = new Panel();
             panelCategoria = new Panel();
@@ -83,13 +83,14 @@
             // 
             // lblUser
             // 
-            lblUser.AutoSize = true;
+            lblUser.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblUser.Font = new Font("Century Gothic", 11.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblUser.Location = new Point(551, 15);
+            lblUser.Location = new Point(12, 18);
             lblUser.Name = "lblUser";
-            lblUser.Size = new Size(146, 21);
+            lblUser.Size = new Size(899, 21);
             lblUser.TabIndex = 15;
             lblUser.Text = "lblNombreUsuario";
+            lblUser.TextAlign = ContentAlignment.MiddleRight;
             // 
             // pictureBox5
             // 
@@ -153,7 +154,7 @@
             MenuLateral.Controls.Add(btnProveedores);
             MenuLateral.Controls.Add(btnMetodoPago);
             MenuLateral.Controls.Add(btnCarrito);
-            MenuLateral.Controls.Add(btn_IngMaterial);
+            MenuLateral.Controls.Add(btn_Facturacion);
             MenuLateral.Controls.Add(btnCategoria);
             MenuLateral.Controls.Add(panelUsuario);
             MenuLateral.Controls.Add(panelCategoria);
@@ -368,26 +369,26 @@
             btnCarrito.UseVisualStyleBackColor = true;
             btnCarrito.Click += btnSalidaMaterial_Click;
             // 
-            // btnIngMaterial
+            // btn_Facturacion
             // 
-            btn_IngMaterial.Cursor = Cursors.Hand;
-            btn_IngMaterial.FlatAppearance.BorderSize = 0;
-            btn_IngMaterial.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
-            btn_IngMaterial.FlatStyle = FlatStyle.Flat;
-            btn_IngMaterial.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_IngMaterial.IconChar = FontAwesome.Sharp.IconChar.Info;
-            btn_IngMaterial.IconColor = Color.Black;
-            btn_IngMaterial.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btn_IngMaterial.IconSize = 25;
-            btn_IngMaterial.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_IngMaterial.Location = new Point(12, 352);
-            btn_IngMaterial.Name = "btnIngMaterial";
-            btn_IngMaterial.Size = new Size(176, 37);
-            btn_IngMaterial.TabIndex = 15;
-            btn_IngMaterial.Text = "Pago Compras";
-            btn_IngMaterial.TextAlign = ContentAlignment.MiddleRight;
-            btn_IngMaterial.UseVisualStyleBackColor = true;
-            btn_IngMaterial.Click += btn_IngMaterial_Click;
+            btn_Facturacion.Cursor = Cursors.Hand;
+            btn_Facturacion.FlatAppearance.BorderSize = 0;
+            btn_Facturacion.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
+            btn_Facturacion.FlatStyle = FlatStyle.Flat;
+            btn_Facturacion.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_Facturacion.IconChar = FontAwesome.Sharp.IconChar.Inbox;
+            btn_Facturacion.IconColor = Color.Black;
+            btn_Facturacion.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btn_Facturacion.IconSize = 25;
+            btn_Facturacion.ImageAlign = ContentAlignment.MiddleLeft;
+            btn_Facturacion.Location = new Point(12, 352);
+            btn_Facturacion.Name = "btn_Facturacion";
+            btn_Facturacion.Size = new Size(176, 37);
+            btn_Facturacion.TabIndex = 15;
+            btn_Facturacion.Text = "Facturacion";
+            btn_Facturacion.TextAlign = ContentAlignment.MiddleRight;
+            btn_Facturacion.UseVisualStyleBackColor = true;
+            btn_Facturacion.Click += btn_IngMaterial_Click;
             // 
             // btnCategoria
             // 
@@ -513,7 +514,6 @@
             Text = "Form1";
             Load += Principal_Load;
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnMinimizar).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
@@ -543,7 +543,7 @@
         private Panel panelUsuario;
         private Panel panelconteiner;
         private FontAwesome.Sharp.IconButton btnCategoria;
-        private FontAwesome.Sharp.IconButton btn_IngMaterial;
+        private FontAwesome.Sharp.IconButton btn_Facturacion;
         private FontAwesome.Sharp.IconButton btnCarrito;
         private FontAwesome.Sharp.IconButton btnMetodoPago;
         private FontAwesome.Sharp.IconButton btnProveedores;

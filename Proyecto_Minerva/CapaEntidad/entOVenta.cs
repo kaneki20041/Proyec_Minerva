@@ -12,10 +12,8 @@ namespace CapaEntidad
         public string Documento { get; set; }
         public string NombreCompleto { get; set; }
         public string NombreCliente { get; set; }
-
         public decimal? MontoPago { get; set; }
         public decimal? MontoCambio { get; set; }
-
         public DateTime FRegistroV { get; set; }
         public int? PrendaID { get; set; } // Agregado
         public string Descripcion { get; set; } // Agregado

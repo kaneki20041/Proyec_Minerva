@@ -9,14 +9,21 @@ namespace Proyecto_Minerva
     {
         entCompra Compra = new entCompra();
         entDetCompra dCom = new entDetCompra();
+
         public CompraPrenda()
         {
             InitializeComponent();
             dCom = new entDetCompra();
 
-            cbMetodoPago.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbMetodoPago.DropDownStyle = ComboBoxStyle.DropDownList;
             listarMetodoPago();
-
+            gbInfoUser.Enabled = false;
+            gbInfoProveedor.Enabled = false;
+            gbInfoPrenda.Enabled = false;
+            tablaCompras.Enabled = false;
+            cmbMonto.Enabled = false;
+            cmbMetodoPago.Enabled = false;
+            btnGrabar.Enabled = false;
         }
 
         private void BuscProveedor_Click(object sender, EventArgs e)
@@ -33,13 +40,9 @@ namespace Proyecto_Minerva
         }
         public void listarMetodoPago()
         {
-            cbMetodoPago.DataSource = logMetPago.Instancia.ListarMetPago();
-            cbMetodoPago.DisplayMember = "metodopago";
-            cbMetodoPago.ValueMember = "MetPagoid";
-        }
-
-        private void BuscarMetPago_Click(object sender, EventArgs e)
-        {
+            cmbMetodoPago.DataSource = logMetPago.Instancia.ListarMetPago();
+            cmbMetodoPago.DisplayMember = "metodopago";
+            cmbMetodoPago.ValueMember = "MetPagoid";
         }
 
         private void btn_buscarPrenVen_Click(object sender, EventArgs e)
@@ -92,10 +95,8 @@ namespace Proyecto_Minerva
 
                     Total += Convert.ToInt32(Fila.Cells[6].Value);
                 }
-                textBox2.Text = Total.ToString();
-
+                cmbMonto.Text = Total.ToString();
             }
-
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -104,19 +105,19 @@ namespace Proyecto_Minerva
             {
                 Total -= Convert.ToDecimal(tablaCompras.Rows[tablaCompras.CurrentRow.Index].Cells[6].Value);
                 //txtTotal.Text = "S/." + Total.ToString();
-                textBox2.Text = Total.ToString();
+                cmbMonto.Text = Total.ToString();
                 tablaCompras.Rows.RemoveAt(tablaCompras.CurrentRow.Index);
                 confilas--;
             }
-        }//quitar
+        }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btnGrabar_Click(object sender, EventArgs e)
         {
             try
             {
                 // Validar campos requeridos antes de proceder
-                if (string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(txtRUC.Text) ||
-                    string.IsNullOrEmpty(cbMetodoPago.Text) || string.IsNullOrEmpty(txtUsuarioID.Text))
+                if (string.IsNullOrEmpty(cmbMonto.Text) || string.IsNullOrEmpty(txtRUC.Text) ||
+                    string.IsNullOrEmpty(cmbMetodoPago.Text) || string.IsNullOrEmpty(txtVendedor.Text))
                 {
                     MessageBox.Show("Todos los campos son requeridos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
@@ -138,11 +139,11 @@ namespace Proyecto_Minerva
                 try
                 {
                     Com.fechCompra = dateTimePicker1.Value;
-                    Com.Monto = Convert.ToDecimal(textBox2.Text);
+                    Com.Monto = Convert.ToDecimal(cmbMonto.Text);
                     p.RUC = txtRUC.Text;
                     p.RazonSocial = txtRazonRUC.Text;
-                    met.MetPagoid = Convert.ToInt32(cbMetodoPago.SelectedValue);
-                    u.UsuarioID = int.Parse(txtUsuarioID.Text);
+                    met.MetPagoid = Convert.ToInt32(cmbMetodoPago.SelectedValue);
+                    u.NombreCompleto = txtVendedor.Text;
                 }
                 catch (FormatException)
                 {
@@ -151,7 +152,7 @@ namespace Proyecto_Minerva
                     return;
                 }
 
-                Com.UsuarioID = u;
+                Com.NombreCompleto = u;
                 Com.Metpagoid = met;
                 Com.ID = p;
                 Com.RazonSocial = p;
@@ -183,7 +184,6 @@ namespace Proyecto_Minerva
                 MessageBox.Show($"Error al procesar la compra: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
 
         private bool GrabarDetalle(int cod)
         {
@@ -316,11 +316,50 @@ namespace Proyecto_Minerva
                 e.Handled = true;
             }
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            gbInfoUser.Enabled = false;
+            gbInfoProveedor.Enabled = false;
+            gbInfoPrenda.Enabled = false;
+            tablaCompras.Enabled = false;
+            cmbMonto.Enabled = false;
+            cmbMetodoPago.Enabled = false;
+            btnGrabar.Enabled = false;
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            gbInfoUser.Enabled = true;
+            gbInfoProveedor.Enabled = true;
+            gbInfoPrenda.Enabled = true;
+            tablaCompras.Enabled = true;
+            cmbMonto.Enabled = true;
+            cmbMetodoPago.Enabled = true;
+            btnGrabar.Enabled = true;
+        }
+
+        private void CargarNombreCompleto()
+        {
+            logOVenta logicVenta = new logOVenta();
+
+            // Aquí puedes ajustar según tu lógica para obtener el usuario
+            var usuariosConectados = logicVenta.ListarUsuariosConectados();
+
+            // Supongamos que solo necesitas el primer usuario conectado
+            if (usuariosConectados.Count > 0)
+            {
+                txtVendedor.Text = usuariosConectados[0]; // Cargar el NombreCompleto en el TextBox
+            }
+            else
+            {
+                txtVendedor.Text = "No hay usuarios conectados"; // Mensaje alternativo
+            }
+        }
+
+        private void CompraPrenda_Load(object sender, EventArgs e)
+        {
+            CargarNombreCompleto();
+        }
     }
 }
-
-
-
-
-
-

@@ -16,7 +16,7 @@
 
         public int Metodopagoid { get; set; }
 
-        public entUsuario UsuarioID { get; set; }
+        public entUsuario NombreCompleto { get; set; }
 
         public int UsuID { get; set; }
 
@@ -25,7 +25,5 @@
         //    ID=new entProveedor();
         //    Metpagoid = new EntMetPago();
         //}
-
-   
     }
 }

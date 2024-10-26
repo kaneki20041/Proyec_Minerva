@@ -80,7 +80,7 @@ namespace Proyecto_Minerva
             btnProveedores,
             btnMetodoPago,
             btnCarrito,
-            btn_IngMaterial,
+            btn_Facturacion,
             btnCategoria,
             btnInventario
         };  foreach (var boton in todosBotones)
@@ -99,13 +99,15 @@ namespace Proyecto_Minerva
                 btnComprarPrendas,    // Compras
                 btnCliente,          // Gestión de clientes
                 btnPrendas,           // Gestión de prendas
-                btn_IngMaterial     // Control de salida de materiales
+                btn_Facturacion,    // Control de salida de materiales
+                btnCarrito
         }; System.Windows.Forms.Panel[] panelesEmpleado = {
                 panelVender,
                 panelComprar,
                 panelCliente,
                 panelPrenda,
-                panelPagoVent
+                panelPagoVent,
+                panelPagoComp
         };foreach (var boton in botonesEmpleado)
             {
                 if (boton != null)
@@ -140,7 +142,7 @@ namespace Proyecto_Minerva
                 btnProveedores,       // Gestión de proveedores
                 btnMetodoPago,        // Configuración de métodos de pago
                 btnCarrito,    // Control de salida de materiales
-                btn_IngMaterial,       // Control de ingreso de materiales
+                btn_Facturacion,       // Control de ingreso de materiales
                 btnCategoria,         // Gestión de categorías
                 btnInventario         // Control de inventario
         }; System.Windows.Forms.Panel[] panelesAdmin = {
@@ -190,7 +192,7 @@ namespace Proyecto_Minerva
                 btnProveedores,
                 btnMetodoPago,
                 btnCarrito,
-                btn_IngMaterial,
+                btn_Facturacion,
                 btnCategoria,
                 btnInventario
 

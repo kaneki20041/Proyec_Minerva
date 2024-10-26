@@ -130,28 +130,5 @@ namespace CapaPresentacion
             txtBusqueda.Text = "";
             cbBusqueda.Text = "";
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
