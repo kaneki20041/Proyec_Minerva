@@ -35,34 +35,36 @@
             btnMinimizar = new PictureBox();
             pictureBox4 = new PictureBox();
             pictureBox2 = new PictureBox();
-            panel2 = new Panel();
+            MenuLateral = new Panel();
+            btnInventario = new FontAwesome.Sharp.IconButton();
+            panelInventario = new Panel();
             btnUsuarios = new FontAwesome.Sharp.IconButton();
             btnVenderPrendas = new FontAwesome.Sharp.IconButton();
             btnComprarPrendas = new FontAwesome.Sharp.IconButton();
-            btn_Cliente = new FontAwesome.Sharp.IconButton();
+            btnCliente = new FontAwesome.Sharp.IconButton();
             btnPrendas = new FontAwesome.Sharp.IconButton();
             btnProveedores = new FontAwesome.Sharp.IconButton();
             btnMetodoPago = new FontAwesome.Sharp.IconButton();
             btnCarrito = new FontAwesome.Sharp.IconButton();
             btn_IngMaterial = new FontAwesome.Sharp.IconButton();
             btnCategoria = new FontAwesome.Sharp.IconButton();
-            panel8 = new Panel();
-            panel12 = new Panel();
-            panel7 = new Panel();
-            panel11 = new Panel();
-            panel10 = new Panel();
-            panel9 = new Panel();
-            panel6 = new Panel();
-            panel5 = new Panel();
-            panel4 = new Panel();
-            panel3 = new Panel();
+            panelUsuario = new Panel();
+            panelCategoria = new Panel();
+            panelPagoComp = new Panel();
+            panelPagoVent = new Panel();
+            panelPrenda = new Panel();
+            panelCliente = new Panel();
+            panelMet = new Panel();
+            panelProvee = new Panel();
+            panelComprar = new Panel();
+            panelVender = new Panel();
             panelconteiner = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnMinimizar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            panel2.SuspendLayout();
+            MenuLateral.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -83,7 +85,7 @@
             // 
             lblUser.AutoSize = true;
             lblUser.Font = new Font("Century Gothic", 11.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblUser.Location = new Point(751, 18);
+            lblUser.Location = new Point(551, 15);
             lblUser.Name = "lblUser";
             lblUser.Size = new Size(146, 21);
             lblUser.TabIndex = 15;
@@ -138,34 +140,65 @@
             pictureBox2.TabStop = false;
             pictureBox2.Click += pictureBox2_Click;
             // 
-            // panel2
+            // MenuLateral
             // 
-            panel2.BackColor = Color.Khaki;
-            panel2.Controls.Add(btnUsuarios);
-            panel2.Controls.Add(btnVenderPrendas);
-            panel2.Controls.Add(btnComprarPrendas);
-            panel2.Controls.Add(btn_Cliente);
-            panel2.Controls.Add(btnPrendas);
-            panel2.Controls.Add(btnProveedores);
-            panel2.Controls.Add(btnMetodoPago);
-            panel2.Controls.Add(btnCarrito);
-            panel2.Controls.Add(btn_IngMaterial);
-            panel2.Controls.Add(btnCategoria);
-            panel2.Controls.Add(panel8);
-            panel2.Controls.Add(panel12);
-            panel2.Controls.Add(panel7);
-            panel2.Controls.Add(panel11);
-            panel2.Controls.Add(panel10);
-            panel2.Controls.Add(panel9);
-            panel2.Controls.Add(panel6);
-            panel2.Controls.Add(panel5);
-            panel2.Controls.Add(panel4);
-            panel2.Controls.Add(panel3);
-            panel2.Dock = DockStyle.Left;
-            panel2.Location = new Point(0, 54);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(188, 573);
-            panel2.TabIndex = 1;
+            MenuLateral.BackColor = Color.Khaki;
+            MenuLateral.Controls.Add(btnInventario);
+            MenuLateral.Controls.Add(panelInventario);
+            MenuLateral.Controls.Add(btnUsuarios);
+            MenuLateral.Controls.Add(btnVenderPrendas);
+            MenuLateral.Controls.Add(btnComprarPrendas);
+            MenuLateral.Controls.Add(btnCliente);
+            MenuLateral.Controls.Add(btnPrendas);
+            MenuLateral.Controls.Add(btnProveedores);
+            MenuLateral.Controls.Add(btnMetodoPago);
+            MenuLateral.Controls.Add(btnSalidaMaterial);
+            MenuLateral.Controls.Add(btnIngMaterial);
+            MenuLateral.Controls.Add(btnCategoria);
+            MenuLateral.Controls.Add(panelUsuario);
+            MenuLateral.Controls.Add(panelCategoria);
+            MenuLateral.Controls.Add(panelPagoComp);
+            MenuLateral.Controls.Add(panelPagoVent);
+            MenuLateral.Controls.Add(panelPrenda);
+            MenuLateral.Controls.Add(panelCliente);
+            MenuLateral.Controls.Add(panelMet);
+            MenuLateral.Controls.Add(panelProvee);
+            MenuLateral.Controls.Add(panelComprar);
+            MenuLateral.Controls.Add(panelVender);
+            MenuLateral.Dock = DockStyle.Left;
+            MenuLateral.Location = new Point(0, 54);
+            MenuLateral.Name = "MenuLateral";
+            MenuLateral.Size = new Size(188, 573);
+            MenuLateral.TabIndex = 1;
+            // 
+            // btnInventario
+            // 
+            btnInventario.Cursor = Cursors.Hand;
+            btnInventario.FlatAppearance.BorderSize = 0;
+            btnInventario.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
+            btnInventario.FlatStyle = FlatStyle.Flat;
+            btnInventario.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            btnInventario.IconChar = FontAwesome.Sharp.IconChar.Archive;
+            btnInventario.IconColor = Color.Black;
+            btnInventario.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnInventario.IconSize = 25;
+            btnInventario.ImageAlign = ContentAlignment.BottomLeft;
+            btnInventario.Location = new Point(12, 438);
+            btnInventario.Name = "btnInventario";
+            btnInventario.Size = new Size(176, 37);
+            btnInventario.TabIndex = 25;
+            btnInventario.Text = "Inventario";
+            btnInventario.TextAlign = ContentAlignment.MiddleRight;
+            btnInventario.UseVisualStyleBackColor = true;
+            btnInventario.Click += btnInventario_Click;
+            // 
+            // panelInventario
+            // 
+            panelInventario.BackColor = SystemColors.Highlight;
+            panelInventario.Location = new Point(0, 438);
+            panelInventario.Name = "panelInventario";
+            panelInventario.Size = new Size(10, 37);
+            panelInventario.TabIndex = 24;
             // 
             // btnUsuarios
             // 
@@ -230,26 +263,26 @@
             btnComprarPrendas.UseVisualStyleBackColor = true;
             btnComprarPrendas.Click += btnComprarPrendas_Click;
             // 
-            // btn_Cliente
+            // btnCliente
             // 
-            btn_Cliente.Cursor = Cursors.Hand;
-            btn_Cliente.FlatAppearance.BorderSize = 0;
-            btn_Cliente.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
-            btn_Cliente.FlatStyle = FlatStyle.Flat;
-            btn_Cliente.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_Cliente.IconChar = FontAwesome.Sharp.IconChar.AddressCard;
-            btn_Cliente.IconColor = Color.Black;
-            btn_Cliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btn_Cliente.IconSize = 30;
-            btn_Cliente.ImageAlign = ContentAlignment.TopLeft;
-            btn_Cliente.Location = new Point(12, 135);
-            btn_Cliente.Name = "btn_Cliente";
-            btn_Cliente.Size = new Size(176, 37);
-            btn_Cliente.TabIndex = 20;
-            btn_Cliente.Text = "Registrar Cliente";
-            btn_Cliente.TextAlign = ContentAlignment.MiddleRight;
-            btn_Cliente.UseVisualStyleBackColor = true;
-            btn_Cliente.Click += btn_Cliente_Click;
+            btnCliente.Cursor = Cursors.Hand;
+            btnCliente.FlatAppearance.BorderSize = 0;
+            btnCliente.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
+            btnCliente.FlatStyle = FlatStyle.Flat;
+            btnCliente.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCliente.IconChar = FontAwesome.Sharp.IconChar.AddressCard;
+            btnCliente.IconColor = Color.Black;
+            btnCliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnCliente.IconSize = 30;
+            btnCliente.ImageAlign = ContentAlignment.TopLeft;
+            btnCliente.Location = new Point(12, 135);
+            btnCliente.Name = "btnCliente";
+            btnCliente.Size = new Size(176, 37);
+            btnCliente.TabIndex = 20;
+            btnCliente.Text = "Registrar Cliente";
+            btnCliente.TextAlign = ContentAlignment.MiddleRight;
+            btnCliente.UseVisualStyleBackColor = true;
+            btnCliente.Click += btn_Cliente_Click;
             // 
             // btnPrendas
             // 
@@ -335,26 +368,26 @@
             btnCarrito.UseVisualStyleBackColor = true;
             btnCarrito.Click += btnSalidaMaterial_Click;
             // 
-            // btn_IngMaterial
+            // btnIngMaterial
             // 
-            btn_IngMaterial.Cursor = Cursors.Hand;
-            btn_IngMaterial.FlatAppearance.BorderSize = 0;
-            btn_IngMaterial.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
-            btn_IngMaterial.FlatStyle = FlatStyle.Flat;
-            btn_IngMaterial.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_IngMaterial.IconChar = FontAwesome.Sharp.IconChar.Info;
-            btn_IngMaterial.IconColor = Color.Black;
-            btn_IngMaterial.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btn_IngMaterial.IconSize = 25;
-            btn_IngMaterial.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_IngMaterial.Location = new Point(12, 352);
-            btn_IngMaterial.Name = "btn_IngMaterial";
-            btn_IngMaterial.Size = new Size(176, 37);
-            btn_IngMaterial.TabIndex = 15;
-            btn_IngMaterial.Text = "Detalle Compras";
-            btn_IngMaterial.TextAlign = ContentAlignment.MiddleRight;
-            btn_IngMaterial.UseVisualStyleBackColor = true;
-            btn_IngMaterial.Click += btn_IngMaterial_Click;
+            btnIngMaterial.Cursor = Cursors.Hand;
+            btnIngMaterial.FlatAppearance.BorderSize = 0;
+            btnIngMaterial.FlatAppearance.MouseOverBackColor = SystemColors.Highlight;
+            btnIngMaterial.FlatStyle = FlatStyle.Flat;
+            btnIngMaterial.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            btnIngMaterial.IconChar = FontAwesome.Sharp.IconChar.Info;
+            btnIngMaterial.IconColor = Color.Black;
+            btnIngMaterial.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnIngMaterial.IconSize = 25;
+            btnIngMaterial.ImageAlign = ContentAlignment.MiddleLeft;
+            btnIngMaterial.Location = new Point(12, 352);
+            btnIngMaterial.Name = "btnIngMaterial";
+            btnIngMaterial.Size = new Size(176, 37);
+            btnIngMaterial.TabIndex = 15;
+            btnIngMaterial.Text = "Pago Compras";
+            btnIngMaterial.TextAlign = ContentAlignment.MiddleRight;
+            btnIngMaterial.UseVisualStyleBackColor = true;
+            btnIngMaterial.Click += btn_IngMaterial_Click;
             // 
             // btnCategoria
             // 
@@ -377,85 +410,85 @@
             btnCategoria.UseVisualStyleBackColor = true;
             btnCategoria.Click += btnCategoria_Click;
             // 
-            // panel8
+            // panelUsuario
             // 
-            panel8.BackColor = SystemColors.Highlight;
-            panel8.Location = new Point(0, 6);
-            panel8.Name = "panel8";
-            panel8.Size = new Size(10, 37);
-            panel8.TabIndex = 13;
+            panelUsuario.BackColor = SystemColors.Highlight;
+            panelUsuario.Location = new Point(0, 6);
+            panelUsuario.Name = "panelUsuario";
+            panelUsuario.Size = new Size(10, 37);
+            panelUsuario.TabIndex = 13;
             // 
-            // panel12
+            // panelCategoria
             // 
-            panel12.BackColor = SystemColors.Highlight;
-            panel12.Location = new Point(0, 395);
-            panel12.Name = "panel12";
-            panel12.Size = new Size(10, 37);
-            panel12.TabIndex = 8;
+            panelCategoria.BackColor = SystemColors.Highlight;
+            panelCategoria.Location = new Point(0, 395);
+            panelCategoria.Name = "panelCategoria";
+            panelCategoria.Size = new Size(10, 37);
+            panelCategoria.TabIndex = 8;
             // 
-            // panel7
+            // panelPagoComp
             // 
-            panel7.BackColor = SystemColors.Highlight;
-            panel7.Location = new Point(0, 352);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(10, 37);
-            panel7.TabIndex = 7;
+            panelPagoComp.BackColor = SystemColors.Highlight;
+            panelPagoComp.Location = new Point(0, 352);
+            panelPagoComp.Name = "panelPagoComp";
+            panelPagoComp.Size = new Size(10, 37);
+            panelPagoComp.TabIndex = 7;
             // 
-            // panel11
+            // panelPagoVent
             // 
-            panel11.BackColor = SystemColors.Highlight;
-            panel11.Location = new Point(0, 309);
-            panel11.Name = "panel11";
-            panel11.Size = new Size(10, 37);
-            panel11.TabIndex = 6;
+            panelPagoVent.BackColor = SystemColors.Highlight;
+            panelPagoVent.Location = new Point(0, 309);
+            panelPagoVent.Name = "panelPagoVent";
+            panelPagoVent.Size = new Size(10, 37);
+            panelPagoVent.TabIndex = 6;
             // 
-            // panel10
+            // panelPrenda
             // 
-            panel10.BackColor = SystemColors.Highlight;
-            panel10.Location = new Point(0, 178);
-            panel10.Name = "panel10";
-            panel10.Size = new Size(10, 37);
-            panel10.TabIndex = 4;
+            panelPrenda.BackColor = SystemColors.Highlight;
+            panelPrenda.Location = new Point(0, 178);
+            panelPrenda.Name = "panelPrenda";
+            panelPrenda.Size = new Size(10, 37);
+            panelPrenda.TabIndex = 4;
             // 
-            // panel9
+            // panelCliente
             // 
-            panel9.BackColor = SystemColors.Highlight;
-            panel9.Location = new Point(0, 135);
-            panel9.Name = "panel9";
-            panel9.Size = new Size(10, 37);
-            panel9.TabIndex = 4;
+            panelCliente.BackColor = SystemColors.Highlight;
+            panelCliente.Location = new Point(0, 135);
+            panelCliente.Name = "panelCliente";
+            panelCliente.Size = new Size(10, 37);
+            panelCliente.TabIndex = 4;
             // 
-            // panel6
+            // panelMet
             // 
-            panel6.BackColor = SystemColors.Highlight;
-            panel6.Location = new Point(0, 266);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(10, 37);
-            panel6.TabIndex = 4;
+            panelMet.BackColor = SystemColors.Highlight;
+            panelMet.Location = new Point(0, 266);
+            panelMet.Name = "panelMet";
+            panelMet.Size = new Size(10, 37);
+            panelMet.TabIndex = 4;
             // 
-            // panel5
+            // panelProvee
             // 
-            panel5.BackColor = SystemColors.Highlight;
-            panel5.Location = new Point(0, 223);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(10, 37);
-            panel5.TabIndex = 3;
+            panelProvee.BackColor = SystemColors.Highlight;
+            panelProvee.Location = new Point(0, 223);
+            panelProvee.Name = "panelProvee";
+            panelProvee.Size = new Size(10, 37);
+            panelProvee.TabIndex = 3;
             // 
-            // panel4
+            // panelComprar
             // 
-            panel4.BackColor = SystemColors.Highlight;
-            panel4.Location = new Point(0, 92);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(10, 37);
-            panel4.TabIndex = 2;
+            panelComprar.BackColor = SystemColors.Highlight;
+            panelComprar.Location = new Point(0, 92);
+            panelComprar.Name = "panelComprar";
+            panelComprar.Size = new Size(10, 37);
+            panelComprar.TabIndex = 2;
             // 
-            // panel3
+            // panelVender
             // 
-            panel3.BackColor = SystemColors.Highlight;
-            panel3.Location = new Point(0, 49);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(10, 37);
-            panel3.TabIndex = 1;
+            panelVender.BackColor = SystemColors.Highlight;
+            panelVender.Location = new Point(0, 49);
+            panelVender.Name = "panelVender";
+            panelVender.Size = new Size(10, 37);
+            panelVender.TabIndex = 1;
             // 
             // panelconteiner
             // 
@@ -472,7 +505,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1039, 627);
             Controls.Add(panelconteiner);
-            Controls.Add(panel2);
+            Controls.Add(MenuLateral);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Principal";
@@ -485,7 +518,7 @@
             ((System.ComponentModel.ISupportInitialize)btnMinimizar).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            panel2.ResumeLayout(false);
+            MenuLateral.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -493,21 +526,21 @@
 
         private Panel panel1;
         private PictureBox pictureBox2;
-        private Panel panel2;
-        private Panel panel3;
+        private Panel MenuLateral;
+        private Panel panelVender;
         private PictureBox btnMinimizar;
-        private Panel panel5;
-        private Panel panel4;
-        private Panel panel6;
-        private Panel panel10;
-        private Panel panel9;
-        private Panel panel11;
+        private Panel panelProvee;
+        private Panel panelComprar;
+        private Panel panelMet;
+        private Panel panelPrenda;
+        private Panel panelCliente;
+        private Panel panelPagoVent;
         private PictureBox pictureBox4;
         private PictureBox pictureBox5;
-        private Panel panel7;
-        private Panel panel12;
+        private Panel panelPagoComp;
+        private Panel panelCategoria;
         private Label lblUser;
-        private Panel panel8;
+        private Panel panelUsuario;
         private Panel panelconteiner;
         private FontAwesome.Sharp.IconButton btnCategoria;
         private FontAwesome.Sharp.IconButton btn_IngMaterial;
@@ -515,9 +548,11 @@
         private FontAwesome.Sharp.IconButton btnMetodoPago;
         private FontAwesome.Sharp.IconButton btnProveedores;
         private FontAwesome.Sharp.IconButton btnPrendas;
-        private FontAwesome.Sharp.IconButton btn_Cliente;
+        private FontAwesome.Sharp.IconButton btnCliente;
         private FontAwesome.Sharp.IconButton btnComprarPrendas;
         private FontAwesome.Sharp.IconButton btnVenderPrendas;
         private FontAwesome.Sharp.IconButton btnUsuarios;
+        private FontAwesome.Sharp.IconButton btnInventario;
+        private Panel panelInventario;
     }
 }

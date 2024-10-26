@@ -28,29 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
+            dgvInventario = new DataGridView();
             label1 = new Label();
-            comboBox1 = new ComboBox();
-            groupBox1 = new GroupBox();
+            cbBusqueda = new ComboBox();
+            gbBuscar = new GroupBox();
             groupBox2 = new GroupBox();
-            button1 = new Button();
-            button5 = new Button();
-            textBox1 = new TextBox();
-            button2 = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            groupBox1.SuspendLayout();
+            btnEliminarFiltro = new Button();
+            txtBuscar = new TextBox();
+            btnActualizar = new Button();
+            gbPrenda = new GroupBox();
+            txtNuevoPrecio = new TextBox();
+            txtPrecio = new TextBox();
+            label5 = new Label();
+            label4 = new Label();
+            txtDescripcion = new TextBox();
+            label3 = new Label();
+            txtID = new TextBox();
+            label2 = new Label();
+            btnActualizarForm = new Button();
+            btnBuscar = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgvInventario).BeginInit();
+            gbBuscar.SuspendLayout();
             groupBox2.SuspendLayout();
+            gbPrenda.SuspendLayout();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dgvInventario
             // 
-            dataGridView1.BackgroundColor = Color.MintCream;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(28, 217);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(629, 330);
-            dataGridView1.TabIndex = 0;
+            dgvInventario.BackgroundColor = Color.MintCream;
+            dgvInventario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvInventario.Location = new Point(28, 143);
+            dgvInventario.Name = "dgvInventario";
+            dgvInventario.RowTemplate.Height = 25;
+            dgvInventario.Size = new Size(629, 357);
+            dgvInventario.TabIndex = 0;
+            dgvInventario.CellDoubleClick += dgvInventario_CellDoubleClick;
             // 
             // label1
             // 
@@ -61,35 +73,33 @@
             label1.Size = new Size(79, 17);
             label1.TabIndex = 1;
             label1.Text = "Buscar por:";
-            label1.Click += label1_Click;
             // 
-            // comboBox1
+            // cbBusqueda
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Nombre", "Categoria", "Talla", "Color", "Stock" });
-            comboBox1.Location = new Point(20, 46);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 25);
-            comboBox1.TabIndex = 2;
+            cbBusqueda.FormattingEnabled = true;
+            cbBusqueda.Location = new Point(20, 46);
+            cbBusqueda.Name = "cbBusqueda";
+            cbBusqueda.Size = new Size(121, 25);
+            cbBusqueda.TabIndex = 2;
+            cbBusqueda.SelectedIndexChanged += cbBusqueda_SelectedIndexChanged;
             // 
-            // groupBox1
+            // gbBuscar
             // 
-            groupBox1.Controls.Add(groupBox2);
-            groupBox1.Controls.Add(comboBox1);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox1.Location = new Point(668, 217);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(161, 289);
-            groupBox1.TabIndex = 3;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Buscar";
+            gbBuscar.Controls.Add(groupBox2);
+            gbBuscar.Controls.Add(cbBusqueda);
+            gbBuscar.Controls.Add(label1);
+            gbBuscar.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            gbBuscar.Location = new Point(678, 143);
+            gbBuscar.Name = "gbBuscar";
+            gbBuscar.Size = new Size(161, 289);
+            gbBuscar.TabIndex = 3;
+            gbBuscar.TabStop = false;
+            gbBuscar.Text = "Buscar";
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(button1);
-            groupBox2.Controls.Add(button5);
-            groupBox2.Controls.Add(textBox1);
+            groupBox2.Controls.Add(btnEliminarFiltro);
+            groupBox2.Controls.Add(txtBuscar);
             groupBox2.Location = new Point(12, 90);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(134, 176);
@@ -97,82 +107,198 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Ingrese dato";
             // 
-            // button1
+            // btnEliminarFiltro
             // 
-            button1.BackColor = Color.LightBlue;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(8, 134);
-            button1.Name = "button1";
-            button1.Size = new Size(120, 32);
-            button1.TabIndex = 51;
-            button1.Text = "Eliminar filtro";
-            button1.UseVisualStyleBackColor = false;
+            btnEliminarFiltro.BackColor = Color.LightBlue;
+            btnEliminarFiltro.FlatAppearance.BorderSize = 0;
+            btnEliminarFiltro.FlatStyle = FlatStyle.Flat;
+            btnEliminarFiltro.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnEliminarFiltro.Location = new Point(6, 105);
+            btnEliminarFiltro.Name = "btnEliminarFiltro";
+            btnEliminarFiltro.Size = new Size(120, 32);
+            btnEliminarFiltro.TabIndex = 51;
+            btnEliminarFiltro.Text = "Eliminar filtro";
+            btnEliminarFiltro.UseVisualStyleBackColor = false;
+            btnEliminarFiltro.Click += btnEliminarFiltro_Click;
             // 
-            // button5
+            // txtBuscar
             // 
-            button5.BackColor = Color.LightBlue;
-            button5.FlatAppearance.BorderSize = 0;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            button5.Location = new Point(8, 84);
-            button5.Name = "button5";
-            button5.Size = new Size(120, 32);
-            button5.TabIndex = 50;
-            button5.Text = "Filtrar";
-            button5.UseVisualStyleBackColor = false;
+            txtBuscar.Location = new Point(8, 43);
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.Size = new Size(120, 23);
+            txtBuscar.TabIndex = 0;
+            txtBuscar.TextChanged += txtBuscar_TextChanged;
             // 
-            // textBox1
+            // btnActualizar
             // 
-            textBox1.Location = new Point(8, 43);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(120, 23);
-            textBox1.TabIndex = 0;
+            btnActualizar.BackColor = Color.LightBlue;
+            btnActualizar.FlatAppearance.BorderSize = 0;
+            btnActualizar.FlatStyle = FlatStyle.Flat;
+            btnActualizar.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnActualizar.Location = new Point(681, 453);
+            btnActualizar.Name = "btnActualizar";
+            btnActualizar.Size = new Size(143, 38);
+            btnActualizar.TabIndex = 51;
+            btnActualizar.Text = "Actualizar Prenda";
+            btnActualizar.UseVisualStyleBackColor = false;
+            btnActualizar.Click += btnActualizar_Click;
             // 
-            // button2
+            // gbPrenda
             // 
-            button2.BackColor = Color.LightBlue;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.Location = new Point(688, 515);
-            button2.Name = "button2";
-            button2.Size = new Size(120, 32);
-            button2.TabIndex = 51;
-            button2.Text = "Borrar Prenda";
-            button2.UseVisualStyleBackColor = false;
+            gbPrenda.Controls.Add(txtNuevoPrecio);
+            gbPrenda.Controls.Add(txtPrecio);
+            gbPrenda.Controls.Add(label5);
+            gbPrenda.Controls.Add(label4);
+            gbPrenda.Controls.Add(txtDescripcion);
+            gbPrenda.Controls.Add(label3);
+            gbPrenda.Controls.Add(txtID);
+            gbPrenda.Controls.Add(label2);
+            gbPrenda.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            gbPrenda.Location = new Point(28, 29);
+            gbPrenda.Name = "gbPrenda";
+            gbPrenda.Size = new Size(629, 100);
+            gbPrenda.TabIndex = 52;
+            gbPrenda.TabStop = false;
+            gbPrenda.Text = "Información Prenda";
+            // 
+            // txtNuevoPrecio
+            // 
+            txtNuevoPrecio.Location = new Point(457, 52);
+            txtNuevoPrecio.Name = "txtNuevoPrecio";
+            txtNuevoPrecio.Size = new Size(114, 23);
+            txtNuevoPrecio.TabIndex = 7;
+            // 
+            // txtPrecio
+            // 
+            txtPrecio.Location = new Point(302, 52);
+            txtPrecio.Name = "txtPrecio";
+            txtPrecio.Size = new Size(114, 23);
+            txtPrecio.TabIndex = 6;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(457, 32);
+            label5.Name = "label5";
+            label5.Size = new Size(95, 17);
+            label5.TabIndex = 5;
+            label5.Text = "Nuevo Precio";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(302, 32);
+            label4.Name = "label4";
+            label4.Size = new Size(48, 17);
+            label4.TabIndex = 4;
+            label4.Text = "Precio";
+            // 
+            // txtDescripcion
+            // 
+            txtDescripcion.Location = new Point(97, 52);
+            txtDescripcion.Name = "txtDescripcion";
+            txtDescripcion.Size = new Size(168, 23);
+            txtDescripcion.TabIndex = 3;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(97, 32);
+            label3.Name = "label3";
+            label3.Size = new Size(83, 17);
+            label3.TabIndex = 2;
+            label3.Text = "Descripcion";
+            // 
+            // txtID
+            // 
+            txtID.Location = new Point(24, 52);
+            txtID.Name = "txtID";
+            txtID.Size = new Size(37, 23);
+            txtID.TabIndex = 1;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(24, 32);
+            label2.Name = "label2";
+            label2.Size = new Size(21, 17);
+            label2.TabIndex = 0;
+            label2.Text = "ID";
+            // 
+            // btnActualizarForm
+            // 
+            btnActualizarForm.BackColor = Color.LightBlue;
+            btnActualizarForm.FlatAppearance.BorderSize = 0;
+            btnActualizarForm.FlatStyle = FlatStyle.Flat;
+            btnActualizarForm.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnActualizarForm.Location = new Point(696, 40);
+            btnActualizarForm.Name = "btnActualizarForm";
+            btnActualizarForm.Size = new Size(120, 32);
+            btnActualizarForm.TabIndex = 53;
+            btnActualizarForm.Text = "Actualizar";
+            btnActualizarForm.UseVisualStyleBackColor = false;
+            btnActualizarForm.Click += btnActualizarForm_Click;
+            // 
+            // btnBuscar
+            // 
+            btnBuscar.BackColor = Color.LightBlue;
+            btnBuscar.FlatAppearance.BorderSize = 0;
+            btnBuscar.FlatStyle = FlatStyle.Flat;
+            btnBuscar.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnBuscar.Location = new Point(698, 85);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(120, 32);
+            btnBuscar.TabIndex = 54;
+            btnBuscar.Text = "Buscar";
+            btnBuscar.UseVisualStyleBackColor = false;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // Inventario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MintCream;
-            ClientSize = new Size(851, 573);
-            Controls.Add(button2);
-            Controls.Add(groupBox1);
-            Controls.Add(dataGridView1);
+            ClientSize = new Size(851, 563);
+            Controls.Add(btnBuscar);
+            Controls.Add(btnActualizarForm);
+            Controls.Add(gbPrenda);
+            Controls.Add(btnActualizar);
+            Controls.Add(gbBuscar);
+            Controls.Add(dgvInventario);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Inventario";
             Text = "Inventario";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            Load += Inventario_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvInventario).EndInit();
+            gbBuscar.ResumeLayout(false);
+            gbBuscar.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
+            gbPrenda.ResumeLayout(false);
+            gbPrenda.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView dgvInventario;
         private Label label1;
-        private ComboBox comboBox1;
-        private GroupBox groupBox1;
+        private ComboBox cbBusqueda;
+        private GroupBox gbBuscar;
         private GroupBox groupBox2;
-        private TextBox textBox1;
-        private Button button5;
-        private Button button1;
-        private Button button2;
+        private TextBox txtBuscar;
+        private Button btnEliminarFiltro;
+        private Button btnActualizar;
+        private GroupBox gbPrenda;
+        private Label label2;
+        private Label label3;
+        private TextBox txtID;
+        private Label label4;
+        private TextBox txtDescripcion;
+        private TextBox txtNuevoPrecio;
+        private TextBox txtPrecio;
+        private Label label5;
+        private Button btnActualizarForm;
+        private Button btnBuscar;
     }
 }

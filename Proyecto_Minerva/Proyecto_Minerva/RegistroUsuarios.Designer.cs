@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             gboDetalleUsuario = new GroupBox();
+            txtUsuario = new TextBox();
+            label10 = new Label();
             btnBuscarDni = new FontAwesome.Sharp.IconButton();
             txtID = new TextBox();
             label7 = new Label();
@@ -65,6 +67,8 @@
             // 
             // gboDetalleUsuario
             // 
+            gboDetalleUsuario.Controls.Add(txtUsuario);
+            gboDetalleUsuario.Controls.Add(label10);
             gboDetalleUsuario.Controls.Add(btnBuscarDni);
             gboDetalleUsuario.Controls.Add(txtID);
             gboDetalleUsuario.Controls.Add(label7);
@@ -83,10 +87,26 @@
             gboDetalleUsuario.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
             gboDetalleUsuario.Location = new Point(39, 50);
             gboDetalleUsuario.Name = "gboDetalleUsuario";
-            gboDetalleUsuario.Size = new Size(522, 199);
+            gboDetalleUsuario.Size = new Size(548, 238);
             gboDetalleUsuario.TabIndex = 13;
             gboDetalleUsuario.TabStop = false;
             gboDetalleUsuario.Text = "Detalle del Usuario";
+            // 
+            // txtUsuario
+            // 
+            txtUsuario.Location = new Point(253, 40);
+            txtUsuario.Name = "txtUsuario";
+            txtUsuario.Size = new Size(151, 22);
+            txtUsuario.TabIndex = 15;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(196, 42);
+            label10.Name = "label10";
+            label10.Size = new Size(51, 17);
+            label10.TabIndex = 14;
+            label10.Text = "Usuario";
             // 
             // btnBuscarDni
             // 
@@ -96,7 +116,7 @@
             btnBuscarDni.IconColor = Color.Black;
             btnBuscarDni.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnBuscarDni.IconSize = 15;
-            btnBuscarDni.Location = new Point(225, 51);
+            btnBuscarDni.Location = new Point(241, 91);
             btnBuscarDni.Name = "btnBuscarDni";
             btnBuscarDni.Size = new Size(34, 23);
             btnBuscarDni.TabIndex = 13;
@@ -105,7 +125,7 @@
             // 
             // txtID
             // 
-            txtID.Location = new Point(13, 52);
+            txtID.Location = new Point(111, 42);
             txtID.Name = "txtID";
             txtID.Size = new Size(47, 22);
             txtID.TabIndex = 12;
@@ -113,7 +133,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(13, 34);
+            label7.Location = new Point(69, 42);
             label7.Name = "label7";
             label7.Size = new Size(20, 17);
             label7.TabIndex = 11;
@@ -122,7 +142,7 @@
             // cbEstado
             // 
             cbEstado.FormattingEnabled = true;
-            cbEstado.Location = new Point(283, 153);
+            cbEstado.Location = new Point(340, 186);
             cbEstado.Name = "cbEstado";
             cbEstado.Size = new Size(129, 25);
             cbEstado.TabIndex = 7;
@@ -130,7 +150,7 @@
             // cbRol
             // 
             cbRol.FormattingEnabled = true;
-            cbRol.Location = new Point(283, 102);
+            cbRol.Location = new Point(340, 135);
             cbRol.Name = "cbRol";
             cbRol.Size = new Size(132, 25);
             cbRol.TabIndex = 6;
@@ -138,7 +158,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(283, 133);
+            label6.Location = new Point(375, 166);
             label6.Name = "label6";
             label6.Size = new Size(48, 17);
             label6.TabIndex = 10;
@@ -147,7 +167,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(283, 85);
+            label5.Location = new Point(387, 117);
             label5.Name = "label5";
             label5.Size = new Size(26, 17);
             label5.TabIndex = 9;
@@ -155,15 +175,15 @@
             // 
             // txtCorreo
             // 
-            txtCorreo.Location = new Point(13, 105);
+            txtCorreo.Location = new Point(40, 141);
             txtCorreo.Name = "txtCorreo";
-            txtCorreo.Size = new Size(246, 22);
+            txtCorreo.Size = new Size(195, 22);
             txtCorreo.TabIndex = 5;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(13, 85);
+            label4.Location = new Point(109, 121);
             label4.Name = "label4";
             label4.Size = new Size(49, 17);
             label4.TabIndex = 7;
@@ -171,29 +191,29 @@
             // 
             // txtPass
             // 
-            txtPass.Location = new Point(13, 153);
+            txtPass.Location = new Point(40, 189);
             txtPass.Name = "txtPass";
-            txtPass.Size = new Size(246, 22);
+            txtPass.Size = new Size(195, 22);
             txtPass.TabIndex = 4;
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(283, 52);
+            txtNombre.Location = new Point(305, 92);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(217, 22);
+            txtNombre.Size = new Size(220, 22);
             txtNombre.TabIndex = 3;
             // 
             // txtDocumento
             // 
-            txtDocumento.Location = new Point(68, 52);
+            txtDocumento.Location = new Point(38, 92);
             txtDocumento.Name = "txtDocumento";
-            txtDocumento.Size = new Size(151, 22);
+            txtDocumento.Size = new Size(197, 22);
             txtDocumento.TabIndex = 2;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(13, 133);
+            label3.Location = new Point(94, 169);
             label3.Name = "label3";
             label3.Size = new Size(77, 17);
             label3.TabIndex = 3;
@@ -202,7 +222,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(283, 34);
+            label2.Location = new Point(351, 72);
             label2.Name = "label2";
             label2.Size = new Size(118, 17);
             label2.TabIndex = 2;
@@ -211,7 +231,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(68, 34);
+            label1.Location = new Point(94, 72);
             label1.Name = "label1";
             label1.Size = new Size(79, 17);
             label1.TabIndex = 1;
@@ -264,11 +284,11 @@
             dgvUsuarios.BackgroundColor = Color.MintCream;
             dgvUsuarios.BorderStyle = BorderStyle.None;
             dgvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvUsuarios.Location = new Point(12, 267);
+            dgvUsuarios.Location = new Point(12, 294);
             dgvUsuarios.Name = "dgvUsuarios";
             dgvUsuarios.ReadOnly = true;
             dgvUsuarios.RowTemplate.Height = 25;
-            dgvUsuarios.Size = new Size(701, 294);
+            dgvUsuarios.Size = new Size(701, 267);
             dgvUsuarios.TabIndex = 20;
             dgvUsuarios.CellDoubleClick += dgvUsuarios_CellDoubleClick;
             // 
@@ -319,7 +339,7 @@
             gboxBusqueda.Controls.Add(cbBusqueda);
             gboxBusqueda.Controls.Add(label8);
             gboxBusqueda.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            gboxBusqueda.Location = new Point(574, 50);
+            gboxBusqueda.Location = new Point(593, 50);
             gboxBusqueda.Name = "gboxBusqueda";
             gboxBusqueda.Size = new Size(221, 199);
             gboxBusqueda.TabIndex = 21;
@@ -328,7 +348,7 @@
             // 
             // txtBusqueda
             // 
-            txtBusqueda.Location = new Point(30, 105);
+            txtBusqueda.Location = new Point(30, 100);
             txtBusqueda.Name = "txtBusqueda";
             txtBusqueda.Size = new Size(159, 22);
             txtBusqueda.TabIndex = 14;
@@ -450,5 +470,7 @@
         private FontAwesome.Sharp.IconButton btnLimpiar;
         private FontAwesome.Sharp.IconButton btnBuscarUsuario;
         private Label label9;
+        private TextBox txtUsuario;
+        private Label label10;
     }
 }

@@ -47,6 +47,7 @@ namespace CapaDatos
                     User.Clave = Convert.ToString(dr["Clave"]);
                     User.FechaRegistro = Convert.ToDateTime(dr["FechaRegistro"]);
                     User.Correo = Convert.ToString(dr["Correo"]);
+                    User.Usuario = Convert.ToString(dr["Usuario"]);
                     lista.Add(User);
                 }
             }
@@ -131,6 +132,12 @@ namespace CapaDatos
                                                ? Convert.ToDateTime(dr["UltimaActividad"])
                                                : DateTime.MinValue; // o manejar como desees
 
+                        user.Usuario = dr["Usuario"] != DBNull.Value
+                                              ? dr["Usuario"].ToString()
+                                              : string.Empty; // o manejar como desees
+                        user.idRol = dr["RolID"] != DBNull.Value
+                                             ? Convert.ToInt32(dr["RolID"])
+                                             : 0;
                         lista.Add(user);
                     }
                 }
@@ -168,6 +175,7 @@ namespace CapaDatos
                 cmd.Parameters.AddWithValue("@Clave", User.Clave);
                 cmd.Parameters.AddWithValue("@FechaRegistro", User.FechaRegistro);
                 cmd.Parameters.AddWithValue("@Correo", User.Correo);
+                cmd.Parameters.AddWithValue("@Usuario", User.Usuario);
 
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
@@ -204,6 +212,7 @@ namespace CapaDatos
                 cmd.Parameters.AddWithValue("@Clave", user.Clave);
                 cmd.Parameters.AddWithValue("@FechaRegistro", user.FechaRegistro);
                 cmd.Parameters.AddWithValue("@Correo", user.Correo);
+                cmd.Parameters.AddWithValue("@Usuario", user.Usuario);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)

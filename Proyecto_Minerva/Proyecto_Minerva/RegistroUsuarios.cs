@@ -69,6 +69,7 @@ namespace CapaPresentacion
             dgvUsuarios.Columns["Documento"].HeaderText = "DNI";
             dgvUsuarios.Columns["descripcion"].HeaderText = "Rol";
             dgvUsuarios.Columns["NombreCompleto"].HeaderText = "Nombre Completo";
+            dgvUsuarios.Columns["Usuario"].HeaderText = "Usuario";
             dgvUsuarios.Columns["FechaRegistro"].HeaderText = "Fecha de Registro";
             dgvUsuarios.Columns["Correo"].HeaderText = "Correo Electrónico";
             dgvUsuarios.Columns["Estado"].HeaderText = "Estado"; // Cambiar el encabezado si es necesario
@@ -84,6 +85,7 @@ namespace CapaPresentacion
             cbEstado.Text = "";
             cbRol.Text = "";
             txtID.Text = "";
+            txtUsuario.Text = "";
         }
 
         public void listarRol()
@@ -102,11 +104,12 @@ namespace CapaPresentacion
             dgvUsuarios.Columns["UsuarioID"].DisplayIndex = 0; // ID
             dgvUsuarios.Columns["Documento"].DisplayIndex = 1; // DNI
             dgvUsuarios.Columns["NombreCompleto"].DisplayIndex = 2; // Nombre
-            dgvUsuarios.Columns["Clave"].DisplayIndex = 3; // Clave
-            dgvUsuarios.Columns["Correo"].DisplayIndex = 4; // Correo
-            dgvUsuarios.Columns["FechaRegistro"].DisplayIndex = 5; // Fecha
-            dgvUsuarios.Columns["descripcion"].DisplayIndex = 6; // Rol
-            dgvUsuarios.Columns["Estado"].DisplayIndex = 7; // Estado
+            dgvUsuarios.Columns["Usuario"].DisplayIndex = 3; //Usuario
+            dgvUsuarios.Columns["Clave"].DisplayIndex = 4; // Clave
+            dgvUsuarios.Columns["Correo"].DisplayIndex = 5; // Correo
+            dgvUsuarios.Columns["FechaRegistro"].DisplayIndex = 6; // Fecha
+            dgvUsuarios.Columns["descripcion"].DisplayIndex = 7; // Rol
+            dgvUsuarios.Columns["Estado"].DisplayIndex = 8; // Estado
 
         }
 
@@ -153,6 +156,7 @@ namespace CapaPresentacion
                 p.Clave = Convert.ToString(txtPass.Text);
                 p.FechaRegistro = DateTime.Now;
                 p.Correo = Convert.ToString(txtCorreo.Text);
+                p.Usuario = Convert.ToString(txtUsuario.Text);
 
                 logUsuario.Instancia.InsertarUsuarios(p);
 
@@ -177,6 +181,7 @@ namespace CapaPresentacion
             txtPass.Text = filaActual.Cells[5].Value.ToString();
             txtCorreo.Text = filaActual.Cells[7].Value.ToString();
             cbRol.Text = filaActual.Cells[2].Value.ToString();
+            txtUsuario.Text = filaActual.Cells[8].Value.ToString();
 
             foreach (OpcionesCombo oc in cbEstado.Items)
             {
@@ -205,6 +210,7 @@ namespace CapaPresentacion
                 u.idRol = Convert.ToInt32(cbRol.SelectedValue); // Usar SelectedValue para obtener el valor de idRol
                 u.Estado = ((OpcionesCombo)cbEstado.SelectedItem).Valor; // Usar SelectedItem para obtener el estado como booleano
                 u.Correo = txtCorreo.Text.Trim();
+                u.Usuario = txtUsuario.Text.Trim();
 
 
                 // Llamar al método para editar el trabajador
@@ -261,7 +267,7 @@ namespace CapaPresentacion
                     var apisPeru = new ApisPeru();
                     dynamic respuesta = apisPeru.Get("https://dniruc.apisperu.com/api/v1/dni/" + txtDocumento.Text + "?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImRhdmlsYWpob2phbkBnbWFpbC5jb20ifQ.OexW2Uf_nGrZjUiqutNGmMODVk4zHCDV7CA9SHR8HVM");
                     txtNombre.Text = respuesta.nombres.ToString() + " " + respuesta.apellidoPaterno.ToString() + " " + respuesta.apellidoMaterno.ToString();
-
+                    txtNombre.Enabled = true;
                 }
                 else
                 {
@@ -280,6 +286,7 @@ namespace CapaPresentacion
         private void btnBuscarDni_Click_1(object sender, EventArgs e)
         {
             consultarDni();
+
         }
 
         private void btnBuscarUsuario_Click(object sender, EventArgs e)

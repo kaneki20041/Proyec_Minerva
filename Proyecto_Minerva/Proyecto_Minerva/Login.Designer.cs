@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             btnSalir = new FontAwesome.Sharp.IconButton();
-            txtDocumento = new TextBox();
+            txtUsuario = new TextBox();
             txtPassword = new TextBox();
             btnIngresar = new FontAwesome.Sharp.IconButton();
             btnMostrar = new FontAwesome.Sharp.IconButton();
@@ -59,22 +59,22 @@
             btnSalir.UseVisualStyleBackColor = false;
             btnSalir.Click += btnSalir_Click;
             // 
-            // txtDocumento
+            // txtUsuario
             // 
-            txtDocumento.BackColor = SystemColors.Window;
-            txtDocumento.BorderStyle = BorderStyle.None;
-            txtDocumento.Cursor = Cursors.IBeam;
-            txtDocumento.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtDocumento.ForeColor = Color.Gray;
-            txtDocumento.Location = new Point(222, 365);
-            txtDocumento.Name = "txtDocumento";
-            txtDocumento.RightToLeft = RightToLeft.No;
-            txtDocumento.Size = new Size(346, 17);
-            txtDocumento.TabIndex = 54;
-            txtDocumento.Text = "Documento de Identidad";
-            txtDocumento.Enter += txtDocumento_Enter;
-            txtDocumento.KeyPress += txtDocumento_KeyPress;
-            txtDocumento.Leave += txtDocumento_Leave;
+            txtUsuario.BackColor = SystemColors.Window;
+            txtUsuario.BorderStyle = BorderStyle.None;
+            txtUsuario.Cursor = Cursors.IBeam;
+            txtUsuario.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtUsuario.ForeColor = Color.Gray;
+            txtUsuario.Location = new Point(222, 365);
+            txtUsuario.Name = "txtUsuario";
+            txtUsuario.RightToLeft = RightToLeft.No;
+            txtUsuario.Size = new Size(346, 17);
+            txtUsuario.TabIndex = 54;
+            txtUsuario.Text = "Usuario";
+            txtUsuario.Enter += txtDocumento_Enter;
+            txtUsuario.KeyPress += txtDocumento_KeyPress;
+            txtUsuario.Leave += txtDocumento_Leave;
             // 
             // txtPassword
             // 
@@ -206,7 +206,7 @@
             Controls.Add(btnSalir);
             Controls.Add(btnIngresar);
             Controls.Add(txtPassword);
-            Controls.Add(txtDocumento);
+            Controls.Add(txtUsuario);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
@@ -218,7 +218,7 @@
 
         #endregion
         private FontAwesome.Sharp.IconButton btnSalir;
-        private TextBox txtDocumento;
+        private TextBox txtUsuario;
         private TextBox txtPassword;
         private FontAwesome.Sharp.IconButton btnIngresar;
         private FontAwesome.Sharp.IconButton btnMostrar;
