@@ -59,12 +59,15 @@
             panelComprar = new Panel();
             panelVender = new Panel();
             panelconteiner = new Panel();
+            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnMinimizar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             MenuLateral.SuspendLayout();
+            panelconteiner.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -494,11 +497,21 @@
             // panelconteiner
             // 
             panelconteiner.BackColor = Color.MintCream;
+            panelconteiner.Controls.Add(pictureBox1);
             panelconteiner.Dock = DockStyle.Fill;
             panelconteiner.Location = new Point(188, 54);
             panelconteiner.Name = "panelconteiner";
             panelconteiner.Size = new Size(851, 573);
             panelconteiner.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = CapaPresentacion.Properties.Resources.aaaaa;
+            pictureBox1.Location = new Point(3, -36);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(812, 644);
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
             // 
             // Principal
             // 
@@ -519,6 +532,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             MenuLateral.ResumeLayout(false);
+            panelconteiner.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -554,5 +569,6 @@
         private FontAwesome.Sharp.IconButton btnUsuarios;
         private FontAwesome.Sharp.IconButton btnInventario;
         private Panel panelInventario;
+        private PictureBox pictureBox1;
     }
 }

@@ -51,7 +51,6 @@ namespace CapaDatos
                             prov.Direccion = dr["Direccion"].ToString();
                             prov.Telefono = Convert.ToInt32(dr["Telefono"]);
                             prov.Email = dr["Email"].ToString();
-                            prov.Ubigeo = Convert.ToInt32(dr["Ubigeo"]); // Cambiar Ubigeo a UbigeoID
                             prov.Estado = Convert.ToBoolean(dr["Estado"]);
                            
                             lista.Add(prov);

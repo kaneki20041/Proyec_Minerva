@@ -15,6 +15,9 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.Security.Cryptography.X509Certificates;
+using System.Net.Http.Headers;
+using System.Diagnostics;
 
 namespace Proyecto_Minerva
 {
@@ -24,13 +27,14 @@ namespace Proyecto_Minerva
         private FacturacionApi api;
         private entComprobanteventa comprobante;
 
+
         public Carrito(int idVenta)
         {
             _idVenta = idVenta;
             InitializeComponent();
             ListarVentas();
             InicializarComboBoxes();
-            string token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1c2VybmFtZSI6ImthbmVraTIwMDQxIiwiaWF0IjoxNzI5OTE2MzM3LCJleHAiOjE3MzAwMDI3Mzd9.TvGX3VYEfGt7V4Pw9Wx5UW_D6V61pZ3o04Oph34mDTHRoRJPBuCFv8HLcHxudTKc7YpFsNym3QST6HO5aFwSVXz3Wv5EaoIzKNFCSBxFIi9ybji-A4LA7TpGZQ8hUgb317l_uSLGmC1Ko-3O7OrCrExqL9p2PWOivQ0Iv7R6z8QAwEZgOEMOzT_0NvQobiUkUK6uJtcFEHA65YLwr9KL68sfGacgcBcfsy0lsejK7eCm8Nu4Yf8etlvTzgU-Nt0zD-3xjS-g54y4I9NxZ-yKCDC4OyAkfw8uH1b5i5_XoRDU1ege54OrXhRkqhX1uAs3G33seGRjkbTEEQ2R77qS1mFBpEM4WxNtlt3IKcGGgwbNPxHXB219redsngatMm3CTz09PHwSf0hmX6q6r1ZG-U7ceh98iLzJIXX-vOTS9BcdAk29jYkFQ1yo3ubezzFQfd4gC3T7nzmmS6UJODsxxbqBlrfVot5JHR9QnHM0EWs3mBApWO3s-PTUKyyw-kPMuEDKt6elxRr_LktlQnwReEMD2tGcgqi6Ntn3kf81nTb-TqDZ8uWFYV-Ae9uyae1RvlsV4Q-vGPkQ7u_PSXvAiQ5ZP4q1qwcsD6ukwAtlYXY9QfLR4rT7tLOm7GY-3OTwS18lbz75-L5yjfhYk6jh2Jt1pkdJkXzilAmWzAt5puo";
+            string token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1c2VybmFtZSI6ImthbmVraTIwMDQxIiwiaWF0IjoxNzMwNTU0MjkzLCJleHAiOjE3MzA2NDA2OTN9.gPQ0ISkZ3hNELW9-Ghwh4B4TgOJgPYPo83ws26l8oEplNOXMHsacUTYwUJpBTJbd8559Pxp7StJach9Ox0JxZdWr-TWHbz43vJIK3ISa6ejGb0YQU8ZWKGoEi6Ln2HgkFFV04FN2qrPuMJlf_Y87OfVzU_BLUJt2kAc08ncvM99qRpX1Qh14w932JtSGrjuJlLF4AxZGIVjA2rfTSdwMu0lvn797eA6vO43RuATa56fiWnRxb-ui56UWKk5B1UhbwLeTpb5dneQX1OMiRN52Ewys6g97eNs79ZRpcD79OONoXNkhXhcs3ap3l5XT2CSrsGjSAYjwz7aSYuK8NxzG1hNFqRAbxRNTw2iaYdyOF7YUsBWN_s5EsxwWpQIZQ7Z4OhNlleHscQNMC5rvtDr_Gnj9WErp79jd_DYqgSeynU-0KB2dtd6GB7Sg1xgHrOtgg5ymubgSpPnR6rKg_lr2Haruh6xmk9LNCogH3e7F6cXbHHSZeJ_bQGcqC_8VOourpL3uN1zXBdPnIelYHt1t7R13H2uTouQt_CXpWHejoCuYo2OMSKEgo0VfEn8Z3dSM5RKnnmBxN2UydMShaDslblg3UBV8naOzFIwZHhc_OChjZHQ3k3g22oNcVvzhMHuAOToe-UNxdRkKlNErVQMRmq97pTAja5z7z-QqA_jbu4k";
             api = new FacturacionApi(token);
             decimal montoTotal = logOVenta.Instancia.ObtenerMontoTotalPorId(_idVenta);
             txtTotalGravada.Text = montoTotal.ToString("C"); // Formatear como moneda
@@ -52,6 +56,7 @@ namespace Proyecto_Minerva
         {
             try
             {
+                dgvDetalleventa.DataSource = null;
                 List<entOVenta> lista = logOVenta.Instancia.ListarVentasPorId(_idVenta);
                 dgvDetalleventa.DataSource = lista; // Asumiendo que dgvDetalleventa es tu DataGridView
                 dgvDetalleventa.Columns["Documento"].Visible = false;
@@ -259,6 +264,7 @@ namespace Proyecto_Minerva
                 {
                     MessageBox.Show($"Respuesta de la API: {JsonConvert.SerializeObject(respuesta, Formatting.Indented)}", "Respuesta de la API", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                dgvDetalleventa.DataSource = null;
             }
             catch (Exception ex)
             {
@@ -322,6 +328,7 @@ namespace Proyecto_Minerva
                 txtTipoDoc.Text = cliente.TipoDoc; // Asumiendo que txtTipoDoc es un TextBox
                 txtNombre.Text = $"{cliente.Nombre} {cliente.Apellidos}"; // Asumiendo que tienes un TextBox para el nombre
                 txtDireccion.Text = cliente.Direccion; // Asumiendo que txtDireccion es un TextBox
+                txtEmail.Text = cliente.Email;
             }
             else
             {
@@ -329,5 +336,89 @@ namespace Proyecto_Minerva
             }
         }
 
+        private MercadoPagoService _mpService;
+        private string _currentPaymentId;
+
+        private async void btnPagar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_mpService == null)
+                {
+                    _mpService = new MercadoPagoService("APP_USR-3059736720126511-110201-ffb51e4b1188ad50d8ddc71f649d0f84-1947200127"); // Reemplazar con tu access token
+                }
+
+                btnPagar.Enabled = false; // Deshabilitar el botón mientras se procesa
+
+                // Obtener el monto total del TextBox
+                decimal montoTotal = Convert.ToDecimal(txtSubTotal.Text.Replace("S/", "").Trim());
+
+                // Generar un ID único para esta transacción
+                _currentPaymentId = Guid.NewGuid().ToString();
+
+                // Crear la preferencia de pago
+                string paymentUrl = await _mpService.CrearPreferencia(
+                    montoTotal,
+                    $"Pago Minerva - Orden #{_idVenta}",
+                    _currentPaymentId
+                );
+
+                // Abrir el navegador con la URL de pago
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = paymentUrl,
+                    UseShellExecute = true
+                });
+
+                // Iniciar verificación periódica del pago
+                await VerificarPagoPeriodicamenteAsync();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al procesar el pago: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                btnPagar.Enabled = true; // Rehabilitar el botón
+            }
+        }
+        private async Task VerificarPagoPeriodicamenteAsync()
+        {
+            int intentos = 0;
+            const int maximoIntentos = 20; // 5 minutos máximo (15 segundos * 20 intentos)
+
+            while (intentos < maximoIntentos)
+            {
+                try
+                {
+                    bool pagoCorrecto = await _mpService.VerificarPago(_currentPaymentId);
+
+                    if (pagoCorrecto)
+                    {
+                        MessageBox.Show("¡Pago realizado con éxito!", "Éxito",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Aquí puedes actualizar el estado de la venta en tu base de datos
+                        // y continuar con el proceso de emisión del comprobante
+
+                        return;
+                    }
+
+                    await Task.Delay(15000); // Esperar 15 segundos entre cada verificación
+                    intentos++;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al verificar el pago: {ex.Message}", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+            MessageBox.Show("El tiempo de espera para la verificación del pago ha expirado. " +
+                "Por favor, verifique manualmente el estado del pago.",
+                "Tiempo agotado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
     }
 }

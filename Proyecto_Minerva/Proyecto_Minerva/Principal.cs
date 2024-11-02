@@ -14,7 +14,7 @@ namespace Proyecto_Minerva
         public entUsuario UsuarioActual
         {
             get { return _usuarioActual; }
-            set 
+            set
             {
                 _usuarioActual = value;
             }
@@ -33,7 +33,7 @@ namespace Proyecto_Minerva
 
             // Configurar permisos según el rol del usuario
             ConfigurarPermisosSegunRol();
-            
+
         }
 
         private void ConfigurarPermisosSegunRol()
@@ -83,7 +83,7 @@ namespace Proyecto_Minerva
             btn_Facturacion,
             btnCategoria,
             btnInventario
-        };  foreach (var boton in todosBotones)
+        }; foreach (var boton in todosBotones)
             {
                 if (boton != null)
                 {
@@ -108,7 +108,7 @@ namespace Proyecto_Minerva
                 panelPrenda,
                 panelPagoVent,
                 panelPagoComp
-        };foreach (var boton in botonesEmpleado)
+        }; foreach (var boton in botonesEmpleado)
             {
                 if (boton != null)
                 {
@@ -156,8 +156,8 @@ namespace Proyecto_Minerva
                 panelPagoVent,
                 panelPagoComp,
                 panelCategoria,
-                panelInventario 
-        };foreach (var boton in botonesAdmin)
+                panelInventario
+        }; foreach (var boton in botonesAdmin)
             {
                 if (boton != null)
                 {
@@ -197,7 +197,7 @@ namespace Proyecto_Minerva
                 btnInventario
 
         };
-           foreach (var boton in todosBotones)
+            foreach (var boton in todosBotones)
             {
                 if (boton != null)
                 {

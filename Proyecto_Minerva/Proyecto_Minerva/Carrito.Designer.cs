@@ -49,6 +49,8 @@
             label10 = new Label();
             label5 = new Label();
             groupBox1 = new GroupBox();
+            txtEmail = new TextBox();
+            label13 = new Label();
             label12 = new Label();
             txtTipoDoc = new TextBox();
             btnBuscarDoc = new FontAwesome.Sharp.IconButton();
@@ -56,7 +58,7 @@
             txtNombre = new TextBox();
             label11 = new Label();
             label1 = new Label();
-            button1 = new Button();
+            btnPagar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvDetalleventa).BeginInit();
             gbIDVenta.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -259,6 +261,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(txtEmail);
+            groupBox1.Controls.Add(label13);
             groupBox1.Controls.Add(label12);
             groupBox1.Controls.Add(txtTipoDoc);
             groupBox1.Controls.Add(btnBuscarDoc);
@@ -269,12 +273,28 @@
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(txtDocumento);
             groupBox1.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox1.Location = new Point(326, 48);
+            groupBox1.Location = new Point(326, 42);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(493, 144);
+            groupBox1.Size = new Size(493, 177);
             groupBox1.TabIndex = 39;
             groupBox1.TabStop = false;
             groupBox1.Text = "INFO CLIENTE";
+            // 
+            // txtEmail
+            // 
+            txtEmail.Location = new Point(90, 143);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(382, 22);
+            txtEmail.TabIndex = 61;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(35, 146);
+            label13.Name = "label13";
+            label13.Size = new Size(49, 17);
+            label13.TabIndex = 60;
+            label13.Text = "Correo";
             // 
             // label12
             // 
@@ -341,19 +361,20 @@
             label1.TabIndex = 40;
             label1.Text = "IGV";
             // 
-            // button1
+            // btnPagar
             // 
-            button1.BackColor = Color.PowderBlue;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(707, 267);
-            button1.Margin = new Padding(3, 2, 3, 2);
-            button1.Name = "button1";
-            button1.Size = new Size(103, 41);
-            button1.TabIndex = 41;
-            button1.Text = "PAGAR VENTA";
-            button1.UseVisualStyleBackColor = false;
+            btnPagar.BackColor = Color.PowderBlue;
+            btnPagar.FlatAppearance.BorderSize = 0;
+            btnPagar.FlatStyle = FlatStyle.Flat;
+            btnPagar.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnPagar.Location = new Point(707, 267);
+            btnPagar.Margin = new Padding(3, 2, 3, 2);
+            btnPagar.Name = "btnPagar";
+            btnPagar.Size = new Size(103, 41);
+            btnPagar.TabIndex = 41;
+            btnPagar.Text = "PAGAR VENTA";
+            btnPagar.UseVisualStyleBackColor = false;
+            btnPagar.Click += btnPagar_Click;
             // 
             // Carrito
             // 
@@ -361,7 +382,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MintCream;
             ClientSize = new Size(851, 573);
-            Controls.Add(button1);
+            Controls.Add(btnPagar);
             Controls.Add(label1);
             Controls.Add(groupBox1);
             Controls.Add(label10);
@@ -418,6 +439,8 @@
         private Label label12;
         private TextBox txtTipoDoc;
         private Label label1;
-        private Button button1;
+        private Button btnPagar;
+        private TextBox txtEmail;
+        private Label label13;
     }
 }
